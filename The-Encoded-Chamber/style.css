@@ -592,7 +592,7 @@ svg{
 .link {
   height: 20px;
   align-items: center;
-  color: var(--color-green);
+  color: var(--color-text);
   text-decoration: none;
   display: flex;
 }
