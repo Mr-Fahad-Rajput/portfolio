@@ -2,10 +2,12 @@ import Experience from "../Experience.js";
 import GSAP from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import ASScroll from "@ashthornton/asscroll";
+import { EventEmitter } from "events";
 
 export default class Controls {
     constructor() {
         this.experience = new Experience();
+        this.eventEmitter = new EventEmitter();
         this.scene = this.experience.scene;
         this.sizes = this.experience.sizes;
         this.resources = this.experience.resources;
