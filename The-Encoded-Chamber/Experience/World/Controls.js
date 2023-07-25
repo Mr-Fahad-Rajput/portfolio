@@ -185,7 +185,6 @@ export default class Controls {
 
             // Mobile
             "(max-width: 968px)": () => {
-                // console.log("fired mobile");
 
                 // Resets
                 this.room.scale.set(0.07, 0.07, 0.07);

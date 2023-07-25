@@ -21,11 +21,9 @@ export default class Room {
         this.setModel();
         this.setAnimation();
         this.onMouseMove();
-        setTimeout(this.startLoadingVideo(),10000);
     }
 
     setModel() {
-        console.log(this.actualRoom);
         this.actualRoom.children.forEach((child) => {
             child.castShadow = true;
             child.receiveShadow = true;
@@ -34,6 +32,13 @@ export default class Room {
                 child.children.forEach((groupchild) => {
                     groupchild.castShadow = true;
                     groupchild.receiveShadow = true;
+                });
+            }
+
+
+            if (child.name === "Computer") {
+                child.children[1].material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen,
                 });
             }
 
@@ -98,32 +103,5 @@ export default class Room {
         this.actualRoom.rotation.y = this.lerp.current;
 
         this.mixer.update(this.time.delta * 0.0009);
-    }
-    startLoadingVideo(){
-        this.video = document.createElement("video");
-                this.video.src = "/textures/kda.mp4";
-                this.video.muted = true;
-                this.video.playsInline = true;
-                this.video.autoplay = true;
-                this.video.loop = true;
-                this.video.play();
-
-                this.videoTexture = new THREE.VideoTexture(
-                    this.video
-                );
-                this.videoTexture.minFilter = THREE.NearestFilter;
-                this.videoTexture.magFilter = THREE.NearestFilter;
-                this.videoTexture.generateMipmaps = false;
-                this.videoTexture.encoding = THREE.sRGBEncoding;
-
-                this.actualRoom.children.forEach((child) => {
-                    child.castShadow = true;
-                    child.receiveShadow = true;
-                    if (child.name === "Computer") {
-                        child.children[1].material = new THREE.MeshBasicMaterial({
-                            map: this.videoTexture,
-                        });
-                    }
-                });
     }
 }

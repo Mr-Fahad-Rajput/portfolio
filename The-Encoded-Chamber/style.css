@@ -634,7 +634,7 @@ svg{
   position: relative;
   width: 35px;
   height: 25px;
-  background: var(--color-pink);
+  background: var(--color-green-light);
   border-radius: 20%;
   display: flex;
   justify-content: center;
