@@ -10,5 +10,8 @@ export default defineConfig({
     extend: {},
   },
   plugins: [react()],
+  server: {
+    host: true
+  }
   
 })
