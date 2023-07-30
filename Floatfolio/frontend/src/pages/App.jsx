@@ -1,12 +1,12 @@
 import Navbar from "./components/Navbar/Navbar";
-import { Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <>
       <div className="bg-gray-50">
-        <Route>
+        <BrowserRouter>
           <Navbar/>
-        </Route>
+        </BrowserRouter>
       </div>
     </>
   )
