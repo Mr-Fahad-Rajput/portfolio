@@ -1,15 +1,26 @@
-import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar.jsx";
+import Home from "./Home/Home.jsx";
+import About from "./About/About.jsx";
+import Contact from "./Contact/Contact.jsx";
+import Projects from "./Projects/Projects.jsx";
+import APIs from "./APIs/APIs.jsx";
+
 function App() {
   return (
     <>
-      <div className="bg-gray-50">
         <BrowserRouter>
-          <Navbar/>
+        <Navbar/>
+        <Routes>
+        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/about" element={<About/>} />
+        <Route exact path="/contact" element={<Contact/>} />
+        <Route exact path="/projects" element={<Projects/>} />
+        <Route exact path="/apis" element={<APIs/>} />
+        </Routes>
         </BrowserRouter>
-      </div>
     </>
   )
 }
 
-export default App
+export default App;

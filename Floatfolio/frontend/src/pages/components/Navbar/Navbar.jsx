@@ -12,7 +12,7 @@ function Navbar() {
     
   return (
     <>
-      <header className='flex flex-row fixed m-4 rounded-lg innerDiv overflow-auto'>
+      <header className='flex flex-row sticky m-2 rounded-lg innerDiv overflow-auto'>
      <nav className=" flex flex-wrap items-center justify-between md:py-0 text-lg text-gray-800 bg-gray-100 rounded-lg ">
             {/* Logo */}
             <div className="w-[20%] h-fill m-1">
@@ -26,29 +26,29 @@ function Navbar() {
             <div className={` w-full md:flex md:items-center text-center md:w-auto ${menuVisibilty ? '' : 'hidden'}`}>         
             <ul className="p-2 text-base text-gray-700 md:flex md:justify-center ">
             <li>
-              <NavLink className=" btn2 " to="/">Home</NavLink>
+              <NavLink className=" btn2 "  to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/">About</NavLink>
+              <NavLink className="btn2"  to="/about">About</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/">Contact</NavLink>
+              <NavLink className="btn2" to="/contact">Contact</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/">Projects</NavLink>
+              <NavLink className="btn2" to="/projects">Projects</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/">APIs</NavLink>
+              <NavLink className="btn2" to="/apis">APIs</NavLink>
             </li>
           </ul>
         </div>
               <div className={`md:w-[20%] md:h-fill flex flex-row ${!menuVisibilty ? 'justify-around' : 'justify-between'}  ${!menuVisibilty ? 'max-md:w-[33%]' : 'max-md:w-full'}`}>
-              <button className='md:p-4 py-2 m-1 btn' aria-label='Sign In Button' >Sign In</button>
-              <button className='md:p-4 py-2 m-1 btn' aria-label='Sign Up Button'>Sign Up</button>
+              <button className='md:p-4 py-2 m-1 btn' aria-label='Sign In Button' >Sign-In</button>
+              <button className='md:p-4 py-2 m-1 btn' aria-label='Sign Up Button'>Sign-Up</button>
               </div>
     </nav>
   </header>  
     </>
   )
 }
-export default Navbar
+export default Navbar;
