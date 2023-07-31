@@ -43,8 +43,8 @@ function Navbar() {
           </ul>
         </div>
               <div className={`md:w-[20%] md:h-fill flex flex-row ${!menuVisibilty ? 'justify-around' : 'justify-between'}  ${!menuVisibilty ? 'max-md:w-[33%]' : 'max-md:w-full'}`}>
-              <button className='md:p-4 py-2 m-1 btn' aria-label='Sign In Button' >Sign-In</button>
-              <button className='md:p-4 py-2 m-1 btn' aria-label='Sign Up Button'>Sign-Up</button>
+              <button className='md:p-4 py-2 m-1 btn whitespace-nowrap ' aria-label='Sign In Button' >Sign In</button>
+              <button className='md:p-4 py-2 m-1 btn whitespace-nowrap' aria-label='Sign Up Button'>Sign Up</button>
               </div>
     </nav>
   </header>  
