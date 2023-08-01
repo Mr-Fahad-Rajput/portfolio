@@ -5,6 +5,8 @@ import About from "./About/About.jsx";
 import Contact from "./Contact/Contact.jsx";
 import Projects from "./Projects/Projects.jsx";
 import APIs from "./APIs/APIs.jsx";
+import SignIn from "./SignIn/SignIn.jsx";
+import SignUp from "./SignUp/SignUp.jsx";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route exact path="/contact" element={<Contact/>} />
         <Route exact path="/projects" element={<Projects/>} />
         <Route exact path="/apis" element={<APIs/>} />
+        <Route exact path="/signin" element={<SignIn/>} />
+        <Route exact path="/signup" element={<SignUp/>} />
         </Routes>
         </BrowserRouter>
     </>
