@@ -1,10 +1,16 @@
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 
 function ResetPass() {
-  const history = useNavigate();
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const { fromSpecificPage } = state || {};
   function goBack(){
-    history(-1);
+    if (fromSpecificPage) {
+      navigate(-1);
+    } else {
+      navigate('/', { replace: true });
+    }    
   }
     
     
@@ -17,10 +23,10 @@ function ResetPass() {
               {/* Start Content */}
               <div className="text-center m-auto">
                 <div className="relative w-full max-w-sm m-auto p-7 div z-20">
-                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline">
+                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline cursor-default">
                       Reset Your Password
                     </h5>
-                        <p className="mt-4 text-lg text-slate-800 mb-6">
+                        <p className="mt-4 text-lg text-slate-800 mb-6 cursor-default">
                         Please Enter your Email Address, <br/> to get A Password Reset Link.
                         </p>
                     <form>
@@ -37,10 +43,10 @@ function ResetPass() {
                           </a>
                         </div>
                         <div className="text-center">
-                          <span className="text-slate-400 me-2">
+                          <span className="text-slate-400 me-2 cursor-default">
                             Remember Your Password?
                           </span>{" "}
-                          <a href="signin" className="text-dark dark:text-white fw-bold">
+                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className="cursor-pointer text-dark dark:text-white fw-bold">
                             Sign In
                           </a>
                         </div>

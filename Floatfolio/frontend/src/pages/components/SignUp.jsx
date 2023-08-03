@@ -1,11 +1,16 @@
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 function SignUp() {
-  const history = useNavigate();
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const { fromSpecificPage } = state || {};
   function goBack(){
-    history(-1);
+    if (fromSpecificPage) {
+      navigate(-1);
+    } else {
+      navigate('/', { replace: true });
+    }    
   }
-    
     
   return (
     <>
@@ -15,7 +20,7 @@ function SignUp() {
               {/* Start Content */}
               <div className="text-center m-auto ">
                 <div className="relative w-full max-w-sm m-auto p-7 div whitespace-nowrap z-20">
-                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline">
+                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline cursor-default">
                       SignUp
                     </h5>
                     <form>
@@ -34,7 +39,7 @@ function SignUp() {
                         </div>
                         <div className="mb-4">
                           <div className="w-full"> 
-                          <input className=" rounded w-4 h-4 me-2 border border-inherit" type="checkbox" value="" id="AcceptT&C"/> 
+                          <input className=" rounded w-4 h-4 me-2 border border-inherit cursor-pointer" type="checkbox" value="" id="AcceptT&C"/> 
                           <label className=" text-slate-400" htmlFor="AcceptT&C">   I Accept{" "}   
                           <a href="" className="text-balBrand">     Terms And Condition   </a> 
                           </label>
@@ -44,9 +49,9 @@ function SignUp() {
                           <a href="" className="px-[40%] py-4 m-1 btn whitespace-nowrap self-center"> Register </a>
                         </div>
                         <div className="text-center">
-                          <span className="text-slate-400 me-2"> Already have an account ?{" "}
+                          <span className="text-slate-400 me-2 cursor-default"> Already have an account ?{" "}
                           </span>{" "}
-                          <a href="signin" className=" dark:text-white fw-bold"> Sign in</a>
+                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className=" dark:text-white fw-bold cursor-pointer"> Sign in</a>
                         </div>
                       </div>
                     </form>

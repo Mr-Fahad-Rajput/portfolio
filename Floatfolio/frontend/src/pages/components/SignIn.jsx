@@ -1,10 +1,15 @@
-import {useNavigate} from "react-router-dom";
-
+import {useLocation, useNavigate} from "react-router-dom";
 
 function SignIn() {
-  const history = useNavigate();
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const { fromSpecificPage } = state || {};
   function goBack(){
-    history(-1);
+    if (fromSpecificPage) {
+      navigate(-1);
+    } else {
+      navigate('/', { replace: true });
+    }    
   }
     
     
@@ -17,7 +22,7 @@ function SignIn() {
               {/* Start Content */}
               <div className="text-center m-auto">
                 <div className="relative w-full max-w-sm m-auto p-7 div whitespace-nowrap z-20">
-                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline">
+                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline cursor-default">
                       Login
                     </h5>
                     <form>
@@ -34,11 +39,11 @@ function SignIn() {
                         </div>
                         <div className="mb-4">
                           <div className="w-full">
-                            <input className=" rounded w-4 h-4 me-2 border border-inherit" type="checkbox" value="" id="RememberMe"/>
-                            <label className=" text-slate-400" htmlFor="RememberMe"> Remember me </label>
+                            <input className=" rounded w-4 h-4 me-2 border border-inherit cursor-pointer" type="checkbox" value="" id="RememberMe"/>
+                            <label className=" text-slate-400 cursor-pointer" htmlFor="RememberMe"> Remember me </label>
                           </div>
                           <p className="mt-4 mb-0">
-                            <a href="/resetpass" className="text-balBrand "> Forgot password ? </a>
+                            <a onClick={( ) => navigate('/resetpass',{ state: { fromSpecificPage: true } })} className="text-balBrand cursor-pointer"> Forgot password ? </a>
                           </p>
                         </div>
                         <div className="mb-4">
@@ -46,10 +51,10 @@ function SignIn() {
                           </a>
                         </div>
                         <div className="text-center">
-                          <span className="text-slate-400 me-2">
+                          <span className="text-slate-400 me-2 cursor-default">
                             Dont have an account ?
                           </span>{" "}
-                          <a href="signup" className="text-dark dark:text-white fw-bold">
+                          <a onClick={( ) => navigate('/signup',{ state: { fromSpecificPage: true } })} className="text-dark dark:text-white fw-bold cursor-pointer">
                             Sign Up
                           </a>
                         </div>
