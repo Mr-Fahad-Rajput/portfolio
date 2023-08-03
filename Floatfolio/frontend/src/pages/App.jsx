@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar.jsx";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./Home/Home.jsx";
 import About from "./About/About.jsx";
 import Contact from "./Contact/Contact.jsx";
 import Projects from "./Projects/Projects.jsx";
 import APIs from "./APIs/APIs.jsx";
-import SignIn from "./SignIn/SignIn.jsx";
-import SignUp from "./SignUp/SignUp.jsx";
+import SignIn from "./components/SignIn/SignIn.jsx";
+import SignUp from "./components/SignUp/SignUp.jsx";
 
 function App() {
   return (
