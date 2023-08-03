@@ -91,7 +91,7 @@ function SignUp() {
                         <div className="mb-4">
                           <a
                             href=""
-                            className="btn bg-orange-600 hover:bg-orange-700 border-orange-600 hover:border-orange-700 text-white rounded-md w-full"
+                            className="md:p-4 py-2 m-1 btn whitespace-nowrap"
                           >
                             Register
                           </a>
