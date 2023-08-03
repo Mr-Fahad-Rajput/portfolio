@@ -27,19 +27,19 @@ function Navbar() {
             <div className={` w-full md:flex md:items-center text-center md:w-auto ${menuVisibilty ? '' : 'hidden'}`}>         
             <ul className="p-2 text-base text-gray-700 md:flex md:justify-center ">
             <li>
-              <NavLink className=" btn2 "  to="/">Home</NavLink>
+              <NavLink className=" btn2 " onClick={() => {setMenuVisibilty(false)}} to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink className="btn2"  to="/about">About</NavLink>
+              <NavLink className="btn2" onClick={() => {setMenuVisibilty(false)}} to="/about">About</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/contact">Contact</NavLink>
+              <NavLink className="btn2" onClick={() => {setMenuVisibilty(false)}} to="/contact">Contact</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/projects">Projects</NavLink>
+              <NavLink className="btn2" onClick={() => {setMenuVisibilty(false)}} to="/projects">Projects</NavLink>
             </li>
             <li>
-              <NavLink className="btn2" to="/apis">APIs</NavLink>
+              <NavLink className="btn2" onClick={() => {setMenuVisibilty(false)}} to="/apis">APIs</NavLink>
             </li>
           </ul>
         </div>
