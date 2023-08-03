@@ -1,4 +1,3 @@
-import './SignIn.css';
 import {useNavigate} from "react-router-dom";
 
 
@@ -39,7 +38,7 @@ function SignIn() {
                             <label className=" text-slate-400" htmlFor="RememberMe"> Remember me </label>
                           </div>
                           <p className="mt-4 mb-0">
-                            <a href="reset-password.html" className="text-balBrand "> Forgot password ? </a>
+                            <a href="/resetpass" className="text-balBrand "> Forgot password ? </a>
                           </p>
                         </div>
                         <div className="mb-4">
