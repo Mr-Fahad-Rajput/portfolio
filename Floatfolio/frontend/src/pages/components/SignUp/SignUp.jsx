@@ -10,7 +10,7 @@ function SignUp() {
     
   return (
     <>
-     <section className="">
+     <section>
       <div className="absolute inset-0 bg-black opacity-50 z-10" onClick={goBack}></div>
         <div className=" relative">
               {/* Start Content */}
@@ -45,7 +45,7 @@ function SignUp() {
                           <a href="" className="px-[40%] py-4 m-1 btn whitespace-nowrap self-center"> Register </a>
                         </div>
                         <div className="text-center">
-                          <span className="text-slate-400 dark:text-slate-300 me-2"> Already have an account ?{" "}
+                          <span className="text-slate-400 me-2"> Already have an account ?{" "}
                           </span>{" "}
                           <a href="signin" className=" dark:text-white fw-bold"> Sign in</a>
                         </div>

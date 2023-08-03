@@ -13,7 +13,7 @@ function Navbar() {
     
   return (
     <>
-      <header className='flex flex-row sticky m-2 rounded-lg innerDiv overflow-auto'>
+      <header className='flex flex-row sticky m-2 rounded-lg innerDiv overflow-auto '>
      <nav className=" flex flex-wrap items-center justify-between md:py-0 text-lg text-gray-800 bg-gray-100 rounded-lg ">
             {/* Logo */}
             <div className="w-[20%] h-fill m-1">
