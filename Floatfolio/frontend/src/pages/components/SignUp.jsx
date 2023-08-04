@@ -27,15 +27,15 @@ function SignUp() {
                       <div className="grid grid-cols-1">
                         <div className="mb-4">
                           <label className="dark:text-white mr-4" htmlFor="RegisterName" > Name:</label>
-                          <input id="RegisterName" type="text"  className=" md:p-4 py-2 m-1 rounded-lg " placeholder="Full Name"/>
+                          <input id="RegisterName" type="text"  className=" inp" placeholder="Full Name"/>
                         </div>
                         <div className="mb-4">
                           <label className="dark:text-white mr-4" htmlFor="RegisterEmail" > Email: </label>
-                          <input id="RegisterEmail" type="email"  className="md:p-4 py-2 m-1 rounded-lg " placeholder="name@example.com"/>
+                          <input id="RegisterEmail" type="email"  className="inp" placeholder="name@example.com"/>
                         </div>
                         <div className="mb-4">
                           <label className="dark:text-white" htmlFor="RegisterPassword" >Password:</label>
-                          <input id="RegisterPassword" type="password" className=" md:p-4 py-2 m-1 rounded-lg" placeholder="Something Strong"/>
+                          <input id="RegisterPassword" type="password" className=" inp" placeholder="Something Strong"/>
                         </div>
                         <div className="mb-4">
                           <div className="w-full"> 

@@ -1,16 +1,15 @@
-import './About.css';
 
-function About() {
+function Home() {
     
     
   return (
     <>
     <div>
       <h1>
-        This is About
+        This is Home
       </h1>
       </div>  
     </>
   )
 }
-export default About;
+export default Home;

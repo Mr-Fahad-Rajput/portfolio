@@ -5,6 +5,8 @@ import './main.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <div className='bg-gray-100'>
+      <App />
+    </div>
   </React.StrictMode>,
 )

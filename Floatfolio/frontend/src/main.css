@@ -18,6 +18,7 @@
 
   }
 
+  /*Sign Up Style Div*/
 .div{
   @apply box-border border-lBrand bg-gray-100 text-balBrand border-2 rounded-[0.6em] text-[1rem] leading-[.5] ;
     box-shadow: 0 0 30px 30px rgba(71, 26, 160, 0.2);
@@ -33,3 +34,40 @@
 
   }
   
+  /*Main Content div*/
+  .mainContent{
+    @apply flex rounded-lg m-5 flex-wrap items-center content-center md:mr-[25%] flex-col;
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	  transform: translatey(0px);
+  }
+
+  /* /Input Style/ */
+.inp{
+  @apply md:p-4 py-2 m-1 rounded-lg border-2 border-black;
+  transition: all 150ms ease-in-out;  
+}
+.inp:hover,
+.inp:focus {
+  @apply bg-gray-100 text-balBrand border-lBrand  border-2 rounded-[0.6em] ;
+  outline: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
+
+}
+/*----------------------------Nav Bar---------------------------*/
+.innerDiv {
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+}
+
+/* /Button Central/ */
+.btn2{
+    @apply md:p-4 p-2 max-md:m-1;
+    transition: all 150ms ease-in-out;  
+}
+.btn2:hover,
+  .btn2:focus {
+    @apply bg-gray-100 text-balBrand border-lBrand  border-2 rounded-[0.6em] ;
+    outline: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
+
+  }

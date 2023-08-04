@@ -28,13 +28,13 @@ function SignIn() {
                     <form>
                       <div className="grid grid-cols-1">
                         <div className="mb-4">
-                          <label className="dark:text-white mr-4" htmlFor="LoginEmail"> Email: </label>
-                          <input id="LoginEmail" type="email" className=" md:p-4 py-2 m-1 rounded-lg "
+                          <label className="dark:text-white mr-6" htmlFor="LoginEmail"> Email: </label>
+                          <input id="LoginEmail" type="email" className=" inp "
                             placeholder="name@example.com"/>
                         </div>
                         <div className="mb-4">
                           <label className="dark:text-white" htmlFor="LoginPassword"> Password: </label>
-                          <input id="LoginPassword" type="password" className=" md:p-4 py-2 m-1 rounded-lg "
+                          <input id="LoginPassword" type="password" className=" inp "
                             placeholder="Password:"/>
                         </div>
                         <div className="mb-4">

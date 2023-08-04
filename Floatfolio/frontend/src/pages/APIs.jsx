@@ -1,4 +1,3 @@
-import './APIs.css';
 
 function APIs() {
     
