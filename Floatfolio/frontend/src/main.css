@@ -51,6 +51,14 @@
   @apply bg-gray-100 text-balBrand border-lBrand  border-2 rounded-[0.6em] ;
   outline: 0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
+  
+}
+/* Contact divs */
+.cd{
+  @apply border-lBrand  border-2 rounded-[0.6em] text-dBrand m-2 flex justify-start;
+  outline: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
+  
 
 }
 /*----------------------------Nav Bar---------------------------*/

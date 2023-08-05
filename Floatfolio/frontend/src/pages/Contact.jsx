@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import conIcon from '../assets/contact.png';
+import gitIcon from '../assets/github.svg';
+import linkedIcon from '../assets/linkedin.svg';
+import waIcon from '../assets/whatsapp.svg';
+import gmailIcon from '../assets/gmail.svg';
+import tel from '../assets/tel.svg';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -21,7 +26,7 @@ function Contact() {
     <section className="mainContent bg-mainBg text-dBrand">
       <div className="">
         {/* Description Div */}
-        <div className=" border-b-2 h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 text-xl overflow-hidden  text-dBrand"> 
+        <div className="  h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 text-xl overflow-hidden  text-dBrand"> 
             <div className="text-center">
               <div className='inline-flex w-64 md:float-left'><img src={conIcon} alt="Contact Ilustration" className=' w-64 h-56'/></div>
               <h1 className="mb-4 dark:text-white font-semibold underline cursor-default text-balBrand">
@@ -34,34 +39,61 @@ function Contact() {
         </div>
         {/* Divs After Heading */}
           <div className="w-full h-4/5">
-            <div className="m-4 p-4">
-              <div>
-                <p className="text-muted mt-4">
-                <span className=" ">Customer care:</span>
-                <br />
-                <span className=" mt-2">+1 234 56 7894</span>
-                </p>
+            {/* div contact details */}
+            <div className=" h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand grid md:grid-cols-2">
+              {/* div1 */}
+              <div className=' cd'>
+                <div className='w-12 h-12 m-2 mr-4 '>
+                  <img src={gitIcon} alt="Github Icon" />
+                </div>
+              <div className=''>
+                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+               Github
+              </h2>
+              <p className=' '>
+              github/Mr-Fahad-Rajput
+              </p>
               </div>
-              <div>
-                <p className=" mt-4">
-                <span className=" ">Office Address:</span>
-                <br />
-                <span className=" mt-2">4461 Cedar Street Moro, AR 72368</span>
-                </p>
               </div>
-              <div>
-                <p className=" mt-4">
-                <span className=" ">Email Address:</span>
-                <br />
-                <span className="mt-2">info@gmail.com</span>
-                </p>
+              {/* div2 */}
+              <div className=' cd'>
+                <div className='w-12 h-12 m-2 mr-4 '>
+                  <img src={linkedIcon} alt="Github Icon" />
+                </div>
+              <div className=''>
+                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+               Linked In
+              </h2>
+              <p className=' '>
+              LinkedIn/Mr-Fahad-Rajput
+              </p>
               </div>
-              <div>
-                <p className=" mt-4">
-                <span className=" ">Office Time:</span>
-                <br />
-                <span className=" mt-2">9:00AM To 6:00PM</span>
-                </p>
+              </div>
+              {/* div 3 */}
+              <div className=' cd'>
+                <div className='w-12 h-12 m-2 mr-4 '>
+                  <img src={gmailIcon} alt="Github Icon" />
+                </div>
+              <div className=''>
+                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+               Email
+              </h2>
+              <p className=' '>
+              fahadameenrajput@gmail.com
+              </p>
+              </div>
+              </div>
+              {/* div4 */}
+              <div className=' cd'>
+                <div className='w-12 h-12 m-2 mr-4 '>
+                  <img src={waIcon} alt="Whatsapp Icon" />
+                </div>
+              <div className='mr-2'>
+                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+               Whatsapp
+              </h2>
+              <img src={tel} alt="tel Number" className='rounded-lg h-8 mb-2 w-80'/>
+              </div>
               </div>
             </div>
             {/* Message Section */}
