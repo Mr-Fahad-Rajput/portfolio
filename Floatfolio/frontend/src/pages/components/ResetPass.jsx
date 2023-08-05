@@ -45,7 +45,7 @@ function ResetPass() {
                           <span className="text-slate-400 me-2 cursor-default">
                             Remember Your Password?
                           </span>{" "}
-                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className="cursor-pointer text-dark dark:text-white fw-bold">
+                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className="cursor-pointer text-dark dark:text-white fw-bold hover:underline">
                             Sign In
                           </a>
                         </div>

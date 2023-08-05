@@ -19,14 +19,14 @@ function SignUp() {
         <div className=" relative">
               {/* Start Content */}
               <div className="text-center m-auto ">
-                <div className="relative w-full max-w-sm m-auto p-7 div whitespace-nowrap z-20">
+                <div className="relative w-full max-w-sm m-auto p-5 div whitespace-nowrap z-20">
                     <h5 className="mb-8 text-xl dark:text-white font-semibold underline cursor-default">
                       SignUp
                     </h5>
                     <form>
                       <div className="grid grid-cols-1">
                         <div className="mb-4">
-                          <label className="dark:text-white mr-4" htmlFor="RegisterName" > Name:</label>
+                          <label className="dark:text-white mr-5" htmlFor="RegisterName" > Name:</label>
                           <input id="RegisterName" type="text"  className=" inp" placeholder="Full Name"/>
                         </div>
                         <div className="mb-4">
@@ -41,7 +41,7 @@ function SignUp() {
                           <div className="w-full"> 
                           <input className=" rounded w-4 h-4 me-2 border border-inherit cursor-pointer" type="checkbox" value="" id="AcceptT&C"/> 
                           <label className=" text-slate-400" htmlFor="AcceptT&C">   I Accept{" "}   
-                          <a href="" className="text-balBrand">     Terms And Condition   </a> 
+                          <a href="" className="text-balBrand hover:underline">     Terms And Condition   </a> 
                           </label>
                           </div>
                         </div>
@@ -51,7 +51,7 @@ function SignUp() {
                         <div className="text-center">
                           <span className="text-slate-400 me-2 cursor-default"> Already have an account ?{" "}
                           </span>{" "}
-                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className=" dark:text-white fw-bold cursor-pointer"> Sign in</a>
+                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className=" dark:text-white fw-bold cursor-pointer hover:underline"> Sign in</a>
                         </div>
                       </div>
                     </form>

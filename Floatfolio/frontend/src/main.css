@@ -20,7 +20,7 @@
 
   /*Sign Up Style Div*/
 .div{
-  @apply box-border border-lBrand bg-gray-100 text-balBrand border-2 rounded-[0.6em] text-[1rem] leading-[.5] ;
+  @apply box-border border-lBrand bg-mainBg text-balBrand border-2 rounded-[0.6em] text-[1rem] leading-[.5] ;
     box-shadow: 0 0 30px 30px rgba(71, 26, 160, 0.2);
     transition: all 150ms ease-in-out; 
 
@@ -61,7 +61,7 @@
 
 /* /Button Central/ */
 .btn2{
-    @apply md:p-4 p-2 max-md:m-1;
+    @apply md:p-4 md:py-2 p-2 max-md:m-1;
     transition: all 150ms ease-in-out;  
 }
 .btn2:hover,

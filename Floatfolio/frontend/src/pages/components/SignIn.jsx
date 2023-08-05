@@ -43,7 +43,7 @@ function SignIn() {
                             <label className=" text-slate-400 cursor-pointer" htmlFor="RememberMe"> Remember me </label>
                           </div>
                           <p className="mt-4 mb-0">
-                            <a onClick={( ) => navigate('/resetpass',{ state: { fromSpecificPage: true } })} className="text-balBrand cursor-pointer"> Forgot password ? </a>
+                            <a onClick={( ) => navigate('/resetpass',{ state: { fromSpecificPage: true } })} className="text-balBrand cursor-pointer hover:underline"> Forgot password ? </a>
                           </p>
                         </div>
                         <div className="mb-4">
@@ -54,7 +54,7 @@ function SignIn() {
                           <span className="text-slate-400 me-2 cursor-default">
                             Dont have an account ?
                           </span>{" "}
-                          <a onClick={( ) => navigate('/signup',{ state: { fromSpecificPage: true } })} className="text-dark dark:text-white fw-bold cursor-pointer">
+                          <a onClick={( ) => navigate('/signup',{ state: { fromSpecificPage: true } })} className="text-dark dark:text-white fw-bold cursor-pointer hover:underline">
                             Sign Up
                           </a>
                         </div>

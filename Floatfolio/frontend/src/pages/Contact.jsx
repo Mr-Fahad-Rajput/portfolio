@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import conIcon from '../assets/contact.png';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -20,15 +21,15 @@ function Contact() {
     <section className="mainContent bg-mainBg text-dBrand">
       <div className="">
         {/* Description Div */}
-        <div className=" border-b-2 h-1/5 md:px-20 text-xl"> 
+        <div className=" border-b-2 h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 text-xl overflow-hidden  text-dBrand"> 
             <div className="text-center">
-              {/* <img src="" alt="" className="icon" /> */}
+              <div className='inline-flex w-64 md:float-left'><img src={conIcon} alt="Contact Ilustration" className=' w-64 h-56'/></div>
               <h1 className="mb-4 dark:text-white font-semibold underline cursor-default text-balBrand">
                Let&rsquo;s Talk Business
               </h1>
               <p className=" mt-3 mx-auto text-justify ">
               Feel free to reach out using the contact form below. Let&rsquo;s discuss your goals, explore possibilities, and craft innovative solutions tailored to your specific needs. Looking forward to hearing from you.</p>
-              <p> Let&rsquo;Code, Create and Conquer.</p>
+              <p> Let&rsquo;s Code, Create, and Conquer.</p>
             </div>
         </div>
         {/* Divs After Heading */}
