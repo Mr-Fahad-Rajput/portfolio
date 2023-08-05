@@ -42,40 +42,41 @@ function Contact() {
             {/* div contact details */}
             <div className=" h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand grid md:grid-cols-2">
               {/* div1 */}
-              <div className=' cd'>
+              <a href={'https://github.com/mr-fahad-rajput'} target='_blank' rel='noreferrer'><div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={gitIcon} alt="Github Icon" />
                 </div>
               <div className=''>
-                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+                <h2 className="m-1 dark:text-white  underline font-semibold text-balBrand">
                Github
               </h2>
               <p className=' '>
-              github/Mr-Fahad-Rajput
+              github.com/Mr-Fahad-Rajput
               </p>
               </div>
-              </div>
+              </div></a>
               {/* div2 */}
-              <div className=' cd'>
+              <a href={'https://www.linkedin.com/in/mr-fahad-rajput/'} target='_blank' rel='noreferrer'><div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={linkedIcon} alt="Github Icon" />
                 </div>
               <div className=''>
-                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+                <h2 className="m-1 dark:text-white  underline font-semibold text-balBrand">
                Linked In
               </h2>
               <p className=' '>
-              LinkedIn/Mr-Fahad-Rajput
+              linkedin.com/in/Mr-Fahad-Rajput
               </p>
               </div>
               </div>
+              </a>
               {/* div 3 */}
-              <div className=' cd'>
+              <a href={'mailto: fahadameenrajput@gmail.com'} target='_blank' rel='noreferrer'><div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={gmailIcon} alt="Github Icon" />
                 </div>
               <div className=''>
-                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+                <h2 className="m-1 dark:text-white  underline font-semibold text-balBrand">
                Email
               </h2>
               <p className=' '>
@@ -83,13 +84,14 @@ function Contact() {
               </p>
               </div>
               </div>
+              </a>
               {/* div4 */}
               <div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={waIcon} alt="Whatsapp Icon" />
                 </div>
               <div className='mr-2'>
-                <h2 className="m-1 dark:text-white  underline cursor-default font-semibold text-balBrand">
+                <h2 className="m-1 dark:text-white  underline font-semibold text-balBrand">
                Whatsapp
               </h2>
               <img src={tel} alt="tel Number" className='rounded-lg h-8 mb-2 w-80'/>
@@ -97,8 +99,11 @@ function Contact() {
               </div>
             </div>
             {/* Message Section */}
-            <div className=" m-4 p-4">
-            <div className=" mt-4 pt-4">
+            <div className="m-4 p-4">
+            <div className='text-center'><h1 className="mb-4 dark:text-white text-2xl font-semibold underline cursor-default text-balBrand   whitespace-nowrap">
+               Your Thought&rsquo;s
+              </h1></div>
+            <div className="">
               <form onSubmit={handleSubmit}>
                 {errorMsg && <p className="text-red-500">{errorMsg}</p>}
                 <div className="">
