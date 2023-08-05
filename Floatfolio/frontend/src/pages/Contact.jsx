@@ -65,7 +65,7 @@ function Contact() {
                Linked In
               </h2>
               <p className=' '>
-              linkedin.com/in/Mr-Fahad-Rajput
+              linkedin.com/Mr-Fahad-Rajput
               </p>
               </div>
               </div>
@@ -86,15 +86,15 @@ function Contact() {
               </div>
               </a>
               {/* div4 */}
-              <div className=' cd'>
+              <div className='cd' onClick={() => {alert("Scan The Barcode Using a QR Code Scanner For Whatsapp Contact")}}>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={waIcon} alt="Whatsapp Icon" />
                 </div>
-              <div className='mr-2'>
-                <h2 className="m-1 dark:text-white  underline font-semibold text-balBrand">
+              <div className='mr-2 pb-1'>
+                <h2 className=" dark:text-white  underline font-semibold text-balBrand">
                Whatsapp
               </h2>
-              <img src={tel} alt="tel Number" className='rounded-lg h-8 mb-2 w-80'/>
+              <img src={tel} alt="tel Number" className='rounded-lg h-8  w-80'/>
               </div>
               </div>
             </div>
