@@ -36,7 +36,7 @@
   
   /*Main Content div*/
   .mainContent{
-    @apply flex rounded-lg m-5 flex-wrap items-center content-center md:mr-[25%] flex-col;
+    @apply flex rounded-lg m-5 flex-wrap items-center bg-mainBg text-dBrand content-center md:mr-[25%] flex-col;
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 	  transform: translatey(0px);
   }

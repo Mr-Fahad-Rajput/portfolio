@@ -4,11 +4,9 @@ function APIs() {
     
   return (
     <>
-    <div>
-      <h1>
-        This is APIs
-      </h1>
-      </div>  
+    <section className="mainContent">
+      <h1>APIs</h1>
+    </section> 
     </>
   )
 }

@@ -4,11 +4,9 @@ function Projects() {
     
   return (
     <>
-    <div>
-      <h1>
-        This Is Projects
-      </h1>
-    </div>
+    <section className="mainContent">
+      <h1>Projects</h1>
+    </section> 
     </>
   )
 }

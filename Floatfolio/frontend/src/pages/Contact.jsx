@@ -23,8 +23,7 @@ function Contact() {
     
   return (
     <>
-    <section className="mainContent bg-mainBg text-dBrand">
-      <div className="">
+    <section className="mainContent">
         {/* Description Div */}
         <div className="  h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 text-xl overflow-hidden  text-dBrand"> 
             <div className="text-center">
@@ -86,7 +85,7 @@ function Contact() {
               </div>
               </a>
               {/* div4 */}
-              <div className='cd' onClick={() => {alert("Scan The Barcode Using a QR Code Scanner For Whatsapp Contact")}}>
+              <div className='cd' onClick={() => {alert("Scan The Barcode Using a QR Code Scanner For my Whatsapp Contact.")}}>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={waIcon} alt="Whatsapp Icon" />
                 </div>
@@ -145,7 +144,6 @@ function Contact() {
             </div>
           </div>
         </div>
-      </div>
     </section>
     </>
   )

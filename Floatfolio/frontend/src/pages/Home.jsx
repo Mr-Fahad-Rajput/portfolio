@@ -4,11 +4,9 @@ function Home() {
     
   return (
     <>
-    <div>
-      <h1>
-        This is Home
-      </h1>
-      </div>  
+    <section className="mainContent">
+      <h1>Home</h1>
+    </section> 
     </>
   )
 }
