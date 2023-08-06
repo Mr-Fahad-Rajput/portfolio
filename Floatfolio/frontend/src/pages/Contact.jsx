@@ -41,7 +41,7 @@ function Contact() {
             {/* div contact details */}
             <div className=" h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand grid md:grid-cols-2">
               {/* div1 */}
-              <a href={'https://github.com/mr-fahad-rajput'} target='_blank' rel='noreferrer'><div className=' cd'>
+              <a href={'https://github.com/mr-fahad-rajput'} target='_blank' rel='noopener noreferrer'><div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={gitIcon} alt="Github Icon" />
                 </div>
@@ -55,7 +55,7 @@ function Contact() {
               </div>
               </div></a>
               {/* div2 */}
-              <a href={'https://www.linkedin.com/in/mr-fahad-rajput/'} target='_blank' rel='noreferrer'><div className=' cd'>
+              <a href={'https://www.linkedin.com/in/mr-fahad-rajput/'} target='_blank' rel='noopener noreferrer'><div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={linkedIcon} alt="Github Icon" />
                 </div>
@@ -70,7 +70,7 @@ function Contact() {
               </div>
               </a>
               {/* div 3 */}
-              <a href={'mailto: fahadameenrajput@gmail.com'} target='_blank' rel='noreferrer'><div className=' cd'>
+              <a href={'mailto: fahadameenrajput@gmail.com'} target='_blank' rel='noopener noreferrer'><div className=' cd'>
                 <div className='w-12 h-12 m-2 mr-4 '>
                   <img src={gmailIcon} alt="Github Icon" />
                 </div>
