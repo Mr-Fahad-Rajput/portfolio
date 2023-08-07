@@ -1,6 +1,7 @@
-import kid from'../../assets/kid1.png';
-import teen from'../../assets/teen.png';
+import kid from'../../assets/kid1.svg';
+import teen from'../../assets/teen.svg';
 import webdev from'../../assets/dev.svg';
+import team from'../../assets/team.svg';
 function About() {
     
     
@@ -26,7 +27,7 @@ function About() {
         </div>
         {/* Bachelors */}
         <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand">
-        <div className='inline-flex w-64 md:float-right md:mt-4'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56'/></div>
+        <div className='inline-flex w-64 md:float-right md:mt-8'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56'/></div>
         <div className='overflow-hidden mb-2'>
         <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
           Bachelor&rsquo;s
@@ -53,10 +54,10 @@ function About() {
           Work Experience
             </h1></div>
         {/* Internships */}
-        <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand">
-        <div className='inline-flex w-64 md:float-right md:mt-4'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56'/></div>
-        <div className='overflow-hidden mb-2'>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
+        <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand">
+        <div className='inline-flex md:float-right'><img src={team} alt="Team Working on Web Development" className=' w-64 h-56 '/></div>
+        <div className='overflow-hidden'>
+        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand md:mt-4">
           Internships
          </h2>
          <p className=" max-md:m-2 text-justify">
@@ -85,7 +86,7 @@ function About() {
           Future Awaits
          </h2>
          <p className=" max-md:m-2 text-justify">         
-         I believe in demonstrating my abilities through action. For a practical insight into my skills, I encourage you to explore my API Integrations page, where I showcase my expertise in seamlessly integrating robust APIs to enhance the functionality and performance of web applications. You can also visit my Projects page, which highlights a portfolio of my work in web development.<br/>Thank you for taking the time to review my profile. I'm eager to collaborate on innovative projects that extend the horizons of web development. Looking forward to the opportunity to work together.
+         I believe in demonstrating my abilities through action. For a practical insight into my skills, I encourage you to explore my API Integrations page, where I showcase my expertise in seamlessly integrating robust APIs to enhance the functionality and performance of web applications. You can also visit my Projects page, which highlights a portfolio of my work in web development.<br/>Thank you for taking the time to review my profile. I&rsquo;m eager to collaborate on innovative projects that extend the horizons of web development. Looking forward to the opportunity to work together.
          </p>
          </div>
         </div>
