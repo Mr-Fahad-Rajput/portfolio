@@ -8,6 +8,7 @@ import APIs from "./APIs.jsx";
 import SignIn from "./components/SignIn.jsx";
 import SignUp from "./components/SignUp.jsx";
 import ResetPass from "./components/ResetPass";
+import Dark from "./components/Dark.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/signup" element={<SignUp/>} />
         <Route exact path="/resetpass" element={<ResetPass/>} />
         </Routes>
+        <Dark/>
         </BrowserRouter>
     </>
   )
