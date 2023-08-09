@@ -1,4 +1,6 @@
 import {useLocation, useNavigate} from "react-router-dom";
+import close from '../../assets/close.svg';
+
 
 
 function ResetPass() {
@@ -23,7 +25,8 @@ function ResetPass() {
               {/* Start Content */}
               <div className="text-center m-auto">
                 <div className="relative w-full max-w-sm m-auto p-7 div z-20">
-                    <h5 className="mb-8 text-xl dark:text-secondaryBg font-semibold underline cursor-default">
+                <div className="w-4 h-4 float-left hover:scale-125 text-dBrand dark:bg-mainBg rounded-3xl" onClick={()=>{navigate('/contact', { replace: true })}}><img src={close} alt="" /></div>
+                    <h5 className="mb-8 w-[98%] text-xl dark:text-secondaryBg font-semibold underline cursor-default">
                       Reset Your Password
                     </h5>
                         <p className="mt-4 text-lg text-slate-800 dark:text-mainBg mb-6 cursor-default">

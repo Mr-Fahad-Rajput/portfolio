@@ -1,4 +1,6 @@
 import {useLocation, useNavigate} from "react-router-dom";
+import close from '../../assets/close.svg';
+
 
 function SignIn() {
   const { state } = useLocation();
@@ -22,7 +24,8 @@ function SignIn() {
               {/* Start Content */}
               <div className="text-center m-auto">
                 <div className="relative w-full max-w-sm m-auto p-7 div whitespace-nowrap z-20">
-                    <h5 className="mb-8 text-xl dark:text-mainBg font-semibold underline cursor-default">
+                <div className="w-4 h-4 float-left hover:scale-125 text-dBrand dark:bg-mainBg rounded-3xl" onClick={()=>{navigate('/contact', { replace: true })}}><img src={close} alt="" /></div>
+                    <h5 className="mb-8 text-xl dark:text-mainBg font-semibold underline cursor-default w-[98%]">
                       Login
                     </h5>
                     <form>
