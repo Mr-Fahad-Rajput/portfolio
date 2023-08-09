@@ -23,16 +23,16 @@ function ResetPass() {
               {/* Start Content */}
               <div className="text-center m-auto">
                 <div className="relative w-full max-w-sm m-auto p-7 div z-20">
-                    <h5 className="mb-8 text-xl dark:text-white font-semibold underline cursor-default">
+                    <h5 className="mb-8 text-xl dark:text-secondaryBg font-semibold underline cursor-default">
                       Reset Your Password
                     </h5>
-                        <p className="mt-4 text-lg text-slate-800 mb-6 cursor-default">
+                        <p className="mt-4 text-lg text-slate-800 dark:text-mainBg mb-6 cursor-default">
                         Please Enter your Email Address, <br/> to get A Password Reset Link.
                         </p>
                     <form>
                       <div className="grid grid-cols-1">
                         <div className="mb-4 ">
-                          <label className="dark:text-white " htmlFor="LoginEmail"> Email: </label>
+                          <label className="dark:text-mainBg " htmlFor="LoginEmail"> Email: </label>
                           <input id="LoginEmail" type="email" className=" inp" placeholder="name@example.com"/>
                         </div>
                         <div className="mb-4">
@@ -42,10 +42,10 @@ function ResetPass() {
                           </a>
                         </div>
                         <div className="text-center">
-                          <span className="text-slate-400 me-2 cursor-default">
+                          <span className="text-slate-600 dark:text-mainBg  me-2 cursor-default">
                             Remember Your Password?
                           </span>{" "}
-                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className="cursor-pointer text-dark dark:text-white fw-bold hover:underline">
+                          <a onClick={( ) => navigate('/signin',{ state: { fromSpecificPage: true } })} className="cursor-pointer text-dark dark:text-secondaryBg fw-bold hover:underline">
                             Sign In
                           </a>
                         </div>

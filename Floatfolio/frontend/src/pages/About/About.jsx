@@ -11,7 +11,7 @@ function About() {
     <>
     <section className="mainContent">
       <div>
-          <div className='text-center my-4'><h1 className="dark:text-secondaryBg text-2xl font-bold underline cursor-default text-balBrand">
+          <div className='text-center my-4 border-y-2 border-dBrand dark:border-mainBg'><h1 className="dark:text-secondaryBg text-2xl font-bold underline cursor-default text-balBrand">
           Building Bytes
          </h1></div>
         {/* earlylife */}
@@ -51,10 +51,11 @@ function About() {
          </p>
          </div>
         </div>
-        <div className='cd' onClick={() => {alert("You're In on the Secret, Sherlock! Inform Faadii that 'Mr. Line Sent Regards' and watch 10% vanish from your total!")}}></div>
-          <div className='text-center my-4'><h1 className="dark:text-mainBg text-2xl font-bold underline cursor-default text-balBrand">
+        <div className='cursor-pointer h-2 transform duration-500 bg-mainBg rounded-md dark:bg-dBrand hover:scale-x-[1.03]' onClick={() => {alert("You're In on the Secret, Sherlock! Inform Faadii that 'Mr. Line Sent Regards' and watch 10% vanish from your total!")}}></div>
+          <div className='text-center my-4 border-y-2 dark:border-mainBg  border-dBrand'><h1 className="dark:text-secondaryBg text-2xl font-bold underline cursor-default text-balBrand">
           Work Experience
-            </h1></div>
+            </h1>
+          </div>
         {/* Internships */}
         <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg ">
         <div className='inline-flex md:float-right'><img src={team} alt="Team Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>

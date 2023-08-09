@@ -14,7 +14,6 @@ function Navbar() {
       };
   
       window.addEventListener('themeEvent', handleThemeEvent);
-      // Clean up the event listener
       return () => {
         window.removeEventListener('themeEvent', handleThemeEvent);
       };

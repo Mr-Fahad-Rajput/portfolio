@@ -40,7 +40,7 @@ function SignIn() {
                         <div className="mb-4">
                           <div className="w-full">
                             <input className=" rounded w-4 h-4 me-2 border border-inherit cursor-pointer" type="checkbox" value="" id="RememberMe"/>
-                            <label className=" text-slate-400 dark:text-mainBg cursor-pointer" htmlFor="RememberMe"> Remember me </label>
+                            <label className=" text-slate-600 dark:text-mainBg cursor-pointer" htmlFor="RememberMe"> Remember me </label>
                           </div>
                           <p className="mt-4 mb-0">
                             <a onClick={( ) => navigate('/resetpass',{ state: { fromSpecificPage: true } })} className="text-balBrand cursor-pointer hover:underline dark:hover:text-mainBg dark:text-secondaryBg"> Forgot password ? </a>
@@ -51,7 +51,7 @@ function SignIn() {
                           </a>
                         </div>
                         <div className="text-center">
-                          <span className="text-slate-400 dark:text-mainBg me-2 cursor-default">
+                          <span className="text-slate-600 dark:text-mainBg me-2 cursor-default">
                             Dont have an account ?
                           </span>{" "}
                           <a onClick={( ) => navigate('/signup',{ state: { fromSpecificPage: true } })} className=" dark:text-secondaryBg fw-bold cursor-pointer hover:underline dark:hover:text-mainBg">
