@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <>
       <header className=' sticky m-4 rounded-lg innerDiv '>
-     <nav className=" flex flex-wrap items-center justify-between md:py-0 text-lg text-gray-800 bg-mainBg rounded-lg ">
+     <nav className=" flex flex-wrap items-center justify-between md:py-0 text-lg text-dBrand dark:text-mainBg bg-mainBg dark:bg-dBrand rounded-lg ">
             {/* Logo */}
             <div className="w-[20%] h-fill m-1">
             <img className='btn' src={logo} alt="Faadii's Tech logo" aria-label='Faadii-logo' type="svg" />
@@ -24,7 +24,7 @@ function Navbar() {
             </svg>
        
             <div className={` w-full md:flex md:items-center text-center md:w-auto ${menuVisibilty ? '' : 'hidden'}`}>         
-            <ul className="p-2 text-base text-gray-700 md:flex md:justify-center ">
+            <ul className="p-2 text-base md:flex md:justify-center ">
             <li>
               <NavLink className=" btn2 " onClick={() => {setMenuVisibilty(false)}} to="/">Home</NavLink>
             </li>

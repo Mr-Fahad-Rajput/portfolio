@@ -11,14 +11,14 @@ function About() {
     <>
     <section className="mainContent">
       <div>
-          <div className='text-center my-4'><h1 className="dark:text-white text-2xl font-bold underline cursor-default text-balBrand">
+          <div className='text-center my-4'><h1 className="dark:text-secondaryBg text-2xl font-bold underline cursor-default text-balBrand">
           Building Bytes
          </h1></div>
         {/* earlylife */}
-        <div className="text-center h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand">
-        <div className='inline-flex w-64 md:float-left md:mt-4 md:pr-4'><img src={kid} alt="Kid Using laptop" className=' w-64 h-56'/></div>
+        <div className="text-center h-1/5 rounded-lg m-2 bg-secondaryBg dark:bg-balBrand md:px-5 overflow-hidden  text-dBrand dark:text-mainBg dark:text-mainBg ">
+        <div className='inline-flex w-64 md:float-left md:mt-4 md:pr-4'><img src={kid} alt="Kid Using laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg'/></div>
         <div className='overflow-hidden mb-2'>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
+        <h2 className="dark:text-secondaryBg text-xl font-Medium underline cursor-default text-balBrand">
           Early Life
          </h2>
          <p className=" max-md:m-2 text-justify">
@@ -28,10 +28,10 @@ function About() {
          </div>
         </div>
         {/* Bachelors */}
-        <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand">
-        <div className='inline-flex w-64 md:float-right md:mt-8'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56'/></div>
+        <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg">
+        <div className='inline-flex w-64 md:float-right md:mt-8'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>
         <div className='overflow-hidden mb-2'>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
+        <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
           Bachelor&rsquo;s
          </h2>
          <p className=" max-md:m-2 text-justify">
@@ -40,10 +40,10 @@ function About() {
          </div>
         </div>
         {/* Web Development */}
-        <div className="text-center h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand">
-        <div className='inline-flex w-64 md:float-left md:mt-6'><img src={webdev} alt="Man Programming on a Laptop" className=' w-64 h-56 max-md:h-52 '/></div>
+        <div className="text-center h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand dark:text-mainBg">
+        <div className='inline-flex w-64 md:float-left md:mt-6'><img src={webdev} alt="Man Programming on a Laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 '/></div>
         <div className='overflow-hidden mb-2 '>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
+        <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
           Web Development
          </h2>
          <p className=" m-1 max-md:m-2 text-justify">
@@ -52,14 +52,14 @@ function About() {
          </div>
         </div>
         <div className='cd' onClick={() => {alert("You're In on the Secret, Sherlock! Inform Faadii that 'Mr. Line Sent Regards' and watch 10% vanish from your total!")}}></div>
-          <div className='text-center my-4'><h1 className="dark:text-white text-2xl font-bold underline cursor-default text-balBrand">
+          <div className='text-center my-4'><h1 className="dark:text-mainBg text-2xl font-bold underline cursor-default text-balBrand">
           Work Experience
             </h1></div>
         {/* Internships */}
-        <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand">
-        <div className='inline-flex md:float-right'><img src={team} alt="Team Working on Web Development" className=' w-64 h-56 '/></div>
+        <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg">
+        <div className='inline-flex md:float-right'><img src={team} alt="Team Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>
         <div className='overflow-hidden'>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand md:mt-4">
+        <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand md:mt-4">
           Internships
          </h2>
          <p className=" max-md:m-2 text-justify">
@@ -69,10 +69,10 @@ function About() {
         </div>
 
         {/* Jr Web Developer */}
-        <div className="text-center h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand">
-        <div className='inline-flex w-64 md:float-left md:mt-6'><img src={jrweb} alt="Man Sitting on a Laptop" className=' w-64 h-56 max-md:h-52 '/></div>
+        <div className="text-center h-1/5 rounded-lg m-2 bg-secondaryBg md:px-5 overflow-hidden  text-dBrand dark:text-mainBg">
+        <div className='inline-flex w-64 md:float-left md:mt-6'><img src={jrweb} alt="Man Sitting on a Laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 '/></div>
         <div className='overflow-hidden mb-2 '>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
+        <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
          Jr. Web Developer
          </h2>
          <p className=" m-1 max-md:m-2 text-justify">
@@ -81,10 +81,10 @@ function About() {
          </div>
         </div>
         {/* Outro */}
-        <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand">
-        <div className='inline-flex w-64 md:float-right md:mt-4'><img src={future} alt="Man Working on Web Development" className=' w-64 h-56'/></div>
+        <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg">
+        <div className='inline-flex w-64 md:float-right md:mt-4'><img src={future} alt="Man Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg'/></div>
         <div className='overflow-hidden mb-2'>
-        <h2 className="dark:text-white text-xl font-Medium underline cursor-default text-balBrand">
+        <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
           Future Awaits
          </h2>
          <p className=" max-md:m-2 text-justify">         

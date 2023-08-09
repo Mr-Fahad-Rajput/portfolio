@@ -5,14 +5,14 @@
 /* Custom Tailwind CSS */
 /* BUTTON Class 1*/
 .btn {
-    @apply box-border border-lBrand text-gray-100 bg-balBrand border-2 rounded-[0.6em] cursor-pointer flex self-center text-[1rem] leading-[.5] ;
-    box-shadow: 0 0 40px 40px rgba(71, 26, 160, 0.2) inset, 0 0 0 0 rgba(71, 26, 160, 0.2);
+    @apply box-border border-lBrand dark:border-dBrand text-mainBg dark:text-balBrand bg-balBrand dark:bg-mainBg border-2 rounded-[0.6em] cursor-pointer flex self-center text-[1rem] leading-[.5] ;
+    box-shadow: 0 0 7px 7px rgba(71, 26, 160, 0.2);
     transition: all 150ms ease-in-out;  
 }
   
   .btn:hover,
   .btn:focus {
-    @apply bg-gray-100 text-balBrand;
+    @apply bg-mainBg dark:bg-lBrand text-balBrand dark:text-mainBg;
     outline: 0;
     box-shadow: 0 0 10px 0 rgba(71, 26, 160, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
 
@@ -20,7 +20,7 @@
 
   /*Sign Up Style Div*/
 .div{
-  @apply box-border border-lBrand bg-mainBg text-balBrand border-2 rounded-[0.6em] text-[1rem] leading-[.5] ;
+  @apply box-border dark:shadow-2xl dark:shadow-mainBg border-lBrand bg-mainBg dark:bg-dBrand text-balBrand dark:text-secondaryBg border-2 rounded-[0.6em] text-[1rem] leading-[.5] ;
     box-shadow: 0 0 30px 30px rgba(71, 26, 160, 0.2);
     transition: all 150ms ease-in-out; 
 
@@ -28,7 +28,7 @@
 
 .div:hover,
   .div:focus {
-    @apply bg-gray-100 text-balBrand;
+    @apply dark:shadow-lg dark:shadow-mainBg  ;
     outline: 0;
     box-shadow: 0 0 10px 0 rgba(71, 26, 160, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
 
@@ -36,26 +36,26 @@
   
   /*Main Content div*/
   .mainContent{
-    @apply flex rounded-lg m-5 flex-wrap items-center bg-mainBg text-dBrand content-center md:mr-[25%] flex-col;
+    @apply flex rounded-lg m-5 flex-wrap items-center bg-mainBg dark:bg-dBrand  text-dBrand dark:text-mainBg content-center md:mr-[25%] flex-col;
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 	  transform: translatey(0px);
   }
 
   /* /Input Style/ */
 .inp{
-  @apply md:p-4 py-2 m-1 rounded-lg border-2 border-black;
+  @apply md:p-4 py-2 m-1 rounded-lg border-2 dark:text-balBrand border-black dark:border-white;
   transition: all 150ms ease-in-out;  
 }
 .inp:hover,
 .inp:focus {
-  @apply bg-gray-100 text-balBrand border-lBrand  border-2 rounded-[0.6em] ;
+  @apply dark:shadow-inner dark:shadow-secondaryBg bg-gray-100 dark:bg-mainBg text-balBrand dark:text-balBrand border-lBrand dark:border-secondaryBg  border-2 rounded-[0.6em] ;
   outline: 0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
   
 }
 /* Contact divs */
 .cd{
-  @apply border-lBrand  border-2 rounded-[0.6em] text-dBrand m-2 cursor-pointer transform transition duration-500 hover:scale-105 flex justify-start;
+  @apply border-lBrand dark:border-dBrand  border-2 rounded-[0.6em] text-dBrand dark:text-mainBg m-2 cursor-pointer transform transition duration-500 hover:scale-105 flex justify-start;
   outline: 0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
   
@@ -74,7 +74,7 @@
 }
 .btn2:hover,
   .btn2:focus {
-    @apply bg-gray-100 text-balBrand border-lBrand  border-2 rounded-[0.6em] ;
+    @apply bg-gray-100 dark:bg-lBrand text-balBrand dark:text-mainBg border-lBrand dark:border-dBrand  border-2 rounded-[0.6em] ;
     outline: 0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
 
