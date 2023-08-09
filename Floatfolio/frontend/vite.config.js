@@ -10,8 +10,8 @@ export default defineConfig({
     extend: {},
   },
   plugins: [react()],
-  // server: {
-  //   host: true
-  // }
+  server: {
+    host: true
+  }
   
 })

@@ -21,8 +21,7 @@ function SignUp() {
               {/* Start Content */}
               <div className="text-center m-auto overflow-hidden">
                 <div className="relative w-full max-w-sm m-auto p-5 div whitespace-nowrap z-20">
-                <div className="w-4 h-4 float-left hover:scale-125 text-dBrand dark:bg-mainBg rounded-3xl" onClick={()=>{navigate('/contact', { replace: true })}}><img src={close} alt="" /></div>
-                    <h5 className="mb-8 text-xl dark:text-mainBg font-semibold underline cursor-default w-[98%]">
+                    <h5 className="mb-2 text-xl dark:text-mainBg font-semibold underline cursor-default w-[98%]">
                       SignUp
                     </h5>
                     <form>
@@ -48,7 +47,7 @@ function SignUp() {
                           </div>
                         </div>
                         <div className="mb-4 ">
-                          <a href="" className="px-[40%] py-4 m-1 btn whitespace-nowrap self-center"> Register </a>
+                          <a href="" className="px-[40%] py-3 m-1 btn whitespace-nowrap self-center"> Register </a>
                         </div>
                         <div className="text-center">
                           <span className="text-slate-600 dark:text-mainBg me-2 cursor-default"> Already have an account ?{" "}
@@ -57,6 +56,7 @@ function SignUp() {
                         </div>
                       </div>
                     </form>
+                    <div className="mx-[48%] mt-3 w-5 h-5  hover:scale-125 text-dBrand dark:bg-mainBg rounded-3xl cursor-pointer" onClick={()=>{navigate('/', { replace: true })}}><img src={close} alt="Home Button" /></div>
                 </div>
               </div>
               {/* End Content */}
