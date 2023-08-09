@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import conIcon from '../assets/contact.svg';
-import gitIcon from '../assets/github.svg';
-import linkedIcon from '../assets/linkedin.svg';
-import waIcon from '../assets/whatsapp.svg';
-import gmailIcon from '../assets/gmail.svg';
-import tel from '../assets/tel.svg';
+import conIcon from './contact.svg';
+import gitIcon from './github.svg';
+import linkedIcon from './linkedin.svg';
+import waIcon from './whatsapp.svg';
+import gmailIcon from './gmail.svg';
+import tel from './tel.svg';
 
 function Contact() {
   const [name, setName] = useState('');

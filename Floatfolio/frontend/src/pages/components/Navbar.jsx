@@ -1,14 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import logo from'../../assets/logo.svg';
+import logoLight from'../../assets/logo.svg';
+import logoDark from'../../assets/logoDark.svg';
 
 function Navbar() {
     const [menuVisibilty, setMenuVisibilty] = useState(false);
+    const [logo, setLogo] = useState(logoLight);
     const navigate = useNavigate();
+    useEffect(()=>{
+      const handleThemeEvent = (event) => {
+        const isDarkTheme = event.detail.darkMode;
+        isDarkTheme ? setLogo(logoDark) : setLogo(logoLight);
+      };
+  
+      window.addEventListener('themeEvent', handleThemeEvent);
+      // Clean up the event listener
+      return () => {
+        window.removeEventListener('themeEvent', handleThemeEvent);
+      };
+    },[]);
+  
 
     const handleMenuButtonClick = () => {
         setMenuVisibilty((menuVisibilty) => !menuVisibilty);
       };
+   
     
   return (
     <>
