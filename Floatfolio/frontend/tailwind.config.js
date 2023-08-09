@@ -11,11 +11,9 @@ export default {
       },
       colors: {
         'mainBg':'#FEFAE6',
-        // 'mainBg':'#240d50',
         'secondaryBg': '#fef5bd',
-        // 'secondaryBg': '#C8BAE3',
         'balBrand':'#471AA0',
-        'headingDark':'#FFB8F0', // temporary
+        // 'headingDark':'#FFB8F0', // temporary
         'lBrand':'#C8BAE3',
         'dBrand':'#240d50',
       },
