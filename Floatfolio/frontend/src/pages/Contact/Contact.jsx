@@ -28,12 +28,12 @@ function Contact() {
         <div className="  h-1/5 rounded-lg m-2 bg-secondaryBg dark:bg-balBrand md:px-5 text-xl overflow-hidden  text-dBrand dark:text-mainBg "> 
             <div className="text-center">
               <div className='inline-flex w-64 md:float-left'><img src={conIcon} alt="Contact Ilustration" className=' w-64 h-56'/></div>
-              <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand ">
+              <div className='overflow-hidden pt-2'><h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
                Let&rsquo;s Talk Business
               </h1>
               <p className=" mt-3 mx-auto text-justify ">
               Feel free to reach out using the contact form below. Let&rsquo;s discuss your goals, explore possibilities, and craft innovative solutions tailored to your specific needs. Looking forward to hearing from you.</p>
-              <p> Let&rsquo;s Code, Create, and Conquer.</p>
+              <p> Let&rsquo;s Code, Create, and Conquer.</p></div>
             </div>
         </div>
         {/* Divs After Heading */}
@@ -93,7 +93,7 @@ function Contact() {
                 <h2 className=" dark:text-secondaryBg  underline font-semibold text-balBrand">
                Whatsapp
               </h2>
-              <img src={tel} alt="tel Number" className='rounded-lg h-8 w-80 dark:md:w-80 dark:max-md:w-[270px]'/>
+              <img src={tel} alt="tel Number" className='rounded-lg h-9 w-80 dark:md:w-80 dark:max-md:w-[270px]'/>
               </div>
               </div>
             </div>

@@ -12,7 +12,7 @@
   
   .btn:hover,
   .btn:focus {
-    @apply bg-mainBg dark:bg-lBrand text-balBrand dark:text-mainBg;
+    @apply bg-secondaryBg dark:bg-lBrand text-balBrand dark:text-mainBg;
     outline: 0;
     box-shadow: 0 0 10px 0 rgba(71, 26, 160, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
 
@@ -30,7 +30,7 @@
   .div:focus {
     @apply dark:shadow-lg dark:shadow-mainBg  ;
     outline: 0;
-    box-shadow: 0 0 10px 0 rgba(71, 26, 160, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
+    box-shadow: 0 0 10px 50 rgba(71, 26, 160, 0.2) inset, 0 0 10px 4px rgba(0, 0, 255, 0.2);
 
   }
   

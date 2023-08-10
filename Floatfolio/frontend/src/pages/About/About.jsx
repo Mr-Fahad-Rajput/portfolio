@@ -15,8 +15,8 @@ function About() {
           Building Bytes
          </h1></div>
         {/* earlylife */}
-        <div className="max-md:pt-4 text-center h-1/5 rounded-lg m-2 bg-secondaryBg  md:px-5 overflow-hidden  text-dBrand dark:bg-balBrand dark:text-mainBg">
-        <div className='inline-flex w-64 md:float-left md:mt-4 md:pr-4'><img src={kid} alt="Kid Using laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg'/></div>
+        <div className="md:pb-3 max-md:pt-4 text-center h-1/5 rounded-lg m-2 bg-secondaryBg  md:px-5 overflow-hidden  text-dBrand dark:bg-balBrand dark:text-mainBg">
+        <div className='inline-flex w-64 md:float-left md:mt-2 md:pr-4'><img src={kid} alt="Kid Using laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg'/></div>
         <div className='overflow-hidden mb-2'>
         <h2 className="dark:text-secondaryBg text-xl font-Medium underline cursor-default text-balBrand">
           Early Life
@@ -29,7 +29,7 @@ function About() {
         </div>
         {/* Bachelors */}
         <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg ">
-        <div className='inline-flex w-64 md:float-right md:mt-8'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>
+        <div className='inline-flex w-64 md:float-right md:mt-8 md:pl-4'><img src={teen} alt="Teenage Boy on a Computer" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>
         <div className='overflow-hidden mb-2'>
         <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
           Bachelor&rsquo;s
@@ -40,8 +40,8 @@ function About() {
          </div>
         </div>
         {/* Web Development */}
-        <div className="max-md:pt-4 text-center h-1/5 rounded-lg m-2 bg-secondaryBg dark:bg-balBrand md:px-5 overflow-hidden  text-dBrand dark:text-mainBg">
-        <div className='inline-flex w-64 md:float-left md:mt-6'><img src={webdev} alt="Man Programming on a Laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 '/></div>
+        <div className="max-md:pt-4 text-center h-1/5 rounded-lg m-2 bg-secondaryBg dark:bg-balBrand md:px-5 overflow-hidden  text-dBrand dark:text-mainBg dark:md:pb-3">
+        <div className='inline-flex w-64 md:float-left md:mt-6 md:pr-4'><img src={webdev} alt="Man Programming on a Laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 '/></div>
         <div className='overflow-hidden mb-2 '>
         <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
           Web Development
@@ -58,7 +58,7 @@ function About() {
           </div>
         {/* Internships */}
         <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg ">
-        <div className='inline-flex md:float-right'><img src={team} alt="Team Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>
+        <div className='inline-flex md:float-right md:pl-4'><img src={team} alt="Team Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg '/></div>
         <div className='overflow-hidden'>
         <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand md:mt-4">
           Internships
@@ -71,7 +71,7 @@ function About() {
 
         {/* Jr Web Developer */}
         <div className="text-center md:pb-4 max-md:pt-4 h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg md:px-5 overflow-hidden  text-dBrand dark:text-mainBg">
-        <div className='inline-flex w-64 md:float-left md:mt-6 '><img src={jrweb} alt="Man Sitting on a Laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 '/></div>
+        <div className='inline-flex w-64 md:float-left md:mt-6 md:pr-4'><img src={jrweb} alt="Man Sitting on a Laptop" className=' w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 '/></div>
         <div className='overflow-hidden mb-2 '>
         <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
          Jr. Web Developer
@@ -83,7 +83,7 @@ function About() {
         </div>
         {/* Outro */}
         <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg">
-        <div className='inline-flex w-64 md:float-right md:mt-4'><img src={future} alt="Man Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg'/></div>
+        <div className='inline-flex w-64 md:float-right md:mt-4 md:pl-4'><img src={future} alt="Man Working on Web Development" className=' w-64 h-56 dark:bg-lBrand rounded-lg'/></div>
         <div className='overflow-hidden mb-2'>
         <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
           Future Awaits
