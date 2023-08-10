@@ -19,7 +19,6 @@ app.use(morgan(' Method-:method URL-:url HTTP/:http-version Status-:status Res-:
 app.use(router);
 
 //Server Listing
-console.log(process.env.PORT)
 app.listen(process.env.PORT);
 console.log("Server Running");
 
