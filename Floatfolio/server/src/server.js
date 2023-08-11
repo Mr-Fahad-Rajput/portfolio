@@ -8,7 +8,8 @@ const app = express();
 
 
 dotenv.config();
-
+// DB Connection
+require('./database/connection');
 // Middle wares
 app.use(express.json());
 app.use(cors());

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcryptjs =require('bcryptjs');
 const jwt = require ('jsonwebtoken');
-require('dotenv').config({ path: '../database/config.env' });
+
 
 const userSchema = new mongoose.Schema({
 username : {
@@ -48,7 +48,5 @@ try {
 console.log(err.message);
 }
 }
-//const Users = mongoose.models.userSchema || mongoose.model("Users",userSchema);
-//const Users = mongoose.model.Users || new mongoose.model("USER",userSchema);
+
  module.exports = mongoose.model.userSchema || mongoose.model('Users', userSchema);
-//module.exports = Users;

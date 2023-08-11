@@ -1,3 +1,8 @@
+const Users = require('../Models/userSchema');
+const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+
 module.exports = async (req, res)=>{
     try {
         const email = req.body.email;
