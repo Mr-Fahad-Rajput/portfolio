@@ -11,6 +11,10 @@ const msgSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
+    subject : {
+        type : String,
+        default : '',
+    },
     message : {
         type : String,
         required : true

@@ -5,11 +5,13 @@ module.exports = async (req, res)=>{
         
         const name = req.body.name;
         const email = req.body.email;
+        const subject = req.body.subject;
         const message = req.body.message;
 
         const sendMsg = new Message({
             name : name,
             email : email,
+            subject : subject,
             message : message
         });
 

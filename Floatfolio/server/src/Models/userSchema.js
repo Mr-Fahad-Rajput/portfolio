@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcryptjs =require('bcryptjs');
 const jwt = require ('jsonwebtoken');
+const dotenv = require ('dotenv');
+dotenv.config();
 
 
 const userSchema = new mongoose.Schema({
@@ -32,7 +34,8 @@ tokens : [
 userSchema.pre('save', async (next) => {
 if (this.isModified('password')){
 
-    this.password = bcryptjs.hashSync(this.password, 10);
+    const salt = bcryptjs.genSalt()
+    this.password = bcryptjs.hashSync(this.password, salt);
 }
 next();
 
@@ -40,7 +43,8 @@ next();
 
 userSchema.methods.generateToken = async () => {
 try {
-    let generatedToken = jwt.sign({_id : this.id, VhQ5koGsor4b6xoWcm3ZFbhP8jT2Rbal});
+    payload = process.env.KEY_JWT;
+    let generatedToken = jwt.sign({_id : this.id, payload});
     this.tokens =this.tokens.concat({token : generatedToken});
     await this.save();
     return generatedToken;

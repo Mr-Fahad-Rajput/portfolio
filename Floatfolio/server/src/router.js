@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const authenticate = require('./middleware/authenticate');
-
 
 
 // Registration
@@ -17,13 +15,11 @@ router.post('/message', require('./routes/message'));
 router.get('/logout', require('./routes/logout'))
 
 //authentication Middleware
-router.get('/auth', authenticate, (req, res)=>{
-
-})
+router.get('/auth', require('./routes/authenticate'))
 
 router.get('/',(req,res) => {
 
-    res.send("I Feel Good");
+    res.send("Hello! I'm Nadeem! Nadeem SERVER");
 })
 
 
