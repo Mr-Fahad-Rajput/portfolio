@@ -1,9 +1,53 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import close from '../../assets/close.svg';
+import { useState } from "react";
 
 function SignUp() {
   const { state } = useLocation();
   const navigate = useNavigate();
+  //Backend Integration
+  const [user, setUser] = useState({
+    username : "",
+    email : "",
+    password : ""
+  });
+
+  // Handle Inputs
+  const handleInput = (event) =>{
+    let name = event.target.name;
+    let value = event.target.value;
+
+    setUser({...user, [name]:value});
+  }
+  // Handle Submit
+  const handleSubmit = async (event)=>{
+    event.preventDefault();
+    
+    const {username, email, password} = user;
+    try {
+    
+      const res = await fetch('http://localhost:5000/register', {
+        method : "POST",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({
+          username, email, password
+        })
+      })
+      console.log(res.status)
+      if(res.status === 400 || !res){
+        window.alert("Already Used Details")
+      }else{
+        
+        window.alert("Registered Successfully");
+        history.push('/login')
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  //FrontEnd Logic
   const { fromSpecificPage } = state || {};
   function goBack(){
     if (fromSpecificPage) {
@@ -24,19 +68,28 @@ function SignUp() {
                     <h5 className="mb-2 text-xl dark:text-mainBg font-semibold underline cursor-default w-[98%]">
                       SignUp
                     </h5>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <div className="grid grid-cols-1">
                         <div className="mb-4">
                           <label className="dark:text-mainBg mr-5" htmlFor="RegisterName" > Name:</label>
-                          <input id="RegisterName" type="text"  className=" inp" placeholder="Full Name"/>
+                          <input id="RegisterName" type="text"  className=" inp" placeholder="Full Name" 
+                          name="username"
+                          value={user.username} 
+                          onChange={handleInput}/>
                         </div>
                         <div className="mb-4">
                           <label className="dark:text-mainBg mr-4" htmlFor="RegisterEmail" > Email: </label>
-                          <input id="RegisterEmail" type="email"  className="inp" placeholder="name@example.com"/>
+                          <input id="RegisterEmail" type="email"  className="inp" placeholder="name@example.com"
+                          name="email"
+                          value={user.email}
+                          onChange={handleInput}/>
                         </div>
                         <div className="mb-4">
                           <label className="dark:text-mainBg" htmlFor="RegisterPassword" >Password:</label>
-                          <input id="RegisterPassword" type="password" className=" inp" placeholder="Something Strong"/>
+                          <input id="RegisterPassword" type="password" className=" inp" placeholder="Something Strong"
+                          name="password"
+                          value={user.password}
+                          onChange={handleInput}/>
                         </div>
                         <div className="mb-4">
                           <div className="w-full"> 

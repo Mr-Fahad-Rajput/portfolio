@@ -7,17 +7,65 @@ import gmailIcon from './gmail.svg';
 import tel from './tel.svg';
 
 function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [comments, setComments] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [subject, setSubject] = useState('');
+  // const [comments, setComments] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');//TODO setting Error Message
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform validation here if needed
-    // Handle form submission or AJAX request
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Perform validation here if needed
+  //   // Handle form submission or AJAX request
+  // };
+  const [msg, setMsg] = useState({
+    name : "",
+    email : "",
+    subject : "",
+    message : ""
+  });
+
+  // Handle Inputs
+  const handleChange = (event) =>{
+    let name = event.target.name;
+    let value = event.target.value;
+
+    setMsg({...msg, [name]:value});
+  }
+
+  // Handle Submit
+  const handleSubmit = async (event)=>{
+    event.preventDefault();
+    const {name, email, subject, message} = msg;
+    try {
+
+      const res = await fetch('http://localhost:5000/message', {
+        method : "POST",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({
+          name, email, subject, message
+        })
+      })
+      console.log(res.status)
+      if(res.status === 400 || !res){
+        window.alert("Message Not Sent. Try Again Later")
+      }else{
+        
+        window.alert("Message Sent");
+        setMsg({
+          name : "",
+          email : "",
+          subject : "",
+          message : ""
+        })
+        
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
     
     
@@ -109,13 +157,19 @@ function Contact() {
                   <div className="">
                     <div className=" mt-2">
                       <label className="dark:text-mainBg" htmlFor="yourName" >Name:</label>
-                      <input id='yourName' type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} className="inp w-full" placeholder="Full Name"/>
+                      <input id='yourName' type="text"  className="inp w-full" placeholder="Full Name"
+                      name="name"
+                      value={msg.name}
+                      onChange={handleChange}/>
                     </div>
                   </div>
                   <div className="col-lg-6">
                     <div className="mt-2">
                       <label className="dark:text-mainBg" htmlFor="yourEmail" >Email:</label>
-                      <input id='yourEmail' type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} className="inp w-full" placeholder="email@something.com"/>
+                      <input id='yourEmail' type="email"  className="inp w-full" placeholder="email@something.com"
+                       name="email"
+                       value={msg.email}
+                       onChange={handleChange}/>
                     </div>
                   </div>
                 </div>
@@ -123,7 +177,10 @@ function Contact() {
                   <div className="">
                     <div className="mt-2">
                       <label className="dark:text-mainBg" htmlFor="yourSubject" >Subject:</label>
-                      <input id='yourSubject' type="text" name="subject" value={subject} onChange={(e) => setSubject(e.target.value)} className="inp w-full" placeholder="Subject"/>
+                      <input id='yourSubject' type="text"  className="inp w-full" placeholder="Subject"
+                      name="subject"
+                      value={msg.subject}
+                      onChange={handleChange}/>
                     </div>
                   </div>
                 </div>
@@ -131,13 +188,17 @@ function Contact() {
                   <div className="">
                     <div className="mt-2">
                       <label className="dark:text-mainBg" htmlFor="yourMessage" >Message:</label>
-                      <textarea id='yourMessage' name="comments" value={comments} onChange={(e) => setComments(e.target.value)} rows="4" className="inp w-full" placeholder="Comment, Sugestion, Feedback, or Get Quote" ></textarea>
+                      <textarea id='yourMessage'  rows="4" className="inp w-full" placeholder="Comment, Sugestion, Feedback, or Get Quote" 
+                      name="message"
+                      value={msg.message}
+                      onChange={handleChange}></textarea>
                     </div>
                   </div>
                 </div>
                 <div className="">
                   <div className="text-end">
-                    <input type="submit" name="send" className="md:p-4 py-2 m-1 btn whitespace-nowrap " value="Send Message" />
+                    <input type="submit" name="send" className="md:p-4 py-2 m-1 btn whitespace-nowrap " value="Send Message" /> 
+                    {/* TODO Message sent Animation Instead Of Alert */}
                   </div>
                 </div>
               </form>
