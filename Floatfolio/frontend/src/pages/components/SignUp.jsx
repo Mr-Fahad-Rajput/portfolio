@@ -16,16 +16,14 @@ function SignUp() {
   const handleInput = (event) =>{
     let name = event.target.name;
     let value = event.target.value;
-
+    
     setUser({...user, [name]:value});
   }
   // Handle Submit
   const handleSubmit = async (event)=>{
-    event.preventDefault();
-    
+    event.preventDefault();    
     const {username, email, password} = user;
     try {
-    
       const res = await fetch('http://localhost:5000/register', {
         method : "POST",
         headers : {
@@ -37,6 +35,8 @@ function SignUp() {
       })
       console.log(res.status)
       if(res.status === 400 || !res){
+        const errorMessage = await res.text();
+        console.error('Error:', errorMessage);
         window.alert("Already Used Details")
       }else{
         
@@ -100,7 +100,9 @@ function SignUp() {
                           </div>
                         </div>
                         <div className="mb-4 ">
-                          <a href="" className="px-[40%] py-3 m-1 btn whitespace-nowrap self-center"> Register </a>
+                          <button type="submit" className="px-[40%] py-3 m-1 btn whitespace-nowrap self-center">
+                            Register
+                            </button>
                         </div>
                         <div className="text-center">
                           <span className="text-slate-600 dark:text-mainBg me-2 cursor-default"> Already have an account ?{" "}

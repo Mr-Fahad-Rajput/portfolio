@@ -1,3 +1,5 @@
+const Users = require("../Models/userSchema");
+
 module.exports = async (req, res)=>{
     try {
         const username = req.body.username;
@@ -15,6 +17,7 @@ module.exports = async (req, res)=>{
         res.status(200).send("Registered");
 
     } catch (error) {
-        res.status(400).send(error)
+        const errorMessage = error.message
+        res.status(400).send(errorMessage)
     }
 };

@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended : false}));
 app.use(cookieParser());
 // RemoteAddress-:remote-addr - RemoteUser-:remote-user
-app.use(morgan(' Method-:method URL-:url HTTP/:http-version Status-:status Res-:res[content-length] - ResTime:response-time ms From-:referrer :user-agent'));
+app.use(morgan('tiny'));
 app.use(router);
 
 //Server Listing
