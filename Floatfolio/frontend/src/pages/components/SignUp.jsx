@@ -114,6 +114,7 @@ function SignUp() {
                     <div className="mx-[48%] mt-3 w-5 h-5  hover:scale-125 text-dBrand dark:bg-mainBg rounded-3xl cursor-pointer" onClick={()=>{navigate('/', { replace: true })}}><img src={close} alt="Home Button" /></div>
                 </div>
               </div>
+              {/* TODO add a loading Circle until the server responds  */}
               {/* End Content */}
               
         </div>

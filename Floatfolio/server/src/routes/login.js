@@ -30,6 +30,7 @@ module.exports = async (req, res)=>{
         }
 
     } catch (error) {
-        res.status(400).send(error);
+        const errorMessage = error.message
+        res.status(400).send(errorMessage)
     }
 };

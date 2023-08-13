@@ -7,17 +7,9 @@ import gmailIcon from './gmail.svg';
 import tel from './tel.svg';
 
 function Contact() {
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [subject, setSubject] = useState('');
-  // const [comments, setComments] = useState('');
   const [errorMsg, setErrorMsg] = useState('');//TODO setting Error Message
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Perform validation here if needed
-  //   // Handle form submission or AJAX request
-  // };
+ 
   const [msg, setMsg] = useState({
     name : "",
     email : "",
