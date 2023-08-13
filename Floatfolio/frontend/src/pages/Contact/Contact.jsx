@@ -77,12 +77,12 @@ function Contact() {
             </div>
         </div>
         {/* Divs After Heading   */}
-        {/* TODO adjust layout colors Row Wise */}
           <div className="w-full h-4/5"> 
             {/* div contact details */}
-            <div className=" h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg md:px-5 overflow-hidden  text-dBrand dark:text-mainBg grid md:grid-cols-2">
+            <div className=" h-1/5 rounded-lg m-2  md:px-5 overflow-hidden  text-dBrand dark:text-mainBg grid md:grid-cols-2">
               {/* div1 */}
-              <a href={'https://github.com/mr-fahad-rajput'} target='_blank' rel='noopener noreferrer'><div className=' cd dark:bg-lBrand '>
+              <a href={'https://github.com/mr-fahad-rajput'} target='_blank' rel='noopener noreferrer'>
+                <div className=' cd dark:bg-lBrand bg-secondaryBg'>
                 <div className='w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md'>
                   <img src={gitIcon} alt="Github Icon" />
                 </div>
@@ -96,7 +96,8 @@ function Contact() {
               </div>
               </div></a>
               {/* div2 */}
-              <a href={'https://www.linkedin.com/in/mr-fahad-rajput/'} target='_blank' rel='noopener noreferrer'><div className=' cd dark:bg-lBrand'>
+              <a href={'https://www.linkedin.com/in/mr-fahad-rajput/'} target='_blank' rel='noopener noreferrer'>
+                <div className=' cd dark:bg-lBrand bg-secondaryBg'>
                 <div className='w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md'>
                   <img src={linkedIcon} alt="Github Icon" />
                 </div>
@@ -111,7 +112,8 @@ function Contact() {
               </div>
               </a>
               {/* div 3 */}
-              <a href={'mailto: fahadameenrajput@gmail.com'} target='_blank' rel='noopener noreferrer'><div className=' cd dark:bg-lBrand'>
+              <a href={'mailto: fahadameenrajput@gmail.com'} target='_blank' rel='noopener noreferrer'>
+                <div className=' cd dark:bg-lBrand bg-secondaryBg'>
                 <div className='w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md'>
                   <img src={gmailIcon} alt="Github Icon" />
                 </div>
@@ -126,7 +128,7 @@ function Contact() {
               </div>
               </a>
               {/* div4 */}
-              <div className='cd dark:bg-lBrand' onClick={() => {alert("Scan The Barcode Using a QR Code Scanner For my Whatsapp Contact.")}}>
+              <div className='cd bg-secondaryBg dark:bg-lBrand' onClick={() => {alert("Scan The Barcode Using a QR Code Scanner For my Whatsapp Contact.")}}>
                 <div className='w-12 h-12 m-2  dark:bg-secondaryBg rounded-md'>
                   <img src={waIcon} alt="Whatsapp Icon" />
                 </div>
@@ -134,12 +136,12 @@ function Contact() {
                 <h2 className=" dark:text-secondaryBg  underline font-semibold text-balBrand">
                Whatsapp
               </h2>
-              <img src={tel} alt="tel Number" className='rounded-lg h-9 w-80 dark:md:w-80 dark:max-md:w-[270px]'/>
+              <img src={tel} alt="tel Number" className='rounded-lg h-10 w-80 dark:md:w-80 dark:max-md:w-[270px]'/>
               </div>
               </div>
             </div>
             {/* Message Section */}
-            <div className="m-4 p-4">
+            <div className="m-4 p-4 bg-secondaryBg rounded-lg dark:bg-balBrand">
             <div className='text-center border-y-2 dark:border-mainBg  border-dBrand'><h1 className=" dark:text-secondaryBg text-2xl font-semibold underline cursor-default text-balBrand whitespace-nowrap">
                Your Thought&rsquo;s
               </h1></div>
