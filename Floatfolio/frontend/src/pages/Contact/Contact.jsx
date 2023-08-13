@@ -84,8 +84,9 @@ function Contact() {
               <p> Let&rsquo;s Code, Create, and Conquer.</p></div>
             </div>
         </div>
-        {/* Divs After Heading */}
-          <div className="w-full h-4/5">
+        {/* Divs After Heading   */}
+        {/* TODO adjust layout colors Row Wise */}
+          <div className="w-full h-4/5"> 
             {/* div contact details */}
             <div className=" h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg md:px-5 overflow-hidden  text-dBrand dark:text-mainBg grid md:grid-cols-2">
               {/* div1 */}
