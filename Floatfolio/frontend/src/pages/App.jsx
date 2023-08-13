@@ -13,22 +13,22 @@ import Dark from "./components/Dark.jsx";
 function App() {
   return (
     <>
-        <BrowserRouter>
-        <Navbar/>
+      <BrowserRouter>
+        <Navbar />
         <Routes>
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/about" element={<About/>} />
-        <Route exact path="/contact" element={<Contact/>} />
-        <Route exact path="/projects" element={<Projects/>} />
-        <Route exact path="/apis" element={<APIs/>} />
-        <Route exact path="/signin" element={<SignIn/>} />
-        <Route exact path="/signup" element={<SignUp/>} />
-        <Route exact path="/resetpass" element={<ResetPass/>} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/projects" element={<Projects />} />
+          <Route exact path="/apis" element={<APIs />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/resetpass" element={<ResetPass />} />
         </Routes>
-        <Dark/>
-        </BrowserRouter>
+        <Dark />
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App;

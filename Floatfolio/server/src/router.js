@@ -1,26 +1,23 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-
 // Registration
-router.post('/register', require('./routes/register'));
+router.post("/register", require("./routes/register"));
 
 //Login
-router.post('/login', require('./routes/login') );
+router.post("/login", require("./routes/login"));
 
 // Message
-router.post('/message', require('./routes/message'));
+router.post("/message", require("./routes/message"));
 
 //Logout
-router.get('/logout', require('./routes/logout'))
+router.get("/logout", require("./routes/logout"));
 
 //authentication Middleware
-router.get('/auth', require('./routes/authenticate'))
+router.get("/auth", require("./routes/authenticate"));
 
-router.get('/',(req,res) => {
-
-    res.send("Hello! I'm Nadeem! Nadeem SERVER");
-})
-
+router.get("/", (req, res) => {
+  res.send("Hello! I'm Nadeem! Nadeem SERVER");
+});
 
 module.exports = router;
