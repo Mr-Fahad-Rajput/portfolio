@@ -47,6 +47,7 @@ function SignUp() {
       console.log(error);
     }
   }
+  // TODO 0Auth google And Facebook
   //FrontEnd Logic
   const { fromSpecificPage } = state || {};
   function goBack(){
@@ -96,6 +97,7 @@ function SignUp() {
                           <input className=" rounded w-4 h-4 me-2 border border-inherit cursor-pointer" type="checkbox" value="" id="AcceptT&C"/> 
                           <label className=" text-slate-600 dark:text-mainBg" htmlFor="AcceptT&C">   I Accept{" "}   
                           <a href="" className="text-balBrand dark:text-secondaryBg  hover:underline">     Terms And Condition   </a> 
+                          {/* TODO Setup Sign Up Requirments like Password LEngths, AGree to terms etc */}
                           </label>
                           </div>
                         </div>

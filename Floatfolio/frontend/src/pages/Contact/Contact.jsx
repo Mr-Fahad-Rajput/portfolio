@@ -194,6 +194,7 @@ function Contact() {
                   <div className="text-end">
                     <input type="submit" name="send" className="md:p-4 py-2 m-1 btn whitespace-nowrap " value="Send Message" /> 
                     {/* TODO Message sent Animation Instead Of Alert */}
+                    
                   </div>
                 </div>
               </form>

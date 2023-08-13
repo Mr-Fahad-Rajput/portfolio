@@ -6,7 +6,7 @@ export default defineConfig({
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  mode: "http://localhost:5000", // TODO API usrl in development
+  mode: "Development",
 
   theme: {
     extend: {},
