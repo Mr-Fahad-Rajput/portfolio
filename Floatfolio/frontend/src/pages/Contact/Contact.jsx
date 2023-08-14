@@ -66,7 +66,7 @@ function Contact() {
         errorMessage = errorMessage.replace(/validation/g, "NOT SENT:");
         errorMessage = errorMessage.replace(
           /.*(?:mongodb\.net|ENOTFOUND).*$/g,
-          "Server Error: MongoDB Server Down"
+          "Server Error: Check Your Internet Connection"
         );
         delay = 5000;
         setResponseStatus({

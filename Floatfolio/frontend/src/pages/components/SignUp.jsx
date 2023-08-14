@@ -59,7 +59,7 @@ function SignUp() {
         console.error("Error:", errorMessage);
         errorMessage = errorMessage.replace(
           /.*(?:mongodb\.net|ENOTFOUND).*$/g,
-          "Server Error: MongoDB Server Down"
+          "Server Error: Check Your Internet Connection"
         );
         if (errorMessage.includes("duplicate")) {
           errorMessage = "The Entered Details are Already Registered!";
