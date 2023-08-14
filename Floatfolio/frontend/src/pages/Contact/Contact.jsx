@@ -40,8 +40,8 @@ function Contact() {
 
   // Handle Submit
   const handleSubmit = async (event) => {
-    let delay = 3000;
     event.preventDefault();
+    let delay = 3000;
     setIsLoading(true);
     const { name, email, subject, message } = msg;
     try {
@@ -68,7 +68,6 @@ function Contact() {
           /.*(?:mongodb\.net|ENOTFOUND).*$/g,
           "Server Error: MongoDB Server Down"
         );
-        console.error("Error:", errorMessage);
         delay = 5000;
         setResponseStatus({
           status: true,
@@ -78,9 +77,9 @@ function Contact() {
         setErrStatus(false);
         setResponseStatus({
           status: true,
-          text: "Message Sent",
+          text: "Message Sent! Thanks for reaching out! We'll be in Touch Soon.",
         });
-        delay = 2000;
+        delay = 3000;
         setMsg({
           name: "",
           email: "",
@@ -288,14 +287,15 @@ function Contact() {
                       ></textarea>
                     </div>
                   </div>
+                  <AlertBox responseStatus={responseStatus} msgImg={msgImg} />
                 </div>
-                <div className="">
                   <div className="text-end">
                     <button
                       type="submit"
                       name="send"
-                      className="md:p-4 py-2 m-1 btn whitespace-nowrap"
+                      className="p-4 m-1 btn whitespace-nowrap"
                       disabled={isLoading}
+                      aria-label = "Send Message Button"
                     >
                       {isLoading ? (
                         <div className="flex items-center">
@@ -327,10 +327,9 @@ function Contact() {
                         "Send Message"
                       )}
                     </button>
-                    <AlertBox responseStatus={responseStatus} msgImg={msgImg} />
                     {/* TODO Message sent Animation Instead Of Alert & Add if Cases For input Errors */}
                   </div>
-                </div>
+                
               </form>
             </div>
           </div>
