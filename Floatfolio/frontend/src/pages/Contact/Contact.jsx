@@ -14,9 +14,18 @@ function Contact() {
     status: false,
     text: "",
   });
+  const [scale, setScale] = useState(0);
+
+  useEffect(() => {
+    if (responseStatus.status) {
+      setScale(100); // Set scale to 100 when status is true
+    } else {
+      setScale(0); // Set scale to 0 when status is false
+    }
+  }, [responseStatus.status]);
   const [msgImg, setMsgImg] = useState(sent);
   const [errStatus, setErrStatus] = useState(false);
-  
+
   useEffect(() => {
     setMsgImg(errStatus ? notSent : sent);
   }, [errStatus]);
@@ -60,9 +69,12 @@ function Contact() {
         setErrStatus(true);
         let errorMessage = await res.text();
         console.error("Error:", errorMessage);
-        errorMessage = errorMessage.replace(/\b\w+:|Path|(.,)\s*/g, '');
-        errorMessage = errorMessage.replace(/validation/g, 'NOT SENT:');     
-        errorMessage = errorMessage.replace(/.*(?:mongodb\.net|ENOTFOUND).*$/g, 'Server Error: MongoDB Server Down');
+        errorMessage = errorMessage.replace(/\b\w+:|Path|(.,)\s*/g, "");
+        errorMessage = errorMessage.replace(/validation/g, "NOT SENT:");
+        errorMessage = errorMessage.replace(
+          /.*(?:mongodb\.net|ENOTFOUND).*$/g,
+          "Server Error: MongoDB Server Down"
+        );
         console.error("Error:", errorMessage);
         delay = 5000;
         setResponseStatus({
@@ -75,7 +87,7 @@ function Contact() {
           status: true,
           text: "Message Sent",
         });
-        delay =2000;
+        delay = 2000;
         setMsg({
           name: "",
           email: "",
@@ -330,9 +342,7 @@ function Contact() {
                     >
                       <div
                         id="box"
-                        className={` ${
-                          responseStatus.status ? "scale-100" : "scale-0"
-                        } w-auto h-auto rounded-[0.6em] cursor-pointer flex bg-mainBg dark:bg-dBrand border-lBrand border-2 transform transition-all duration-150 ease-out float-right md:mx-[30%]`}
+                        className={` animate-scale-${scale} w-auto h-auto rounded-[0.6em] cursor-pointer flex bg-mainBg dark:bg-dBrand border-lBrand border-2 md:float-right md:mx-[30%]`}
                       >
                         <img src={msgImg} alt="Message Response Icon" />
                         <h4 className="whitespace-normal text-dBrand dark:text-secondaryBg self-center text-sm max-md:text-xs max-md:font-thin font-normal p-2 text-justify">
