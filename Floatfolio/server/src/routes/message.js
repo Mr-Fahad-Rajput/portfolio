@@ -18,6 +18,7 @@ module.exports = async (req, res) => {
     console.log(created);
     res.status(200).send("Sent");
   } catch (error) {
-    res.status(400).send(error);
+    const errorMessage = error.message;
+    res.status(400).send(errorMessage);
   }
 };

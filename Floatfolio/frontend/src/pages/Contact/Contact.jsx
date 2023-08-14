@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import conIcon from "./contact.svg";
 import gitIcon from "./github.svg";
 import linkedIcon from "./linkedin.svg";
 import waIcon from "./whatsapp.svg";
 import gmailIcon from "./gmail.svg";
 import tel from "./tel.svg";
+import sent from "./sent.svg";
+import notSent from "./notsent.svg";
 
 function Contact() {
-  const [errorMsg, setErrorMsg] = useState(""); //TODO setting Error Message
   const [isLoading, setIsLoading] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({
+    status: false,
+    text: "",
+  });
+  const [msgImg, setMsgImg] = useState(sent);
+  const [errStatus, setErrStatus] = useState(false);
+  
+  useEffect(() => {
+    setMsgImg(errStatus ? notSent : sent);
+  }, [errStatus]);
 
   const [msg, setMsg] = useState({
     name: "",
@@ -27,6 +38,7 @@ function Contact() {
 
   // Handle Submit
   const handleSubmit = async (event) => {
+    let delay = 3000;
     event.preventDefault();
     setIsLoading(true);
     const { name, email, subject, message } = msg;
@@ -45,9 +57,25 @@ function Contact() {
       });
       console.log(res.status);
       if (res.status === 400 || !res) {
-        window.alert("Message Not Sent. Try Again Later");
+        setErrStatus(true);
+        let errorMessage = await res.text();
+        console.error("Error:", errorMessage);
+        errorMessage = errorMessage.replace(/\b\w+:|Path|(.,)\s*/g, '');
+        errorMessage = errorMessage.replace(/validation/g, 'NOT SENT:');     
+        errorMessage = errorMessage.replace(/.*(?:mongodb\.net|ENOTFOUND).*$/g, 'Server Error: MongoDB Server Down');
+        console.error("Error:", errorMessage);
+        delay = 5000;
+        setResponseStatus({
+          status: true,
+          text: errorMessage,
+        });
       } else {
-        window.alert("Message Sent");
+        setErrStatus(false);
+        setResponseStatus({
+          status: true,
+          text: "Message Sent",
+        });
+        delay =2000;
         setMsg({
           name: "",
           email: "",
@@ -59,6 +87,12 @@ function Contact() {
       console.log(error);
     } finally {
       setIsLoading(false);
+      setTimeout(() => {
+        setResponseStatus({
+          status: false,
+          text: "",
+        });
+      }, delay);
     }
   };
 
@@ -180,7 +214,6 @@ function Contact() {
             </div>
             <div className="">
               <form onSubmit={handleSubmit}>
-                {errorMsg && <p className="text-red-500">{errorMsg}</p>}
                 <div className="">
                   <div className="">
                     <div className=" mt-2">
@@ -269,16 +302,16 @@ function Contact() {
                               viewBox="0 0 24 24"
                             >
                               <circle
-                                className="opacity-25"
+                                className="opacity-100 "
                                 cx="12"
                                 cy="12"
                                 r="10"
-                                stroke="currentColor"
+                                stroke="#FEFAE6"
                                 strokeWidth="4"
                               ></circle>
                               <path
                                 className="opacity-75"
-                                fill="currentColor"
+                                fill="#471AA0"
                                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                               ></path>
                             </svg>
@@ -289,6 +322,24 @@ function Contact() {
                         "Send Message"
                       )}
                     </button>
+                    {/* alert Box */}
+                    <div
+                      className={` md:w-full overflow-x-auto ${
+                        responseStatus.status ? "fixed" : "hidden"
+                      } bottom-10 max-md:bottom-1/3 items-center justify-center`}
+                    >
+                      <div
+                        id="box"
+                        className={` ${
+                          responseStatus.status ? "scale-100" : "scale-0"
+                        } w-auto h-auto rounded-[0.6em] cursor-pointer flex bg-mainBg dark:bg-dBrand border-lBrand border-2 transform transition-all duration-150 ease-out float-right md:mx-[30%]`}
+                      >
+                        <img src={msgImg} alt="Message Response Icon" />
+                        <h4 className="whitespace-normal text-dBrand dark:text-secondaryBg self-center text-sm max-md:text-xs max-md:font-thin font-normal p-2 text-justify">
+                          {responseStatus.text}
+                        </h4>
+                      </div>
+                    </div>
                     {/* TODO Message sent Animation Instead Of Alert & Add if Cases For input Errors */}
                   </div>
                 </div>
