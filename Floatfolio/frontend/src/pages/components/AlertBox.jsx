@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 function AlertBox(props) {
+  /*eslint-disable react/prop-types*/
   const { responseStatus, msgImg } = props;
   const [scale, setScale] = useState(0);
 
@@ -28,6 +28,7 @@ function AlertBox(props) {
         </div>
       </div>
     </>
+  /*eslint-enable react/prop-types*/
   );
 }
 
