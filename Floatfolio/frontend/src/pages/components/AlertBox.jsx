@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 
 function AlertBox(props) {
   const { responseStatus, msgImg } = props;
@@ -31,14 +30,5 @@ function AlertBox(props) {
     </>
   );
 }
-//TODO remove and Uninstall Before Production
-// Prop Types- Not Important in JS usually Used in TypeScript just for Code Quality
-AlertBox.propTypes = {
-  responseStatus: PropTypes.shape({
-    status: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired,
-  }).isRequired,
-  msgImg: PropTypes.string.isRequired,
-};
 
 export default AlertBox;
