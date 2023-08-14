@@ -6,6 +6,10 @@ function Dark() {
     darkMode
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
+    darkMode
+      ? document.documentElement.classList.add("bg-slate-800")
+      : document.documentElement.classList.remove("bg-slate-800");
+
     var themeEvent = new CustomEvent("themeEvent", {
       detail: { darkMode },
     });

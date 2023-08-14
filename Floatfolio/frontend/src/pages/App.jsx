@@ -13,7 +13,7 @@ import Dark from "./components/Dark.jsx";
 function App() {
   return (
     <>
-      <div className=" dark:bg-neutral-700 p-5"><BrowserRouter>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -27,7 +27,6 @@ function App() {
         </Routes>
         <Dark />
       </BrowserRouter>
-      </div>
     </>
   );
 }
