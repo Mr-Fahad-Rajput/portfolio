@@ -7,6 +7,7 @@ import gmailIcon from "./gmail.svg";
 import tel from "./tel.svg";
 import sent from "./sent.svg";
 import notSent from "./notsent.svg";
+import AlertBox from "../components/AlertBox";
 
 function Contact() {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,15 +15,7 @@ function Contact() {
     status: false,
     text: "",
   });
-  const [scale, setScale] = useState(0);
 
-  useEffect(() => {
-    if (responseStatus.status) {
-      setScale(100); // Set scale to 100 when status is true
-    } else {
-      setScale(0); // Set scale to 0 when status is false
-    }
-  }, [responseStatus.status]);
   const [msgImg, setMsgImg] = useState(sent);
   const [errStatus, setErrStatus] = useState(false);
 
@@ -334,22 +327,7 @@ function Contact() {
                         "Send Message"
                       )}
                     </button>
-                    {/* alert Box */}
-                    <div
-                      className={` md:w-full overflow-x-auto ${
-                        responseStatus.status ? "fixed" : "hidden"
-                      } bottom-10 max-md:bottom-1/3 items-center justify-center`}
-                    >
-                      <div
-                        id="box"
-                        className={` animate-scale-${scale} w-auto h-auto rounded-[0.6em] cursor-pointer flex bg-mainBg dark:bg-dBrand border-lBrand border-2 md:float-right md:mx-[30%]`}
-                      >
-                        <img src={msgImg} alt="Message Response Icon" />
-                        <h4 className="whitespace-normal text-dBrand dark:text-secondaryBg self-center text-sm max-md:text-xs max-md:font-thin font-normal p-2 text-justify">
-                          {responseStatus.text}
-                        </h4>
-                      </div>
-                    </div>
+                    <AlertBox responseStatus={responseStatus} msgImg={msgImg} />
                     {/* TODO Message sent Animation Instead Of Alert & Add if Cases For input Errors */}
                   </div>
                 </div>
