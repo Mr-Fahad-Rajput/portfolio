@@ -21,5 +21,3 @@ app.use(router);
 //Server Listing
 app.listen(process.env.PORT);
 console.log("Server Running");
-
-// TODO retrying logic After the Server Crashes

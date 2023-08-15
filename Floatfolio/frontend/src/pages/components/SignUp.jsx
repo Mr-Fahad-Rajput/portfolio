@@ -69,21 +69,30 @@ function SignUp() {
           status: true,
           text: errorMessage,
         });
+        setIsLoading(false);
       } else {
         setErrStatus(false);
         setResponseStatus({
           status: true,
           text: "Account Successfully Created! Welcome aboard!",
         });
+        setIsLoading(false);
         delay = 2000;
         setTimeout(() => {
           navigate("/signin", { replace: true });
         }, delay + 500);
       }
     } catch (error) {
+      setErrStatus(true);
       console.log(error);
+      if (error.toString().includes("Failed to fetch")) {
+        delay = 4000;
+        setResponseStatus({
+          status: true,
+          text: "Can't Connect To the Server! Check Your Internet Connection",
+        });
+      }
     } finally {
-      setIsLoading(false);
       setTimeout(() => {
         setResponseStatus({
           status: false,
@@ -137,11 +146,11 @@ function SignUp() {
                       onChange={handleInput}
                     />
                   </div>
-                    <AlertBox
-                      responseStatus={responseStatus}
-                      msgImg={msgImg}
-                      className="top-0"
-                    />
+                  <AlertBox
+                    responseStatus={responseStatus}
+                    msgImg={msgImg}
+                    className="top-0"
+                  />
                   <div className="mb-4">
                     <label
                       className="dark:text-mainBg mr-4"
@@ -270,8 +279,6 @@ function SignUp() {
               </div>
             </div>
           </div>
-
-          {/* TODO add a loading Circle until the server responds  */}
           {/* End Content */}
         </div>
       </section>

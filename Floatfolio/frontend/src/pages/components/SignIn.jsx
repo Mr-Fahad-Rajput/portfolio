@@ -49,36 +49,45 @@ function SignIn() {
         }),
       });
       console.log(res.status);
-
       if (res.status === 400 || !res) {
         setErrStatus(true);
         let errorMessage = await res.text();
         console.error("Error:", errorMessage);
         errorMessage = errorMessage.replace(
           /.*(?:mongodb\.net|ENOTFOUND).*$/g,
-          "Server Error: Check Your Internet Connection"
+          "Server Error: Database Server"
         );
         delay = 5000;
         setResponseStatus({
           status: true,
           text: errorMessage,
         });
+        setIsLoading(false);
       } else {
         setErrStatus(false);
         setResponseStatus({
           status: true,
           text: "Login Succesful! Welcome aboard!",
         });
+        setIsLoading(false);
         delay = 2000;
         setTimeout(() => {
-         navigate("/", { replace: true })    
-        }, delay+500);
+          navigate("/", { replace: true });
+        }, delay + 500);
       }
     } catch (error) {
+      setErrStatus(true);
       console.log(error);
+      if (error.toString().includes("Failed to fetch")) {
+        delay = 4000;
+        setResponseStatus({
+          status: true,
+          text: "Can't Connect To the Server! Check Your Internet Connection",
+        });
+      }
     } finally {
       setTimeout(() => {
-        setIsLoading(false);
+        setErrStatus(false);
         setResponseStatus({
           status: false,
           text: "",
@@ -131,11 +140,11 @@ function SignIn() {
                       onChange={handleInput}
                     />
                   </div>
-              <AlertBox
-                responseStatus={responseStatus}
-                msgImg={msgImg}
-                className="top-0"
-              />
+                  <AlertBox
+                    responseStatus={responseStatus}
+                    msgImg={msgImg}
+                    className="top-0"
+                  />
                   <div className="mb-4">
                     <label
                       className="dark:text-mainBg"

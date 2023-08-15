@@ -327,9 +327,7 @@ function Contact() {
                         "Send Message"
                       )}
                     </button>
-                    {/* TODO Message sent Animation Instead Of Alert & Add if Cases For input Errors */}
-                  </div>
-                
+                  </div>                
               </form>
             </div>
           </div>
