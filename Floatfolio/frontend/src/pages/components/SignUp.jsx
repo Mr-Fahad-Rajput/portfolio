@@ -76,7 +76,9 @@ function SignUp() {
           text: "Account Successfully Created! Welcome aboard!",
         });
         delay = 2000;
-        history.push("/login");
+        setTimeout(() => {
+          navigate("/signin", { replace: true });
+        }, delay + 500);
       }
     } catch (error) {
       console.log(error);

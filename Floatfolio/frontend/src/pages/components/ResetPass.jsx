@@ -83,6 +83,7 @@ function ResetPass() {
             </div>
           </div>
           {/* End Content */}
+          {/* TODO Setup Forgot Password and Email Verification */}
         </div>
       </section>
     </>

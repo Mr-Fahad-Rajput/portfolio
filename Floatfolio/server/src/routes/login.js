@@ -17,12 +17,12 @@ module.exports = async (req, res) => {
           expires: new Date(Date.now() + 86400000),
           httpOnly: true,
         });
-        res.status(200).send("LoggedIn");
+        res.status(200).send("Logged In");
       } else {
-        res.status(400).send("Invalid Credentials");
+        res.status(400).send("User Credentials Do Not Match");
       }
     } else {
-      res.status(400).send("Invalid Credentials");
+      res.status(400).send("User Details Not Found");
     }
   } catch (error) {
     const errorMessage = error.message;
