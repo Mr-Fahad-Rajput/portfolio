@@ -117,11 +117,6 @@ function SignUp() {
               <h5 className="mb-2 text-xl dark:text-mainBg font-semibold underline cursor-default w-[98%]">
                 SignUp
               </h5>
-              <AlertBox
-                responseStatus={responseStatus}
-                msgImg={msgImg}
-                className="top-0"
-              />
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1">
                   <div className="mb-4">
@@ -142,6 +137,11 @@ function SignUp() {
                       onChange={handleInput}
                     />
                   </div>
+                    <AlertBox
+                      responseStatus={responseStatus}
+                      msgImg={msgImg}
+                      className="top-0"
+                    />
                   <div className="mb-4">
                     <label
                       className="dark:text-mainBg mr-4"
