@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 function AlertBox(props) {
-  /*eslint-disable react/prop-types*/
   const { responseStatus, msgImg } = props;
   const [scale, setScale] = useState(0);
 
@@ -10,8 +9,7 @@ function AlertBox(props) {
     } else {
       setScale(0);
     }
-  }, [responseStatus.status]); // Destructure the prop
-
+  }, [responseStatus.status]); 
   return (
     <>
       <div className="flex items-center justify-center ">
@@ -28,7 +26,6 @@ function AlertBox(props) {
         </div>
       </div>
     </>
-  /*eslint-enable react/prop-types*/
   );
 }
 
