@@ -1,9 +1,12 @@
-
+import p1 from '../../assets/product-01.png';
+import p2 from '../../assets/product-02.png';
+import p3 from '../../assets/product-03.png';
+import p4 from '../../assets/product-04.png';
 const TableTwo = () => {
   return (
     <div className="rounded-lg border-2 w-full border-dBrand bg-[#6C48B3] text-secondaryBg dark:border-mainBg">
-      <div className="py-6 px-4 md:px-6 xl:px-7.5">
-        <h4 className="text-xl font-semibold text-black dark:text-white">
+      <div className="py-3 flex justify-center">
+        <h4 className="text-xl inline-block font-semiboldtext-secondaryBg">
           Top Products
         </h4>
       </div>
@@ -29,22 +32,22 @@ const TableTwo = () => {
       <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <div className="h-12.5 w-15 rounded-md">
-              {/* <img src={} alt="Product" /> */}
+            <div className="h-12 w-12 rounded-lg m-1 ">
+              <img src={p1} alt="Product" className="rounded-lg border-2 border-dBrand " />
             </div>
-            <p className="text-sm text-black dark:text-white">
+            <p className="text-sm text-mainBg">
               Apple Watch Series 7
             </p>
           </div>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
-          <p className="text-sm text-black dark:text-white">Electronics</p>
+          <p className="text-sm text-mainBg">Electronics</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">$269</p>
+          <p className="text-sm text-mainBg">$269</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">22</p>
+          <p className="text-sm text-mainBg">22</p>
         </div>
         <div className="col-span-1 flex items-center">
           <p className="text-sm text-meta-3">$45</p>
@@ -53,20 +56,20 @@ const TableTwo = () => {
       <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <div className="h-12.5 w-15 rounded-md">
-              {/* <img src={} alt="Product" /> */}
+            <div className="h-12 w-12 rounded-lg m-1 ">
+              <img src={p2} alt="Product" className="rounded-lg border-2 border-dBrand " />
             </div>
-            <p className="text-sm text-black dark:text-white">Macbook Pro M1</p>
+            <p className="text-sm text-mainBg">Macbook Pro M1</p>
           </div>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
-          <p className="text-sm text-black dark:text-white">Electronics</p>
+          <p className="text-sm text-mainBg">Electronics</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">$546</p>
+          <p className="text-sm text-mainBg">$546</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">34</p>
+          <p className="text-sm text-mainBg">34</p>
         </div>
         <div className="col-span-1 flex items-center">
           <p className="text-sm text-meta-3">$125</p>
@@ -75,22 +78,22 @@ const TableTwo = () => {
       <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <div className="h-12.5 w-15 rounded-md">
-              {/* <img src={} alt="Product" /> */}
+            <div className="h-12 w-12 rounded-lg m-1 ">
+              <img src={p3} alt="Product" className="rounded-lg border-2 border-dBrand " />
             </div>
-            <p className="text-sm text-black dark:text-white">
+            <p className="text-sm text-mainBg">
               Dell Inspiron 15
             </p>
           </div>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
-          <p className="text-sm text-black dark:text-white">Electronics</p>
+          <p className="text-sm text-mainBg">Electronics</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">$443</p>
+          <p className="text-sm text-mainBg">$443</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">64</p>
+          <p className="text-sm text-mainBg">64</p>
         </div>
         <div className="col-span-1 flex items-center">
           <p className="text-sm text-meta-3">$247</p>
@@ -99,20 +102,20 @@ const TableTwo = () => {
       <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <div className="h-12.5 w-15 rounded-md">
-              {/* <img src={} alt="Product" /> */}
+            <div className="h-12 w-12 rounded-lg m-1 ">
+              <img src={p4} alt="Product" className="rounded-lg border-2 border-dBrand " />
             </div>
-            <p className="text-sm text-black dark:text-white">HP Probook 450</p>
+            <p className="text-sm text-mainBg">HP Probook 450</p>
           </div>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
-          <p className="text-sm text-black dark:text-white">Electronics</p>
+          <p className="text-sm text-mainBg">Electronics</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">$499</p>
+          <p className="text-sm text-mainBg">$499</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="text-sm text-black dark:text-white">72</p>
+          <p className="text-sm text-mainBg">72</p>
         </div>
         <div className="col-span-1 flex items-center">
           <p className="text-sm text-meta-3">$103</p>
