@@ -11,7 +11,7 @@ function Dashboard() {
   return (
     <>
       <section className="mainContent">
-        <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2 ">
+        <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
             <div className="flex justify-center"><h1 className=" inline-block whitespace-nowrap dark:text-secondaryBg font-semibold text-2xl cursor-default text-dBrand">
           Monthly Report
          </h1></div>
@@ -40,14 +40,13 @@ function Dashboard() {
             subHeading="Growth:"
             difPercntage="10.09%"
           />
-        </div></div>
-        <div className="p-8 w-full md:flex flex-row">
+        </div>
+        </div>
+        <div className="p-1 w-full md:flex flex-row">
           <ChartOne />
           <ChartTwo />
         </div>
-          <div className="">
-          <TableTwo />
-          </div>
+          <div className="w-full p-2"><TableTwo /></div>
       </section>
     </>
   );

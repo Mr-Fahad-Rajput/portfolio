@@ -81,7 +81,7 @@ const ChartTwo = () => {
   });
 
   return (
-    <div className=" float-right bg-lBrand dark:bg-mainBg md:w-[30%] m-2 rounded-lg border-2 border-dBrand dark:border-strokedark dark:bg-boxdark">
+    <div className="bg-lBrand w-full dark:bg-mainBg md:w-[30%] m-2 rounded-lg border-2 border-dBrand dark:border-lBrand">
       <div>
         <div id="chartTwo" className="-ml-2">
           <ReactApexChart

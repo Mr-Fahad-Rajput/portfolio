@@ -133,7 +133,7 @@ const ChartOne = () => {
   });
 
   return (
-    <div className=" rounded-lg  border-2 m-2 bg-secondaryBg border-dBrand dark:border-secondaryBg dark:bg-lBrand text-dBrand overflow-hidden md:w-[70%]">
+    <div className=" rounded-lg  border-2 m-2 bg-secondaryBg border-dBrand dark:border-secondaryBg dark:bg-lBrand text-dBrand overflow-hidden md:w-[70%] w-full">
       <div>
         <ReactApexChart
           options={options}
