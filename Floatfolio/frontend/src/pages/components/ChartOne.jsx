@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const options = {
-  legend: {
-    show: false,
-    position: "top",
-    horizontalAlign: "left",
+  title: {
+    text: 'Annual Report',
+    align: 'center',
   },
-  colors: ["#3C50E0", "#80CAEE"],
+  legend: {
+    show: true,
+    position: "bottom",
+    horizontalAlign: "center",
+  },
+  colors: ["#240d50", "#471AA0"],
   chart: {
-    fontFamily: "Satoshi, sans-serif",
+    fontFamily: 'Trebuchet MS, sans-serif',
     height: 335,
     type: "area",
     dropShadow: {
       enabled: true,
-      color: "#623CEA14",
       top: 10,
       blur: 4,
       left: 0,
@@ -22,7 +25,7 @@ const options = {
     },
 
     toolbar: {
-      show: false,
+      show: true,
     },
   },
   responsive: [
@@ -64,12 +67,12 @@ const options = {
     },
   },
   dataLabels: {
-    enabled: false,
+    enabled: false, //datalabels
   },
   markers: {
     size: 4,
     colors: "#fff",
-    strokeColors: ["#3056D3", "#80CAEE"],
+    strokeColors: ["#240d50", "#471AA0"],
     strokeWidth: 3,
     strokeOpacity: 0.9,
     strokeDashArray: 0,
@@ -105,8 +108,9 @@ const options = {
   },
   yaxis: {
     title: {
+      text: "In Thouands",
       style: {
-        fontSize: "0px",
+        fontSize: "10px",
       },
     },
     min: 0,
@@ -118,48 +122,25 @@ const ChartOne = () => {
   const [state, setState] = useState({
     series: [
       {
-        name: "Product One",
-        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 45],
-      },
-
-      {
-        name: "Product Two",
+        name: "Total Sales",
         data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 51],
+      },
+      {
+        name: "Total Revenue",
+        data: [23, 11, 22, 23, 13, 22, 37, 21, 44, 22, 30, 45],
       },
     ],
   });
 
   return (
-    <div className=" rounded-lg border m-2 bg-secondaryBg  dark:border-strokedark dark:bg-boxdark overflow-hidden w-[75%]">
-      <div className="flex-col">
-        <div className=" w-auto h-2/3 flex flex-row justify-evenly text-dBrand">
-          <div className="flex w-4 h-4 p-10 whitespace-nowrap">
-            <div className="p-2">
-              <span className="block h-5/6 w-5/6 p-2 rounded-full border-[#3c50e0] border-8 bg-[#c3c8ee]"></span>
-            </div>
-            <div className="w-full">
-              <p className="font-semibold text-primary">Total Revenue</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
-            </div>
-          </div>
-          <div className="flex w-4 h-4 p-10 whitespace-nowrap">
-            <div className="p-2">
-              <span className="block h-5/6 w-5/6 p-2 rounded-full border-[#80caee] border-8 bg-[#cce4f0]"></span>
-            </div>
-            <div className="w-full">
-              <p className="font-semibold text-primary">Total Sales</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <ReactApexChart
+    <div className=" rounded-lg  border-2 m-2 bg-secondaryBg border-dBrand dark:border-secondaryBg dark:bg-lBrand text-dBrand overflow-hidden md:w-[70%]">
+      <div>
+        <ReactApexChart
           options={options}
           series={state.series}
           type="area"
           height={350}
         />
-        </div>
       </div>
     </div>
   );

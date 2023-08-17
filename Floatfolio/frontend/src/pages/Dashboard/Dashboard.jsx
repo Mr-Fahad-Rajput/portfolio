@@ -1,6 +1,7 @@
 import CardOne from "../components/CardOne.jsx";
 import ChartOne from "../components/ChartOne.jsx";
 import ChartTwo from "../components/ChartTwo.jsx";
+import TableTwo from "../components/TableTwo.jsx";
 import viewIcon from "./views.svg";
 import userIcon from "./users.svg";
 import salesIcon from "./sales.svg";
@@ -10,19 +11,20 @@ function Dashboard() {
   return (
     <>
       <section className="mainContent">
-        <h1 className="mb-4 dark:text-secondaryBg font-semibold text-2xl underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+        <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2 ">
+            <div className="flex justify-center"><h1 className=" inline-block whitespace-nowrap dark:text-secondaryBg font-semibold text-2xl cursor-default text-dBrand">
           Monthly Report
-        </h1>
-        <div className="grid rounded-lg m-2 grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-8 bg-secondaryBg dark:bg-balBrand">
+         </h1></div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-8">
           <CardOne
             cardImg={viewIcon}
-            cardHeading="Visits:353280"
+            cardHeading="Visits:35328"
             subHeading="Growth:"
             difPercntage="1.33%"
           />
           <CardOne
             cardImg={salesIcon}
-            cardHeading="Sales: $25040"
+            cardHeading="Sales:$2504"
             subHeading="Growth:"
             difPercntage="0.46%"
           />
@@ -34,18 +36,18 @@ function Dashboard() {
           />
           <CardOne
             cardImg={userIcon}
-            cardHeading="Users:65490"
+            cardHeading="Users:6549"
             subHeading="Growth:"
             difPercntage="10.09%"
           />
-        </div>
-        <div className="p-8 w-full flex flex-row">
+        </div></div>
+        <div className="p-8 w-full md:flex flex-row">
           <ChartOne />
           <ChartTwo />
         </div>
-          {/* <ChartThree /> */}
-          {/* <div className=""><TableOne /></div> */}
-          {/* <ChatCard /> */}
+          <div className="">
+          <TableTwo />
+          </div>
       </section>
     </>
   );

@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const options = {
-  colors: ['#3C50E0', '#80CAEE'],
+  title: {
+    text: 'Weekly Report',
+    align: 'center',
+  },
+  colors: ["#240d50", "#471AA0"],
   chart: {
-    fontFamily: 'Satoshi, sans-serif',
+    fontFamily: 'Trebuchet MS, sans-serif',
     type: 'bar',
     height: 335,
     stacked: true,
@@ -23,7 +27,7 @@ const options = {
       options: {
         plotOptions: {
           bar: {
-            borderRadius: 0,
+            borderRadius: 5,
             columnWidth: '25%',
           },
         },
@@ -47,8 +51,8 @@ const options = {
     categories: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
   },
   legend: {
-    position: 'top',
-    horizontalAlign: 'left',
+    position: 'bottom',
+    horizontalAlign: 'center',
     fontFamily: 'Satoshi',
     fontWeight: 500,
     fontSize: '14px',
@@ -77,25 +81,9 @@ const ChartTwo = () => {
   });
 
   return (
-    <div className=" float-right w-[25%] m-2 rounded-lg border border-stroke bg-white dark:border-strokedark dark:bg-boxdark">
-      <div className="mb-4 justify-between gap-4 sm:flex">
-        <div>
-          <h4 className="text-xl font-semibold text-black dark:text-white">
-            Profit this week
-          </h4>
-        </div>
-        <div>
-          <div className="relative z-20 inline-block">
-            <span className="absolute top-1/2 right-3 z-10 -translate-y-1/2">
-              
-    
-            </span>
-          </div>
-        </div>
-      </div>
-
+    <div className=" float-right bg-lBrand dark:bg-mainBg md:w-[30%] m-2 rounded-lg border-2 border-dBrand dark:border-strokedark dark:bg-boxdark">
       <div>
-        <div id="chartTwo" className="-ml-5 -mb-9">
+        <div id="chartTwo" className="-ml-2">
           <ReactApexChart
             options={options}
             series={state.series}
