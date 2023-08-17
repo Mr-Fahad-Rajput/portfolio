@@ -5,13 +5,41 @@ import TableTwo from "../components/TableTwo.jsx";
 import viewIcon from "./views.svg";
 import userIcon from "./users.svg";
 import salesIcon from "./sales.svg";
+import alertIcon from "./megaphone.svg";
 import profitIcon from "./dollar.svg";
+import { useEffect, useState } from "react";
+import AlertBox from "../components/AlertBox.jsx";
+
 
 function Dashboard() {
+  const [responseStatus, setResponseStatus] = useState({
+    status: false,
+    text: "",
+  });
+  useEffect(() => {
+    function isMobileDevice() {
+      return window.innerWidth <= 768;
+    }
+
+    if (isMobileDevice()) {
+      setResponseStatus({
+        status: true,
+        text: 'This Page is best viewed on a larger screen. Please use a desktop or tablet for an optimal experience.',
+      });
+
+      setTimeout(() => {
+        setResponseStatus({
+          status: false,
+          text: '',
+        });
+      }, 5000);
+    }
+  }, []);
   return (
     <>
       <section className="mainContent">
         <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
+        <AlertBox responseStatus={responseStatus} msgImg={alertIcon} />
           <div className="flex justify-center">
             <h1 className=" inline-block whitespace-nowrap dark:text-secondaryBg font-semibold text-2xl cursor-default text-dBrand">
               Monthly Report
