@@ -37,20 +37,20 @@ function SignUp() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const handleSubmitModule = await import('../apiCalls/handleSubmit.js');
+      const handleSubmitModule = await import("../apiCalls/handleSubmit.js");
       const handleSubmit = handleSubmitModule.default;
       handleSubmit(
         event,
         user,
-        'SignUp',
+        "SignUp",
         setErrStatus,
         setResponseStatus,
         setIsLoading,
         navigate
       );
     } catch (error) {
-      console.error('Error importing handleSubmit:', error);
-    } 
+      console.error("Error importing handleSubmit:", error);
+    }
   };
   // TODO 0Auth google And Facebook
   //FrontEnd Logic

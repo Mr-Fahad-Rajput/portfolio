@@ -77,8 +77,8 @@ const handleSubmit = async (
       setIsLoading(false);
       delay = 2000;
       setTimeout(() => {
-        if(type != "msg"){
-            navigate("/", { replace: true });
+        if (type != "msg") {
+          navigate("/", { replace: true });
         }
       }, delay + 500);
     }
@@ -93,7 +93,7 @@ const handleSubmit = async (
         text: "Can't Connect To the Server! Check Your Internet Connection",
       });
     }
-  }finally {
+  } finally {
     setTimeout(() => {
       setErrStatus(false);
       setResponseStatus({

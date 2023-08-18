@@ -35,20 +35,20 @@ function SignIn() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const handleSubmitModule = await import('../apiCalls/handleSubmit.js');
+      const handleSubmitModule = await import("../apiCalls/handleSubmit.js");
       const handleSubmit = handleSubmitModule.default;
       handleSubmit(
         event,
         user,
-        'SignIn',
+        "SignIn",
         setErrStatus,
         setResponseStatus,
         setIsLoading,
         navigate
       );
     } catch (error) {
-      console.error('Error importing handleSubmit:', error);
-    } 
+      console.error("Error importing handleSubmit:", error);
+    }
   };
 
   // Front End Navigation
