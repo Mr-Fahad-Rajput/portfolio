@@ -219,7 +219,7 @@ function Contact() {
                         id="yourSubject"
                         type="text"
                         className="inp w-full"
-                        placeholder="Subject"
+                        placeholder="Optional"
                         name="subject"
                         value={msg.subject}
                         onChange={handleChange}

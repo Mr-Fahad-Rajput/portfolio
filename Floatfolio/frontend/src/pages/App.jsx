@@ -1,35 +1,38 @@
+import { React, Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar.jsx";
-import Home from "./Home.jsx";
-import About from "./About/About.jsx";
-import Contact from "./Contact/Contact.jsx";
-import Projects from "./Projects.jsx";
-import APIs from "./APIs.jsx";
-import Dashboard from "./Dashboard/Dashboard.jsx";
 import Loader from "./components/Loader.jsx";
-import SignIn from "./components/SignIn.jsx";
-import SignUp from "./components/SignUp.jsx";
-import ResetPass from "./components/ResetPass";
 import Dark from "./components/Dark.jsx";
+
+const Home = lazy(() => import("./Home.jsx"));
+const Projects = lazy(() => import("./Projects.jsx"));
+const APIs = lazy(() => import("./APIs.jsx"));
+const About = lazy(() => import("./About/About.jsx"));
+const Contact = lazy(() => import("./Contact/Contact.jsx"));
+const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
+const SignIn = lazy(() => import("./components/SignIn.jsx"));
+const SignUp = lazy(() => import("./components/SignUp.jsx"));
+const ResetPass = lazy(() => import("./components/ResetPass.jsx"));
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/projects" element={<Projects />} />
-          <Route exact path="/apis" element={<APIs />} />
-          <Route exact path="/signin" element={<SignIn />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/Dashboard" element={<Dashboard />} />
-          <Route exact path="/loader" element={<Loader />} />
-          <Route exact path="/resetpass" element={<ResetPass />} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/projects" element={<Projects />} />
+            <Route exact path="/apis" element={<APIs />} />
+            <Route exact path="/signin" element={<SignIn />} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/Dashboard" element={<Dashboard />} />
+            <Route exact path="/resetpass" element={<ResetPass />} />
+          </Routes>
+        </Suspense>
         <Dark />
       </BrowserRouter>
     </>

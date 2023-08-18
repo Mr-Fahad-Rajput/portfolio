@@ -15,6 +15,7 @@ export default {
         balBrand: "#471AA0",
         // 'headingDark':'#FFB8F0', // temporary
         lBrand: "#C8BAE3",
+        // dBrand: "#0C134F",
         dBrand: "#240d50",
       },
       fontFamily: {
