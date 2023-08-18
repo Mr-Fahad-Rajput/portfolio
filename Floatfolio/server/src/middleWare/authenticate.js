@@ -1,5 +1,7 @@
 const Users = require("../Models/userSchema");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = async (req, res, next) => {
   try {
@@ -7,7 +9,8 @@ module.exports = async (req, res, next) => {
     if (!token) {
       res.status(401).send("No token");
     } else {
-      const verifyToken = jwt.verify(token, VhQ5koGsor4b6xoWcm3ZFbhP8jT2Rbal);
+      payload = process.env.KEY_JWT;
+      const verifyToken = jwt.verify(token, payload);
       const rootUser = await Users.findOne({
         _id: verifyToken._id,
         "tokens.token": token,

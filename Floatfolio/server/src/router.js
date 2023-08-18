@@ -14,7 +14,7 @@ router.post("/message", require("./routes/message"));
 router.get("/logout", require("./routes/logout"));
 
 //authentication Middleware
-router.get("/auth", require("./routes/authenticate"));
+router.get("/auth", require("./middleWare/authenticate"));
 
 router.get("/", (req, res) => {
   res.send("Hello! I'm Nadeem! Nadeem SERVER");

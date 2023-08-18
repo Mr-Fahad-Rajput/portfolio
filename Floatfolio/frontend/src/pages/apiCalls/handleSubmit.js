@@ -37,19 +37,19 @@ const handleSubmit = async (
       message,
     });
     endPoint = "message";
-    successMsg =
-      "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
+    successMsg = "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
   }
   try {
     const res = await fetch("http://localhost:5000/" + endPoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-API-Key": import.meta.env.VITE_SOME_KEY
       },
       body: dataBody,
     });
     console.log(res.status);
-    if (res.status === 400 || !res) {
+    if (res.status === 400 || res.status === 403) {
       setErrStatus(true);
       let errorMessage = await res.text();
       console.error("Error:", errorMessage);
