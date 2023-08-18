@@ -39,65 +39,21 @@ function Contact() {
   };
 
   // Handle Submit
-  const handleSubmit = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    let delay = 3000;
-    setIsLoading(true);
-    const { name, email, subject, message } = msg;
     try {
-      const res = await fetch("http://localhost:5000/message", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          subject,
-          message,
-        }),
-      });
-      console.log(res.status);
-      if (res.status === 400 || !res) {
-        setErrStatus(true);
-        let errorMessage = await res.text();
-        console.error("Error:", errorMessage);
-        errorMessage = errorMessage.replace(/\b\w+:|Path|(.,)\s*/g, "");
-        errorMessage = errorMessage.replace(/validation/g, "NOT SENT:");
-        errorMessage = errorMessage.replace(
-          /.*(?:mongodb\.net|ENOTFOUND).*$/g,
-          "Server Error: Check Your Internet Connection"
-        );
-        delay = 5000;
-        setResponseStatus({
-          status: true,
-          text: errorMessage,
-        });
-      } else {
-        setErrStatus(false);
-        setResponseStatus({
-          status: true,
-          text: "Message Sent! Thanks for reaching out! We'll be in Touch Soon.",
-        });
-        delay = 3000;
-        setMsg({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      }
+      const handleSubmitModule = await import('../apiCalls/handleSubmit.js');
+      const handleSubmit = handleSubmitModule.default;
+      handleSubmit(
+        event,
+        msg,
+        'msg',
+        setErrStatus,
+        setResponseStatus,
+        setIsLoading );
     } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-      setTimeout(() => {
-        setResponseStatus({
-          status: false,
-          text: "",
-        });
-      }, delay);
-    }
+      console.error('Error importing handleSubmit:', error);
+    } 
   };
 
   return (
@@ -217,7 +173,7 @@ function Contact() {
               </h1>
             </div>
             <div className="">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleFormSubmit}>
                 <div className="">
                   <div className="">
                     <div className=" mt-2">

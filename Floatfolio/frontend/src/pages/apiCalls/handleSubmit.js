@@ -29,7 +29,7 @@ const handleSubmit = async (
     endPoint = "register";
     successMsg = "Account Successfully Created! Welcome aboard!";
   } else if (type === "msg") {
-    const { name, email, subject, message } = msg;
+    const { name, email, subject, message } = user;
     dataBody = JSON.stringify({
       name,
       email,
@@ -77,7 +77,9 @@ const handleSubmit = async (
       setIsLoading(false);
       delay = 2000;
       setTimeout(() => {
-        navigate("/", { replace: true });
+        if(type != "msg"){
+            navigate("/", { replace: true });
+        }
       }, delay + 500);
     }
   } catch (error) {
