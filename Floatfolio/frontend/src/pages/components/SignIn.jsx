@@ -32,68 +32,23 @@ function SignIn() {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    let delay = 3000;
-    setIsLoading(true);
-    const { email, password } = user;
     try {
-      const res = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-      console.log(res.status);
-      if (res.status === 400 || !res) {
-        setErrStatus(true);
-        let errorMessage = await res.text();
-        console.error("Error:", errorMessage);
-        errorMessage = errorMessage.replace(
-          /.*(?:mongodb\.net|ENOTFOUND).*$/g,
-          "Server Error: Database Server"
-        );
-        delay = 5000;
-        setResponseStatus({
-          status: true,
-          text: errorMessage,
-        });
-        setIsLoading(false);
-      } else {
-        setErrStatus(false);
-        setResponseStatus({
-          status: true,
-          text: "Login Succesful! Welcome aboard!",
-        });
-        setIsLoading(false);
-        delay = 2000;
-        setTimeout(() => {
-          navigate("/", { replace: true });
-        }, delay + 500);
-      }
+      const handleSubmitModule = await import('../apiCalls/handleSubmit.js');
+      const handleSubmit = handleSubmitModule.default;
+      handleSubmit(
+        event,
+        user,
+        'SignIn',
+        setErrStatus,
+        setResponseStatus,
+        setIsLoading,
+        navigate
+      );
     } catch (error) {
-      setErrStatus(true);
-      console.log(error);
-      if (error.toString().includes("Failed to fetch")) {
-        delay = 4000;
-        setResponseStatus({
-          status: true,
-          text: "Can't Connect To the Server! Check Your Internet Connection",
-        });
-      }
-    } finally {
-      setTimeout(() => {
-        setErrStatus(false);
-        setResponseStatus({
-          status: false,
-          text: "",
-        });
-      }, delay);
-    }
+      console.error('Error importing handleSubmit:', error);
+    } 
   };
 
   // Front End Navigation
@@ -120,7 +75,7 @@ function SignIn() {
               <h5 className="mb-2 text-xl dark:text-mainBg font-semibold underline cursor-default w-[98%]">
                 Login
               </h5>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleFormSubmit}>
                 <div className="grid grid-cols-1">
                   <div className="mb-4">
                     <label
