@@ -17,7 +17,7 @@ app.use(cors());
 app.use(reqAuth);
 const corsOptions = {
   credentials: true,
-  origin: "http://localhost:5173", // Set your frontend's domain
+  origin: "http://localhost:5173",
 };
 
 app.use(cors(corsOptions));
