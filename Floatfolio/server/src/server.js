@@ -41,10 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 // RemoteAddress-:remote-addr - RemoteUser-:remote-user
 app.use(morgan("tiny"));
 app.use(router);
-app.get("/test", (req, res) => {
-  res.cookie("test", "testSuccessfultwice");
-  res.status(200).send("end Point HIt Good ");
-});
+
 
 //Server Listing
 app.listen(process.env.PORT);

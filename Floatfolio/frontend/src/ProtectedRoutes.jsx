@@ -8,7 +8,10 @@ function ProtectedRoutes() {
     async function checkAuthentication() {
       
       try {
-        const response = await fetch("http://localhost:5000/auth",{headers: {
+        const response = await fetch("http://localhost:5000/auth",{
+        method: "GET",  
+        credentials: 'include',
+        headers: {
           "Content-Type": "application/json",
           "X-API-Key": import.meta.env.VITE_SOME_KEY
         }}); 
