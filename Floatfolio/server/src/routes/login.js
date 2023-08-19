@@ -13,10 +13,10 @@ module.exports = async (req, res) => {
       if (isMatch) {
         const token = await user.generateToken();
         res.cookie("jwt", token, {
-          expires: new Date(Date.now() + 86400000),
+          expires: new Date(Date.now() + 1800000),
           httpOnly: true,
-          secure: false,
-          sameSite: 'none'
+          secure: true,
+          sameSite: "none"
         });
         res.status(200).send("Logged In");
       } else {

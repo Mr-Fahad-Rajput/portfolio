@@ -6,6 +6,7 @@ function ProtectedRoutes() {
 
   useEffect(() => {
     async function checkAuthentication() {
+      
       try {
         const response = await fetch("http://localhost:5000/auth",{headers: {
           "Content-Type": "application/json",

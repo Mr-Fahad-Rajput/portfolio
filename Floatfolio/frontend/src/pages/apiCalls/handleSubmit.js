@@ -1,3 +1,4 @@
+import axios from 'axios';
 const handleSubmit = async (
   event,
   user,
@@ -47,7 +48,9 @@ const handleSubmit = async (
         "X-API-Key": import.meta.env.VITE_SOME_KEY
       },
       body: dataBody,
+      credentials: 'include',
     });
+   
     console.log(res.status);
     if (res.status === 400 || res.status === 403) {
       setErrStatus(true);
@@ -78,7 +81,7 @@ const handleSubmit = async (
       delay = 2000;
       setTimeout(() => {
         if (type != "msg") {
-          navigate("/", { replace: true });
+          // navigate("/", { replace: true });
         }
       }, delay + 500);
     }
