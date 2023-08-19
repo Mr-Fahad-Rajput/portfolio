@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Loader from "./components/Loader.jsx";
 import Dark from "./components/Dark.jsx";
+import ProtectedRoutes from "../ProtectedRoutes.jsx";
 
 const Home = lazy(() => import("./Home.jsx"));
 const Projects = lazy(() => import("./Projects.jsx"));
@@ -29,7 +30,9 @@ function App() {
             <Route exact path="/apis" element={<APIs />} />
             <Route exact path="/signin" element={<SignIn />} />
             <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/Dashboard" element={<Dashboard />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route exact path="/Dashboard" element={<Dashboard />} />
+            </Route>
             <Route exact path="/resetpass" element={<ResetPass />} />
           </Routes>
         </Suspense>

@@ -10,12 +10,13 @@ module.exports = async (req, res) => {
     const user = await Users.findOne({ email: email });
     if (user) {
       const isMatch = await bcryptjs.compare(password, user.password);
-
       if (isMatch) {
         const token = await user.generateToken();
         res.cookie("jwt", token, {
           expires: new Date(Date.now() + 86400000),
           httpOnly: true,
+          secure: false,
+          sameSite: 'none'
         });
         res.status(200).send("Logged In");
       } else {

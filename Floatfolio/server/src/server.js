@@ -12,10 +12,17 @@ const reqAuth = require("./middleWare/requestAuth");
 require("./database/connection");
 // Middle wares
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
 app.use(reqAuth);
+const corsOptions = {
+  credentials: true,
+  origin: "http://localhost:5173", // Set your frontend's domain
+};
+
+app.use(cors(corsOptions));
+app.set("trust proxy",1);
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 // RemoteAddress-:remote-addr - RemoteUser-:remote-user
 app.use(morgan("tiny"));
 app.use(router);

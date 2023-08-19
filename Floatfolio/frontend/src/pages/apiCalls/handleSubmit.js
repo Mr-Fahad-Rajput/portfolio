@@ -40,7 +40,7 @@ const handleSubmit = async (
     successMsg = "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
   }
   try {
-    const res = await fetch("http://localhost:5000/" + endPoint, {
+    const res = await fetch("http://localhost:5000/" + endPoint,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const handleSubmit = async (
       errorMessage = errorMessage.replace(/validation/g, "NOT SENT:");
       errorMessage = errorMessage.replace(
         /.*(?:mongodb\.net|ENOTFOUND).*$/g,
-        "Server Error: Database Server"
+        "Server Error: Database Server Down"
       );
       delay = 5000;
       setResponseStatus({
