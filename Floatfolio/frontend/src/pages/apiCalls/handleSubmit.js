@@ -80,8 +80,10 @@ const handleSubmit = async (
       setIsLoading(false);
       delay = 2000;
       setTimeout(() => {
-        if (type != "msg") {
-          // navigate("/", { replace: true });
+        if (type == "SignUp") {
+          navigate("/signin", { replace: true });
+        }else if(type == "SignIn"){
+          navigate("/dashboard", { replace: true });
         }
       }, delay + 500);
     }

@@ -23,7 +23,6 @@ module.exports = async (req, res, next) => {
       }
     }
 
-    next();
   } catch (error) {
     const errorMessage = error.message;
     res.status(401).send(errorMessage);
