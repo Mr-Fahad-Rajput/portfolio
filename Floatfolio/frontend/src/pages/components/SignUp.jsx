@@ -158,7 +158,6 @@ function SignUp() {
                           {" "}
                           Terms And Condition{" "}
                         </a>
-                        {/* TODO Setup Sign Up Requirments like Password LEngths, AGree to terms etc */}
                       </label>
                     </div>
                   </div>

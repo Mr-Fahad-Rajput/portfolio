@@ -80,7 +80,7 @@ function About() {
               />
             </div>
             <div className="overflow-hidden mb-2 ">
-              <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
+              <h2 className="dark:text-mainBg text-xl font-Medium underline my-auto cursor-default text-balBrand">
                 Web Development
               </h2>
               <p className=" m-1 max-md:m-2 text-justify">
@@ -145,7 +145,8 @@ function About() {
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 "
               />
             </div>
-            <div className="overflow-hidden mb-2 ">
+            {/* TODO padding and margins of this page */}
+            <div className=" content-center ">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Jr. Web Developer
               </h2>
