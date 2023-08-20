@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 function ProtectedRoutes(props) {
-  const {setIsLoggedin, isLoggedin} = props;
+  const {setIsLoggedin} = props;
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   useEffect(() => {
     const fetchAuth = async () => {
@@ -27,7 +27,7 @@ function ProtectedRoutes(props) {
         });
     };
     fetchAuth();
-  }, [isAuthenticated,isLoggedin]);
+  }, [isAuthenticated]);
   useEffect(()=>{
     setIsLoggedin(isAuthenticated);
   },[isAuthenticated]);

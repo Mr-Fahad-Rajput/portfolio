@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import close from "../../assets/close.svg";
 import { useEffect, useState } from "react";
 import AlertBox from "./AlertBox";
-import sent from "../../assets/sent.svg";
+import sent from "../../assets/login.svg";
 import notSent from "../../assets/notsent.svg";
 
 function SignIn() {
