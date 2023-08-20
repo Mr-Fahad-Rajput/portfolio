@@ -17,6 +17,8 @@ function ProtectedRoutes() {
         }}); 
         if (response.ok) {
           setIsAuthenticated(true);
+          console.log(isAuthenticated);
+          
         } else {
           setIsAuthenticated(false);
         }

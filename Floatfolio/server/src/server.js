@@ -15,24 +15,14 @@ require("./database/connection");
 app.use(express.json());
 app.use(cookieParser());
 // Cors Setup
-app.use(cors({
-     origin: "http://localhost:5173", 
-     credentials: true,
-     methods: 'GET,PUT,POST' 
-    }));
-
 app.use(
-  session({
-    resave: false,
-    saveUninitialized: false,
-    secret: "sessionss",
-    cookie: {
-      maxAge: 1000 * 60 * 60,
-      sameSite: "none",
-      secure: false,
-    },
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+    methods: "GET,PUT,POST",
   })
 );
+
 app.set("trust proxy", 1);
 
 app.use(reqAuth);
@@ -41,7 +31,6 @@ app.use(express.urlencoded({ extended: false }));
 // RemoteAddress-:remote-addr - RemoteUser-:remote-user
 app.use(morgan("tiny"));
 app.use(router);
-
 
 //Server Listing
 app.listen(process.env.PORT);
