@@ -3,7 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import logoLight from "../../assets/logo.svg";
 import logoDark from "../../assets/logoDark.svg";
 
-function Navbar() {
+function Navbar(props) {
+  const { isLoggedin } = props;
   const [menuVisibilty, setMenuVisibilty] = useState(false);
   const [logo, setLogo] = useState(logoLight);
   const navigate = useNavigate();
@@ -123,26 +124,52 @@ function Navbar() {
               !menuVisibilty ? "justify-around" : "justify-between"
             }  ${!menuVisibilty ? "max-md:w-[33%]" : "max-md:w-full"}`}
           >
-            <button
-              className="md:p-4 py-2 m-1 btn whitespace-nowrap "
-              aria-label="Sign In Button"
-              onClick={() => {
-                navigate("/signin", { state: { fromSpecificPage: true } });
-                setMenuVisibilty(false);
-              }}
-            >
-              Sign In
-            </button>
-            <button
-              className="md:p-4 py-2 m-1 btn whitespace-nowrap"
-              aria-label="Sign Up Button"
-              onClick={() => {
-                navigate("/signup", { state: { fromSpecificPage: true } });
-                setMenuVisibilty(false);
-              }}
-            >
-              Sign Up
-            </button>
+            {isLoggedin ? (
+              <button
+                className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap "
+                aria-label="dashboard Button"
+                onClick={() => {
+                  navigate("/dashboard", { state: { fromSpecificPage: true } });
+                  setMenuVisibilty(false);
+                }}
+              >
+                Dashboard
+              </button>
+            ) : (
+              <button
+                className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap "
+                aria-label="Sign In Button"
+                onClick={() => {
+                  navigate("/signin", { state: { fromSpecificPage: true } });
+                  setMenuVisibilty(false);
+                }}
+              >
+                Sign In
+              </button>
+            )}
+            {isLoggedin ? (
+              <button
+                className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap"
+                aria-label="Log Out Button"
+                onClick={() => {
+                  navigate("/signout", { state: { fromSpecificPage: true } });
+                  setMenuVisibilty(false);
+                }}
+              >
+                Log Out
+              </button>
+            ) : (
+              <button
+                className="md:p-4 py-2 m-1 px-2 btn  whitespace-nowrap"
+                aria-label="Sign Up Button"
+                onClick={() => {
+                  navigate("/signup", { state: { fromSpecificPage: true } });
+                  setMenuVisibilty(false);
+                }}
+              >
+                Sign Up
+              </button>
+            )}
           </div>
         </nav>
       </header>

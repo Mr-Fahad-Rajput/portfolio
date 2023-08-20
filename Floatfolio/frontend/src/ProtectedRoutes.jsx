@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-function ProtectedRoutes() {
+function ProtectedRoutes(props) {
+  const {setIsLoggedin, isLoggedin} = props;
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   useEffect(() => {
     const fetchAuth = async () => {
@@ -26,7 +27,10 @@ function ProtectedRoutes() {
         });
     };
     fetchAuth();
-  }, [isAuthenticated]);
+  }, [isAuthenticated,isLoggedin]);
+  useEffect(()=>{
+    setIsLoggedin(isAuthenticated);
+  },[isAuthenticated]);
   return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />;
 }
 

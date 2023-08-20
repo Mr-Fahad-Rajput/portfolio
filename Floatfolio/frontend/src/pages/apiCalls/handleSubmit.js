@@ -85,7 +85,7 @@ const handleSubmit = async (
         }else if(type == "SignIn"){
           navigate("/dashboard", { replace: true });
         }
-      }, delay + 500);
+      }, delay + 10);
     }
   } catch (error) {
     setErrStatus(true);
