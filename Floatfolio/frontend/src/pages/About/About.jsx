@@ -112,7 +112,7 @@ function About() {
             </h1>
           </div>
           {/* Internships */}
-          <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg ">
+          <div className=" text-center py-2 md:px-5 h-1/5 m-2 overflow-hidden text-dBrand dark:text-mainBg ">
             <div className="inline-flex md:float-right">
               <img
                 src={team}
@@ -137,20 +137,20 @@ function About() {
           </div>
 
           {/* Jr Web Developer */}
-          <div className="text-center md:pb-4 max-md:pt-4 h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg md:px-5 overflow-hidden  text-dBrand dark:text-mainBg">
-            <div className="inline-flex w-64 md:float-left md:mt-6 md:pr-4">
+          <div className="text-center py-2 md:px-5 overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
+            <div className="inline-flex md:float-left">
               <img
                 src={jrweb}
                 alt="Man Sitting on a Laptop"
-                className=" w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 "
+                className=" w-64 h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
             {/* TODO padding and margins of this page */}
-            <div className=" content-center ">
+            <div className=" overflow-hidden self-center p-2 pr-4">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Jr. Web Developer
               </h2>
-              <p className=" m-1 max-md:m-2 text-justify">
+              <p className=" max-md:m-2 text-justify">
                 For the past 3.5 years, I thrived at K. Syndicates as a
                 dedicated Jr. Web Developer, actively contributing to various
                 projects and gaining expertise in creating dynamic and
