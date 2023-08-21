@@ -15,19 +15,19 @@ function About() {
             </h1>
           </div>
           {/* earlylife */}
-          <div className="md:pb-3 max-md:pt-4 text-center h-1/5 rounded-lg m-2 bg-secondaryBg  md:px-5 overflow-hidden  text-dBrand dark:bg-balBrand dark:text-mainBg">
-            <div className="inline-flex w-64 md:float-left md:mt-2 md:pr-4">
+          <div className="text-center md:px-2 overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
+            <div className="inline-flex md:float-left py-2">
               <img
                 src={kid}
                 alt="Kid Using laptop"
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg"
               />
             </div>
-            <div className="overflow-hidden mb-2">
+            <div className="overflow-hidden self-center p-2 pl-4">
               <h2 className="dark:text-secondaryBg text-xl font-Medium underline cursor-default text-balBrand">
                 Early Life
               </h2>
-              <p className=" max-md:m-2 text-justify">
+              <p className=" max-md:m-2 text-justify tracking-tight">
                 Greetings! I&rsquo;m Fahad, a highly dedicated and enthusiastic
                 web developer with a strong foundation in computer science. With
                 a profound love for technology since childhood. I delved into
@@ -43,19 +43,19 @@ function About() {
             </div>
           </div>
           {/* Bachelors */}
-          <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg ">
-            <div className="inline-flex w-64 md:float-right md:mt-8 md:pl-4">
+          <div className="text-center h-1/5 m-2 md:px-2 overflow-hidden text-dBrand dark:text-mainBg ">
+            <div className="inline-flex md:float-right py-2">
               <img
                 src={teen}
                 alt="Teenage Boy on a Computer"
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
-            <div className="overflow-hidden mb-2">
+            <div className="overflow-hidden self-center p-2 pr-4">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Bachelor&rsquo;s
               </h2>
-              <p className=" max-md:m-2 text-justify">
+              <p className=" max-md:m-2 text-justify tracking-tight">
                 I embarked on my formal education in Software Engineering at
                 Comsats University Lahore at the age of 19, and this marked the
                 beginning of my professional career as a Software Engineer. Over
@@ -71,19 +71,19 @@ function About() {
             </div>
           </div>
           {/* Web Development */}
-          <div className="max-md:pt-4 text-center h-1/5 rounded-lg m-2 bg-secondaryBg dark:bg-balBrand md:px-5 overflow-hidden  text-dBrand dark:text-mainBg dark:md:pb-3">
-            <div className="inline-flex w-64 md:float-left md:mt-6 md:pr-4">
+          <div className="text-center  md:px-2 h-auto rounded-lg m-2 dark:bg-balBrand bg-secondaryBg  text-dBrand dark:text-mainBg">
+            <div className="inline-flex md:float-left py-2">
               <img
                 src={webdev}
                 alt="Man Programming on a Laptop"
-                className=" w-64 h-56 dark:bg-lBrand rounded-lg max-md:h-52 "
+                className=" w-64 h-56 dark:bg-lBrand rounded-lg"
               />
             </div>
-            <div className="overflow-hidden mb-2 ">
-              <h2 className="dark:text-mainBg text-xl font-Medium underline my-auto cursor-default text-balBrand">
+            <div className="overflow-hidden self-center p-2 pl-4">
+              <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Web Development
               </h2>
-              <p className=" m-1 max-md:m-2 text-justify">
+              <p className=" m-1 max-md:m-2 text-justify tracking-tight">
                 I am a passionate web developer with a successful career
                 spanning over 8 years. Starting my Web Development journey at
                 15, I quickly fell in love with Web development, becoming
@@ -112,7 +112,7 @@ function About() {
             </h1>
           </div>
           {/* Internships */}
-          <div className=" text-center py-2 md:px-5 h-1/5 m-2 overflow-hidden text-dBrand dark:text-mainBg ">
+          <div className=" text-center py-2 md:px-2 h-1/5 m-2 overflow-hidden text-dBrand dark:text-mainBg ">
             <div className="inline-flex md:float-right">
               <img
                 src={team}
@@ -120,7 +120,7 @@ function About() {
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
-            <div className="overflow-hidden self-center p-2 pr-4 ">
+            <div className="overflow-hidden self-center p-2 pr-4">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Internships
               </h2>
@@ -137,7 +137,7 @@ function About() {
           </div>
 
           {/* Jr Web Developer */}
-          <div className="text-center py-2 md:px-5 overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
+          <div className="text-center py-2 md:px-2 overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
             <div className="inline-flex md:float-left">
               <img
                 src={jrweb}
@@ -145,8 +145,7 @@ function About() {
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
-            {/* TODO padding and margins of this page */}
-            <div className=" overflow-hidden self-center p-2 pr-4">
+            <div className=" overflow-hidden self-center p-2 pl-4">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Jr. Web Developer
               </h2>
@@ -164,19 +163,19 @@ function About() {
             </div>
           </div>
           {/* Outro */}
-          <div className="text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg">
-            <div className="inline-flex w-64 md:float-right md:mt-4 md:pl-4">
+          <div className="text-center h-1/5 m-2 md:px-2 overflow-hidden text-dBrand dark:text-mainBg">
+            <div className="inline-flex md:float-right py-2">
               <img
                 src={future}
                 alt="Man Working on Web Development"
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg"
               />
             </div>
-            <div className="overflow-hidden mb-2">
+            <div className="overflow-hidden self-center p-2 pr-4">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Future Awaits
               </h2>
-              <p className=" max-md:m-2 text-justify">
+              <p className=" max-md:m-2 text-justify tracking-tight">
                 I believe in demonstrating my abilities through action. For a
                 practical insight into my skills, I encourage you to explore my
                 API Integrations page, where I showcase my expertise in
