@@ -8,7 +8,7 @@ import ProtectedRoutes from "../ProtectedRoutes.jsx";
 
 const Home = lazy(() => import("./Home.jsx"));
 const Projects = lazy(() => import("./Projects.jsx"));
-const APIs = lazy(() => import("./APIs.jsx"));
+const APIs = lazy(() => import("./APIs/APIs.jsx"));
 const About = lazy(() => import("./About/About.jsx"));
 const Contact = lazy(() => import("./Contact/Contact.jsx"));
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
