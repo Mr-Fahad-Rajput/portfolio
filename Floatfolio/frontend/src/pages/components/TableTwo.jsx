@@ -1,7 +1,7 @@
-import p1 from '../../assets/product-01.png';
-import p2 from '../../assets/product-02.png';
-import p3 from '../../assets/product-03.png';
-import p4 from '../../assets/product-04.png';
+import p1 from "../../assets/product-01.png";
+import p2 from "../../assets/product-02.png";
+import p3 from "../../assets/product-03.png";
+import p4 from "../../assets/product-04.png";
 const TableTwo = () => {
   return (
     <div className="rounded-lg border-2 w-full border-dBrand bg-[#6C48B3] text-secondaryBg dark:border-mainBg">
@@ -33,11 +33,13 @@ const TableTwo = () => {
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="h-12 w-12 rounded-lg m-1 ">
-              <img src={p1} alt="Product" className="rounded-lg border-2 border-dBrand " />
+              <img
+                src={p1}
+                alt="Product"
+                className="rounded-lg border-2 border-dBrand "
+              />
             </div>
-            <p className="text-sm text-mainBg">
-              Apple Watch Series 7
-            </p>
+            <p className="text-sm text-mainBg">Apple Watch Series 7</p>
           </div>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
@@ -57,7 +59,11 @@ const TableTwo = () => {
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="h-12 w-12 rounded-lg m-1 ">
-              <img src={p2} alt="Product" className="rounded-lg border-2 border-dBrand " />
+              <img
+                src={p2}
+                alt="Product"
+                className="rounded-lg border-2 border-dBrand "
+              />
             </div>
             <p className="text-sm text-mainBg">Macbook Pro M1</p>
           </div>
@@ -79,11 +85,13 @@ const TableTwo = () => {
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="h-12 w-12 rounded-lg m-1 ">
-              <img src={p3} alt="Product" className="rounded-lg border-2 border-dBrand " />
+              <img
+                src={p3}
+                alt="Product"
+                className="rounded-lg border-2 border-dBrand "
+              />
             </div>
-            <p className="text-sm text-mainBg">
-              Dell Inspiron 15
-            </p>
+            <p className="text-sm text-mainBg">Dell Inspiron 15</p>
           </div>
         </div>
         <div className="col-span-2 hidden items-center sm:flex">
@@ -103,7 +111,11 @@ const TableTwo = () => {
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="h-12 w-12 rounded-lg m-1 ">
-              <img src={p4} alt="Product" className="rounded-lg border-2 border-dBrand " />
+              <img
+                src={p4}
+                alt="Product"
+                className="rounded-lg border-2 border-dBrand "
+              />
             </div>
             <p className="text-sm text-mainBg">HP Probook 450</p>
           </div>

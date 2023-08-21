@@ -1,16 +1,16 @@
-import { ApexOptions } from 'apexcharts';
-import React, { useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
+import { ApexOptions } from "apexcharts";
+import React, { useState } from "react";
+import ReactApexChart from "react-apexcharts";
 
 const options = {
   title: {
-    text: 'Weekly Report',
-    align: 'center',
+    text: "Weekly Report",
+    align: "center",
   },
   colors: ["#240d50", "#471AA0"],
   chart: {
-    fontFamily: 'Trebuchet MS, sans-serif',
-    type: 'bar',
+    fontFamily: "Trebuchet MS, sans-serif",
+    type: "bar",
     height: 335,
     stacked: true,
     toolbar: {
@@ -28,7 +28,7 @@ const options = {
         plotOptions: {
           bar: {
             borderRadius: 5,
-            columnWidth: '25%',
+            columnWidth: "25%",
           },
         },
       },
@@ -38,9 +38,9 @@ const options = {
     bar: {
       horizontal: false,
       borderRadius: 0,
-      columnWidth: '25%',
-      borderRadiusApplication: 'end',
-      borderRadiusWhenStacked: 'last',
+      columnWidth: "25%",
+      borderRadiusApplication: "end",
+      borderRadiusWhenStacked: "last",
     },
   },
   dataLabels: {
@@ -48,14 +48,14 @@ const options = {
   },
 
   xaxis: {
-    categories: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    categories: ["M", "T", "W", "T", "F", "S", "S"],
   },
   legend: {
-    position: 'bottom',
-    horizontalAlign: 'center',
-    fontFamily: 'Satoshi',
+    position: "bottom",
+    horizontalAlign: "center",
+    fontFamily: "Satoshi",
     fontWeight: 500,
-    fontSize: '14px',
+    fontSize: "14px",
 
     markers: {
       radius: 99,
@@ -70,11 +70,11 @@ const ChartTwo = () => {
   const [state, setState] = useState({
     series: [
       {
-        name: 'Sales',
+        name: "Sales",
         data: [44, 55, 41, 67, 22, 43, 65],
       },
       {
-        name: 'Revenue',
+        name: "Revenue",
         data: [13, 23, 20, 8, 13, 27, 15],
       },
     ],

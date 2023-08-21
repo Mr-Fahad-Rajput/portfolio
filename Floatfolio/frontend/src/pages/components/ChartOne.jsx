@@ -3,8 +3,8 @@ import ReactApexChart from "react-apexcharts";
 
 const options = {
   title: {
-    text: 'Annual Report',
-    align: 'center',
+    text: "Annual Report",
+    align: "center",
   },
   legend: {
     show: true,
@@ -13,7 +13,7 @@ const options = {
   },
   colors: ["#240d50", "#471AA0"],
   chart: {
-    fontFamily: 'Trebuchet MS, sans-serif',
+    fontFamily: "Trebuchet MS, sans-serif",
     height: 335,
     type: "area",
     dropShadow: {

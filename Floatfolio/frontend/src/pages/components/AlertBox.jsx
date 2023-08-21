@@ -9,7 +9,7 @@ function AlertBox(props) {
     } else {
       setScale(0);
     }
-  }, [responseStatus.status]); 
+  }, [responseStatus.status]);
   return (
     <>
       <div className="flex items-center justify-center ">

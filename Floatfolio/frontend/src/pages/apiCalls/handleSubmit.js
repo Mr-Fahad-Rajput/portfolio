@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 const handleSubmit = async (
   event,
   user,
@@ -38,19 +38,20 @@ const handleSubmit = async (
       message,
     });
     endPoint = "message";
-    successMsg = "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
+    successMsg =
+      "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
   }
   try {
-    const res = await fetch("http://localhost:5000/" + endPoint,{
+    const res = await fetch("http://localhost:5000/" + endPoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": import.meta.env.VITE_SOME_KEY
+        "X-API-Key": import.meta.env.VITE_SOME_KEY,
       },
       body: dataBody,
-      credentials: 'include',
+      credentials: "include",
     });
-   
+
     console.log(res.status);
     if (res.status === 400 || res.status === 403) {
       setErrStatus(true);
@@ -82,7 +83,7 @@ const handleSubmit = async (
       setTimeout(() => {
         if (type == "SignUp") {
           navigate("/signin", { replace: true });
-        }else if(type == "SignIn"){
+        } else if (type == "SignIn") {
           navigate("/dashboard", { replace: true });
         }
       }, delay + 10);

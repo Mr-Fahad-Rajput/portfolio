@@ -18,8 +18,8 @@ const SignOut = lazy(() => import("./components/SignOut.jsx"));
 const ResetPass = lazy(() => import("./components/ResetPass.jsx"));
 
 function App() {
-  const [isLoggedin,setIsLoggedin] = useState(false);
-  
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
   return (
     <>
       <BrowserRouter>
@@ -32,9 +32,20 @@ function App() {
             <Route exact path="/projects" element={<Projects />} />
             <Route exact path="/apis" element={<APIs />} />
             <Route exact path="/signin" element={<SignIn />} />
-            <Route exact path="/signout" element={<SignOut setIsLoggedin={setIsLoggedin}  />} />
+            <Route
+              exact
+              path="/signout"
+              element={<SignOut setIsLoggedin={setIsLoggedin} />}
+            />
             <Route exact path="/signup" element={<SignUp />} />
-            <Route element={<ProtectedRoutes setIsLoggedin={setIsLoggedin} isLoggedin={isLoggedin}/>}>
+            <Route
+              element={
+                <ProtectedRoutes
+                  setIsLoggedin={setIsLoggedin}
+                  isLoggedin={isLoggedin}
+                />
+              }
+            >
               <Route exact path="/Dashboard" element={<Dashboard />} />
             </Route>
             <Route exact path="/resetpass" element={<ResetPass />} />
