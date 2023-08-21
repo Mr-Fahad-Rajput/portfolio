@@ -9,6 +9,7 @@ import ProtectedRoutes from "../ProtectedRoutes.jsx";
 const Home = lazy(() => import("./Home.jsx"));
 const Projects = lazy(() => import("./Projects.jsx"));
 const APIs = lazy(() => import("./APIs/APIs.jsx"));
+const Stripe = lazy(() => import("./APIs/Stripe.jsx"));
 const About = lazy(() => import("./About/About.jsx"));
 const Contact = lazy(() => import("./Contact/Contact.jsx"));
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
@@ -31,6 +32,7 @@ function App() {
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/projects" element={<Projects />} />
             <Route exact path="/apis" element={<APIs />} />
+            <Route exact path="/stripe" element={<Stripe />} />
             <Route exact path="/signin" element={<SignIn />} />
             <Route
               exact

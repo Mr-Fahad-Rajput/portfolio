@@ -113,15 +113,15 @@ function About() {
           </div>
           {/* Internships */}
           <div className=" text-center h-1/5 m-2 md:px-5 overflow-hidden text-dBrand dark:text-mainBg ">
-            <div className="inline-flex md:float-right md:pl-4">
+            <div className="inline-flex md:float-right">
               <img
                 src={team}
                 alt="Team Working on Web Development"
                 className=" w-64 h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
-            <div className="overflow-hidden">
-              <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand md:mt-4">
+            <div className="overflow-hidden self-center p-2 pr-4 ">
+              <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Internships
               </h2>
               <p className=" max-md:m-2 text-justify">

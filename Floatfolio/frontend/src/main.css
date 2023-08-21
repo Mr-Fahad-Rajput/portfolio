@@ -35,7 +35,7 @@
 
 /*Main Content div*/
 .mainContent {
-  @apply flex rounded-lg m-5 flex-wrap items-center bg-mainBg dark:bg-dBrand  text-dBrand dark:text-mainBg content-center md:mr-[25%] flex-col;
+  @apply flex rounded-lg m-5 flex-wrap items-center bg-mainBg dark:bg-dBrand  text-dBrand dark:text-mainBg content-center md:mr-[25%] p-2 flex-col;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
   transform: translatey(0px);
 }
@@ -92,4 +92,19 @@
 
 .animate-scale-100 {
   animation: scale-100 0.500s ease-out forwards;
+}
+
+/* -------------API Tiers */
+.Basic{
+ width: 30%;
+ background-color: #156FE6;
+
+}
+.Intermediate{
+  width: 70%;
+  background-color: #25d366;
+}
+.Advance{
+  width: 90%;
+  background-color: #ff5670;
 }

@@ -17,12 +17,12 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-  "overrides": [
-    {
-      "files": ["/**/*.jsx"],
-      "rules": {
-        "react/prop-types": ["off"],
-      }
-    }
-  ]
+  // "overrides": [
+  //   {
+  //     "files": ["/**/*.jsx"],
+  //     "rules": {
+  //       "react/prop-types": ["off"],
+  //     }
+  //   }
+  // ]
 }
