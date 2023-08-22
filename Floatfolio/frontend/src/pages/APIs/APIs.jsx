@@ -1,4 +1,4 @@
-import DivApi from "../components/DivApi";
+import DivApi from "./DivApi";
 import stripeImg from './stripe.svg';
 function APIs() {
   return (
