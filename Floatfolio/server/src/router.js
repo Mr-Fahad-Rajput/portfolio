@@ -10,6 +10,9 @@ router.post("/login", require("./routes/login"));
 // Message
 router.post("/message", require("./routes/message"));
 
+// Stripe API
+router.post("/stripe", require("./routes/stripe.js"));
+
 //Logout
 router.get("/logout", require("./routes/logout"));
 

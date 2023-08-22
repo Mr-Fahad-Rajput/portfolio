@@ -5,6 +5,18 @@ import Card from "../components/CardOne";
 import { useState } from "react";
 function Stripe() {
   let [quantity, setQuantity] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  let [dataBody, setDataBody] = useState([
+    {
+      id: 1,
+      quantity: quantity,
+    },
+    {
+      id: 2,
+      quantity: quantity + 1,
+    },
+  ]);
+  
   let [total, setTotal] = useState(quantity * 50 + (quantity + 1) * 10);
   function incrementquantity() {
     quantity = quantity + 1;
@@ -18,7 +30,42 @@ function Stripe() {
       setTotal(quantity * 50 + (quantity + 1) * 10);
     } else alert("Both Product's Quantity Can't Be Zero");
   }
-
+  // Backend Implementation
+  const handleAPIcalls = async () => {
+    setIsLoading(true);
+    try {
+      const handleSubmitModule = await import("../apiCalls/handleAPI.js");
+      const handleSubmit = handleSubmitModule.default;
+      handleSubmit(dataBody, "stripe", "POST")
+        .then((res) => {
+          if (res.ok) {
+            console.log(res);
+            return res.json();
+        }
+        return res.json().then(json => Promise.reject(json))
+        })
+        .then((url) => {
+          window.location = url;
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        })
+        .finally(setIsLoading(false));
+    } catch (error) {
+      console.error("Error importing handleSubmit:", error);
+    }
+    ///////////////////////////////////
+    // console.log(dataBody);
+    
+    // console.log(error);
+    // if (error.toString().includes("Failed to fetch")) {
+    //   delay = 4000;
+    //   setResponseStatus({
+    //     status: true,
+    //     text: "Can't Connect To the Server! Check Your Internet Connection",
+    //   });
+    // }
+  };
   return (
     <>
       <section className="mainContent">
@@ -78,11 +125,43 @@ function Stripe() {
               </h2>
             </div>
             <button
-              className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap mx-auto"
-              aria-label="Sign In Button"
-              onClick={() => {}}
+              name="send"
+              className="p-4 m-1 btn whitespace-nowrap mx-auto"
+              onClick={() => {
+                handleAPIcalls();
+              }}
+              disabled={isLoading}
+              aria-label="Check Out Button"
             >
-              CheckOut
+              {isLoading ? (
+                <div className="flex items-center">
+                  <div className="animate-spin mr-2">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-100 "
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="#FEFAE6"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="#471AA0"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  </div>
+                  Fetching Api...
+                </div>
+              ) : (
+                "Check Out"
+              )}
             </button>
           </div>
           <Card
