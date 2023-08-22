@@ -50,7 +50,7 @@ function Stripe() {
             </p>
           </div>
         </div>
-        <div className="bg-secondaryBg dark:bg-balBrand rounded-lg m-2 flex w-full justify-around">
+        <div className="bg-secondaryBg dark:bg-balBrand rounded-lg m-2 md:flex w-full justify-around">
           <Card
             cardImg={p1}
             cardHeading={"50$ Container"}

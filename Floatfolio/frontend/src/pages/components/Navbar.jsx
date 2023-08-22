@@ -4,6 +4,7 @@ import logoLight from "../../assets/logo.svg";
 import logoDark from "../../assets/logoDark.svg";
 
 function Navbar(props) {
+  //eslint-disable-next-line 
   const { isLoggedin } = props;
   const [menuVisibilty, setMenuVisibilty] = useState(false);
   const [logo, setLogo] = useState(logoLight);
@@ -126,7 +127,7 @@ function Navbar(props) {
           >
             {isLoggedin ? (
               <button
-                className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap "
+                className="md:p-4 py-2 m-1 mx-2 btn whitespace-nowrap "
                 aria-label="dashboard Button"
                 onClick={() => {
                   navigate("/dashboard", { state: { fromSpecificPage: true } });
@@ -137,7 +138,7 @@ function Navbar(props) {
               </button>
             ) : (
               <button
-                className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap "
+                className="md:p-4 py-2 m-1 mx-2 btn whitespace-nowrap "
                 aria-label="Sign In Button"
                 onClick={() => {
                   navigate("/signin", { state: { fromSpecificPage: true } });
@@ -149,7 +150,7 @@ function Navbar(props) {
             )}
             {isLoggedin ? (
               <button
-                className="md:p-4 py-2 m-1 px-2 btn whitespace-nowrap"
+                className="md:p-4 py-2 m-1 mx-2 btn whitespace-nowrap"
                 aria-label="Log Out Button"
                 onClick={() => {
                   navigate("/signout", { state: { fromSpecificPage: true } });
@@ -160,7 +161,7 @@ function Navbar(props) {
               </button>
             ) : (
               <button
-                className="md:p-4 py-2 m-1 px-2 btn  whitespace-nowrap"
+                className="md:p-4 py-2 m-1 mx-2 btn  whitespace-nowrap"
                 aria-label="Sign Up Button"
                 onClick={() => {
                   navigate("/signup", { state: { fromSpecificPage: true } });
