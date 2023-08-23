@@ -1,7 +1,6 @@
 const handleAPI = async (dataBody, endPoint, reqType) => {
   try {
-    console.log(JSON.stringify(dataBody));
-    const res = await fetch("http://localhost:5000/" + endPoint, {
+    let res = await fetch("http://localhost:5000/" + endPoint, {
       method: reqType,
       headers: {
         "Content-Type": "application/json",
@@ -10,6 +9,7 @@ const handleAPI = async (dataBody, endPoint, reqType) => {
       body: JSON.stringify(dataBody),
       credentials: "include",
     });
+    // res = await res.json();
     return res;
   } catch (error) {
     return error;

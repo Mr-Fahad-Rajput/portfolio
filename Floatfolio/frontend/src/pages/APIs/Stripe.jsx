@@ -16,7 +16,7 @@ function Stripe() {
       quantity: quantity + 1,
     },
   ]);
-  
+
   let [total, setTotal] = useState(quantity * 50 + (quantity + 1) * 10);
   function incrementquantity() {
     quantity = quantity + 1;
@@ -38,25 +38,40 @@ function Stripe() {
       const handleSubmit = handleSubmitModule.default;
       handleSubmit(dataBody, "stripe", "POST")
         .then((res) => {
-          if (res.ok) {
             console.log(res);
-            return res.json();
-        }
-        return res.json().then(json => Promise.reject(json))
+          if (res.ok) {
+            res = res.json();
+            console.log(res);
+            return res;
+          } 
+        //   else {
+        //     throw new Error("Request failed with status: " + res);
+        //   }
         })
-        .then((url) => {
-          window.location = url;
-        })
-        .catch((err) => {
-          console.error("Error:", err);
-        })
-        .finally(setIsLoading(false));
-    } catch (error) {
+        .then((data) => {
+            console.log(data);
+            const redirectUrl = data.url;
+            // Open a new window/tab with the redirect URL
+            const newWindow = window.open(redirectUrl, "_blank");
+            if (!newWindow) {
+              // Popup blocker may prevent window from opening
+              console.error("Failed to open a new window/tab.");
+            }
+          })
+          .catch((err) => {
+            console.error("Error:", err);
+            // Handle specific error cases if needed
+          })
+          .finally(() => {
+            setIsLoading(false);
+          })}
+    
+    catch (error) {
       console.error("Error importing handleSubmit:", error);
     }
     ///////////////////////////////////
     // console.log(dataBody);
-    
+
     // console.log(error);
     // if (error.toString().includes("Failed to fetch")) {
     //   delay = 4000;

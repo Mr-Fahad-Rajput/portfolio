@@ -51,6 +51,8 @@ function App() {
               <Route exact path="/Dashboard" element={<Dashboard />} />
             </Route>
             <Route exact path="/resetpass" element={<ResetPass />} />
+            <Route exact path="/success" element={<ResetPass />} />
+            <Route exact path="/cancel" element={<ResetPass />} />
           </Routes>
         </Suspense>
         <Dark />

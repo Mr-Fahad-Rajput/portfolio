@@ -5,7 +5,6 @@ module.exports = async (req, res) => {
     [2, { priceInCents: 1000, name: "Gift Card" }],
   ]);
   try {
-    // console.log(req.body);
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         mode: "payment",
