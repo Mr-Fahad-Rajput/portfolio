@@ -1,33 +1,73 @@
 import stripeIcon from "./stripe.svg";
 import p1 from "./p1.svg";
 import p2 from "./p2.svg";
+import sent from '../../assets/sent.svg';
+import notSent from '../../assets/notsent.svg';
 import Card from "../components/CardOne";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AlertBox from "../components/AlertBox";
 function Stripe() {
   let [quantity, setQuantity] = useState(1);
+  const [alertImg, setAlertImg] = useState(sent);
+   let [dataBody, setDataBody] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  let [dataBody, setDataBody] = useState([
-    {
-      id: 1,
-      quantity: quantity,
-    },
-    {
-      id: 2,
-      quantity: quantity + 1,
-    },
-  ]);
+  const [responseStatus, setResponseStatus] = useState({
+    status: false,
+    text: "",
+  });
+  useEffect(() => {
+    const hashFragment = window.location.hash;
+
+    if (hashFragment === "#success") {
+        setResponseStatus({
+            status:true,
+            text:"Payment Was Succesful"
+        });
+        setTimeout(()=>{setResponseStatus({
+            status: false,
+            text:""
+        });},3000)
+        
+    } else if (hashFragment === "#cancel") {
+        setAlertImg(notSent);
+        setResponseStatus({
+            status:true,
+            text:"Transaction was Canceled."
+        });
+        setTimeout(()=>{setResponseStatus({
+            status: false,
+            text:""
+        });},3000)
+        }
+  }, []);
+
+  function setProductQuantities(){
+    setDataBody([
+        {
+          id: 1,
+          quantity: quantity,
+        },
+        {
+          id: 2,
+          quantity: quantity + 1,
+        },
+      ]);
+  }
 
   let [total, setTotal] = useState(quantity * 50 + (quantity + 1) * 10);
   function incrementquantity() {
     quantity = quantity + 1;
     setQuantity(quantity);
     setTotal(quantity * 50 + (quantity + 1) * 10);
+    setProductQuantities();
+
   }
   function decrementquantity() {
     if (quantity >= 1) {
       quantity = quantity - 1;
       setQuantity(quantity);
       setTotal(quantity * 50 + (quantity + 1) * 10);
+      setProductQuantities();
     } else alert("Both Product's Quantity Can't Be Zero");
   }
   // Backend Implementation
@@ -36,46 +76,29 @@ function Stripe() {
     try {
       const handleSubmitModule = await import("../apiCalls/handleAPI.js");
       const handleSubmit = handleSubmitModule.default;
+      console.log(dataBody);
       handleSubmit(dataBody, "stripe", "POST")
         .then((res) => {
           if (res.ok) {
             res = res.json();
             return res;
-          } 
-          else {
+          } else {
             throw new Error("Request failed with status: " + res);
           }
         })
         .then((data) => {
-            const redirectUrl = data.url;
-            const newWindow = window.open(redirectUrl, "_blank");
-            if (!newWindow) {
-              console.error("Failed to open a new window/tab.");
-              window.location = redirectUrl;
-            }
-          })
-          .catch((err) => {
-            console.error("Error:", err);
-            // Handle specific error cases if needed
-          })
-          .finally(() => {
-            setIsLoading(false);
-          })}
-    
-    catch (error) {
+          const redirectUrl = data.url;
+          window.location = redirectUrl;
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } catch (error) {
       console.error("Error importing handleSubmit:", error);
     }
-    ///////////////////////////////////
-    // console.log(dataBody);
-
-    // console.log(error);
-    // if (error.toString().includes("Failed to fetch")) {
-    //   delay = 4000;
-    //   setResponseStatus({
-    //     status: true,
-    //     text: "Can't Connect To the Server! Check Your Internet Connection",
-    //   });
-    // }
   };
   return (
     <>
@@ -107,6 +130,11 @@ function Stripe() {
               into web applications, ensuring a seamless user experience.
             </p>
           </div>
+          <AlertBox
+                    responseStatus={responseStatus}
+                    msgImg={alertImg}
+                    className="top-0"
+                  />
         </div>
         <div className="bg-secondaryBg dark:bg-balBrand rounded-lg m-2 md:flex w-full justify-around">
           <Card

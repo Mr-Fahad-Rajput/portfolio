@@ -4,6 +4,7 @@ module.exports = async (req, res) => {
     [1, { priceInCents: 5000, name: "Container" }],
     [2, { priceInCents: 1000, name: "Gift Card" }],
   ]);
+  
   try {
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
@@ -21,8 +22,8 @@ module.exports = async (req, res) => {
             quantity: item.quantity,
           };
         }),
-        success_url: `${process.env.SERVER_URL}/success`,
-        cancel_url: `${process.env.SERVER_URL}/cancel`,
+        success_url: `${process.env.SERVER_URL}/stripe#success`,
+        cancel_url: `${process.env.SERVER_URL}/stripe#cancel`,
       });
     res.json({ url: session.url });
   } catch (error) {
