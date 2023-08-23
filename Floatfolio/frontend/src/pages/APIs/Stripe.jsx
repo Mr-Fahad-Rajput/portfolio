@@ -21,7 +21,7 @@ function Stripe() {
     },
   ]);
   const [responseStatus, setResponseStatus] = useState({
-    status: true,
+    status: false,
     text: "",
   });
   useEffect(() => {
@@ -99,15 +99,17 @@ function Stripe() {
           window.location = redirectUrl;
         })
         .catch((error) => {
-          let errorMsg = error;
+            setAlertImg(notSent);
           if (error.toString().includes("Failed to fetch")){ 
-            errorMsg ="Can't Connect To the Server! Check Your Internet Connection"
-            }
             setResponseStatus({
                 status: true,
-                text: errorMsg,
-              });
-              setAlertImg(notSent);
+                text: "Can't Connect To the Server! Check Your Internet Connection",
+            });
+            }
+         else{setResponseStatus({
+                  status: true,
+                  text: error.toString(),
+              });}
         })
         .finally(() => {
           setIsLoading(false);
@@ -132,11 +134,6 @@ function Stripe() {
               className=" w-64 h-56 hover:scale-110 transform duration-500"
             />
           </div>
-          <AlertBox
-            responseStatus={responseStatus}
-            msgImg={alertImg}
-            className="top-0"
-          />
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Stripe API Integration
@@ -153,6 +150,11 @@ function Stripe() {
             </p>
           </div>
         </div>
+          <AlertBox
+            responseStatus={responseStatus}
+            msgImg={alertImg}
+            className="top-0"
+          />
             <div className="mx-2 text-center md:px-10"><h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">How To</h3>
             <p className=" mt-3 mx-auto text-justify"> When you click
               the &rsquo;Checkout&rsquo; button, you&rsquo;ll be directed to the
