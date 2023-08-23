@@ -9,7 +9,6 @@ const handleAPI = async (dataBody, endPoint, reqType) => {
       body: JSON.stringify(dataBody),
       credentials: "include",
     });
-    // res = await res.json();
     return res;
   } catch (error) {
     return error;

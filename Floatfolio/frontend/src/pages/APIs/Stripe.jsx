@@ -38,24 +38,20 @@ function Stripe() {
       const handleSubmit = handleSubmitModule.default;
       handleSubmit(dataBody, "stripe", "POST")
         .then((res) => {
-            console.log(res);
           if (res.ok) {
             res = res.json();
-            console.log(res);
             return res;
           } 
-        //   else {
-        //     throw new Error("Request failed with status: " + res);
-        //   }
+          else {
+            throw new Error("Request failed with status: " + res);
+          }
         })
         .then((data) => {
-            console.log(data);
             const redirectUrl = data.url;
-            // Open a new window/tab with the redirect URL
             const newWindow = window.open(redirectUrl, "_blank");
             if (!newWindow) {
-              // Popup blocker may prevent window from opening
               console.error("Failed to open a new window/tab.");
+              window.location = redirectUrl;
             }
           })
           .catch((err) => {
