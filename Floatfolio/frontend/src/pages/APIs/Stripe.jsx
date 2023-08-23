@@ -1,57 +1,67 @@
 import stripeIcon from "./stripe.svg";
 import p1 from "./p1.svg";
 import p2 from "./p2.svg";
-import sent from '../../assets/sent.svg';
-import notSent from '../../assets/notsent.svg';
+import sent from "../../assets/sent.svg";
+import notSent from "../../assets/notsent.svg";
 import Card from "../components/CardOne";
 import { useEffect, useState } from "react";
 import AlertBox from "../components/AlertBox";
 function Stripe() {
   let [quantity, setQuantity] = useState(1);
   const [alertImg, setAlertImg] = useState(sent);
-   let [dataBody, setDataBody] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  let [dataBody, setDataBody] = useState([
+    {
+      id: 1,
+      quantity: quantity,
+    },
+    {
+      id: 2,
+      quantity: quantity + 1,
+    },
+  ]);
   const [responseStatus, setResponseStatus] = useState({
-    status: false,
+    status: true,
     text: "",
   });
   useEffect(() => {
     const hashFragment = window.location.hash;
 
     if (hashFragment === "#success") {
+      setResponseStatus({
+        status: true,
+        text: "Payment Was Successful",
+      });
+      setTimeout(() => {
         setResponseStatus({
-            status:true,
-            text:"Payment Was Succesful"
+          status: false,
         });
-        setTimeout(()=>{setResponseStatus({
-            status: false,
-            text:""
-        });},3000)
-        
+      }, 3000);
     } else if (hashFragment === "#cancel") {
-        setAlertImg(notSent);
+      setAlertImg(notSent);
+      setResponseStatus({
+        status: true,
+        text: "Transaction was Canceled.",
+      });
+      setTimeout(() => {
         setResponseStatus({
-            status:true,
-            text:"Transaction was Canceled."
+          status: false,
         });
-        setTimeout(()=>{setResponseStatus({
-            status: false,
-            text:""
-        });},3000)
-        }
+      }, 3000);
+    }
   }, []);
 
-  function setProductQuantities(){
+  function setProductQuantities() {
     setDataBody([
-        {
-          id: 1,
-          quantity: quantity,
-        },
-        {
-          id: 2,
-          quantity: quantity + 1,
-        },
-      ]);
+      {
+        id: 1,
+        quantity: quantity,
+      },
+      {
+        id: 2,
+        quantity: quantity + 1,
+      },
+    ]);
   }
 
   let [total, setTotal] = useState(quantity * 50 + (quantity + 1) * 10);
@@ -60,7 +70,6 @@ function Stripe() {
     setQuantity(quantity);
     setTotal(quantity * 50 + (quantity + 1) * 10);
     setProductQuantities();
-
   }
   function decrementquantity() {
     if (quantity >= 1) {
@@ -76,7 +85,6 @@ function Stripe() {
     try {
       const handleSubmitModule = await import("../apiCalls/handleAPI.js");
       const handleSubmit = handleSubmitModule.default;
-      console.log(dataBody);
       handleSubmit(dataBody, "stripe", "POST")
         .then((res) => {
           if (res.ok) {
@@ -90,11 +98,24 @@ function Stripe() {
           const redirectUrl = data.url;
           window.location = redirectUrl;
         })
-        .catch((err) => {
-          console.error("Error:", err);
+        .catch((error) => {
+          let errorMsg = error;
+          if (error.toString().includes("Failed to fetch")){ 
+            errorMsg ="Can't Connect To the Server! Check Your Internet Connection"
+            }
+            setResponseStatus({
+                status: true,
+                text: errorMsg,
+              });
+              setAlertImg(notSent);
         })
         .finally(() => {
           setIsLoading(false);
+          setTimeout(() => {
+            setResponseStatus({
+              status: false,
+            });
+          }, 3000);
         });
     } catch (error) {
       console.error("Error importing handleSubmit:", error);
@@ -103,7 +124,7 @@ function Stripe() {
   return (
     <>
       <section className="mainContent">
-        <div className="text-center">
+        <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className="inline-flex w-64  md:float-left place-items-center">
             <img
               src={stripeIcon}
@@ -111,7 +132,12 @@ function Stripe() {
               className=" w-64 h-56 hover:scale-110 transform duration-500"
             />
           </div>
-          <div className="overflow-hidden pt-2">
+          <AlertBox
+            responseStatus={responseStatus}
+            msgImg={alertImg}
+            className="top-0"
+          />
+          <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Stripe API Integration
             </h1>
@@ -121,21 +147,23 @@ function Stripe() {
               demonstrate the API integration. The products displayed are for
               illustrative purposes only and do not represent actual offerings.
               The &rsquo;Dummy cart&rsquo; allows you to adjust product
-              quantities, but you cannot add or remove Products. When you click
-              the &rsquo;Checkout&rsquo; button, you&rsquo;ll be directed to the
-              Stripe API&rsquo;s checkout process. To simulate payment success
-              or cancellation, you can use the card number &rsquo;4242&rsquo;
-              for all fields, as shown in the card image. This integration
+              quantities, but you cannot add or remove Products.  This integration
               highlights my ability to incorporate external payment gateways
               into web applications, ensuring a seamless user experience.
             </p>
           </div>
-          <AlertBox
-                    responseStatus={responseStatus}
-                    msgImg={alertImg}
-                    className="top-0"
-                  />
         </div>
+            <div className="mx-2 text-center md:px-10"><h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">How To</h3>
+            <p className=" mt-3 mx-auto text-justify"> When you click
+              the &rsquo;Checkout&rsquo; button, you&rsquo;ll be directed to the
+              Stripe API&rsquo;s checkout process. To simulate different scenarios during testing, you can use the following card numbers along with the respective details:<br/><br/>
+              <b>For Success</b>: Use card number &#34;4242 4242 4242 4242. This will simulate a successful payment.<br/>
+              <b>For Failure</b>: Use card number 4000 0000 0000 9995. This will simulate a failed payment.<br/>
+              <b>Success with Verification</b>: Use card number 4000 0000 0000 9995. This will simulate a failed payment.<br/><br/>
+              Feel free to enter any valid expiration date, CVV, and postal code when prompted.
+Please note that these card numbers are provided by Stripe for testing purposes in their testing environment. Always make sure to follow best security practices and avoid using real payment information for testing.
+             </p></div >
+         
         <div className="bg-secondaryBg dark:bg-balBrand rounded-lg m-2 md:flex w-full justify-around">
           <Card
             cardImg={p1}
