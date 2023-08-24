@@ -7,7 +7,7 @@ const DivApi = (props) => {
   return (
     <div onClick={()=>{navigate(route) } }className="rounded-lg m-2 border-2 border-dBrand dark:border-mainBg hover:scale-110 dark:bg-mainBg bg-lBrand p-2 transform duration-500">
       <img
-        className="rounded-lg"
+        className="rounded-lg md:h-[170px] m-auto"
         src={divImg}
         alt="API Image"
       />

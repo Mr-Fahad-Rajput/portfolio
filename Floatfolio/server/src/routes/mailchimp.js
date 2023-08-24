@@ -3,10 +3,12 @@ const request = require('request')
 module.exports = async (req, res) => {
     try {
       const email = req.body.email
+      const reqStatus =req.body.status;
+      console.log(reqStatus)
       const mcData = {
         members: [{
             email_address: email,
-            status: 'pending'
+            status: reqStatus
         }]
       }
       const dataPost = JSON.stringify(mcData);

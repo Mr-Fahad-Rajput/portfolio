@@ -1,13 +1,18 @@
+import { useEffect, useState } from "react";
+
 import mailIcon from "./mailChimp.svg";
 import sent from "../../assets/sent.svg";
 import notSent from "../../assets/notsent.svg";
-import { useEffect, useState } from "react";
+
 import AlertBox from "../components/AlertBox";
+
 function Stripe() {
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
+  const [toggleCLick, setToggleClick] = useState(false);
   let [dataBody, setDataBody] = useState({
     email: "",
+    status: "pending",
   });
   const [responseStatus, setResponseStatus] = useState({
     status: false,
@@ -19,7 +24,7 @@ function Stripe() {
     if (hashFragment === "#success") {
       setResponseStatus({
         status: true,
-        text: "Payment Was Successful",
+        text: "Sucessfully Subscribed to The News Letter!",
       });
       setTimeout(() => {
         setResponseStatus({
@@ -30,7 +35,7 @@ function Stripe() {
       setAlertImg(notSent);
       setResponseStatus({
         status: true,
-        text: "Transaction was Canceled.",
+        text: "Subscription Didn't work :(",
       });
       setTimeout(() => {
         setResponseStatus({
@@ -67,8 +72,10 @@ function Stripe() {
           }
         })
         .then((data) => {
-          const redirectUrl = data.url;
+          console.log(data.urlRes);
+          const redirectUrl = data.urlRes;
           window.location = redirectUrl;
+          location.reload();
         })
         .catch((error) => {
           setAlertImg(notSent);
@@ -100,32 +107,36 @@ function Stripe() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 md:my-10 h-full md:float-left place-items-center">
-            <img
-              src={mailIcon}
-              alt="Mail Chimp Ilustration"
-              className=" w-64 h-56 hover:scale-110 transform duration-500"
-            />
+          <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
+            <a href="https://mailchimp.com/">
+              <img
+                src={mailIcon}
+                alt="Mail Chimp Ilustration"
+                className=" w-64 h-56 hover:scale-110 transform duration-500"
+              />
+            </a>
           </div>
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-              Stripe API Integration
+              Mail Chimp API
             </h1>
-            <p className=" mt-3 mx-auto text-justify ">
+            <p className=" mt-3 mx-auto text-justify tracking-tight">
               The Mailchimp API is a robust and versatile tool that empowers
               businesses to seamlessly integrate their applications with
               Mailchimp&apos;s email marketing and automation platform. With the
               Mailchimp API, developers can create custom solutions that enhance
               marketing campaigns, audience engagement, and data management.
               This API enables businesses to automate tasks such as list
-              management, campaign creation, and subscriber interactions. By
-              leveraging the Mailchimp API, businesses can unlock the full
+              management, campaign creation, and subscriber interactions. <br />
+              <br />
+              By leveraging the Mailchimp API, businesses can unlock the full
               potential of email marketing, streamline their communication
               efforts, and provide a more personalized experience to their
               audience. Whether it&apos;s syncing customer data, automating
               email sends, or tracking campaign performance, the Mailchimp API
               offers a powerful way to integrate email marketing functionalities
-              into a wide range of applications and platforms.
+              into a wide range of applications and platforms. For More details
+              about the Power of Mail Chimp, Click on the logo to The left.
             </p>
           </div>
         </div>
@@ -140,31 +151,26 @@ function Stripe() {
           </h3>
           <p className=" mt-3 mx-auto text-justify">
             {" "}
-            When you click the &rsquo;Checkout&rsquo; button, you&rsquo;ll be
-            directed to the Stripe API&rsquo;s checkout process. To simulate
-            different scenarios during testing, you can use the following card
-            numbers along with the respective details:
+            To interact with the Mailchimp API, follow these simple steps. Begin
+            by entering your email address into the designated email input
+            field. You&rsquo;ll notice two subscription options available. If
+            you toggle the button to &quot;verified&quot;, the system will
+            initiate a verification email before finalizing the subscription on
+            the Mailchimp site. Conversely, toggling to &quot;unverified&quot;
+            will result in a direct subscription without requiring a
+            confirmation email.
             <br />
             <br />
-            <b>For Success</b>: Use card number &#34;4242 4242 4242 4242. This
-            will simulate a successful payment.
-            <br />
-            <b>For Failure</b>: Use card number 4000 0000 0000 9995. This will
-            simulate a failed payment.
-            <br />
-            <b>Success with Verification</b>: Use card number 4000 0000 0000
-            9995. This will simulate a failed payment.
-            <br />
-            <br />
-            Feel free to enter any valid expiration date, CVV, and postal code
-            when prompted. Please note that these card numbers are provided by
-            Stripe for testing purposes in their testing environment. Always
-            make sure to follow best security practices and avoid using real
-            payment information for testing.
+            Please note that this entire process is designed solely for API
+            demonstration purposes. When you input your email, it will be
+            registered for the newsletter; however, please be aware that no
+            promotional emails will be sent. This lack of promotional emails is
+            intentional and designed for clear reasons. Feel free to explore the
+            functionality of the Mailchimp API in this controlled setting.
           </p>
         </div>
         <div className="mb-4">
-          <div>
+          <div className="flex items-center">
             <label className="dark:text-mainBg " htmlFor="RegisterEmail">
               {" "}
               Email:{" "}
@@ -180,6 +186,28 @@ function Stripe() {
               required
               pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
             />
+            <div className="text-center text-base  ">
+              <p>Verified</p>
+              <button
+                onClick={() => {
+                  setToggleClick(!toggleCLick);
+                  if (dataBody.status == "subscribed") {
+                    dataBody.status = "pending";
+                  } else {
+                    dataBody.status = "subscribed";
+                  }
+                }}
+                className="flex justify-center mx-auto cursor-pointer relative w-6 h-11 dark:bg-dBrand bg-mainBg overflow-hidden border-dBrand dark:border-mainBg  border-2 rounded-[999px]"
+                aria-label="Dark Mode Switch"
+              >
+                <div
+                  className={`absolute w-5 h-5 dark:bg-mainBg border-[1px] duration-300 border-dBrand dark:border-mainBg rounded-[999px] ${
+                    toggleCLick ? "translate-y-full" : ""
+                  } bg-lBrand`}
+                ></div>
+              </button>
+              <p>Un-Verified</p>
+            </div>
           </div>
           <button
             name="send"

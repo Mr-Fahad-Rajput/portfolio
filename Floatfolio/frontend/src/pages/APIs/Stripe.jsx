@@ -1,11 +1,14 @@
+import { useEffect, useState } from "react";
+
 import stripeIcon from "./stripe.svg";
 import p1 from "./p1.svg";
 import p2 from "./p2.svg";
 import sent from "../../assets/sent.svg";
 import notSent from "../../assets/notsent.svg";
+
 import Card from "../components/CardOne";
-import { useEffect, useState } from "react";
 import AlertBox from "../components/AlertBox";
+
 function Stripe() {
   let [quantity, setQuantity] = useState(1);
   const [alertImg, setAlertImg] = useState(sent);
@@ -99,17 +102,18 @@ function Stripe() {
           window.location = redirectUrl;
         })
         .catch((error) => {
-            setAlertImg(notSent);
-          if (error.toString().includes("Failed to fetch")){ 
+          setAlertImg(notSent);
+          if (error.toString().includes("Failed to fetch")) {
             setResponseStatus({
-                status: true,
-                text: "Can't Connect To the Server! Check Your Internet Connection",
+              status: true,
+              text: "Can't Connect To the Server! Check Your Internet Connection",
             });
-            }
-         else{setResponseStatus({
-                  status: true,
-                  text: error.toString(),
-              });}
+          } else {
+            setResponseStatus({
+              status: true,
+              text: error.toString(),
+            });
+          }
         })
         .finally(() => {
           setIsLoading(false);
@@ -128,11 +132,13 @@ function Stripe() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className="inline-flex w-64  md:float-left place-items-center">
-            <img
-              src={stripeIcon}
-              alt="Credit Card Ilustration"
-              className=" w-64 h-56 hover:scale-110 transform duration-500 cursor-pointer"
-            />
+            <a href="https://stripe.com/">
+              <img
+                src={stripeIcon}
+                alt="Credit Card Ilustration"
+                className=" w-64 h-56 hover:scale-110 transform duration-500 cursor-pointer"
+              />
+            </a>
           </div>
           <div className="overflow-hidden pt-2 mx-2  cursor-default">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
@@ -144,28 +150,48 @@ function Stripe() {
               demonstrate the API integration. The products displayed are for
               illustrative purposes only and do not represent actual offerings.
               The &rsquo;Dummy cart&rsquo; allows you to adjust product
-              quantities, but you cannot add or remove Products.  This integration
-              highlights my ability to incorporate external payment gateways
-              into web applications, ensuring a seamless user experience.
+              quantities, but you cannot add or remove Products. This
+              integration highlights my ability to incorporate external payment
+              gateways into web applications, ensuring a seamless user
+              experience. For More Information About Stripe click on the Logo to The Left.
             </p>
           </div>
         </div>
-          <AlertBox
-            responseStatus={responseStatus}
-            msgImg={alertImg}
-            className="top-0"
-          />
-            <div className="mx-2 text-center md:px-10 cursor-default"><h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">How To</h3>
-            <p className=" mt-3 mx-auto text-justify"> When you click
-              the &rsquo;Checkout&rsquo; button, you&rsquo;ll be directed to the
-              Stripe API&rsquo;s checkout process. To simulate different scenarios during testing, you can use the following card numbers along with the respective details:<br/><br/>
-              <b>For Success</b>: Use card number &#34;4242 4242 4242 4242. This will simulate a successful payment.<br/>
-              <b>For Failure</b>: Use card number 4000 0000 0000 9995. This will simulate a failed payment.<br/>
-              <b>Success with Verification</b>: Use card number 4000 0000 0000 9995. This will simulate a failed payment.<br/><br/>
-              Feel free to enter any valid expiration date, CVV, and postal code when prompted.
-Please note that these card numbers are provided by Stripe for testing purposes in their testing environment. Always make sure to follow best security practices and avoid using real payment information for testing.
-             </p></div >
-         
+        <AlertBox
+          responseStatus={responseStatus}
+          msgImg={alertImg}
+          className="top-0"
+        />
+        <div className="mx-2 text-center md:px-10 cursor-default">
+          <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+            How To
+          </h3>
+          <p className=" mt-3 mx-auto text-justify">
+            {" "}
+            When you click the &rsquo;Checkout&rsquo; button, you&rsquo;ll be
+            directed to the Stripe API&rsquo;s checkout process. To simulate
+            different scenarios during testing, you can use the following card
+            numbers along with the respective details:
+            <br />
+            <br />
+            <b>For Success</b>: Use card number &#34;4242 4242 4242 4242. This
+            will simulate a successful payment.
+            <br />
+            <b>For Failure</b>: Use card number 4000 0000 0000 9995. This will
+            simulate a failed payment.
+            <br />
+            <b>Success with Verification</b>: Use card number 4000 0000 0000
+            9995. This will simulate a failed payment.
+            <br />
+            <br />
+            Feel free to enter any valid expiration date, CVV, and postal code
+            when prompted. Please note that these card numbers are provided by
+            Stripe for testing purposes in their testing environment. Always
+            make sure to follow best security practices and avoid using real
+            payment information for testing.
+          </p>
+        </div>
+
         <div className="bg-secondaryBg dark:bg-balBrand rounded-lg m-2 md:flex w-full justify-around">
           <Card
             cardImg={p1}
