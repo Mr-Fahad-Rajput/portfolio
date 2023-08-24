@@ -95,6 +95,7 @@ function SignUp() {
                       name="username"
                       value={user.username}
                       onChange={handleInput}
+                      required
                     />
                   </div>
                   <AlertBox
@@ -118,6 +119,8 @@ function SignUp() {
                       name="email"
                       value={user.email}
                       onChange={handleInput}
+                      required
+                      pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
                     />
                   </div>
                   <div className="mb-4">
@@ -135,6 +138,7 @@ function SignUp() {
                       name="password"
                       value={user.password}
                       onChange={handleInput}
+                      required
                     />
                   </div>
                   <div className="mb-4">

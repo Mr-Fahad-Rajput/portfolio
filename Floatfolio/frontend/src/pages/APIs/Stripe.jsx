@@ -131,10 +131,10 @@ function Stripe() {
             <img
               src={stripeIcon}
               alt="Credit Card Ilustration"
-              className=" w-64 h-56 hover:scale-110 transform duration-500"
+              className=" w-64 h-56 hover:scale-110 transform duration-500 cursor-pointer"
             />
           </div>
-          <div className="overflow-hidden pt-2 mx-2 ">
+          <div className="overflow-hidden pt-2 mx-2  cursor-default">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Stripe API Integration
             </h1>
@@ -155,7 +155,7 @@ function Stripe() {
             msgImg={alertImg}
             className="top-0"
           />
-            <div className="mx-2 text-center md:px-10"><h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">How To</h3>
+            <div className="mx-2 text-center md:px-10 cursor-default"><h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">How To</h3>
             <p className=" mt-3 mx-auto text-justify"> When you click
               the &rsquo;Checkout&rsquo; button, you&rsquo;ll be directed to the
               Stripe API&rsquo;s checkout process. To simulate different scenarios during testing, you can use the following card numbers along with the respective details:<br/><br/>

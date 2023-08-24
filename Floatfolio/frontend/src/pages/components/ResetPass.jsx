@@ -43,6 +43,7 @@ function ResetPass() {
                       type="email"
                       className=" inp"
                       placeholder="name@example.com"
+                      required
                     />
                   </div>
                   <div className="mb-4"></div>

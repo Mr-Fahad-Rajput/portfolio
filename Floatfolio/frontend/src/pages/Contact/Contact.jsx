@@ -189,6 +189,7 @@ function Contact() {
                         name="name"
                         value={msg.name}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                   </div>
@@ -205,6 +206,8 @@ function Contact() {
                         name="email"
                         value={msg.email}
                         onChange={handleChange}
+                        required
+                        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
                       />
                     </div>
                   </div>
@@ -241,6 +244,7 @@ function Contact() {
                         name="message"
                         value={msg.message}
                         onChange={handleChange}
+                        required
                       ></textarea>
                     </div>
                   </div>

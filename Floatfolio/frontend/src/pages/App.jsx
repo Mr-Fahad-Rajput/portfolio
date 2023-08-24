@@ -7,11 +7,14 @@ import Dark from "./components/Dark.jsx";
 import ProtectedRoutes from "../ProtectedRoutes.jsx";
 
 const Home = lazy(() => import("./Home.jsx"));
-const Projects = lazy(() => import("./Projects.jsx"));
-const APIs = lazy(() => import("./APIs/APIs.jsx"));
-const Stripe = lazy(() => import("./APIs/Stripe.jsx"));
 const About = lazy(() => import("./About/About.jsx"));
 const Contact = lazy(() => import("./Contact/Contact.jsx"));
+const Projects = lazy(() => import("./Projects.jsx"));
+// APIs
+const APIs = lazy(() => import("./APIs/APIs.jsx"));
+const Stripe = lazy(() => import("./APIs/Stripe.jsx"));
+const MailChimp = lazy(() => import("./APIs/MailChimp.jsx"));
+// User Accounts
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
 const SignIn = lazy(() => import("./components/SignIn.jsx"));
 const SignUp = lazy(() => import("./components/SignUp.jsx"));
@@ -31,8 +34,11 @@ function App() {
             <Route exact path="/about" element={<About />} />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/projects" element={<Projects />} />
+            {/* APIs */}
             <Route exact path="/apis" element={<APIs />} />
             <Route exact path="/stripe" element={<Stripe />} />
+            <Route exact path="/mailchimp" element={<MailChimp />} />
+            {/* Site User Accont */}
             <Route exact path="/signin" element={<SignIn />} />
             <Route
               exact
