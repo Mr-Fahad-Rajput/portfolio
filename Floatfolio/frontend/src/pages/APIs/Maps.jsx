@@ -10,6 +10,7 @@ import {
   Marker,
   Autocomplete,
   DirectionsRenderer,
+  useLoadScript
 } from "@react-google-maps/api";
 import Loader from "../components/Loader";
 var center = { lat: 48.8584, lng: 2.2945 };
@@ -55,6 +56,25 @@ function Stripe() {
     setDuration("");
     origin.current.value = "";
     destination.current.value = "";
+  }
+  function getCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          console.log("Current Latitude:", lat);
+          console.log("Current Longitude:", lng);
+  
+          // You can now use lat and lng as needed.
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }
   function getOriginCenter() {
     if (autocompleteRef.current) {
@@ -203,8 +223,7 @@ function Stripe() {
                 alt="recenter button"
                 className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
                 onClick={() => {
-                  getOriginCenter();
-                  mapState.panTo(center);
+                  getCurrentLocation();
                 }}
               />
             </div>
