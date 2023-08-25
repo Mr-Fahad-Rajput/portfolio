@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import mapIcon from "./maps.svg";
+import navigateIcon from "./navigate.svg";
 import centerIcon from "./recenter.svg";
 
 import {
@@ -22,6 +23,7 @@ function Stripe() {
   const origin = useRef();
   /** @type ReactMutableRefObject<HTMLInputElements>*/
   const destination = useRef();
+  const autocompleteRef = useRef(null);
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_MAPS_API,
@@ -53,6 +55,20 @@ function Stripe() {
     setDuration("");
     origin.current.value = "";
     destination.current.value = "";
+  }
+  function getOriginCenter() {
+    if (autocompleteRef.current) {
+      const selectedPlace = autocompleteRef.current.getPlace();
+
+      if (selectedPlace.geometry && selectedPlace.geometry.location) {
+        const olat = selectedPlace.geometry.location.lat();
+        const olng = selectedPlace.geometry.location.lng();
+        center = { lat: olat, lng: olng };
+
+        console.log("Latitude:", olat);
+        console.log("Longitude:", olng);
+      }
+    }
   }
   return (
     <>
@@ -123,7 +139,7 @@ function Stripe() {
               >
                 Origin:
               </label>
-              <Autocomplete>
+              <Autocomplete onLoad={autocomplete => (autocompleteRef.current = autocomplete)}>
                 <input
                   type="text"
                   id="Origin"
@@ -150,35 +166,49 @@ function Stripe() {
                 />
               </Autocomplete>
             </div>
-            <div className="btn p-4 ">
-                <button onClick={()=>{calculateRoute()}} className="mx-auto" aria-label="Calculate Distance">
-                    Calculate
-                </button>
+            <div className="btn flex flex-row">
+              <button
+                onClick={() => {
+                  calculateRoute();
+                }}
+                className="mx-auto text-lg font-semibold"
+                aria-label="Calculate Distance"
+              >
+                Navigate
+              </button>
+              <img src={navigateIcon} alt="Navigate" className="h-12 w-12" />
             </div>
           </div>
-            <div className="flex flex-row justify-evenly w-full m-2">
-              <div className="flex flex-row w-5/12">
-                <h4 className=" m-auto text-lg font-semibold text-dBrand">
-                  Distance:
-                </h4>
-                <span className=" m-auto text-center border-b-2 text-dBrand border-dBrand w-full text-2xl font-semibold">{distance}</span>
-              </div>
-              <div className="flex flex-row w-5/12">
-                <h4 className=" m-auto text-lg font-semibold text-dBrand">
-                  Duration:
-                </h4>
-                <span className=" m-auto text-center border-b-2  text-dBrand border-dBrand w-full text-2xl font-semibold">{duration}</span>
-              </div>
-              <div className="my-auto rounded-[999px] h-10 w-10 bg-lBrand hover:bg-mainBg dark:bg-mainBg dark:hover:bg-lBrand  border-2 border-dBrand text-dBrand">
-                <img
-                  src={centerIcon}
-                  alt="recenter"
-                  className="h-10 w-10"
-                  onClick={() => mapState.panTo(center)}
-                />
-              </div>
+          <div className="flex flex-row justify-evenly w-full m-2">
+            <div className="flex flex-row w-5/12">
+              <h4 className=" m-auto text-lg font-semibold text-dBrand">
+                Distance:
+              </h4>
+              <span className=" m-auto text-center border-b-2 text-dBrand border-dBrand w-full text-2xl font-semibold">
+                {distance}
+              </span>
+            </div>
+            <div className="flex flex-row w-5/12">
+              <h4 className=" m-auto text-lg font-semibold text-dBrand">
+                Duration:
+              </h4>
+              <span className=" m-auto text-center border-b-2  text-dBrand border-dBrand w-full text-2xl font-semibold">
+                {duration}
+              </span>
             </div>
           </div>
+            <div className="m-auto bg-lBrand dark:hover:bg-lBrand text-dBrand">
+              <img
+                src={centerIcon}
+                alt="recenter button"
+                className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
+                onClick={() => {
+                  getOriginCenter();
+                  mapState.panTo(center);
+                }}
+              />
+            </div>
+        </div>
         <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2 p-2 w-full h-[80vh]">
           <GoogleMap
             center={center}
