@@ -5,9 +5,9 @@ const DivApi = (props) => {
     // eslint-disable-next-line 
   const { divImg, divHeading, description, difficulty, route } = props;
   return (
-    <div onClick={()=>{navigate(route) } }className="rounded-lg m-2 border-2 border-dBrand dark:border-mainBg hover:scale-110 dark:bg-mainBg bg-lBrand p-2 transform duration-500">
+    <div onClick={()=>{navigate(route) } }className="tracking-tight rounded-lg m-2 border-2 border-dBrand dark:border-mainBg hover:scale-110 dark:bg-mainBg bg-lBrand p-2 transform duration-500 ">
       <img
-        className="rounded-lg md:h-[170px] m-auto"
+        className="rounded-lg h-[170px] m-auto"
         src={divImg}
         alt="API Image"
       />
@@ -15,7 +15,7 @@ const DivApi = (props) => {
         <h5 className=" text-2xl font-bold text-balBrand tracking-tight mb-2">
           {divHeading}
         </h5>
-        <p className="text-base font-medium text-dBrand text-justify ">
+        <p className="text-base font-medium text-dBrand text-justify">
           {description}
         </p>
         <div className="m-auto h-auto w-full ">
