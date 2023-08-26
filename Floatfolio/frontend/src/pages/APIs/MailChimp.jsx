@@ -6,7 +6,7 @@ import notSent from "../../assets/notsent.svg";
 
 import AlertBox from "../components/AlertBox";
 
-function Stripe() {
+function MailChimp() {
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
   const [toggleCLick, setToggleClick] = useState(false);
@@ -253,4 +253,4 @@ function Stripe() {
     </>
   );
 }
-export default Stripe;
+export default MailChimp;

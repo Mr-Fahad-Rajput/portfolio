@@ -10,26 +10,60 @@ import {
   Marker,
   Autocomplete,
   DirectionsRenderer,
-  useLoadScript
+  useLoadScript,
 } from "@react-google-maps/api";
 import Loader from "../components/Loader";
-var center = { lat: 48.8584, lng: 2.2945 };
 
-function Stripe() {
+function Maps() {
+  const [center, setCenter] = useState({ lat: 48.8584, lng: 2.2945 });
   const [mapState, setMapState] = useState(/** @type google.maps.Map*/ (null));
   const [directionResponse, setDirectionResponse] = useState(null);
   const [duration, setDuration] = useState("");
   const [distance, setDistance] = useState("");
+  const [zoom, setZoom] = useState(15);
+  const [mapType, setMapType] = useState("roadmap");
+  const [navIsLoading, setNavIsLoading] = useState(false);
   /** @type ReactMutableRefObject<HTMLInputElements>*/
   const origin = useRef();
   /** @type ReactMutableRefObject<HTMLInputElements>*/
   const destination = useRef();
   const autocompleteRef = useRef(null);
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          setCenter({ lat: lat, lng: lng });
+          // You can now use lat and lng as needed.
+          mapState.panTo({ lat: lat, lng: lng });
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error.message);
+          if (error.code === error.PERMISSION_DENIED) {
+            console.error("User denied geolocation access.");
+          } else if (error.code === error.POSITION_UNAVAILABLE) {
+            console.error("Location information is unavailable.");
+          } else if (error.code === error.TIMEOUT) {
+            console.error("The request to get user location timed out.");
+          } else {
+            console.error("An unknown error occurred:", error);
+        }
+    }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
 
+  useEffect(() => {
+    getCurrentLocation();
+  }, []);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_MAPS_API,
     libraries: ["places"],
   });
+
   if (!isLoaded) {
     return <Loader />;
   }
@@ -37,6 +71,7 @@ function Stripe() {
     if (origin.current.value === "" || destination.current.value === "") {
       return;
     }
+    setNavIsLoading(true);
     //eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
     const results = await directionsService.route({
@@ -49,6 +84,7 @@ function Stripe() {
     setDistance(results.routes[0].legs[0].distance.text);
     setDuration(results.routes[0].legs[0].duration.text);
     console.log(duration, distance);
+    setNavIsLoading(false);
   }
   function clearRoute() {
     setDirectionResponse(null);
@@ -57,39 +93,38 @@ function Stripe() {
     origin.current.value = "";
     destination.current.value = "";
   }
-  function getCurrentLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-          console.log("Current Latitude:", lat);
-          console.log("Current Longitude:", lng);
   
-          // You can now use lat and lng as needed.
-        },
-        (error) => {
-          console.error("Error getting geolocation:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  }
   function getOriginCenter() {
+    if (origin.current.value === "") {
+        window.alert("Origin Missing");
+        return;
+      }
     if (autocompleteRef.current) {
       const selectedPlace = autocompleteRef.current.getPlace();
 
       if (selectedPlace.geometry && selectedPlace.geometry.location) {
         const olat = selectedPlace.geometry.location.lat();
         const olng = selectedPlace.geometry.location.lng();
-        center = { lat: olat, lng: olng };
-
-        console.log("Latitude:", olat);
-        console.log("Longitude:", olng);
+        mapState.panTo({lat:olat,lng:olng})
       }
     }
   }
+  function handleZoomIn() {
+    setZoom((prevZoom) => prevZoom + 1); // Increase the zoom level.
+  }
+
+  function handleZoomOut() {
+    setZoom((prevZoom) => Math.max(prevZoom - 1, 1)); // Decrease the zoom level, but ensure it's not less than 1.
+  }
+
+  function switchToRoadmap() {
+    setMapType("roadmap"); // Set the map type to "roadmap".
+  }
+  
+  function switchToSatellite() {
+    setMapType("satellite"); // Set the map type to "satellite".
+  }
+
   return (
     <>
       <section className="mainContent">
@@ -159,7 +194,11 @@ function Stripe() {
               >
                 Origin:
               </label>
-              <Autocomplete onLoad={autocomplete => (autocompleteRef.current = autocomplete)}>
+              <Autocomplete
+                onLoad={(autocomplete) =>
+                  (autocompleteRef.current = autocomplete)
+                }
+              >
                 <input
                   type="text"
                   id="Origin"
@@ -194,9 +233,37 @@ function Stripe() {
                 className="mx-auto text-lg font-semibold"
                 aria-label="Calculate Distance"
               >
-                Navigate
+               {navIsLoading ? (
+              <div className="flex items-center">
+                <div className="animate-spin mr-2">
+                  <svg
+                    className="w-5 h-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-100 "
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="#FEFAE6"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="#471AA0"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </div>
+                Navigating...
+              </div>
+            ) : (
+              "Navigate"
+            )}
               </button>
-              <img src={navigateIcon} alt="Navigate" className="h-12 w-12" />
+              {navIsLoading ? <p className="h-12"></p> : <img src={navigateIcon} alt="Navigate" className="h-12 w-12" />}
             </div>
           </div>
           <div className="flex flex-row justify-evenly w-full m-2">
@@ -217,25 +284,34 @@ function Stripe() {
               </span>
             </div>
           </div>
-            <div className="m-auto bg-lBrand dark:hover:bg-lBrand text-dBrand">
-              <img
-                src={centerIcon}
-                alt="recenter button"
-                className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
-                onClick={() => {
-                  getCurrentLocation();
-                }}
-              />
-            </div>
+          <div className="m-auto bg-lBrand dark:hover:bg-lBrand text-dBrand flex flex-row">
+          <button onClick={handleZoomIn}>Zoom In</button>
+          <button onClick={handleZoomOut}>Zoom Out</button>
+            <img
+              src={centerIcon}
+              alt="recenter button"
+              className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
+              onClick={() => {
+                getOriginCenter();
+              }}
+            />
+          <button onClick={switchToRoadmap}>Roadmap</button>
+  <button onClick={switchToSatellite}>Satellite</button>
+          </div>
         </div>
         <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2 p-2 w-full h-[80vh]">
           <GoogleMap
             center={center}
-            zoom={15}
+            zoom={zoom}
+            mapTypeId={mapType}
+            options={{
+                zoomControl: false,
+                mapTypeControl: false
+            }}
             mapContainerStyle={{ width: "100%", height: "100%" }}
             onLoad={(map) => setMapState(map)}
           >
-            <Marker position={origin} />
+            <Marker position={center} />
             {directionResponse && (
               <DirectionsRenderer directions={directionResponse} />
             )}
@@ -245,4 +321,4 @@ function Stripe() {
     </>
   );
 }
-export default Stripe;
+export default Maps;
