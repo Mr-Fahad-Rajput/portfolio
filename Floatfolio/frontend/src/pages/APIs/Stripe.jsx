@@ -67,7 +67,6 @@ function Stripe() {
     ]);
   }
 
-  let [total, setTotal] = useState(quantity * 50 + (quantity + 1) * 10);
   function incrementquantity() {
     quantity = quantity + 1;
     setQuantity(quantity);
@@ -82,6 +81,7 @@ function Stripe() {
       setProductQuantities();
     } else alert("Both Product's Quantity Can't Be Zero");
   }
+  let [total, setTotal] = useState(quantity * 50 + (quantity + 1) * 10);
   // Backend Implementation
   const handleAPIcalls = async () => {
     setIsLoading(true);
@@ -127,6 +127,7 @@ function Stripe() {
       console.error("Error importing handleSubmit:", error);
     }
   };
+
   return (
     <>
       <section className="mainContent">
@@ -153,7 +154,8 @@ function Stripe() {
               quantities, but you cannot add or remove Products. This
               integration highlights my ability to incorporate external payment
               gateways into web applications, ensuring a seamless user
-              experience. For More Information About Stripe click on the Logo to The Left.
+              experience. For More Information About Stripe click on the Logo to
+              The Left.
             </p>
           </div>
         </div>
@@ -164,7 +166,7 @@ function Stripe() {
         />
         <div className="mx-2 text-center md:px-10 cursor-default">
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-            How To
+            How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify">
             {" "}

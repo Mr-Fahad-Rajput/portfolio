@@ -178,7 +178,7 @@ function Maps() {
         </div>
         <div className="mx-2 text-center md:px-10">
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-            How To
+            How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify tracking-tighter ">
             This component serves as a dynamic map interface integrated with the

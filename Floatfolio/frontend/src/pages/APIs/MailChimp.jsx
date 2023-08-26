@@ -9,14 +9,15 @@ import AlertBox from "../components/AlertBox";
 function MailChimp() {
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
+  const [responseStatus, setResponseStatus] = useState({
+    status: false,
+    text: "",
+  });
+
   const [toggleCLick, setToggleClick] = useState(false);
   let [dataBody, setDataBody] = useState({
     email: "",
     status: "pending",
-  });
-  const [responseStatus, setResponseStatus] = useState({
-    status: false,
-    text: "",
   });
   useEffect(() => {
     const hashFragment = window.location.hash;
@@ -103,6 +104,7 @@ function MailChimp() {
       console.error("Error importing handleSubmit:", error);
     }
   };
+
   return (
     <>
       <section className="mainContent">
@@ -147,7 +149,7 @@ function MailChimp() {
         />
         <div className="mx-2 text-center md:px-10">
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-            How To
+            How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify">
             {" "}
