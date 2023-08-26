@@ -1,9 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-
-import mapIcon from "./maps.svg";
-import navigateIcon from "./navigate.svg";
-import centerIcon from "./recenter.svg";
-
 import {
   useJsApiLoader,
   GoogleMap,
@@ -12,61 +7,73 @@ import {
   DirectionsRenderer,
   useLoadScript,
 } from "@react-google-maps/api";
+
+import mapIcon from "./maps.svg";
+import navigateIcon from "./navigate.svg";
+import centerIcon from "./recenter.svg";
+import clearIcon from "./clear.svg";
+import zoomInIcon from "./zoom-in.svg";
+import zoomOutIcon from "./zoom-out.svg";
+import satelliteIcon from "./satellite.svg";
+import roadMapIcon from "./roadMap.svg";
+
 import Loader from "../components/Loader";
 
 function Maps() {
   const [center, setCenter] = useState({ lat: 48.8584, lng: 2.2945 });
   const [mapState, setMapState] = useState(/** @type google.maps.Map*/ (null));
+
   const [directionResponse, setDirectionResponse] = useState(null);
   const [duration, setDuration] = useState("");
   const [distance, setDistance] = useState("");
-  const [zoom, setZoom] = useState(15);
-  const [mapType, setMapType] = useState("roadmap");
-  const [navIsLoading, setNavIsLoading] = useState(false);
   /** @type ReactMutableRefObject<HTMLInputElements>*/
   const origin = useRef();
   /** @type ReactMutableRefObject<HTMLInputElements>*/
   const destination = useRef();
   const autocompleteRef = useRef(null);
-  const getCurrentLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-          setCenter({ lat: lat, lng: lng });
-          // You can now use lat and lng as needed.
-          mapState.panTo({ lat: lat, lng: lng });
-        },
-        (error) => {
-          console.error("Error getting geolocation:", error.message);
-          if (error.code === error.PERMISSION_DENIED) {
-            console.error("User denied geolocation access.");
-          } else if (error.code === error.POSITION_UNAVAILABLE) {
-            console.error("Location information is unavailable.");
-          } else if (error.code === error.TIMEOUT) {
-            console.error("The request to get user location timed out.");
-          } else {
-            console.error("An unknown error occurred:", error);
-        }
-    }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  };
+  
+  const [zoom, setZoom] = useState(15);
+  const [mapType, setMapType] = useState("roadmap");
+  const [navIsLoading, setNavIsLoading] = useState(false);
 
   useEffect(() => {
+    const getCurrentLocation = () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const lat = position.coords.latitude;
+              const lng = position.coords.longitude;
+              setCenter({ lat: lat, lng: lng });
+              mapState.panTo({ lat: lat, lng: lng });
+            },
+            (error) => {
+              console.error("Error getting geolocation:", error.message);
+              if (error.code === error.PERMISSION_DENIED) {
+                console.error("User denied geolocation access.");
+              } else if (error.code === error.POSITION_UNAVAILABLE) {
+                console.error("Location information is unavailable.");
+              } else if (error.code === error.TIMEOUT) {
+                console.error("The request to get user location timed out.");
+              } else {
+                console.error("An unknown error occurred:", error);
+              }
+            }
+          );
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+        }
+      };
     getCurrentLocation();
-  }, []);
+  }, [mapState]);
+
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_MAPS_API,
     libraries: ["places"],
   });
-
   if (!isLoaded) {
     return <Loader />;
   }
+
   async function calculateRoute() {
     if (origin.current.value === "" || destination.current.value === "") {
       return;
@@ -86,6 +93,7 @@ function Maps() {
     console.log(duration, distance);
     setNavIsLoading(false);
   }
+
   function clearRoute() {
     setDirectionResponse(null);
     setDistance("");
@@ -93,43 +101,42 @@ function Maps() {
     origin.current.value = "";
     destination.current.value = "";
   }
-  
+
   function getOriginCenter() {
     if (origin.current.value === "") {
-        window.alert("Origin Missing");
-        return;
-      }
+      window.alert("Origin Missing");
+      return;
+    }
     if (autocompleteRef.current) {
       const selectedPlace = autocompleteRef.current.getPlace();
 
       if (selectedPlace.geometry && selectedPlace.geometry.location) {
         const olat = selectedPlace.geometry.location.lat();
         const olng = selectedPlace.geometry.location.lng();
-        mapState.panTo({lat:olat,lng:olng})
+        mapState.panTo({ lat: olat, lng: olng });
       }
     }
   }
-  function handleZoomIn() {
-    setZoom((prevZoom) => prevZoom + 1); // Increase the zoom level.
-  }
 
+  function handleZoomIn() {
+    setZoom((prevZoom) => prevZoom + 1); 
+  }
   function handleZoomOut() {
-    setZoom((prevZoom) => Math.max(prevZoom - 1, 1)); // Decrease the zoom level, but ensure it's not less than 1.
+    setZoom((prevZoom) => Math.max(prevZoom - 1, 1));
   }
 
   function switchToRoadmap() {
-    setMapType("roadmap"); // Set the map type to "roadmap".
+    setMapType("roadmap"); 
   }
-  
   function switchToSatellite() {
-    setMapType("satellite"); // Set the map type to "satellite".
+    setMapType("satellite"); 
   }
 
   return (
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 md:my-20 h-full md:float-left place-items-center">
+          <div className=" inline-flex w-64 md:my-20 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg">
             <a href="https://www.google.com/maps">
               <img
                 src={mapIcon}
@@ -142,7 +149,7 @@ function Maps() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Google Maps API
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tight">
+            <p className=" mt-3 mx-auto text-justify tracking-tighter">
               The Google Maps API offers a powerful tool for businesses to
               seamlessly integrate interactive maps and location-based services
               into their websites and applications. With this API, businesses
@@ -173,16 +180,45 @@ function Maps() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To
           </h3>
-          <p className=" mt-3 mx-auto text-justify">
-            {" "}
-            To interact with the Mailchimp API, follow these simple steps. Begin
-            by entering your email address into the designated email input
-            field. You&rsquo;ll notice two subscription options available. If
-            you toggle the button to &quot;verified&quot;, the system will
-            initiate a verification email before finalizing the subscription on
-            the Mailchimp site. Conversely, toggling to &quot;unverified&quot;
-            will result in a direct subscription without requiring a
-            confirmation email.
+          <p className=" mt-3 mx-auto text-justify tracking-tighter ">
+            This component serves as a dynamic map interface integrated with the
+            Google Maps API, showcasing a variety of functionalities. It&rsquo;s
+            important to note that the Google Maps API offers a wide array of
+            capabilities beyond those presented here.Please bear in mind that
+            this guide focuses on core functionalities for demonstration
+            purposes. The practical implementation can be expanded to create a
+            comprehensive and feature-rich map experience tailored to specific
+            use cases. The core features of this component are explained below:
+            <br />
+            <br />
+            <u>
+              <b>Navigation:</b>
+            </u>
+            In the &quot;Navigation&quot; section, you can input both the
+            starting and ending points for navigation. Simply enter the desired
+            origin and destination locations in the corresponding input fields.
+            After inputting the locations, clicking the &quot;Navigate&quot;
+            button will calculate the route between them.
+            <br />
+            <u>
+              <b>Origin Button:</b>
+            </u>
+            The Origin button is designed to recenter the map to the initial
+            origin point, allowing you to swiftly return to your starting point
+            during navigation. It&rsquo;s worth mentioning that the Origin
+            button necessitates valid origin input to operate. If the input
+            fields are empty, the Origin button will have no effect.
+            <br />
+            <u>
+              <b>Geolocation:</b>
+            </u>
+            The component includes geolocation functionality that depends on the
+            user granting permission upon site loading. With geolocation
+            permission granted, you can make use of features such as centering
+            the map on your current location. If permission is declined, the
+            geolocation features will not be accessible. However, you can test
+            these functionalities in an incognito browser session, where you can
+            grant or deny permissions as required.
           </p>
         </div>
         <div className="bg-lBrand rounded-lg m-2 md:grid md:grid-flow-row w-full p-2">
@@ -233,37 +269,41 @@ function Maps() {
                 className="mx-auto text-lg font-semibold"
                 aria-label="Calculate Distance"
               >
-               {navIsLoading ? (
-              <div className="flex items-center">
-                <div className="animate-spin mr-2">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-100 "
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="#FEFAE6"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="#471AA0"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
-                Navigating...
-              </div>
-            ) : (
-              "Navigate"
-            )}
+                {navIsLoading ? (
+                  <div className="flex items-center">
+                    <div className="animate-spin mr-2">
+                      <svg
+                        className="w-5 h-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-100 "
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="#FEFAE6"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="#471AA0"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                    </div>
+                    Navigating...
+                  </div>
+                ) : (
+                  "Navigate"
+                )}
               </button>
-              {navIsLoading ? <p className="h-12"></p> : <img src={navigateIcon} alt="Navigate" className="h-12 w-12" />}
+              {navIsLoading ? (
+                <p className="h-12"></p>
+              ) : (
+                <img src={navigateIcon} alt="Navigate" className="h-12 w-12" />
+              )}
             </div>
           </div>
           <div className="flex flex-row justify-evenly w-full m-2">
@@ -284,19 +324,71 @@ function Maps() {
               </span>
             </div>
           </div>
-          <div className="m-auto bg-lBrand dark:hover:bg-lBrand text-dBrand flex flex-row">
-          <button onClick={handleZoomIn}>Zoom In</button>
-          <button onClick={handleZoomOut}>Zoom Out</button>
-            <img
-              src={centerIcon}
-              alt="recenter button"
-              className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
-              onClick={() => {
-                getOriginCenter();
-              }}
-            />
-          <button onClick={switchToRoadmap}>Roadmap</button>
-  <button onClick={switchToSatellite}>Satellite</button>
+          <div className="m-auto w-full bg-mainBg rounded-lg text-dBrand flex flex-row justify-evenly">
+            <div className="">
+              <div className="flex flex-row">
+                <img
+                  src={zoomInIcon}
+                  alt="Zoom In Button"
+                  className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
+                  onClick={handleZoomIn}
+                />
+                <img
+                  src={zoomOutIcon}
+                  alt="Zoom Out Button"
+                  className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
+                  onClick={handleZoomOut}
+                />
+              </div>
+              <h4 className=" m-auto text-center text-xs font-semibold text-dBrand">
+                Zoom
+              </h4>
+            </div>
+            <div>
+              <img
+                src={centerIcon}
+                alt="recenter button"
+                className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
+                onClick={() => {
+                  getOriginCenter();
+                }}
+              />
+              <h4 className=" m-auto text-center text-xs font-semibold text-dBrand">
+                Origin
+              </h4>
+            </div>
+            <div>
+              <img
+                src={clearIcon}
+                alt="Clear Route button"
+                className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
+                onClick={() => {
+                  clearRoute();
+                }}
+              />
+              <h4 className=" m-auto text-center text-xs font-semibold text-dBrand">
+                Clear Route
+              </h4>
+            </div>
+            <div className="">
+              <div className="flex flex-row">
+                <img
+                  src={satelliteIcon}
+                  alt="Satellite button"
+                  className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer p-2"
+                  onClick={switchToSatellite}
+                />
+                <img
+                  src={roadMapIcon}
+                  alt="roadmap button"
+                  className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer p-2"
+                  onClick={switchToRoadmap}
+                />
+              </div>
+              <h4 className=" m-auto text-center text-xs font-semibold text-dBrand">
+                Map Type
+              </h4>
+            </div>
           </div>
         </div>
         <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2 p-2 w-full h-[80vh]">
@@ -305,8 +397,8 @@ function Maps() {
             zoom={zoom}
             mapTypeId={mapType}
             options={{
-                zoomControl: false,
-                mapTypeControl: false
+              zoomControl: false,
+              mapTypeControl: false,
             }}
             mapContainerStyle={{ width: "100%", height: "100%" }}
             onLoad={(map) => setMapState(map)}
