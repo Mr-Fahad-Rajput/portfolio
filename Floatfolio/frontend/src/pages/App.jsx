@@ -12,9 +12,9 @@ const Contact = lazy(() => import("./Contact/Contact.jsx"));
 const Projects = lazy(() => import("./Projects.jsx"));
 // APIs
 const APIs = lazy(() => import("./APIs/APIs.jsx"));
-const Stripe = lazy(() => import("./APIs/Stripe.jsx"));
-const MailChimp = lazy(() => import("./APIs/MailChimp.jsx"));
-const Maps = lazy(() => import("./APIs/Maps.jsx"));
+const Stripe = lazy(() => import("./APIs/Stripe/Stripe.jsx"));
+const MailChimp = lazy(() => import("./APIs/MailChimp/MailChimp.jsx"));
+const Maps = lazy(() => import("./APIs/Maps/Maps.jsx"));
 // User Accounts
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
 const SignIn = lazy(() => import("./components/SignIn.jsx"));

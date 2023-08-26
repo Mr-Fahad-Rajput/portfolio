@@ -17,7 +17,7 @@ import zoomOutIcon from "./zoom-out.svg";
 import satelliteIcon from "./satellite.svg";
 import roadMapIcon from "./roadMap.svg";
 
-import Loader from "../components/Loader";
+import Loader from "../../components/Loader";
 
 function Maps() {
   const [center, setCenter] = useState({ lat: 48.8584, lng: 2.2945 });

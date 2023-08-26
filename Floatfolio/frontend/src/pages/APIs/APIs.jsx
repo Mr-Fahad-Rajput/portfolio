@@ -1,6 +1,6 @@
-import stripeImg from './stripe.svg';
-import mailChimp from './mailChimp.svg';
-import map from './maps.svg';
+import stripeImg from './Stripe/stripe.svg';
+import mailChimp from './MailChimp/mailChimp.svg';
+import map from './Maps/maps.svg';
 
 import DivApi from "./DivApi";
 function APIs() {

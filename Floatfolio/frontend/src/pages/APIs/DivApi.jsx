@@ -15,7 +15,7 @@ const DivApi = (props) => {
         <h5 className=" text-2xl font-bold text-balBrand tracking-tight mb-2">
           {divHeading}
         </h5>
-        <p className="text-base font-medium text-dBrand text-justify">
+        <p className="text-base font-medium text-dBrand text-justify tracking-tight">
           {description}
         </p>
         <div className="m-auto h-auto w-full ">

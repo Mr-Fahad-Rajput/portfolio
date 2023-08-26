@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 import mailIcon from "./mailChimp.svg";
-import sent from "../../assets/sent.svg";
-import notSent from "../../assets/notsent.svg";
+import sent from "../../../assets/sent.svg";
+import notSent from "../../../assets/notsent.svg";
 
-import AlertBox from "../components/AlertBox";
+import AlertBox from "../../components/AlertBox";
 
 function MailChimp() {
   const [alertImg, setAlertImg] = useState(sent);
@@ -61,7 +61,7 @@ function MailChimp() {
   const handleAPIcalls = async () => {
     setIsLoading(true);
     try {
-      const handleSubmitModule = await import("../apiCalls/handleAPI.js");
+      const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
       const handleSubmit = handleSubmitModule.default;
       handleSubmit(dataBody, "mailchimp", "POST")
         .then((res) => {

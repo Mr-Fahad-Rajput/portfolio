@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import stripeIcon from "./stripe.svg";
 import p1 from "./p1.svg";
 import p2 from "./p2.svg";
-import sent from "../../assets/sent.svg";
-import notSent from "../../assets/notsent.svg";
+import sent from "../../../assets/sent.svg";
+import notSent from "../../../assets/notsent.svg";
 
-import Card from "../components/CardOne";
-import AlertBox from "../components/AlertBox";
+import Card from "../../components/CardOne";
+import AlertBox from "../../components/AlertBox";
 
 function Stripe() {
   let [quantity, setQuantity] = useState(1);
@@ -86,7 +86,7 @@ function Stripe() {
   const handleAPIcalls = async () => {
     setIsLoading(true);
     try {
-      const handleSubmitModule = await import("../apiCalls/handleAPI.js");
+      const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
       const handleSubmit = handleSubmitModule.default;
       handleSubmit(dataBody, "stripe", "POST")
         .then((res) => {
