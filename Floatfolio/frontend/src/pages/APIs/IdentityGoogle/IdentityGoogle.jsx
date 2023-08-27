@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 
-import oAuthIcon from "./OAuthGoogle.svg";
+import oAuthIcon from "./gAuthIcon.svg";
 import sent from "../../../assets/sent.svg";
 import notSent from "../../../assets/notsent.svg";
 
 import AlertBox from "../../components/AlertBox";
 
-function OAuthGoogle() {
-    const [isLoading, setIsLoading] = useState(false);
-    const [hasResponse, setHasResponse] = useState(false);
-    const [alertImg, setAlertImg] = useState(sent);
-    const [responseStatus, setResponseStatus] = useState({
-      status: false,
-      text: "",
-    });
+function IdentityGoogle() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasResponse, setHasResponse] = useState(false);
+  const [alertImg, setAlertImg] = useState(sent);
+  const [responseStatus, setResponseStatus] = useState({
+    status: false,
+    text: "",
+  });
   const [user, setUser] = useState(null);
   const [dataBody, setDataBody] = useState({
     name: "",
@@ -72,10 +72,10 @@ function OAuthGoogle() {
     const value = event.target.value;
 
     setDataBody({
-        name: user.name,
-        profileImg: user.picture,
-        email: user.email,
-        comment: value
+      name: user.name,
+      profileImg: user.picture,
+      email: user.email,
+      comment: value,
     });
   };
 
@@ -101,7 +101,7 @@ function OAuthGoogle() {
           setHasResponse(true);
         })
         .catch((error) => {
-        //   setAlertImg(notSent);
+          //   setAlertImg(notSent);
           if (error.toString().includes("Failed to fetch")) {
             setResponseStatus({
               status: true,
@@ -127,13 +127,12 @@ function OAuthGoogle() {
     }
   };
 
-
   return (
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
-            <a href="https://OAuthGoogle.com/">
+            <a href="https://developers.google.com/identity/protocols/oauth2">
               <img
                 src={oAuthIcon}
                 alt="Mail Chimp Ilustration"
@@ -177,69 +176,89 @@ function OAuthGoogle() {
           </h3>
           <p className=" mt-3 mx-auto text-justify">
             {" "}
-            To interact with the OAuthGoogle API, follow these simple steps.
+            Using my Google OAuth Component is easy! Just click the &quot;Sign
+            in with Google&quot; button to log in. Once logged in, you&apos;ll
+            see your photo, name, and email. You can also add a comment in the
+            text field, and it will be stored along with your details in the
+            database. Your comment will be visible on the right-side panel for 6
+            hours. Don&apos;t worry, your email won&apos;t be shown. To log out,
+            just refresh the page or press the logout button.
           </p>
         </div>
         <div className="mb-4">
           {user && (
-            <div className="rounded-lg m-2 transform duration-500 border-2 border-dBrand dark:border-mainBg dark:bg-mainBg bg-lBrand p-2 mx-auto">
-              <img src={user.picture} alt="User Image" className="mx-auto overflow-hidden border-2 border-mainBg dark:border-dBrand items-center rounded-lg bg-balBrand dark:bg-secondaryBg" />
-              <h3 className="inline text-lg font-bold text-dBrand underline">Name:</h3> <p className="inline text-base font-semibold text-dBrand">{user.name}</p>
+            <div className="rounded-lg m-2 transform duration-500 border-2 border-dBrand dark:border-mainBg bg-lBrand p-2 mx-auto">
+              <img
+                src={user.picture}
+                alt="User Image"
+                className="mx-auto overflow-hidden border-2 border-mainBg dark:border-dBrand items-center rounded-lg bg-balBrand dark:bg-secondaryBg"
+              />
+              <h3 className="inline text-lg font-bold text-dBrand underline">
+                Name:
+              </h3>{" "}
+              <p className="inline text-base font-semibold text-dBrand">
+                {user.name}
+              </p>
               <br />
-              <h3 className="inline text-lg font-bold text-dBrand underline">Email:</h3> <p className="inline text-base font-semibold text-dBrand">{user.email}</p>
+              <h3 className="inline text-lg font-bold text-dBrand underline">
+                Email:
+              </h3>{" "}
+              <p className="inline text-base font-semibold text-dBrand">
+                {user.email}
+              </p>
               <div className="mt-2">
-                      <label className="dark:text-mainBg" htmlFor="yourMessage">
-                        Comment:
-                      </label>
-                      <textarea
-                        id="yourMessage"
-                        rows="4"
-                        className="inp w-full"
-                        placeholder="Comment For the Side Panel. Your Email Will Remain Hidden"
-                        name="message"
-                        value={dataBody.comment}
-                        onChange={handleInput}
-                        required
-                      ></textarea>
+                <label className="text-dBrand" htmlFor="yourMessage">
+                  Comment:
+                </label>
+                <textarea
+                  id="yourMessage"
+                  rows="4"
+                  className="inp w-full"
+                  placeholder="Comment For the Side Panel. Your Email Will Remain Hidden"
+                  name="message"
+                  value={dataBody.comment}
+                  onChange={handleInput}
+                  required
+                ></textarea>
                 <button
-                    type="submit"
-                    name="send"
-                    className="p-4 m-1 btn whitespace-nowrap"
-                    disabled={isLoading}
-                    onClick={handleAPIcalls}
-                    aria-label="Send Message Button"
-                  >
-                    {isLoading ? (
-                      <div className="flex items-center">
-                        <div className="animate-spin mr-2">
-                          <svg
-                            className="w-5 h-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-100 "
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="#FEFAE6"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="#471AA0"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
-                        </div>
-                        Adding...
+                  type="submit"
+                  name="send"
+                  className="p-4 m-1 btn whitespace-nowrap mx-auto"
+                  disabled={isLoading}
+                  onClick={handleAPIcalls}
+                  aria-label="Send Message Button"
+                >
+                  {isLoading ? (
+                    <div className="flex items-center">
+                      <div className="animate-spin mr-2">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-100 "
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="#FEFAE6"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="#471AA0"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
                       </div>
-                    ) : (
-                      "Add Comment"
-                    )}
-                  </button>
+                      Adding...
                     </div>
+                  ) : (
+                    "Add Comment"
+                  )}
+                </button>
+              </div>
             </div>
           )}
           {user ? (
@@ -250,7 +269,10 @@ function OAuthGoogle() {
             </div>
           ) : (
             <div>
-              <div className="flex items-center" id="logIn"></div>
+              <div
+                className="flex items-center bg-lBrand rounded-lg m-10 p-4"
+                id="logIn"
+              ></div>
             </div>
           )}
         </div>
@@ -258,4 +280,4 @@ function OAuthGoogle() {
     </>
   );
 }
-export default OAuthGoogle;
+export default IdentityGoogle;

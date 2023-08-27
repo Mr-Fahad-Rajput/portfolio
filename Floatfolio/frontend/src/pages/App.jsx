@@ -15,8 +15,8 @@ const APIs = lazy(() => import("./APIs/APIs.jsx"));
 const Stripe = lazy(() => import("./APIs/Stripe/Stripe.jsx"));
 const MailChimp = lazy(() => import("./APIs/MailChimp/MailChimp.jsx"));
 const Maps = lazy(() => import("./APIs/Maps/Maps.jsx"));
-const OAuthGoogle = lazy(() => import("./APIs/OAuthGoogle/OAuthGoogle.jsx"));
-// User Accounts
+const OAuthGoogle = lazy(() => import("./APIs/IdentityGoogle/IdentityGoogle.jsx"));
+// User Account
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
 const SignIn = lazy(() => import("./components/SignIn.jsx"));
 const SignUp = lazy(() => import("./components/SignUp.jsx"));
