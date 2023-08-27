@@ -230,8 +230,8 @@ function Contact() {
                     </div>
                   </div>
                 </div>
-                <div className="">
-                  <div className="">
+                <div>
+                  <div>
                     <div className="mt-2">
                       <label className="dark:text-mainBg" htmlFor="yourMessage">
                         Message:

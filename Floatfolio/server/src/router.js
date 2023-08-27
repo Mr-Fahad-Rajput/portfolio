@@ -2,20 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 // Registration
-router.post("/register", require("./routes/register"));
+router.post("/register", require("./routes/register.js"));
 
 //Login
-router.post("/login", require("./routes/login"));
+router.post("/login", require("./routes/login.js"));
 
 // Message
-router.post("/message", require("./routes/message"));
+router.post("/message", require("./routes/message.js"));
 
+// Comment
+router.post("/comment", require("./routes/comment.js"));
 
 //Logout
-router.get("/logout", require("./routes/logout"));
+router.get("/logout", require("./routes/logout.js"));
 
 //authentication Middleware
-router.get("/auth", require("./middleWare/authenticate"));
+router.get("/auth", require("./middleWare/authenticate.js"));
 
 // Stripe API
 router.post("/stripe", require("./routes/stripe.js"));

@@ -17,7 +17,7 @@ const msgSchema = new mongoose.Schema({
   message: {
     type: String,
     required: true,
-  },
+  }
 });
 
 // Create Model

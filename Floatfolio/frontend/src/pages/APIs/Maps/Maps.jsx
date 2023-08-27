@@ -31,38 +31,38 @@ function Maps() {
   /** @type ReactMutableRefObject<HTMLInputElements>*/
   const destination = useRef();
   const autocompleteRef = useRef(null);
-  
+
   const [zoom, setZoom] = useState(15);
   const [mapType, setMapType] = useState("roadmap");
   const [navIsLoading, setNavIsLoading] = useState(false);
 
   useEffect(() => {
     const getCurrentLocation = () => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const lat = position.coords.latitude;
-              const lng = position.coords.longitude;
-              setCenter({ lat: lat, lng: lng });
-              mapState.panTo({ lat: lat, lng: lng });
-            },
-            (error) => {
-              console.error("Error getting geolocation:", error.message);
-              if (error.code === error.PERMISSION_DENIED) {
-                console.error("User denied geolocation access.");
-              } else if (error.code === error.POSITION_UNAVAILABLE) {
-                console.error("Location information is unavailable.");
-              } else if (error.code === error.TIMEOUT) {
-                console.error("The request to get user location timed out.");
-              } else {
-                console.error("An unknown error occurred:", error);
-              }
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            setCenter({ lat: lat, lng: lng });
+            mapState.panTo({ lat: lat, lng: lng });
+          },
+          (error) => {
+            console.error("Error getting geolocation:", error.message);
+            if (error.code === error.PERMISSION_DENIED) {
+              console.error("User denied geolocation access.");
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+              console.error("Location information is unavailable.");
+            } else if (error.code === error.TIMEOUT) {
+              console.error("The request to get user location timed out.");
+            } else {
+              console.error("An unknown error occurred:", error);
             }
-          );
-        } else {
-          console.error("Geolocation is not supported by this browser.");
-        }
-      };
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    };
     getCurrentLocation();
   }, [mapState]);
 
@@ -81,16 +81,20 @@ function Maps() {
     setNavIsLoading(true);
     //eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
-    const results = await directionsService.route({
-      origin: origin.current.value,
-      destination: destination.current.value,
-      //eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
+    const results = await directionsService
+      .route({
+        origin: origin.current.value,
+        destination: destination.current.value,
+        //eslint-disable-next-line no-undef
+        travelMode: google.maps.TravelMode.DRIVING,
+      })
+      .catch((err) => {
+        window.alert("No route Found");
+        setNavIsLoading(false);
+      });
     setDirectionResponse(results);
     setDistance(results.routes[0].legs[0].distance.text);
     setDuration(results.routes[0].legs[0].duration.text);
-    console.log(duration, distance);
     setNavIsLoading(false);
   }
 
@@ -119,17 +123,17 @@ function Maps() {
   }
 
   function handleZoomIn() {
-    setZoom((prevZoom) => prevZoom + 1); 
+    setZoom((prevZoom) => prevZoom + 1);
   }
   function handleZoomOut() {
     setZoom((prevZoom) => Math.max(prevZoom - 1, 1));
   }
 
   function switchToRoadmap() {
-    setMapType("roadmap"); 
+    setMapType("roadmap");
   }
   function switchToSatellite() {
-    setMapType("satellite"); 
+    setMapType("satellite");
   }
 
   return (
@@ -191,6 +195,7 @@ function Maps() {
             use cases. The core features of this component are explained below:
             <br />
             <br />
+            &bull;
             <u>
               <b>Navigation:</b>
             </u>
@@ -200,6 +205,7 @@ function Maps() {
             After inputting the locations, clicking the &quot;Navigate&quot;
             button will calculate the route between them.
             <br />
+            &bull;
             <u>
               <b>Origin Button:</b>
             </u>
@@ -209,6 +215,7 @@ function Maps() {
             button necessitates valid origin input to operate. If the input
             fields are empty, the Origin button will have no effect.
             <br />
+            &bull;
             <u>
               <b>Geolocation:</b>
             </u>

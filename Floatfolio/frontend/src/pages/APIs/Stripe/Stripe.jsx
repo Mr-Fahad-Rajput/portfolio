@@ -132,7 +132,7 @@ function Stripe() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className="inline-flex w-64  md:float-left place-items-center">
+          <div className="inline-flex w-64 my-12 md:float-left place-items-center">
             <a href="https://stripe.com/">
               <img
                 src={stripeIcon}
@@ -146,15 +146,19 @@ function Stripe() {
               Stripe API Integration
             </h1>
             <p className=" mt-3 mx-auto text-justify ">
-              In this section, I&rsquo;ve showcased an integration of the Stripe
-              Payment API. Please note that this page is designed solely to
-              demonstrate the API integration. The products displayed are for
-              illustrative purposes only and do not represent actual offerings.
-              The &rsquo;Dummy cart&rsquo; allows you to adjust product
-              quantities, but you cannot add or remove Products. This
-              integration highlights my ability to incorporate external payment
-              gateways into web applications, ensuring a seamless user
-              experience. For More Information About Stripe click on the Logo to
+              The Stripe API empowers businesses to seamlessly process online
+              payments, integrating them into their platforms. This smooth
+              transaction experience, including various payment methods, reduces
+              friction for users, building trust and boosting conversions. With
+              a reliable payment system, businesses gain credibility and
+              encourage repeat transactions, contributing to growth.
+              <br /><br /> Furthermore, the Stripe API provides features for managing
+              subscriptions, handling refunds, and analyzing transaction data,
+              which can provide valuable insights to optimize business
+              strategies. Overall, the Stripe API empowers businesses to provide
+              a convenient and efficient payment experience, ultimately
+              contributing to their growth by attracting and retaining
+              customers.For More Information About Stripe click on the Logo to
               The Left.
             </p>
           </div>
@@ -170,10 +174,16 @@ function Stripe() {
           </h3>
           <p className=" mt-3 mx-auto text-justify">
             {" "}
-            When you click the &rsquo;Checkout&rsquo; button, you&rsquo;ll be
-            directed to the Stripe API&rsquo;s checkout process. To simulate
-            different scenarios during testing, you can use the following card
-            numbers along with the respective details:
+            In this section, I&rsquo;ve showcased an integration of the Stripe
+            Payment API. Please note that this page is designed solely to
+            demonstrate the API integration. The products displayed are for
+            illustrative purposes only and do not represent actual offerings.
+            The &rsquo;Dummy cart&rsquo; allows you to adjust product
+            quantities, but you cannot add or remove Products. When you click
+            the &rsquo;Checkout&rsquo; button, you&rsquo;ll be directed to the
+            Stripe API&rsquo;s checkout process. To simulate different scenarios
+            during testing, you can use the following card numbers along with
+            the respective details:
             <br />
             <br />
             <b>For Success</b>: Use card number &#34;4242 4242 4242 4242. This
