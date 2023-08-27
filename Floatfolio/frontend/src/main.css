@@ -35,10 +35,14 @@
 
 /*Main Content div*/
 .mainContent {
-  @apply flex rounded-lg m-5 flex-wrap items-center bg-mainBg dark:bg-dBrand  text-dBrand dark:text-mainBg content-center md:mr-[25%] p-2 flex-col;
+  @apply flex  rounded-lg m-5 flex-wrap items-center bg-mainBg dark:bg-dBrand  text-dBrand dark:text-mainBg content-center md:w-3/4 p-2 flex-col;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-  transform: translatey(0px);
 }
+.sidebar {
+  @apply sticky h-screen top-0 rounded-lg mx-5 my-0  items-center bg-mainBg dark:bg-lBrand  text-dBrand content-center md:w-1/5 p-2 float-right overflow-hidden;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+}
+
 
 /* /Input Style/ */
 .inp {
@@ -62,7 +66,6 @@
 /*----------------------------Nav Bar---------------------------*/
 .innerDiv {
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-  transform: translatey(0px);
 }
 
 /* /Button Central/ */

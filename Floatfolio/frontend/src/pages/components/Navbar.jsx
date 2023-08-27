@@ -27,7 +27,7 @@ function Navbar(props) {
 
   return (
     <>
-      <header className=" sticky m-5 rounded-lg innerDiv ">
+      <header className="m-5 rounded-lg innerDiv ">
         <nav className=" flex flex-wrap items-center justify-between md:py-0 text-lg text-dBrand dark:text-mainBg bg-mainBg dark:bg-dBrand rounded-lg ">
           {/* Logo */}
           <div className="w-[20%] h-fill m-1">

@@ -1,5 +1,5 @@
 import { React, Suspense, lazy, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 
 import Navbar from "./components/Navbar.jsx";
 import Loader from "./components/Loader.jsx";
@@ -10,6 +10,7 @@ const Home = lazy(() => import("./Home.jsx"));
 const About = lazy(() => import("./About/About.jsx"));
 const Contact = lazy(() => import("./Contact/Contact.jsx"));
 const Projects = lazy(() => import("./Projects.jsx"));
+const Sidebar = lazy(() => import("./components/Sidebar.jsx"));
 // APIs
 const APIs = lazy(() => import("./APIs/APIs.jsx"));
 const Stripe = lazy(() => import("./APIs/Stripe/Stripe.jsx"));
@@ -25,12 +26,26 @@ const ResetPass = lazy(() => import("./components/ResetPass.jsx"));
 
 function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 826);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 826);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
 
   return (
     <>
       <BrowserRouter>
         <Navbar isLoggedin={isLoggedin} />
         <Suspense fallback={<Loader />}>
+        {isLargeScreen && <Sidebar/>}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
