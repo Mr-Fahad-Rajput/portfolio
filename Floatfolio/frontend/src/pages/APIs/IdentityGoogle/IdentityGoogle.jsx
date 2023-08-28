@@ -165,11 +165,6 @@ function IdentityGoogle() {
             </p>
           </div>
         </div>
-        <AlertBox
-          responseStatus={responseStatus}
-          msgImg={alertImg}
-          className="top-0"
-        />
         <div className="mx-2 text-center md:px-10">
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
@@ -220,6 +215,11 @@ function IdentityGoogle() {
                   onChange={handleInput}
                   required
                 ></textarea>
+                <AlertBox
+                  responseStatus={responseStatus}
+                  msgImg={alertImg}
+                  className="top-0 z-50"
+                />
                 <button
                   type="submit"
                   name="send"

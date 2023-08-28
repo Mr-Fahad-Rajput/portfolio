@@ -13,6 +13,9 @@ router.post("/message", require("./routes/message.js"));
 // Comment
 router.post("/comment", require("./routes/comment.js"));
 
+// Comment
+router.get("/comment", require("./routes/getComment.js"));
+
 //Logout
 router.get("/logout", require("./routes/logout.js"));
 
