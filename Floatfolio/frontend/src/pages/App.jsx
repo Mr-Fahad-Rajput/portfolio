@@ -1,5 +1,5 @@
 import { React, Suspense, lazy, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar.jsx";
 import Loader from "./components/Loader.jsx";
@@ -32,20 +32,19 @@ function App() {
       setIsLargeScreen(window.innerWidth >= 826);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
 
   return (
     <>
       <BrowserRouter>
         <Navbar isLoggedin={isLoggedin} />
         <Suspense fallback={<Loader />}>
-        {isLargeScreen && <Sidebar/>}
+          {isLargeScreen && <Sidebar />}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
