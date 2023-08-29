@@ -32,6 +32,7 @@ function MailChimp() {
           status: false,
         });
       }, 3000);
+      setDataBody({ ...dataBody, email: "" });
     } else if (hashFragment === "#cancel") {
       setAlertImg(notSent);
       setResponseStatus({
@@ -87,10 +88,10 @@ function MailChimp() {
             });
           } else {
             const redirectUrl = "http://localhost:5173/oauthgoogle#cancel";
-             window.location = redirectUrl;
-             location.reload();
+            window.location = redirectUrl;
+            location.reload();
           }
-        })//TODO error handelling for #cancel route
+        })
         .finally(() => {
           setIsLoading(false);
           setTimeout(() => {
@@ -141,17 +142,16 @@ function MailChimp() {
             </p>
           </div>
         </div>
-        <AlertBox
-          responseStatus={responseStatus}
-          msgImg={alertImg}
-          className="top-0"
-        />
         <div className="mx-2 text-center md:px-10">
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
+          <AlertBox
+            responseStatus={responseStatus}
+            msgImg={alertImg}
+            className="top-0"
+          />
           <p className=" mt-3 mx-auto text-justify">
-            {" "}
             To interact with the Mailchimp API, follow these simple steps. Begin
             by entering your email address into the designated email input
             field. You&rsquo;ll notice two subscription options available. If
@@ -173,8 +173,7 @@ function MailChimp() {
         <div className="mb-4">
           <div className="flex items-center">
             <label className="dark:text-mainBg " htmlFor="RegisterEmail">
-              {" "}
-              Email:{" "}
+              Email:
             </label>
             <input
               id="RegisterEmail"

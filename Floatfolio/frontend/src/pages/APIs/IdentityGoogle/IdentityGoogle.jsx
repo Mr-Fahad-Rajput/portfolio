@@ -36,6 +36,7 @@ function IdentityGoogle() {
           status: false,
         });
       }, 3000);
+      setDataBody({ ...dataBody, comment: '' });
     } else if (hashFragment === "#cancel") {
       setAlertImg(notSent);
       setResponseStatus({
@@ -83,7 +84,7 @@ function IdentityGoogle() {
   // Handle Submit
   const handleAPIcalls = async () => {
     setIsLoading(true);
-    setHasResponse(false)
+    setHasResponse(false);
     try {
       const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
       const handleSubmit = handleSubmitModule.default;
@@ -93,7 +94,7 @@ function IdentityGoogle() {
             res = res.json();
             return res;
           } else {
-            throw new Error(" Error" + (res));
+            throw new Error(" Error" + res);
           }
         })
         .then((data) => {
@@ -102,9 +103,8 @@ function IdentityGoogle() {
           setHasResponse(true);
         })
         .catch((error) => {
-            setAlertImg(notSent);
+          setAlertImg(notSent);
           if (error.toString().includes("Failed to fetch")) {
-
             setResponseStatus({
               status: true,
               text: "Can't Connect To the Server! Check Your Internet Connection",
@@ -114,10 +114,10 @@ function IdentityGoogle() {
               status: true,
               text: error.toString(),
             });
-            console.log(error)
-             const redirectUrl = "http://localhost:5173/oauthgoogle#cancel";
-             window.location = redirectUrl;
-            setHasResponse(true)
+            console.log(error);
+            const redirectUrl = "http://localhost:5173/oauthgoogle#cancel";
+            window.location = redirectUrl;
+            setHasResponse(true);
           }
         })
         .finally(() => {
@@ -176,7 +176,6 @@ function IdentityGoogle() {
             How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify">
-            
             Using my Google OAuth Component is easy! Just click the &quot;Sign
             in with Google&quot; button to log in. Once logged in, you&apos;ll
             see your photo, name, and email. You can also add a comment or a
