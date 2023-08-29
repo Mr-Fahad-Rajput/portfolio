@@ -1,7 +1,8 @@
 const Comment = (props) => {
-  const {userName,profileImg,comment, createdAt} = props;
+  const {userName,profileImg,comment, createdAt, animate } = props;
+  const animationClass = animate ? "animate-scale-100" : "";
   return (
-    <div className="bg-lBrand dark:bg-mainBg p-2 rounded-lg text-dBrand">
+    <div className={`bg-lBrand dark:bg-mainBg p-2 rounded-lg text-dBrand ${animationClass}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="current"

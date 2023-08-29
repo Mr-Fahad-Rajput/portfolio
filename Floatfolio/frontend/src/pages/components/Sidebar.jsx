@@ -5,6 +5,8 @@ import FastPriorityQueue from "fastpriorityqueue";
 import Comment from "./Comment.jsx";
 
 function Sidebar() {
+    const [animationToggle, setAnimationToggle] = useState(false);
+
   const [commentQueue, setCommentQueue] = useState(
     new FastPriorityQueue((a, b) => {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -53,13 +55,14 @@ function Sidebar() {
 
     const timer = setInterval(() => {
       if (!commentQueue.isEmpty()) {
+          setAnimationToggle((prevToggle) => !prevToggle);
         setCommentToShow(commentQueue.poll());
         setCurrentIndex((prevIndex) => (prevIndex + 1) % commentQueue.size);
         if (currentIndex === commentQueue.size - 1) {
           setFetch(!fetch);
         }
       }
-    }, 20000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [fetch]);
@@ -97,6 +100,7 @@ function Sidebar() {
             profileImg={commentToShow.profileImg}
             comment={commentToShow.comment}
             createdAt={formatDate(commentToShow.createdAt)}
+            animate={animationToggle}
           />
         )}
       </section>
