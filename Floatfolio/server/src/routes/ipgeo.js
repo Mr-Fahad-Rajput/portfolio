@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
     try {
       const response = await axios.request(options);
       console.log(response.data);
-      res.status(500).send();
+      res.status(200).send(response.data);
     } catch (error) {
       console.error(error);
     }

@@ -19,33 +19,6 @@ function IPGeo() {
     ip: "",
     period: "3day",
 });
-  useEffect(() => {
-    const hashFragment = window.location.hash;
-
-    if (hashFragment === "#success") {
-      setResponseStatus({
-        status: true,
-        text: "Sucessfully Subscribed to The News Letter!",
-      });
-      setTimeout(() => {
-        setResponseStatus({
-          status: false,
-        });
-      }, 3000);
-      setDataBody({ ...dataBody, email: "" });
-    } else if (hashFragment === "#cancel") {
-      setAlertImg(notSent);
-      setResponseStatus({
-        status: true,
-        text: "Subscription Didn't work :(",
-      });
-      setTimeout(() => {
-        setResponseStatus({
-          status: false,
-        });
-      }, 3000);
-    }
-  }, []);
 
   const handleInput = (event) => {
     const name = event.target.name;
@@ -80,10 +53,7 @@ function IPGeo() {
           }
         })
         .then((data) => {
-          console.log(data.urlRes);
-          const redirectUrl = data.urlRes;
-          window.location = redirectUrl;
-          location.reload();
+          console.log(data);
         })
         .catch((error) => {
           setAlertImg(notSent);
@@ -93,9 +63,7 @@ function IPGeo() {
               text: "Can't Connect To the Server! Check Your Internet Connection",
             });
           } else {
-            const redirectUrl = "http://localhost:5173/#cancel";
-            window.location = redirectUrl;
-            location.reload();
+           console.log("error Fetching data:" + error)
           }
         })
         .finally(() => {
