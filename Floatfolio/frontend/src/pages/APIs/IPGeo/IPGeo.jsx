@@ -16,7 +16,9 @@ function IPGeo() {
 
   const [toggleCLick, setToggleClick] = useState(false);
   let [dataBody, setDataBody] = useState({
-    ip: ""});
+    ip: "",
+    period: "3day",
+});
   useEffect(() => {
     const hashFragment = window.location.hash;
 
