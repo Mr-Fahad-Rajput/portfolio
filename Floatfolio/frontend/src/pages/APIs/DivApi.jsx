@@ -12,7 +12,7 @@ const DivApi = (props) => {
         alt="API Image"
       />
       <div className="p-2">
-        <h5 className=" text-2xl font-bold text-balBrand tracking-tight mb-2">
+        <h5 className=" text-2xl font-bold text-balBrand tracking-tight mb-2 text-center">
           {divHeading}
         </h5>
         <p className="text-base font-medium text-dBrand text-justify tracking-tight">

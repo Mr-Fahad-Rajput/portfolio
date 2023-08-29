@@ -16,6 +16,7 @@ const APIs = lazy(() => import("./APIs/APIs.jsx"));
 const Stripe = lazy(() => import("./APIs/Stripe/Stripe.jsx"));
 const MailChimp = lazy(() => import("./APIs/MailChimp/MailChimp.jsx"));
 const Maps = lazy(() => import("./APIs/Maps/Maps.jsx"));
+const IPGeo = lazy(() => import("./APIs/IPGeo/IPGeo.jsx"));
 const OAuthGoogle = lazy(() => import("./APIs/IdentityGoogle/IdentityGoogle.jsx"));
 // User Account
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
@@ -55,6 +56,7 @@ function App() {
             <Route exact path="/stripe" element={<Stripe />} />
             <Route exact path="/mailchimp" element={<MailChimp />} />
             <Route exact path="/maps" element={<Maps />} />
+            <Route exact path="/ipgeo" element={<IPGeo />} />
             <Route exact path="/oauthgoogle" element={<OAuthGoogle />} />
             {/* Site User Accont */}
             <Route exact path="/signin" element={<SignIn />} />

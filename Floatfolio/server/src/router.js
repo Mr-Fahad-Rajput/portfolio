@@ -28,6 +28,9 @@ router.post("/stripe", require("./routes/stripe.js"));
 // Mail Chimp API
 router.post("/mailchimp", require("./routes/mailchimp.js"));
 
+// IP geo API
+router.post("/ipgeo", require("./routes/ipgeo.js"));
+
 router.get("/", (req, res) => {
   res.send("Hello! I'm Nadeem! Nadeem SERVER");
 });
