@@ -174,11 +174,12 @@ function IdentityGoogle() {
             {" "}
             Using my Google OAuth Component is easy! Just click the &quot;Sign
             in with Google&quot; button to log in. Once logged in, you&apos;ll
-            see your photo, name, and email. You can also add a comment in the
-            text field, and it will be stored along with your details in the
-            database. Your comment will be visible on the right-side panel for 6
-            hours. Don&apos;t worry, your email won&apos;t be shown. To log out,
-            just refresh the page or press the logout button.
+            see your photo, name, and email. You can also add a comment or a
+            Review in the text field, and it will be stored along with your
+            details in the database. Your comment will be visible on the
+            right-side panel for 48 hours. Don&apos;t worry, your email
+            won&apos;t be shown. To log out, just refresh the page or press the
+            logout button.
           </p>
         </div>
         <div className="mb-4">

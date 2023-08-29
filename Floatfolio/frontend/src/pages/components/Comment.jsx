@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
+
 const Comment = (props) => {
   const {userName,profileImg,comment, createdAt, animate } = props;
-  const animationClass = animate ? "animate-scale-100" : "";
+  const [animationClass,setAnimationClass] = useState("");
+
+  useEffect(()=>{
+    setAnimationClass("animate-scale-100")
+    setTimeout(()=>{
+      setAnimationClass("")
+    },3000)
+  },[animate])
+
   return (
     <div className={`bg-lBrand dark:bg-mainBg p-2 rounded-lg text-dBrand ${animationClass}`}>
       <svg

@@ -55,14 +55,14 @@ function Sidebar() {
 
     const timer = setInterval(() => {
       if (!commentQueue.isEmpty()) {
-          setAnimationToggle((prevToggle) => !prevToggle);
         setCommentToShow(commentQueue.poll());
         setCurrentIndex((prevIndex) => (prevIndex + 1) % commentQueue.size);
         if (currentIndex === commentQueue.size - 1) {
           setFetch(!fetch);
         }
+        setAnimationToggle((prevToggle) => !prevToggle);
       }
-    }, 5000);
+    }, 20000);
 
     return () => clearInterval(timer);
   }, [fetch]);
@@ -93,15 +93,19 @@ function Sidebar() {
   return (
     <>
       <section className="sidebar">
-        <h1>sidebar</h1>
         {commentToShow && (
-          <Comment
+            
+          <div>
+            <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+           Endorsments
+          </h3>
+            <Comment
             userName={commentToShow.name}
             profileImg={commentToShow.profileImg}
             comment={commentToShow.comment}
             createdAt={formatDate(commentToShow.createdAt)}
             animate={animationToggle}
-          />
+          /></div>
         )}
       </section>
     </>
