@@ -86,12 +86,11 @@ function MailChimp() {
               text: "Can't Connect To the Server! Check Your Internet Connection",
             });
           } else {
-            setResponseStatus({
-              status: true,
-              text: error.toString(),
-            });
+            const redirectUrl = "http://localhost:5173/oauthgoogle#cancel";
+             window.location = redirectUrl;
+             location.reload();
           }
-        })
+        })//TODO error handelling for #cancel route
         .finally(() => {
           setIsLoading(false);
           setTimeout(() => {

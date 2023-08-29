@@ -26,11 +26,11 @@ function IdentityGoogle() {
     const hashFragment = window.location.hash;
 
     if (hashFragment === "#success") {
+      setAlertImg(sent);
       setResponseStatus({
         status: true,
         text: "Your Comment Has Been Added!",
       });
-      // TODO 2nd comment alert not working
       setTimeout(() => {
         setResponseStatus({
           status: false,
@@ -83,6 +83,7 @@ function IdentityGoogle() {
   // Handle Submit
   const handleAPIcalls = async () => {
     setIsLoading(true);
+    setHasResponse(false)
     try {
       const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
       const handleSubmit = handleSubmitModule.default;
@@ -92,18 +93,18 @@ function IdentityGoogle() {
             res = res.json();
             return res;
           } else {
-            throw new Error("Request failed with status: " + res.json());
+            throw new Error(" Error" + (res));
           }
         })
         .then((data) => {
-          console.log(data.urlRes);
           const redirectUrl = data.urlRes;
           window.location = redirectUrl;
           setHasResponse(true);
         })
         .catch((error) => {
-          //   setAlertImg(notSent);
+            setAlertImg(notSent);
           if (error.toString().includes("Failed to fetch")) {
+
             setResponseStatus({
               status: true,
               text: "Can't Connect To the Server! Check Your Internet Connection",
@@ -113,6 +114,10 @@ function IdentityGoogle() {
               status: true,
               text: error.toString(),
             });
+            console.log(error)
+             const redirectUrl = "http://localhost:5173/oauthgoogle#cancel";
+             window.location = redirectUrl;
+            setHasResponse(true)
           }
         })
         .finally(() => {
@@ -136,7 +141,7 @@ function IdentityGoogle() {
             <a href="https://developers.google.com/identity/protocols/oauth2">
               <img
                 src={oAuthIcon}
-                alt="Mail Chimp Ilustration"
+                alt="Sign in With Google"
                 className=" w-64 h-56 hover:scale-110 transform duration-500"
               />
             </a>
@@ -154,7 +159,7 @@ function IdentityGoogle() {
               from other platforms into their own applications. For instance, an
               e-commerce website could utilize OAuth 2.0 to allow customers to
               log in using their Google or social media accounts, simplifying
-              the registration process and enhancing user experience. <br />{" "}
+              the registration process and enhancing user experience. <br />
               This ease of access can lead to higher user engagement and
               customer retention. Furthermore, OAuth 2.0 facilitates the sharing
               of specific data between platforms, enabling businesses to
@@ -171,7 +176,7 @@ function IdentityGoogle() {
             How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify">
-            {" "}
+            
             Using my Google OAuth Component is easy! Just click the &quot;Sign
             in with Google&quot; button to log in. Once logged in, you&apos;ll
             see your photo, name, and email. You can also add a comment or a
@@ -192,27 +197,27 @@ function IdentityGoogle() {
               />
               <h3 className="inline text-lg font-bold text-dBrand underline">
                 Name:
-              </h3>{" "}
+              </h3>
               <p className="inline text-base font-semibold text-dBrand">
                 {user.name}
               </p>
               <br />
               <h3 className="inline text-lg font-bold text-dBrand underline">
                 Email:
-              </h3>{" "}
+              </h3>
               <p className="inline text-base font-semibold text-dBrand">
                 {user.email}
               </p>
               <div className="mt-2">
-                <label className="text-dBrand" htmlFor="yourMessage">
+                <label className="text-dBrand" htmlFor="yourComment">
                   Comment:
                 </label>
                 <textarea
-                  id="yourMessage"
+                  id="yourComment"
                   rows="4"
                   className="inp w-full"
-                  placeholder="Comment For the Side Panel. Your Email Will Remain Hidden"
-                  name="message"
+                  placeholder="Comment/Review For the Site. Your Email Will Remain Hidden"
+                  name="comment"
                   value={dataBody.comment}
                   onChange={handleInput}
                   required
@@ -228,7 +233,7 @@ function IdentityGoogle() {
                   className="p-4 m-1 btn whitespace-nowrap mx-auto"
                   disabled={isLoading}
                   onClick={handleAPIcalls}
-                  aria-label="Send Message Button"
+                  aria-label="Send Comment Button"
                 >
                   {isLoading ? (
                     <div className="flex items-center">
