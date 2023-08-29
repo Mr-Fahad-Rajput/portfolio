@@ -30,6 +30,7 @@ function IdentityGoogle() {
         status: true,
         text: "Your Comment Has Been Added!",
       });
+      // TODO 2nd comment alert not working
       setTimeout(() => {
         setResponseStatus({
           status: false,

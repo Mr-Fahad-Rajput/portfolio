@@ -5,12 +5,15 @@ import FastPriorityQueue from "fastpriorityqueue";
 import Comment from "./Comment.jsx";
 
 function Sidebar() {
-    const commentQueue = new FastPriorityQueue((a, b) => {
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-      });
-          const [fetch, setFetch] = useState();
+  const [commentQueue, setCommentQueue] = useState(
+    new FastPriorityQueue((a, b) => {
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    })
+  );
+  const addedCommentIds = new Set();
+  const [fetch, setFetch] = useState();
+  const [commentToShow, setCommentToShow] = useState("");
   const location = useLocation();
-  const [comment, setComment] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Fetch Comments
@@ -30,8 +33,12 @@ function Sidebar() {
           })
           .then((data) => {
             data.comments.forEach((comment) => {
-              commentQueue.add(comment);
+              if (!addedCommentIds.has(comment._id)) {
+                commentQueue.add(comment);
+                addedCommentIds.add(comment._id);
+              }
             });
+            setCommentQueue(commentQueue);
           })
           .catch((error) => {
             console.log(error);
@@ -41,32 +48,21 @@ function Sidebar() {
         console.error("Error importing handleSubmit:", error);
       }
     };
+
     handleAPIcalls();
-  }, [fetch]);
 
-  useEffect(() => {
-    if (!comment || comment.length === 0) {
-        return;
-      }
     const timer = setInterval(() => {
-      if (commentQueue.size > 0) {
-        commentQueue.poll();
-        
-  
-        if (currentIndex === comment.length-2) {
-          setFetch(!fetch) 
-        }
-  
+      if (!commentQueue.isEmpty()) {
+        setCommentToShow(commentQueue.poll());
         setCurrentIndex((prevIndex) => (prevIndex + 1) % commentQueue.size);
+        if (currentIndex === commentQueue.size - 1) {
+          setFetch(!fetch);
+        }
       }
-    }, 5000);
-  
+    }, 20000);
+
     return () => clearInterval(timer);
-  }, []);
-
-  
-
-  const commentToShow = comment && comment[currentIndex];
+  }, [fetch]);
 
   function formatDate(inputDate) {
     const options = {
@@ -95,13 +91,7 @@ function Sidebar() {
     <>
       <section className="sidebar">
         <h1>sidebar</h1>
-        {console.log(commentQueue)}
-        {console.log(commentToShow)}
-        {
-            console.log("commentQueue size:", commentQueue.size)}
-            {console.log("currentIndex:", currentIndex)
-        }
-        {commentToShow  && (
+        {commentToShow && (
           <Comment
             userName={commentToShow.name}
             profileImg={commentToShow.profileImg}
