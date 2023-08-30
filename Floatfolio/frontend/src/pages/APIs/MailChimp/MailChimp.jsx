@@ -55,7 +55,6 @@ function MailChimp() {
       ...prevData,
       [name]: value,
     }));
-    console.log(dataBody);
   };
 
   // Backend Implementation
