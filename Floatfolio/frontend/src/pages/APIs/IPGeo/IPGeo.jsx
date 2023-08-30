@@ -1,81 +1,65 @@
 import { useEffect, useState } from "react";
 
 import ipGeoIcon from "./ipgeoIcon.svg";
+import conIcon from "./ipgeoIcon.svg";
 import sent from "../../../assets/sent.svg";
 import notSent from "../../../assets/notsent.svg";
-
-import AlertBox from "../../components/AlertBox";
+import Loader from "../../components/Loader";
 
 function IPGeo() {
-  const [alertImg, setAlertImg] = useState(sent);
-  const [responseStatus, setResponseStatus] = useState({
-    status: false,
-    text: "",
-  });
+  const [location, setLocation] = useState();
+  const [current, setCurrent] = useState();
+  const [forecast, setForecast] = useState();
 
   let [dataBody, setDataBody] = useState({
     ip: "",
     period: "3day",
-});
-useEffect(()=>{
+  });
+  useEffect(() => {
     const handleAPIcalls = async () => {
-        try {
-          const ipResponse = await fetch("https://api.ipify.org?format=json");
-          const ipData = await ipResponse.json();
-          const clientIp = ipData.ip;
-          setDataBody({
-            ip: clientIp
+      try {
+        const ipResponse = await fetch("https://api.ipify.org?format=json");
+        const ipData = await ipResponse.json();
+        const clientIp = ipData.ip;
+        setDataBody({
+          ip: clientIp,
+        });
+        const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
+        const handleSubmit = handleSubmitModule.default;
+        handleSubmit(dataBody, "ipgeo", "POST")
+          .then((res) => {
+            if (res.ok) {
+              res = res.json();
+              return res;
+            } else {
+              throw new Error("Request failed with status: " + res);
+            }
+          })
+          .then((data) => {
+            setLocation(data.location);
+            setCurrent(data.current);
+            setForecast(data.forecast);
+          })
+          .catch((error) => {
+            if (error.toString().includes("Failed to fetch")) {
+              console.log(error);
+            } else {
+              console.log("error Fetching data:" + error);
+            }
           });
-          const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
-          const handleSubmit = handleSubmitModule.default;
-          handleSubmit(dataBody, "ipgeo", "POST")
-            .then((res) => {
-              if (res.ok) {
-                res = res.json();
-                return res;
-              } else {
-                throw new Error("Request failed with status: " + res);
-              }
-            })
-            .then((data) => {
-              console.log(data);
-            })
-            .catch((error) => {
-              setAlertImg(notSent);
-              if (error.toString().includes("Failed to fetch")) {
-                setResponseStatus({
-                  status: true,
-                  text: "Can't Connect To the Server! Check Your Internet Connection",
-                });
-              } else {
-               console.log("error Fetching data:" + error)
-              }
-            })
-            .finally(() => {
-              setTimeout(() => {
-                setResponseStatus({
-                  status: false,
-                });
-              }, 3000);
-            });
-        } catch (error) {
-          console.error("Error importing handleSubmit:", error);
-        }
-      };
-      handleAPIcalls();
-
-},[])
-
-  
-  
-  
+      } catch (error) {
+        console.error("Error importing handleSubmit:", error);
+      }
+    };
+    handleAPIcalls();
+  }, []);
 
   return (
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
-            <a href="https://IPGeo.com/">
+            <a href="#">
               <img
                 src={ipGeoIcon}
                 alt="Weather Logo "
@@ -111,60 +95,133 @@ useEffect(()=>{
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          <AlertBox
-            responseStatus={responseStatus}
-            msgImg={alertImg}
-            className="top-0"
-          />
-          <p className=" mt-3 mx-auto text-justify">
-            To interact with the IPGeo API, follow these simple steps. Begin by
-            entering your email address into the designated email input field.
-            You&rsquo;ll notice two subscription options available. If you
-            toggle the button to &quot;verified&quot;, the system will initiate
-            a verification email before finalizing the subscription on the IPGeo
-            site. Conversely, toggling to &quot;unverified&quot; will result in
-            a direct subscription without requiring a confirmation email.
-            <br />
-            <br />
-            Please note that this entire process is designed solely for API
-            demonstration purposes. When you input your email, it will be
-            registered for the newsletter; however, please be aware that no
-            promotional emails will be sent. This lack of promotional emails is
-            intentional and designed for clear reasons. Feel free to explore the
-            functionality of the IPGeo API in this controlled setting.
-          </p>
+          <p className=" mt-3 mx-auto text-justify">Just a Test</p>
         </div>
-        <div className="mb-4">
-        <div className="w-full max-w-sm mx-auto">
-  <div className="bg-white shadow rounded-lg p-5 dark:bg-gray-800 w-full" >
-	<h2 className="font-bold text-gray-800 text-lg dark:text-gray-400" >Date Here</h2>
-	
-		<div>
-			<div className="flex mt-4 mb-2">
-				<div className="flex-1">
-					<div className="text-gray-600 text-sm dark:text-gray-400" ><p>"City, Region"</p></div>
-					<div className="text-3xl font-bold text-gray-800 dark:text-gray-300" ><p>Temp in C</p></div>
-					<div className="text-xs text-gray-600 dark:text-gray-400"><p>Current COndition</p></div>
-				</div>
-				<div className="w-24">
-					<img src={ipGeoIcon} loading="lazy"/>
-				</div>
-			</div>
+        <div className="p-2 mx-auto w-full">
+          {!location ? (
+            <Loader />
+          ) : (
+            <div className=" text-dBrand text-2xl break-words rounded-lg overflow-hidden mb-4 bg-lBrand dark:bg-balBrand border-2 border-dBrand dark:border-mainBg">
+              {/* Daily */}
+              <div className="p-2 relative mx-auto">
+                <div className="flex flex-wrap mb-4 rounded-lg justify-around mx-auto text-center items-center bg-mainBg dark:bg-lBrand border-2 border-dBrand dark:border-mainBg">
+                  <div>
+                    <h5 className="mb-0 font-medium text-xl">
+                      {location.name},{location.country}
+                    </h5>
+                    <h6 className="mb-0">{location.localtime}</h6>
+                  </div>
+                  <div>
+                    <img src={conIcon} alt="Current Condition" />
+                    <p className="text-xl">{current.condition.text}</p>
+                    {/* TODO setup image for condition */}
+                  </div>
+                  <div className="text-right">
+                    <h3 className="font-bold text-4xl mb-0">
+                      <p>{current.temp_c}&deg;</p>
+                    </h3>
+                  </div>
+                </div>
+                <div className="flex flex-wrap place-content-center justify-around items-center text-dBrand">
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.wind_kph}
+                        <small className="text-sm">
+                          <sup>KM/H</sup>
+                        </small>
+                      </p>
+                      <p className="text-xs">Wind</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.wind_dir}
+                      </p>
+                      <p className="text-xs">Direction</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.precip_mm}
+                        <sup>mm</sup>
+                      </p>
+                      <p className="text-xs">Precipitation</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.humidity}
+                        <sup>%</sup>
+                      </p>
+                      <p className="text-xs">Humidity</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className=" aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">{current.cloud}<sup>%</sup></p>
+                      <p className="text-xs">Clouds</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.feelslike_c}&deg;
+    
+                      </p>
+                      <p className="text-xs">Feels Like</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.vis_km}
+                        <sup>KM</sup>
+                      </p>
+                      <p className="text-xs">Visibility</p>
+                    </div>
+                  </div>
+                  <div className="w-20 h-20 my-2">
+                    <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
+                      <p className="text-xl font-semibold m-2">
+                        {current.uv}
+                        <sup>/11</sup>
+                      </p>
+                      <p className="text-xs">UV Index</p>
+                    </div>
+                  </div>
 
-			<div className="flex space-x-2 justify-between border-t dark:border-gray-500">
-					<div className="flex-1 text-center pt-3 border-r dark:border-gray-500" >
-						<div className="text-xs text-gray-500 dark:text-gray-400"><p>Fore CAst date</p></div>
-						<img src={ipGeoIcon} alt="Today Conditiont" loading="lazy" className="mx-auto"/>
-						<div className="font-semibold text-gray-800 mt-1.5 dark:text-gray-300"><p>Forecst temp</p></div>
-						<div className="text-xs text-gray-600 dark:text-gray-400"> <p>FOrecast COndition</p> </div>
-					</div>
-			</div>
-		</div>
-
-</div>
-  
-  
-</div>
+                  {/* Repeat the same structure for other divs */}
+                </div>
+              </div>
+              {/* Forecast */}
+              <div className=" mx-2 text-center bg-transparent whitespace-nowrap">
+                <h3 className="my-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+                  Forecast
+                </h3>
+              </div>
+              <div className="p-2 max-md:gap-2 text-center justify-around items-center flex">
+                <div className=" flex flex-col bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg mx-auto max-w-max">
+                  <p>39.11&deg;</p>
+                  <img src={ipGeoIcon} alt="Forecast day 1" />
+                  <small className="px-2">Temp</small>
+                </div>
+                <div className=" flex flex-col bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg mx-auto max-w-max">
+                  <p>39.11&deg;</p>
+                  <img src={ipGeoIcon} alt="Forecast day 1" />
+                  <small className="px-2">Temp</small>
+                </div>
+                <div className=" flex flex-col bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg mx-auto max-w-max">
+                  <p>39.11&deg;</p>
+                  <img src={ipGeoIcon} alt="Forecast day 1" />
+                  <small className="px-2">Temp</small>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>
