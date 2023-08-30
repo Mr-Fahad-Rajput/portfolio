@@ -8,76 +8,67 @@ import AlertBox from "../../components/AlertBox";
 
 function IPGeo() {
   const [alertImg, setAlertImg] = useState(sent);
-  const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState({
     status: false,
     text: "",
   });
 
-  const [toggleCLick, setToggleClick] = useState(false);
   let [dataBody, setDataBody] = useState({
     ip: "",
     period: "3day",
 });
-
-  const handleInput = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    setDataBody((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    console.log(dataBody);
-  };
-
-  // Backend Implementation
-  const handleAPIcalls = async () => {
-    setIsLoading(true);
-    try {
-      const ipResponse = await fetch("https://api.ipify.org?format=json");
-      const ipData = await ipResponse.json();
-      const clientIp = ipData.ip;
-      setDataBody({
-        ip: clientIp
-      });
-      const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
-      const handleSubmit = handleSubmitModule.default;
-      handleSubmit(dataBody, "ipgeo", "POST")
-        .then((res) => {
-          if (res.ok) {
-            res = res.json();
-            return res;
-          } else {
-            throw new Error("Request failed with status: " + res);
-          }
-        })
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((error) => {
-          setAlertImg(notSent);
-          if (error.toString().includes("Failed to fetch")) {
-            setResponseStatus({
-              status: true,
-              text: "Can't Connect To the Server! Check Your Internet Connection",
+useEffect(()=>{
+    const handleAPIcalls = async () => {
+        try {
+          const ipResponse = await fetch("https://api.ipify.org?format=json");
+          const ipData = await ipResponse.json();
+          const clientIp = ipData.ip;
+          setDataBody({
+            ip: clientIp
+          });
+          const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
+          const handleSubmit = handleSubmitModule.default;
+          handleSubmit(dataBody, "ipgeo", "POST")
+            .then((res) => {
+              if (res.ok) {
+                res = res.json();
+                return res;
+              } else {
+                throw new Error("Request failed with status: " + res);
+              }
+            })
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              setAlertImg(notSent);
+              if (error.toString().includes("Failed to fetch")) {
+                setResponseStatus({
+                  status: true,
+                  text: "Can't Connect To the Server! Check Your Internet Connection",
+                });
+              } else {
+               console.log("error Fetching data:" + error)
+              }
+            })
+            .finally(() => {
+              setTimeout(() => {
+                setResponseStatus({
+                  status: false,
+                });
+              }, 3000);
             });
-          } else {
-           console.log("error Fetching data:" + error)
-          }
-        })
-        .finally(() => {
-          setIsLoading(false);
-          setTimeout(() => {
-            setResponseStatus({
-              status: false,
-            });
-          }, 3000);
-        });
-    } catch (error) {
-      console.error("Error importing handleSubmit:", error);
-    }
-  };
+        } catch (error) {
+          console.error("Error importing handleSubmit:", error);
+        }
+      };
+      handleAPIcalls();
+
+},[])
+
+  
+  
+  
 
   return (
     <>
@@ -144,83 +135,36 @@ function IPGeo() {
           </p>
         </div>
         <div className="mb-4">
-          <div className="flex items-center">
-            <label className="dark:text-mainBg " htmlFor="RegisterEmail">
-              Email:
-            </label>
-            <input
-              id="RegisterEmail"
-              type="email"
-              className="inp"
-              placeholder="name@example.com"
-              name="email"
-              value={dataBody.email}
-              onChange={handleInput}
-              required
-              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
-            />
-            <div className="text-center text-base  ">
-              <p>Verified</p>
-              <button
-                onClick={() => {
-                  setToggleClick(!toggleCLick);
-                  if (dataBody.status == "subscribed") {
-                    dataBody.status = "pending";
-                  } else {
-                    dataBody.status = "subscribed";
-                  }
-                }}
-                className="flex justify-center mx-auto cursor-pointer relative w-6 h-11 dark:bg-dBrand bg-mainBg overflow-hidden border-dBrand dark:border-mainBg  border-2 rounded-[999px]"
-                aria-label="Dark Mode Switch"
-              >
-                <div
-                  className={`absolute w-5 h-5 dark:bg-mainBg border-[1px] duration-300 border-dBrand dark:border-mainBg rounded-[999px] ${
-                    toggleCLick ? "translate-y-full" : ""
-                  } bg-lBrand`}
-                ></div>
-              </button>
-              <p>Un-Verified</p>
-            </div>
-          </div>
-          <button
-            name="send"
-            className="p-4 m-1 btn whitespace-nowrap mx-auto"
-            onClick={() => {
-              handleAPIcalls();
-            }}
-            disabled={isLoading}
-            aria-label="Check Out Button"
-          >
-            {isLoading ? (
-              <div className="flex items-center">
-                <div className="animate-spin mr-2">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-100 "
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="#FEFAE6"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="#471AA0"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
-                Fetching Api...
-              </div>
-            ) : (
-              "Subscribe"
-            )}
-          </button>
+        <div className="w-full max-w-sm mx-auto">
+  <div className="bg-white shadow rounded-lg p-5 dark:bg-gray-800 w-full" >
+	<h2 className="font-bold text-gray-800 text-lg dark:text-gray-400" >Date Here</h2>
+	
+		<div>
+			<div className="flex mt-4 mb-2">
+				<div className="flex-1">
+					<div className="text-gray-600 text-sm dark:text-gray-400" ><p>"City, Region"</p></div>
+					<div className="text-3xl font-bold text-gray-800 dark:text-gray-300" ><p>Temp in C</p></div>
+					<div className="text-xs text-gray-600 dark:text-gray-400"><p>Current COndition</p></div>
+				</div>
+				<div className="w-24">
+					<img src={ipGeoIcon} loading="lazy"/>
+				</div>
+			</div>
+
+			<div className="flex space-x-2 justify-between border-t dark:border-gray-500">
+					<div className="flex-1 text-center pt-3 border-r dark:border-gray-500" >
+						<div className="text-xs text-gray-500 dark:text-gray-400"><p>Fore CAst date</p></div>
+						<img src={ipGeoIcon} alt="Today Conditiont" loading="lazy" className="mx-auto"/>
+						<div className="font-semibold text-gray-800 mt-1.5 dark:text-gray-300"><p>Forecst temp</p></div>
+						<div className="text-xs text-gray-600 dark:text-gray-400"> <p>FOrecast COndition</p> </div>
+					</div>
+			</div>
+		</div>
+
+</div>
+  
+  
+</div>
         </div>
       </section>
     </>

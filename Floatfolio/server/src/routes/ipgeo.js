@@ -2,23 +2,15 @@ const axios = require("axios");
 module.exports = async (req, res) => {
   try {
     const ip = req.body.ip;
-    const period = req.body.period;
-    const response = await axios.get(`https://ipinfo.io/${ip}/json`);
+    const response = await axios.get(`https://ipapi.co/${ip}/latlong/`);
     const geoData = response.data;
     console.log("Geolocation geoData:", geoData);
-    const location = geoData.loc;
-    var type, endURL;
-    if (period == "current") {
-      type = { q: location };
-      endURL = "https://weatherapi-com.p.rapidapi.com/current.json";
-    } else {
-      type = { q: location, days: "3" };
-      endURL = "https://weatherapi-com.p.rapidapi.com/forecast.json";
-    }
+    const location = geoData;
+    console.log(location);
     const options = {
       method: "GET",
-      url: endURL,
-      params: type,
+      url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
+      params: { q: location, days: "3" },
       headers: {
         "X-RapidAPI-Key": process.env.XGEO_KEY,
         "X-RapidAPI-Host": process.env.XGEO_HOST,
