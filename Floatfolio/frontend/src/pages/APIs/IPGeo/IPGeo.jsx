@@ -478,8 +478,15 @@ function IPGeo() {
                             <h6 className="mb-0">{location.localtime}</h6>
                           </div>
                           <div>
-                            {<img src={con0} alt="Current Condition" />}
-                            <p className="text-xl">{"Forecast"}</p>
+                            {
+                              <img
+                                src={index === 0 ? con0 : index === 1 ? con1 : con2}
+                                alt="Forecast Condition"
+                              />
+                            }
+                            <p className="text-xl">
+                              {forecast.forecastday[index].day.condition.text}
+                            </p>
                           </div>
                           <div className="text-right">
                             <h3 className="font-bold text-4xl mb-0">
@@ -564,9 +571,10 @@ function IPGeo() {
                               <p className="text-xs">Visibility</p>
                             </div>
                           </div>
+
                           {/* Astro Forecast */}
                           <div className="flex flex-col w-full">
-                            <h3 className="my-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+                            <h3 className="my-1 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
                               Astro Schedule
                             </h3>
                             <div className="flex flex-wrap justify-around items-center text-dBrand">
@@ -577,7 +585,7 @@ function IPGeo() {
                                   </p>
                                   <img
                                     src={sunrise}
-                                    alt=""
+                                    alt="Sunrise Icon"
                                     className="w-16 h-16"
                                   />
                                   <p className="text-xs">Sunrise</p>
@@ -590,7 +598,7 @@ function IPGeo() {
                                   </p>
                                   <img
                                     src={sunset}
-                                    alt=""
+                                    alt=" Sunset"
                                     className="w-16 h-16"
                                   />
                                   <p className="text-xs">Sunset</p>
@@ -604,7 +612,7 @@ function IPGeo() {
                                   </p>
                                   <img
                                     src={moonrise}
-                                    alt=""
+                                    alt="Moonrise"
                                     className="w-16 h-16"
                                   />
                                   <p className="text-xs">Moonrise</p>
@@ -617,7 +625,7 @@ function IPGeo() {
                                   </p>
                                   <img
                                     src={moonset}
-                                    alt=""
+                                    alt="Moonset"
                                     className="w-16 h-16"
                                   />
                                   <p className="text-xs">Moonset</p>
@@ -633,7 +641,7 @@ function IPGeo() {
                                   </p>
                                   <img
                                     src={moonphase}
-                                    alt=""
+                                    alt="Moonphase"
                                     className="w-16 h-16"
                                   />
                                   <p className="text-xs bottom-0">Moon Phase</p>
@@ -641,8 +649,6 @@ function IPGeo() {
                               </div>
                             </div>
                           </div>
-
-                          {/* Repeat the same structure for other divs */}
                         </div>
                       </div>
                     </>
@@ -679,7 +685,10 @@ function IPGeo() {
                       </div>
                     </div>
                     <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg ">
+                      <div onClick={() => {
+                          setIndex(1);
+                          setIsCurrent(false);
+                        }} className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg ">
                         <p>{forecast.forecastday[1].date}</p>
                         {setConditionImage(
                           forecast.forecastday[1].day.condition.text,
@@ -697,7 +706,10 @@ function IPGeo() {
                       </div>
                     </div>
                     <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div className="cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg">
+                      <div onClick={() => {
+                          setIndex(2);
+                          setIsCurrent(false);
+                        }} className="cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg">
                         <p>{forecast.forecastday[2].date}</p>
                         {setConditionImage(
                           forecast.forecastday[2].day.condition.text,
