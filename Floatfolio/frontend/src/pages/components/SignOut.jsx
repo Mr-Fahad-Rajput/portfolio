@@ -29,7 +29,7 @@ function LogOut(props) {
               text: "You've been logged out successfully. Looking forward to your next visit!",
             });
             setTimeout(() => {
-              navigate("/", { state: { fromSpecificPage: true } });
+              navigate(-2, { state: { fromSpecificPage: true } });
             }, 4000);
           }
         })
