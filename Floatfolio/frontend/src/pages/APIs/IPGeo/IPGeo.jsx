@@ -11,7 +11,7 @@ function IPGeo() {
   const [isLoading, setIsLoading] = useState(false);
   const [isCurrent, setIsCurrent] = useState(true);
   const [fetchData, setFetchData] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(3);
   const [conditionImg, setConditionImg] = useState();
   const [con0, setCon0] = useState();
   const [con1, setCon1] = useState();
@@ -480,7 +480,9 @@ function IPGeo() {
                           <div>
                             {
                               <img
-                                src={index === 0 ? con0 : index === 1 ? con1 : con2}
+                                src={
+                                  index === 0 ? con0 : index === 1 ? con1 : con2
+                                }
                                 alt="Forecast Condition"
                               />
                             }
@@ -660,72 +662,171 @@ function IPGeo() {
                     </h3>
                   </div>
                   <div className="p-2 max-md:gap-2 text-center justify-around items-center md:flex">
-                    <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
+                    {index === 0 ? (
+                      <>
+                        <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
                       <div
                         onClick={() => {
-                          setIndex(0);
-                          setIsCurrent(false);
+                          setIndex(3);
+                          setIsCurrent(true);
                         }}
-                        className="cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                        className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
                       >
-                        <p>{forecast.forecastday[0].date}</p>
+                        <p>Currently</p>
                         {setConditionImage(
-                          forecast.forecastday[0].day.condition.text,
-                          "today"
+                          current.condition.text,
+                          "current"
                         ) && (
                           <img
-                            src={con0}
-                            alt="Forecast day 1"
+                            src={conditionImg}
+                            alt="Current Weather Icon"
                             className="w-20 h-20"
                           />
                         )}
                         <small className="px-2">
-                          {forecast.forecastday[0].day.condition.text}
+                          {current.condition.text}
                         </small>
                       </div>
                     </div>
-                    <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div onClick={() => {
-                          setIndex(1);
-                          setIsCurrent(false);
-                        }} className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg ">
-                        <p>{forecast.forecastday[1].date}</p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
+                          <div
+                            onClick={() => {
+                              setIndex(0);
+                              setIsCurrent(false);
+                            }}
+                            className="cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                          >
+                            <p>{forecast.forecastday[0].date}</p>
+                            {setConditionImage(
+                              forecast.forecastday[0].day.condition.text,
+                              "today"
+                            ) && (
+                              <img
+                                src={con0}
+                                alt="Forecast day 1"
+                                className="w-20 h-20"
+                              />
+                            )}
+                            <small className="px-2">
+                              {forecast.forecastday[0].day.condition.text}
+                            </small>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                    {index === 1 ? (
+                      <>
+                        <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
+                      <div
+                        onClick={() => {
+                          setIndex(3);
+                          setIsCurrent(true);
+                        }}
+                        className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                      >
+                        <p>Currently</p>
                         {setConditionImage(
-                          forecast.forecastday[1].day.condition.text,
-                          "tommorow"
+                          current.condition.text,
+                          "current"
                         ) && (
                           <img
-                            src={con1}
-                            alt="Forecast day 2"
+                            src={conditionImg}
+                            alt="Current Weather Icon"
                             className="w-20 h-20"
                           />
                         )}
                         <small className="px-2">
-                          {forecast.forecastday[1].day.condition.text}
+                          {current.condition.text}
                         </small>
                       </div>
                     </div>
-                    <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div onClick={() => {
-                          setIndex(2);
-                          setIsCurrent(false);
-                        }} className="cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg">
-                        <p>{forecast.forecastday[2].date}</p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
+                          <div
+                            onClick={() => {
+                              setIndex(1);
+                              setIsCurrent(false);
+                            }}
+                            className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                          >
+                            <p>{forecast.forecastday[1].date}</p>
+                            {setConditionImage(
+                              forecast.forecastday[1].day.condition.text,
+                              "tommorow"
+                            ) && (
+                              <img
+                                src={con1}
+                                alt="Forecast day 2"
+                                className="w-20 h-20"
+                              />
+                            )}
+                            <small className="px-2">
+                              {forecast.forecastday[1].day.condition.text}
+                            </small>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                    {index === 2 ? (
+                      <>
+                        <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
+                      <div
+                        onClick={() => {
+                          setIndex(3);
+                          setIsCurrent(true);
+                        }}
+                        className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                      >
+                        <p>Currently</p>
                         {setConditionImage(
-                          forecast.forecastday[2].day.condition.text,
-                          "third"
+                          current.condition.text,
+                          "current"
                         ) && (
                           <img
-                            src={con2}
-                            alt="Forecast day 3"
+                            src={conditionImg}
+                            alt="Current Weather Icon"
                             className="w-20 h-20"
                           />
                         )}
-                        <small className="px-2 tracking ">
-                          {forecast.forecastday[2].day.condition.text}
+                        <small className="px-2">
+                          {current.condition.text}
                         </small>
                       </div>
                     </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
+                          <div
+                            onClick={() => {
+                              setIndex(2);
+                              setIsCurrent(false);
+                            }}
+                            className="cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg"
+                          >
+                            <p>{forecast.forecastday[2].date}</p>
+                            {setConditionImage(
+                              forecast.forecastday[2].day.condition.text,
+                              "third"
+                            ) && (
+                              <img
+                                src={con2}
+                                alt="Forecast day 3"
+                                className="w-20 h-20"
+                              />
+                            )}
+                            <small className="px-2 tracking ">
+                              {forecast.forecastday[2].day.condition.text}
+                            </small>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </>
