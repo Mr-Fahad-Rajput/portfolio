@@ -289,25 +289,22 @@ function IPGeo() {
           </div>
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-              Mail Chimp API
+              Weather & IP Geolocation
             </h1>
             <p className=" mt-3 mx-auto text-justify tracking-tight">
-              The IPGeo API is a robust and versatile tool that empowers
-              businesses to seamlessly integrate their applications with
-              IPGeo&apos;s email marketing and automation platform. With the
-              IPGeo API, developers can create custom solutions that enhance
-              marketing campaigns, audience engagement, and data management.
-              This API enables businesses to automate tasks such as list
-              management, campaign creation, and subscriber interactions. <br />
-              <br />
-              By leveraging the IPGeo API, businesses can unlock the full
-              potential of email marketing, streamline their communication
-              efforts, and provide a more personalized experience to their
-              audience. Whether it&apos;s syncing customer data, automating
-              email sends, or tracking campaign performance, the IPGeo API
-              offers a powerful way to integrate email marketing functionalities
-              into a wide range of applications and platforms. For More details
-              about the Power of Mail Chimp, Click on the logo to The left.
+              IP Geolocation and Weather APIs are valuable tools for businesses.
+              The IP Geolocation API enables businesses to pinpoint the
+              geographical location of an IP address, facilitating personalized
+              user experiences and targeted marketing. This is particularly
+              useful for e-commerce platforms that can display location-specific
+              content and enhance security measures. <br /> <br />
+              On the other hand, Weather APIs provide real-time and forecasted
+              weather data, aiding industries like travel and outdoor events.
+              Businesses can offer tailored recommendations based on weather
+              conditions, optimize routes, and adjust marketing strategies
+              accordingly. Integrating these APIs into your portfolio showcases
+              your ability to enhance user engagement, optimize operations, and
+              provide data-driven solutions for diverse business needs.
             </p>
           </div>
         </div>
@@ -315,7 +312,19 @@ function IPGeo() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          <p className=" mt-3 mx-auto text-justify">Just a Test</p>
+          <p className=" mt-3 mx-auto text-justify">
+            When you visit the page, you&apos;ll notice a &quot;Fetch
+            Weather&quot; button. Clicking this button automatically retrieves
+            weather data for you. Just keep in mind that there might be a slight
+            delay due to the two APIs working together. Once the data is
+            fetched, you&apos;ll see real-time weather details like temperature,
+            wind, and more. As you scroll down, you&apos;ll find a forecast for
+            upcoming days. Feel free to toggle between different days to see the
+            expected weather conditions. This integration showcases how weather
+            data can be displayed on your site, but remember, it&apos;s all for
+            demonstration purposes. If there&apos;s a brief delay, that&apos;s
+            normal as the APIs do their magic simultaneously.
+          </p>
           <button
             name="send"
             className="p-4 m-1 btn whitespace-nowrap mx-auto"
@@ -665,29 +674,29 @@ function IPGeo() {
                     {index === 0 ? (
                       <>
                         <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div
-                        onClick={() => {
-                          setIndex(3);
-                          setIsCurrent(true);
-                        }}
-                        className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
-                      >
-                        <p>Currently</p>
-                        {setConditionImage(
-                          current.condition.text,
-                          "current"
-                        ) && (
-                          <img
-                            src={conditionImg}
-                            alt="Current Weather Icon"
-                            className="w-20 h-20"
-                          />
-                        )}
-                        <small className="px-2">
-                          {current.condition.text}
-                        </small>
-                      </div>
-                    </div>
+                          <div
+                            onClick={() => {
+                              setIndex(3);
+                              setIsCurrent(true);
+                            }}
+                            className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                          >
+                            <p>Currently</p>
+                            {setConditionImage(
+                              current.condition.text,
+                              "current"
+                            ) && (
+                              <img
+                                src={conditionImg}
+                                alt="Current Weather Icon"
+                                className="w-20 h-20"
+                              />
+                            )}
+                            <small className="px-2">
+                              {current.condition.text}
+                            </small>
+                          </div>
+                        </div>
                       </>
                     ) : (
                       <>
@@ -720,29 +729,29 @@ function IPGeo() {
                     {index === 1 ? (
                       <>
                         <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div
-                        onClick={() => {
-                          setIndex(3);
-                          setIsCurrent(true);
-                        }}
-                        className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
-                      >
-                        <p>Currently</p>
-                        {setConditionImage(
-                          current.condition.text,
-                          "current"
-                        ) && (
-                          <img
-                            src={conditionImg}
-                            alt="Current Weather Icon"
-                            className="w-20 h-20"
-                          />
-                        )}
-                        <small className="px-2">
-                          {current.condition.text}
-                        </small>
-                      </div>
-                    </div>
+                          <div
+                            onClick={() => {
+                              setIndex(3);
+                              setIsCurrent(true);
+                            }}
+                            className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                          >
+                            <p>Currently</p>
+                            {setConditionImage(
+                              current.condition.text,
+                              "current"
+                            ) && (
+                              <img
+                                src={conditionImg}
+                                alt="Current Weather Icon"
+                                className="w-20 h-20"
+                              />
+                            )}
+                            <small className="px-2">
+                              {current.condition.text}
+                            </small>
+                          </div>
+                        </div>
                       </>
                     ) : (
                       <>
@@ -775,29 +784,29 @@ function IPGeo() {
                     {index === 2 ? (
                       <>
                         <div className="w-32 h-auto max-md:mx-auto my-2 animate-scale-100 ">
-                      <div
-                        onClick={() => {
-                          setIndex(3);
-                          setIsCurrent(true);
-                        }}
-                        className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
-                      >
-                        <p>Currently</p>
-                        {setConditionImage(
-                          current.condition.text,
-                          "current"
-                        ) && (
-                          <img
-                            src={conditionImg}
-                            alt="Current Weather Icon"
-                            className="w-20 h-20"
-                          />
-                        )}
-                        <small className="px-2">
-                          {current.condition.text}
-                        </small>
-                      </div>
-                    </div>
+                          <div
+                            onClick={() => {
+                              setIndex(3);
+                              setIsCurrent(true);
+                            }}
+                            className=" cursor-pointer flex flex-col transform hover:scale-110 duration-500 whitespace-nowrap bg-mainBg dark:bg-lBrand rounded-lg p-2 items-center border border-dBrand dark:border-mainBg "
+                          >
+                            <p>Currently</p>
+                            {setConditionImage(
+                              current.condition.text,
+                              "current"
+                            ) && (
+                              <img
+                                src={conditionImg}
+                                alt="Current Weather Icon"
+                                className="w-20 h-20"
+                              />
+                            )}
+                            <small className="px-2">
+                              {current.condition.text}
+                            </small>
+                          </div>
+                        </div>
                       </>
                     ) : (
                       <>
