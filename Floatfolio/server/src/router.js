@@ -31,8 +31,11 @@ router.post("/mailchimp", require("./routes/mailchimp.js"));
 // IP geo API
 router.post("/ipgeo", require("./routes/ipgeo.js"));
 
+// Sales Force API
+router.post("/salesforce", require("./routes/salesforce.js"));
+
 router.get("/", (req, res) => {
-  res.send("Hello! I'm Nadeem! Nadeem SERVER");
+  res.send("{Server Connection Un-Authorized, 4/4 Security Keys Missing}");
 });
 
 module.exports = router;

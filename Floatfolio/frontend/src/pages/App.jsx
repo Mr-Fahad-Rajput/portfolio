@@ -18,6 +18,7 @@ const MailChimp = lazy(() => import("./APIs/MailChimp/MailChimp.jsx"));
 const Maps = lazy(() => import("./APIs/Maps/Maps.jsx"));
 const IPGeo = lazy(() => import("./APIs/IPGeo/IPGeo.jsx"));
 const OAuthGoogle = lazy(() => import("./APIs/IdentityGoogle/IdentityGoogle.jsx"));
+const SalesForce = lazy(() => import("./APIs/SalesForce/SalesForce.jsx"));
 // User Account
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
 const SignIn = lazy(() => import("./components/SignIn.jsx"));
@@ -58,6 +59,7 @@ function App() {
             <Route exact path="/maps" element={<Maps />} />
             <Route exact path="/ipgeo" element={<IPGeo />} />
             <Route exact path="/oauthgoogle" element={<OAuthGoogle />} />
+            <Route exact path="/salesforce" element={<SalesForce />} />
             {/* Site User Accont */}
             <Route exact path="/signin" element={<SignIn />} />
             <Route

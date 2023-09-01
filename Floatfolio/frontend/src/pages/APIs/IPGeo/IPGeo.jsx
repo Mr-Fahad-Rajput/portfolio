@@ -279,7 +279,7 @@ function IPGeo() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
-            <a href="#">
+            <a href="https://www.weatherapi.com/">
               <img
                 src={ipGeoIcon}
                 alt="Weather Logo "
