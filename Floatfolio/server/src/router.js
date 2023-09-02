@@ -31,8 +31,9 @@ router.post("/mailchimp", require("./routes/mailchimp.js"));
 // IP geo API
 router.post("/ipgeo", require("./routes/ipgeo.js"));
 
-// Sales Force API
-router.post("/salesforce", require("./routes/salesforce.js"));
+// Vision API
+router.get("/cloudvision", require("./routes/cloudvision.js"));
+
 
 router.get("/", (req, res) => {
   res.send("{Server Connection Un-Authorized, 4/4 Security Keys Missing}");
