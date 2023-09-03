@@ -13,7 +13,7 @@ const handleImageUpload = async (formData) => {
         const data = await response.json();
         return data;
       } else {
-        throw new Error('Error uploading image.');
+        return response;
       }
     } catch (error) {
       return error;

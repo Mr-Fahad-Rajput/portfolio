@@ -25,7 +25,8 @@ module.exports = async (req, res) => {
     const texts = result.textAnnotations;
     console.log(labels, texts);
     // Respond with the annotations
-    res.json({ labels, texts });
+    res.status(200).send({labels, texts})
+    // res.json({ labels, texts });
   } catch (error) {
     console.error("Error fetching geolocation geoData:", error);
     const errorMessage = error.message;

@@ -68,7 +68,8 @@ function CloudVision() {
       const handleImageUpload = handleSubmitModule.default;
       handleImageUpload(formData)
         .then((res) => {
-          if (res.ok) {
+          console.log(res);
+          if (res.ok == 200) {
             console.log(res)
             res = res.json();
             console.log(res)
@@ -84,6 +85,7 @@ function CloudVision() {
           // location.reload();
         })
         .catch((error) => {
+          console.log(error.toString())
           setAlertImg(notSent);
           if (error.toString().includes("Failed to fetch")) {
             setResponseStatus({
