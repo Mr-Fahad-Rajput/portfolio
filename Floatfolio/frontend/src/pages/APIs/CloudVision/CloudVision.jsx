@@ -188,7 +188,7 @@ function CloudVision() {
               />
               <label
                 htmlFor="img_input"
-                className={`btn m-auto p-4 ${imageFile ? " " : "w-full"}`}
+                className={`btn whitespace-nowrap m-auto p-4 ${imageFile ? " " : "w-full"}`}
               >
                 Choose File
               </label>
