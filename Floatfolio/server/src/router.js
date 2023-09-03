@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const multer = require('multer');
 
 // Registration
 router.post("/register", require("./routes/register.js"));
@@ -31,8 +32,10 @@ router.post("/mailchimp", require("./routes/mailchimp.js"));
 // IP geo API
 router.post("/ipgeo", require("./routes/ipgeo.js"));
 
+const storage = multer.memoryStorage(); // Use memory storage to work with FormData
+const upload = multer({ storage: storage });
 // Vision API
-router.get("/cloudvision", require("./routes/cloudvision.js"));
+router.post("/cloudvision", upload.single('image'), require("./routes/cloudvision.js"));
 
 
 router.get("/", (req, res) => {

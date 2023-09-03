@@ -7,6 +7,7 @@ import notSent from "../../../assets/notsent.svg";
 import AlertBox from "../../components/AlertBox";
 
 function CloudVision() {
+  const [imageFile, setImageFile] = useState(null);
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState({
@@ -14,56 +15,62 @@ function CloudVision() {
     text: "",
   });
 
-  const [toggleCLick, setToggleClick] = useState(false);
   let [dataBody, setDataBody] = useState({
     email: "",
-    status: "pending",
   });
-  useEffect(() => {
-    const hashFragment = window.location.hash;
+  // useEffect(() => {
+  //   const hashFragment = window.location.hash;
 
-    if (hashFragment === "#success") {
-      setResponseStatus({
-        status: true,
-        text: "Sucessfully Subscribed to The News Letter!",
-      });
-      setTimeout(() => {
-        setResponseStatus({
-          status: false,
-        });
-      }, 3000);
-      setDataBody({ ...dataBody, email: "" });
-    } else if (hashFragment === "#cancel") {
-      setAlertImg(notSent);
-      setResponseStatus({
-        status: true,
-        text: "Subscription Didn't work :(",
-      });
-      setTimeout(() => {
-        setResponseStatus({
-          status: false,
-        });
-      }, 3000);
-    }
-  }, []);
-
-  const handleInput = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    setDataBody((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  //   if (hashFragment === "#success") {
+  //     setResponseStatus({
+  //       status: true,
+  //       text: "Sucessfully Subscribed to The News Letter!",
+  //     });
+  //     setTimeout(() => {
+  //       setResponseStatus({
+  //         status: false,
+  //       });
+  //     }, 3000);
+  //     setDataBody({ ...dataBody, email: "" });
+  //   } else if (hashFragment === "#cancel") {
+  //     setAlertImg(notSent);
+  //     setResponseStatus({
+  //       status: true,
+  //       text: "Subscription Didn't work :(",
+  //     });
+  //     setTimeout(() => {
+  //       setResponseStatus({
+  //         status: false,
+  //       });
+  //     }, 3000);
+  //   }
+  // }, []);
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+  };
+  const handleInput = (e) => {
+    const text = e.target.value;
+    setDataBody({ ...dataBody, email: text });
   };
 
   // Backend Implementation
   const handleAPIcalls = async () => {
     setIsLoading(true);
     try {
-      const handleSubmitModule = await import("../../apiCalls/getApi");
-      const handleSubmit = handleSubmitModule.default;
-      handleSubmit( "cloudvision", "GET")
+      const formData = new FormData();
+      console.log(imageFile);
+      console.log(dataBody);
+      formData.append("image", imageFile);
+      formData.append("text", dataBody);
+      for (var key of formData.entries()) {
+        console.log(key[0] + ', ' + key[1]);
+    }
+      const handleSubmitModule = await import(
+        "../../apiCalls/handleImageUpload"
+      );
+      const handleImageUpload = handleSubmitModule.default;
+      handleImageUpload(formData)
         .then((res) => {
           if (res.ok) {
             res = res.json();
@@ -124,11 +131,12 @@ function CloudVision() {
             <p className=" mt-3 mx-auto text-justify tracking-tight">
               The CloudVision API is a robust and versatile tool that empowers
               businesses to seamlessly integrate their applications with
-              CloudVision&apos;s email marketing and automation platform. With the
-              CloudVision API, developers can create custom solutions that enhance
-              marketing campaigns, audience engagement, and data management.
-              This API enables businesses to automate tasks such as list
-              management, campaign creation, and subscriber interactions. <br />
+              CloudVision&apos;s email marketing and automation platform. With
+              the CloudVision API, developers can create custom solutions that
+              enhance marketing campaigns, audience engagement, and data
+              management. This API enables businesses to automate tasks such as
+              list management, campaign creation, and subscriber interactions.{" "}
+              <br />
               <br />
               By leveraging the CloudVision API, businesses can unlock the full
               potential of email marketing, streamline their communication
@@ -145,14 +153,21 @@ function CloudVision() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          
-          <p className=" mt-3 mx-auto text-justify">
-           test
-            
-          </p>
+
+          <p className=" mt-3 mx-auto text-justify">test</p>
         </div>
         <div className="mb-4">
-          <button onClick={handleAPIcalls}>tets</button>
+          <div>
+            <h1>Image Upload</h1>
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+            <textarea
+              placeholder="Enter text data..."
+              value={dataBody.status}
+              onChange={handleInput}
+            />
+            <button onClick={handleAPIcalls}>Upload</button>
+            {isLoading && <p>Loading...</p>}
+          </div>
         </div>
       </section>
     </>
