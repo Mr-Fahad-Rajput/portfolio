@@ -110,7 +110,7 @@ function CloudVision() {
             <a href="https://CloudVision.com/">
               <img
                 src={visionIcon}
-                alt="Mail Chimp Ilustration"
+                alt="Google Vision Ilustration"
                 className=" w-64 h-56 hover:scale-110 transform duration-500"
               />
             </a>
