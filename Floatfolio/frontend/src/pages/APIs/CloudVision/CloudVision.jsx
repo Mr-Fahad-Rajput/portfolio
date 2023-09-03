@@ -8,6 +8,8 @@ import AlertBox from "../../components/AlertBox";
 
 function CloudVision() {
   const [imageFile, setImageFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState({
@@ -15,8 +17,8 @@ function CloudVision() {
     text: "",
   });
 
-  let [dataBody, setDataBody] = useState({
-    email: "",
+  const [dataBody, setDataBody] = useState({
+    feature: "LABEL_DETECTION",
   });
   // useEffect(() => {
   //   const hashFragment = window.location.hash;
@@ -31,7 +33,7 @@ function CloudVision() {
   //         status: false,
   //       });
   //     }, 3000);
-  //     setDataBody({ ...dataBody, email: "" });
+  //     setDataBody({ ...dataBody, feature: "" });
   //   } else if (hashFragment === "#cancel") {
   //     setAlertImg(notSent);
   //     setResponseStatus({
@@ -51,7 +53,7 @@ function CloudVision() {
   };
   const handleInput = (e) => {
     const text = e.target.value;
-    setDataBody({ ...dataBody, email: text });
+    setDataBody({ ...dataBody, feature: text });
   };
 
   // Backend Implementation
@@ -59,9 +61,10 @@ function CloudVision() {
     setIsLoading(true);
     try {
       const formData = new FormData();
+      console.log(dataBody)
       formData.append("image", imageFile);
       formData.append("text", JSON.stringify(dataBody));
-     
+
       const handleSubmitModule = await import(
         "../../apiCalls/handleImageUpload"
       );
@@ -70,9 +73,9 @@ function CloudVision() {
         .then((res) => {
           console.log(res);
           if (res.ok == 200) {
-            console.log(res)
+            console.log(res);
             res = res.json();
-            console.log(res)
+            console.log(res);
             return res;
           } else {
             throw new Error("Request failed with status: " + res);
@@ -85,7 +88,7 @@ function CloudVision() {
           // location.reload();
         })
         .catch((error) => {
-          console.log(error.toString())
+          console.log(error.toString());
           setAlertImg(notSent);
           if (error.toString().includes("Failed to fetch")) {
             setResponseStatus({
@@ -94,8 +97,6 @@ function CloudVision() {
             });
           } else {
             const redirectUrl = "http://localhost:5173/CloudVision#cancel";
-            // window.location = redirectUrl;
-            // location.reload();
           }
         })
         .finally(() => {
@@ -131,7 +132,7 @@ function CloudVision() {
             <p className=" mt-3 mx-auto text-justify tracking-tight">
               The CloudVision API is a robust and versatile tool that empowers
               businesses to seamlessly integrate their applications with
-              CloudVision&apos;s email marketing and automation platform. With
+              CloudVision&apos;s feature marketing and automation platform. With
               the CloudVision API, developers can create custom solutions that
               enhance marketing campaigns, audience engagement, and data
               management. This API enables businesses to automate tasks such as
@@ -139,11 +140,11 @@ function CloudVision() {
               <br />
               <br />
               By leveraging the CloudVision API, businesses can unlock the full
-              potential of email marketing, streamline their communication
+              potential of feature marketing, streamline their communication
               efforts, and provide a more personalized experience to their
               audience. Whether it&apos;s syncing customer data, automating
-              email sends, or tracking campaign performance, the CloudVision API
-              offers a powerful way to integrate email marketing functionalities
+              feature sends, or tracking campaign performance, the CloudVision API
+              offers a powerful way to integrate feature marketing functionalities
               into a wide range of applications and platforms. For More details
               about the Power of Mail Chimp, Click on the logo to The left.
             </p>
@@ -156,18 +157,91 @@ function CloudVision() {
 
           <p className=" mt-3 mx-auto text-justify">test</p>
         </div>
-        <div className="mb-4">
-          <div>
-            <h1>Image Upload</h1>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-            <textarea
-              placeholder="Enter text data..."
-              value={dataBody.status}
-              onChange={handleInput}
-            />
-            <button onClick={handleAPIcalls}>Upload</button>
-            {isLoading && <p>Loading...</p>}
-          </div>
+        <div className="w-auto bg-lBrand dark:bg-balBrand p-2 rounded-lg border-dBrand border-2 dark:border-mainBg">
+        <h4 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand text-center">
+            API Controls
+          </h4>
+            <label htmlFor="features" className="dark:text-mainBg ">
+              Features:
+            </label>
+            <select id="features" className="inp w-full mx-auto dark:border-dBrand" onChange={handleInput}>
+              <option value="LABEL_DETECTION">Label Detection</option>
+              <option value="TEXT_DETECTION">Text Detection</option>
+              <option value="DOCUMENT_TEXT_DETECTION">
+                Document Text Detection
+              </option>
+              <option value="SAFE_SEARCH_DETECTION">Safe Search</option>
+              <option value="IMAGE_PROPERTIES">
+                Image Properties(Color Schemes)
+              </option>
+              <option value="LOGO_DETECTION">Logo Detection</option>
+              <option value="LANDMARK_DETECTION">Landmark Detection</option>
+              <option value="WEB_DETECTION">Web Detection</option>
+              <option value="TRANSLATE_TEXT">
+                Text Translation(To English)
+              </option>
+            </select>
+
+            <label className="dark:text-mainBg" htmlFor="img_input">
+              Upload Image:
+            </label>
+            <div>
+              <div className="flex flex-row">
+              <input
+                type="file"
+                id="img_input"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="hidden"
+              />
+                <label
+                  htmlFor="img_input"
+                  className={`btn m-auto p-4 ${imageFile ? " " : "w-full"}`}
+                >
+                  Choose File
+                </label>
+                {imageFile && (
+                  <p className="inp">Selected File: {imageFile.name}</p>
+                )}
+              </div>
+            </div>
+            <button
+              name="send"
+              className="p-4 m-1 btn whitespace-nowrap mx-auto mt-4"
+              onClick={handleAPIcalls}
+              disabled={isLoading}
+              aria-label="Check Out Button"
+            >
+              {isLoading ? (
+                <div className="flex items-center">
+                  <div className="animate-spin mr-2">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-100 "
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="#FEFAE6"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="#471AA0"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  </div>
+                  Analyzing...
+                </div>
+              ) : (
+                "Analyze"
+              )}
+            </button>
         </div>
       </section>
     </>

@@ -46,7 +46,7 @@
 
 /* /Input Style/ */
 .inp {
-  @apply md:p-4 py-2 m-1 rounded-lg border-2 dark:text-balBrand border-black dark:border-white;
+  @apply md:p-4 py-2 m-1 rounded-lg border-2 dark:text-balBrand border-dBrand dark:border-mainBg;
   transition: all 150ms ease-in-out;
 }
 .inp:hover,
