@@ -59,13 +59,9 @@ function CloudVision() {
     setIsLoading(true);
     try {
       const formData = new FormData();
-      console.log(imageFile);
-      console.log(dataBody);
       formData.append("image", imageFile);
-      formData.append("text", dataBody);
-      for (var key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-    }
+      formData.append("text", JSON.stringify(dataBody));
+     
       const handleSubmitModule = await import(
         "../../apiCalls/handleImageUpload"
       );
@@ -73,7 +69,9 @@ function CloudVision() {
       handleImageUpload(formData)
         .then((res) => {
           if (res.ok) {
+            console.log(res)
             res = res.json();
+            console.log(res)
             return res;
           } else {
             throw new Error("Request failed with status: " + res);
@@ -81,9 +79,9 @@ function CloudVision() {
         })
         .then((data) => {
           console.log(data.urlRes);
-          const redirectUrl = data.urlRes;
-          window.location = redirectUrl;
-          location.reload();
+          // const redirectUrl = data.urlRes;
+          // window.location = redirectUrl;
+          // location.reload();
         })
         .catch((error) => {
           setAlertImg(notSent);
@@ -94,8 +92,8 @@ function CloudVision() {
             });
           } else {
             const redirectUrl = "http://localhost:5173/CloudVision#cancel";
-            window.location = redirectUrl;
-            location.reload();
+            // window.location = redirectUrl;
+            // location.reload();
           }
         })
         .finally(() => {

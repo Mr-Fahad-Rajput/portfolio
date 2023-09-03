@@ -26,7 +26,7 @@ app.set("trust proxy", 1);
 
 app.use(reqAuth);
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 // RemoteAddress-:remote-addr - RemoteUser-:remote-user
 app.use(morgan("tiny"));
 app.use(router);

@@ -32,7 +32,7 @@ router.post("/mailchimp", require("./routes/mailchimp.js"));
 // IP geo API
 router.post("/ipgeo", require("./routes/ipgeo.js"));
 
-const storage = multer.memoryStorage(); // Use memory storage to work with FormData
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 // Vision API
 router.post("/cloudvision", upload.single('image'), require("./routes/cloudvision.js"));
