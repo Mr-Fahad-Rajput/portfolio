@@ -276,7 +276,7 @@ function CloudVision() {
                 {results[index] ? results[index].description : results.text}
               </p>
               <div className="flex flex-row justify-evenly">
-                {responseStatus.text == "TEXT_DETECTION" ? null : (
+                {(responseStatus.text == "TEXT_DETECTION" || responseStatus.text == "DOCUMENT_TEXT_DETECTION")  ? null : (
                   <>
                     <button
                       className="btn p-4"
