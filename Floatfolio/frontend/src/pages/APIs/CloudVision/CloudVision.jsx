@@ -22,6 +22,18 @@ function CloudVision() {
     feature: "TEXT_DETECTION",
   });
   const displayNames = new Intl.DisplayNames(["en"], { type: "language" });
+  const confidenceMap = {
+    UNKNOWN: { text: "Unknown", percentage: "0%", color: "" },
+    VERY_UNLIKELY: {
+      text: "Very Unlikely",
+      percentage: "10%",
+      color: "#44beee",
+    },
+    UNLIKELY: { text: "Unlikely", percentage: "30%", color: "#1aeaa8" },
+    POSSIBLE: { text: "Possible", percentage: "60%", color: "#eaea1a" },
+    LIKELY: { text: "Likely", percentage: "80%", color: "#ee8e44" },
+    VERY_LIKELY: { text: "Very Likely", percentage: "100%", color: "#ee4d44" },
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -74,6 +86,7 @@ function CloudVision() {
               status: true,
               text: "SAFE_SEARCH_DETECTION",
             });
+            setResults(data);
           } else if (featureData.feature == "IMAGE_PROPERTIES") {
             setResponseStatus({
               status: true,
@@ -267,16 +280,84 @@ function CloudVision() {
               <h4 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand text-center">
                 Results
               </h4>
+              {responseStatus.text == "SAFE_SEARCH_DETECTION" && (
+                <>
+                  <div className="m-2 my-4">
+                    <h5>Adult:{confidenceMap[results.adult].text}</h5>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-dBrand">
+                      <div
+                        className=" h-2.5 rounded-full"
+                        style={{
+                          width: confidenceMap[results.adult].percentage,
+                          background: confidenceMap[results.adult].color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                  <div className="m-2 my-4">
+                    <h5>Spoof:{confidenceMap[results.spoof].text}</h5>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-dBrand">
+                      <div
+                        className=" h-2.5 rounded-full"
+                        style={{
+                          width: confidenceMap[results.spoof].percentage,
+                          background: confidenceMap[results.spoof].color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                  <div className="m-2 my-4">
+                    <h5>Medical:{confidenceMap[results.medical].text}</h5>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-dBrand">
+                      <div
+                        className=" h-2.5 rounded-full"
+                        style={{
+                          width: confidenceMap[results.medical].percentage,
+                          background: confidenceMap[results.medical].color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                  <div className="m-2 my-4">
+                    <h5>Violence:{confidenceMap[results.violence].text}</h5>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-dBrand">
+                      <div
+                        className=" h-2.5 rounded-full"
+                        style={{
+                          width: confidenceMap[results.violence].percentage,
+                          background: confidenceMap[results.violence].color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                  <div className="m-2 my-4">
+                    <h5>Racy:{confidenceMap[results.racy].text}</h5>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-dBrand">
+                      <div
+                        className=" h-2.5 rounded-full"
+                        style={{
+                          width: confidenceMap[results.racy].percentage,
+                          background: confidenceMap[results.racy].color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </>
+              )}
               {results[index] && results[index].locale && (
                 <h6>
                   Detected Language: {displayNames.of(results[index].locale)}
                 </h6>
               )}
-              <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
-                {results[index] ? results[index].description : results.text}
-              </p>
+              {(results[index] || results.text) && (
+                <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
+                  {results[index] ? results[index].description : results.text}
+                </p>
+              )}
               <div className="flex flex-row justify-evenly">
-                {(responseStatus.text == "TEXT_DETECTION" || responseStatus.text == "DOCUMENT_TEXT_DETECTION")  ? null : (
+                {/* TODO safesearch visibility */}
+                {responseStatus.text == "TEXT_DETECTION" ||
+                responseStatus.text == "DOCUMENT_TEXT_DETECTION" ? null : (
                   <>
                     <button
                       className="btn p-4"
