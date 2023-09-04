@@ -9,6 +9,7 @@ import AlertBox from "../../components/AlertBox";
 function CloudVision() {
   const [imageFile, setImageFile] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [results, setResults] = useState(null);
 
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,33 +21,7 @@ function CloudVision() {
   const [dataBody, setDataBody] = useState({
     feature: "TEXT_DETECTION",
   });
-  // useEffect(() => {
-  //   const hashFragment = window.location.hash;
 
-  //   if (hashFragment === "#success") {
-  //     setResponseStatus({
-  //       status: true,
-  //       text: "Sucessfully Subscribed to The News Letter!",
-  //     });
-  //     setTimeout(() => {
-  //       setResponseStatus({
-  //         status: false,
-  //       });
-  //     }, 3000);
-  //     setDataBody({ ...dataBody, feature: "" });
-  //   } else if (hashFragment === "#cancel") {
-  //     setAlertImg(notSent);
-  //     setResponseStatus({
-  //       status: true,
-  //       text: "Subscription Didn't work :(",
-  //     });
-  //     setTimeout(() => {
-  //       setResponseStatus({
-  //         status: false,
-  //       });
-  //     }, 3000);
-  //   }
-  // }, []);
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImageFile(file);
@@ -70,11 +45,57 @@ function CloudVision() {
       const handleImageUpload = handleSubmitModule.default;
       handleImageUpload(formData)
         .then((res) => {
-          if (res) {
-            console.log(res)
+          if (res.responseObject) {
+            res = res.responseObject;
             return res;
           } else {
             throw new Error("Request failed with status: " + res);
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          const featureData = JSON.parse(formData.get("text"));
+          console.log(featureData);
+          if (featureData.feature == "TEXT_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "TEXT_DETECTION",
+            });
+          } else if (featureData.feature == "DOCUMENT_TEXT_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "DOCUMENT_TEXT_DETECTION",
+            });
+          } else if (featureData.feature == "SAFE_SEARCH_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "SAFE_SEARCH_DETECTION",
+            });
+          } else if (featureData.feature == "IMAGE_PROPERTIES") {
+            setResponseStatus({
+              status: true,
+              text: "IMAGE_PROPERTIES",
+            });
+          } else if (featureData.feature == "LOGO_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "LOGO_DETECTION",
+            });
+          } else if (featureData.feature == "LANDMARK_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "LANDMARK_DETECTION",
+            });
+          } else if (featureData.feature == "WEB_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "WEB_DETECTION",
+            });
+          } else if (featureData.feature == "LABEL_DETECTION") {
+            setResponseStatus({
+              status: true,
+              text: "LABEL_DETECTION",
+            });
           }
         })
         .catch((error) => {
@@ -178,7 +199,7 @@ function CloudVision() {
             Upload Image:
           </label>
           <div>
-            <div className="flex flex-row">
+            <div className="">
               <input
                 type="file"
                 id="img_input"
@@ -188,12 +209,21 @@ function CloudVision() {
               />
               <label
                 htmlFor="img_input"
-                className={`btn whitespace-nowrap m-auto p-4 ${imageFile ? " " : "w-full"}`}
+                className={`btn whitespace-nowrap m-auto p-4 ${
+                  imageFile ? " " : "w-full"
+                }`}
               >
                 Choose File
               </label>
               {imageFile && (
-                <p className="inp">Selected File: {imageFile.name}</p>
+                <div className="text-center">
+                  <img
+                    src={URL.createObjectURL(imageFile)}
+                    alt="Selected File"
+                    className="w-auto h-auto mx-auto rounded-lg border-dBrand border-2 dark:border-mainBg"
+                  />
+                  <figcaption className="underline">{imageFile.name}</figcaption>
+                </div>
               )}
             </div>
           </div>
