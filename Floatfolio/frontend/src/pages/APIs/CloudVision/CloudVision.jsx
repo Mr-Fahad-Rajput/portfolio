@@ -376,9 +376,8 @@ function CloudVision() {
                   </p></div>
                 </>
               )}
-              <div className="flex flex-row justify-evenly">
                 {responseStatus.text == "IMAGE_PROPERTIES" && (
-                  <>
+                  <div className="flex flex-row justify-center gap-4">
                     <button
                       className="btn p-4"
                       onClick={() => {
@@ -396,9 +395,8 @@ function CloudVision() {
                     >
                       Next
                     </button>
-                  </>
+                  </div>
                 )}
-              </div>
             </div>
           )}
         </div>
