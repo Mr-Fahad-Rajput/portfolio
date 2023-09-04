@@ -10,6 +10,7 @@ function CloudVision() {
   const [imageFile, setImageFile] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [results, setResults] = useState(null);
+  const [index, setIndex] = useState(0);
 
   const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,14 +18,15 @@ function CloudVision() {
     status: false,
     text: "",
   });
-
   const [dataBody, setDataBody] = useState({
     feature: "TEXT_DETECTION",
   });
+  const displayNames = new Intl.DisplayNames(["en"], { type: "language" });
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImageFile(file);
+    setResults(null);
   };
   const handleInput = (e) => {
     const text = e.target.value;
@@ -55,12 +57,12 @@ function CloudVision() {
         .then((data) => {
           console.log(data);
           const featureData = JSON.parse(formData.get("text"));
-          console.log(featureData);
           if (featureData.feature == "TEXT_DETECTION") {
             setResponseStatus({
               status: true,
               text: "TEXT_DETECTION",
             });
+            setResults(data);
           } else if (featureData.feature == "DOCUMENT_TEXT_DETECTION") {
             setResponseStatus({
               status: true,
@@ -112,11 +114,6 @@ function CloudVision() {
         })
         .finally(() => {
           setIsLoading(false);
-          setTimeout(() => {
-            setResponseStatus({
-              status: false,
-            });
-          }, 3000);
         });
     } catch (error) {
       console.error("Error importing handleSubmit:", error);
@@ -199,34 +196,33 @@ function CloudVision() {
             Upload Image:
           </label>
           <div>
-            <div className="">
-              <input
-                type="file"
-                id="img_input"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="hidden"
-              />
-              <label
-                htmlFor="img_input"
-                className={`btn whitespace-nowrap m-auto p-4 ${
-                  imageFile ? " " : "w-full"
-                }`}
-              >
-                Choose File
-              </label>
-              {imageFile && (
-                <div className="text-center">
-                  <img
-                    src={URL.createObjectURL(imageFile)}
-                    alt="Selected File"
-                    className="w-auto h-auto mx-auto rounded-lg border-dBrand border-2 dark:border-mainBg"
-                  />
-                  <figcaption className="underline">{imageFile.name}</figcaption>
-                </div>
-              )}
-            </div>
+            <input
+              type="file"
+              id="img_input"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="hidden"
+            />
+            <label
+              htmlFor="img_input"
+              className={`btn whitespace-nowrap m-auto p-4 ${
+                imageFile ? " " : "w-full"
+              }`}
+            >
+              Choose File
+            </label>
+            {imageFile && (
+              <div className="text-center">
+                <img
+                  src={URL.createObjectURL(imageFile)}
+                  alt="Selected File"
+                  className="w-auto h-auto mx-auto rounded-lg border-dBrand border-2 dark:border-mainBg"
+                />
+                <figcaption className="underline">{imageFile.name}</figcaption>
+              </div>
+            )}
           </div>
+
           <button
             name="send"
             className="p-4 m-1 btn whitespace-nowrap mx-auto mt-4"
@@ -265,6 +261,37 @@ function CloudVision() {
               "Analyze"
             )}
           </button>
+          {results && (
+            <div className="text-center h-auto m-auto">
+              <h4 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand text-center">
+                Results
+              </h4>
+              <h6>
+                Detected Language: {displayNames.of(results[index].locale)}
+              </h6>
+              <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
+                {results[index].description}
+              </p>
+              <div className="flex flex-row justify-evenly">
+                {responseStatus.text == "TEXT_DETECTION"? null : <><button
+                  className="btn p-4"
+                  onClick={() => {
+                    if (index > 0) setIndex(index - 1);
+                  }}
+                >
+                  Prev
+                </button>
+                <button
+                  className="btn p-4"
+                  onClick={() => {
+                    if (index < results.length) setIndex(index + 1);
+                  }}
+                >
+                  Next
+                </button></>}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>
