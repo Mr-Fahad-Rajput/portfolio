@@ -68,6 +68,7 @@ function CloudVision() {
               status: true,
               text: "DOCUMENT_TEXT_DETECTION",
             });
+            setResults(data);
           } else if (featureData.feature == "SAFE_SEARCH_DETECTION") {
             setResponseStatus({
               status: true,
@@ -266,29 +267,35 @@ function CloudVision() {
               <h4 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand text-center">
                 Results
               </h4>
-              <h6>
-                Detected Language: {displayNames.of(results[index].locale)}
-              </h6>
+              {results[index] && results[index].locale && (
+                <h6>
+                  Detected Language: {displayNames.of(results[index].locale)}
+                </h6>
+              )}
               <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
-                {results[index].description}
+                {results[index] ? results[index].description : results.text}
               </p>
               <div className="flex flex-row justify-evenly">
-                {responseStatus.text == "TEXT_DETECTION"? null : <><button
-                  className="btn p-4"
-                  onClick={() => {
-                    if (index > 0) setIndex(index - 1);
-                  }}
-                >
-                  Prev
-                </button>
-                <button
-                  className="btn p-4"
-                  onClick={() => {
-                    if (index < results.length) setIndex(index + 1);
-                  }}
-                >
-                  Next
-                </button></>}
+                {responseStatus.text == "TEXT_DETECTION" ? null : (
+                  <>
+                    <button
+                      className="btn p-4"
+                      onClick={() => {
+                        if (index > 0) setIndex(index - 1);
+                      }}
+                    >
+                      Prev
+                    </button>
+                    <button
+                      className="btn p-4"
+                      onClick={() => {
+                        if (index < results.length) setIndex(index + 1);
+                      }}
+                    >
+                      Next
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           )}
