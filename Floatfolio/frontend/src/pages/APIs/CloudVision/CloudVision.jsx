@@ -92,6 +92,7 @@ function CloudVision() {
               status: true,
               text: "IMAGE_PROPERTIES",
             });
+            setResults(data);
           } else if (featureData.feature == "LOGO_DETECTION") {
             setResponseStatus({
               status: true,
@@ -280,6 +281,18 @@ function CloudVision() {
               <h4 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand text-center">
                 Results
               </h4>
+
+              {results[index] && results[index].locale && (
+                <h6>
+                  Detected Language: {displayNames.of(results[index].locale)}
+                </h6>
+              )}
+              {(results[index] || results.text) && (
+                <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
+                  {results[index] ? results[index].description : results.text}
+                </p>
+              )}
+              {/* TODO safesearch visibility */}
               {responseStatus.text == "SAFE_SEARCH_DETECTION" && (
                 <>
                   <div className="m-2 my-4">
@@ -344,20 +357,27 @@ function CloudVision() {
                   </div>
                 </>
               )}
-              {results[index] && results[index].locale && (
-                <h6>
-                  Detected Language: {displayNames.of(results[index].locale)}
-                </h6>
-              )}
-              {(results[index] || results.text) && (
-                <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
-                  {results[index] ? results[index].description : results.text}
-                </p>
+              {responseStatus.text == "IMAGE_PROPERTIES" && (
+                <>
+                  <div className="p-2 rounded-lg border-2 border-dBrand max-w-max bg-mainBg mx-auto">
+                  <p className="text-sm text-dBrand">
+                    Color:{index+1}/{results.dominantColors.colors.length}
+                  </p>
+                    <div
+                    className="h-32 w-32 aspect-square m-2 rounded-lg border-2 border-dBrand mx-auto"
+                    style={{
+                      background: `rgb(${results.dominantColors.colors[index].color.red}, ${results.dominantColors.colors[index].color.green}, ${results.dominantColors.colors[index].color.blue})`,
+                    }}
+                  ></div>
+                  <p className="text-2xl text-dBrand py-4">
+                    RGB:({results.dominantColors.colors[index].color.red} ,
+                    {results.dominantColors.colors[index].color.green} ,
+                    {results.dominantColors.colors[index].color.blue})
+                  </p></div>
+                </>
               )}
               <div className="flex flex-row justify-evenly">
-                {/* TODO safesearch visibility */}
-                {responseStatus.text == "TEXT_DETECTION" ||
-                responseStatus.text == "DOCUMENT_TEXT_DETECTION" ? null : (
+                {responseStatus.text == "IMAGE_PROPERTIES" && (
                   <>
                     <button
                       className="btn p-4"
@@ -370,7 +390,8 @@ function CloudVision() {
                     <button
                       className="btn p-4"
                       onClick={() => {
-                        if (index < results.length) setIndex(index + 1);
+                        if (index < results.dominantColors.colors.length - 1)
+                          setIndex(index + 1);
                       }}
                     >
                       Next
