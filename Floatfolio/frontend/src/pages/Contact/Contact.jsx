@@ -74,8 +74,8 @@ function Contact() {
               <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
                 Let&rsquo;s Talk Business
               </h1>
-              <p className=" mt-3 mx-auto text-justify ">
-                Feel free to reach out using the contact form below. Let&rsquo;s
+              <p className=" mt-3 mx-auto text-justify indent-10">
+              <b className="text-2xl">F</b>eel free to reach out using the contact form below. Let&rsquo;s
                 discuss your goals, explore possibilities, and craft innovative
                 solutions tailored to your specific needs. Looking forward to
                 hearing from you.
