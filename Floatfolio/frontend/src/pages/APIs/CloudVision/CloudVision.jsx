@@ -290,7 +290,7 @@ function CloudVision() {
                 responseStatus.text == "DOCUMENT_TEXT_DETECTION") && (
                 <>
                   {results[index] && results[index].locale && (
-                    <h6>
+                    <h6 className="capitalize">
                       Detected Language:
                       {displayNames.of(results[index].locale)}
                     </h6>
@@ -397,7 +397,7 @@ function CloudVision() {
                         <p className="text-sm text-dBrand">
                           Result:{index + 1}/{results.length}
                         </p>
-                        <h6 className="text-2xl text-dBrand">
+                        <h6 className="text-2xl text-dBrand capitalize">
                           <small>Name:</small>
                           {results[index].description}
                         </h6>
@@ -413,8 +413,7 @@ function CloudVision() {
                   <div className="p-2 rounded-lg border-2 border-dBrand max-w-max bg-mainBg mx-auto">
                     {results.bestGuessLabels && results.bestGuessLabels[0] && (
                       <>
-                        <h6 className="text-2xl text-dBrand">
-                          <small>Label:</small>
+                        <h6 className="text-2xl text-dBrand capitalize">
                           {results.bestGuessLabels[0].label}
                         </h6>
                       </>
@@ -439,7 +438,7 @@ function CloudVision() {
                     {results.pagesWithMatchingImages[index] && (
                       <div className="bg-lBrand border-dBrand rounded-lg border-2 p-2 my-2">
                         <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">Web Pages Containing Similar Images</h6>
-                        <div className="text-dBrand cursor-default"
+                        <small className="inline underline text-lg font-bold text-dBrand">Page-Title: </small><div className="inline text-dBrand cursor-default capitalize"
                           dangerouslySetInnerHTML={{
                             __html:
                               results.pagesWithMatchingImages[index].pageTitle,
