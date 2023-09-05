@@ -161,7 +161,7 @@ function CloudVision() {
               the CloudVision API, developers can create custom solutions that
               enhance marketing campaigns, audience engagement, and data
               management. This API enables businesses to automate tasks such as
-              list management, campaign creation, and subscriber interactions.{" "}
+              list management, campaign creation, and subscriber interactions.
               <br />
               <br />
               By leveraging the CloudVision API, businesses can unlock the full
@@ -289,7 +289,7 @@ function CloudVision() {
                 <>
                   {results[index] && results[index].locale && (
                     <h6>
-                      Detected Language:{" "}
+                      Detected Language:
                       {displayNames.of(results[index].locale)}
                     </h6>
                   )}
@@ -396,7 +396,7 @@ function CloudVision() {
                           Result:{index + 1}/{results.length}
                         </p>
                         <h6 className="text-2xl text-dBrand">
-                          <small>Brand Name:</small>{" "}
+                          <small>Brand Name:</small>
                           {results[index].description}
                         </h6>
                       </>
