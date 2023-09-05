@@ -185,7 +185,7 @@ function CloudVision() {
 
           <p className=" mt-3 mx-auto text-justify">test</p>
         </div>
-        <div className="w-auto bg-lBrand dark:bg-balBrand p-2 rounded-lg border-dBrand border-2 dark:border-mainBg">
+        <div className="w-auto bg-lBrand dark:bg-balBrand p-2 rounded-lg border-dBrand border-2 dark:border-mainBg max-md:max-w-full">
           <h4 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand text-center">
             API Controls
           </h4>
@@ -421,7 +421,7 @@ function CloudVision() {
                     {results.fullMatchingImages[index] && (
                       <div className="bg-lBrand border-dBrand rounded-lg border-2 p-2 my-2">
                         <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">Matching Images</h6>
-                        <p className="text-sm text-dBrand hover:underline hover:text-base duration-500">
+                        <p className="text-sm text-dBrand hover:underline md:hover:text-base duration-500 overflow-hidden">
                           <a
                             href={results.fullMatchingImages[index].url}
                             target="_blank"
@@ -429,10 +429,10 @@ function CloudVision() {
                           >
                             {results.fullMatchingImages[index].url}
                           </a>
+                        </p>
                           <sup className="font-bold text-base">
                             {index + 1}/{results.fullMatchingImages.length}
                           </sup>
-                        </p>
                       </div>
                     )}
                     {results.pagesWithMatchingImages[index] && (
@@ -444,20 +444,20 @@ function CloudVision() {
                               results.pagesWithMatchingImages[index].pageTitle,
                           }}
                         ></div>
-                        <p className="text-sm text-dBrand hover:underline hover:text-base duration-500 ">
+                        <p className="text-sm text-dBrand hover:underline md:hover:text-base duration-500 overflow-hidden">
                           <a
                             href={results.pagesWithMatchingImages[index].url}
                             target="_blank"
                             rel="noreferrer"
                           >
                             {results.pagesWithMatchingImages[index].url}
+                          </a>
+                          <br />
+                        </p>
                             <sup className="font-bold text-base">
                               {index + 1}/
                               {results.pagesWithMatchingImages.length}
                             </sup>
-                          </a>
-                          <br />
-                        </p>
                       </div>
                     )}
                   </div>
