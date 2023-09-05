@@ -39,7 +39,7 @@ function CloudVision() {
     const file = e.target.files[0];
     setImageFile(file);
     setResults(null);
-    setIndex(0)
+    setIndex(0);
   };
   const handleInput = (e) => {
     const text = e.target.value;
@@ -111,6 +111,7 @@ function CloudVision() {
               status: true,
               text: "WEB_DETECTION",
             });
+            setResults(data);
           } else if (featureData.feature == "LABEL_DETECTION") {
             setResponseStatus({
               status: true,
@@ -303,7 +304,6 @@ function CloudVision() {
                   )}
                 </>
               )}
-              {/* TODO safesearch visibility */}
               {responseStatus.text == "SAFE_SEARCH_DETECTION" && (
                 <>
                   <div className="m-2 my-4">
@@ -408,8 +408,66 @@ function CloudVision() {
                   </div>
                 </>
               )}
+              {responseStatus.text == "WEB_DETECTION" && (
+                <>
+                  <div className="p-2 rounded-lg border-2 border-dBrand max-w-max bg-mainBg mx-auto">
+                    {results.bestGuessLabels && results.bestGuessLabels[0] && (
+                      <>
+                        <h6 className="text-2xl text-dBrand">
+                          <small>Label:</small>
+                          {results.bestGuessLabels[0].label}
+                        </h6>
+                      </>
+                    )}
+                    {results.fullMatchingImages[index] && (
+                      <>
+                        <p className="text-sm text-dBrand">
+                          Result:{index + 1}/{results.fullMatchingImages.length}
+                        </p>
+                        <h6 className="text-base text-dBrand">
+                          <small>Matching Images URL:</small>
+                          <a
+                            href={results.fullMatchingImages[index].url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {results.fullMatchingImages[index].url}
+                          </a>
+                        </h6>
+                      </>
+                    )}
+                    {results.pagesWithMatchingImages[index] && (
+                      <>
+                        <p className="text-sm text-dBrand">
+                          Result:{index + 1}/
+                          {results.pagesWithMatchingImages.length}
+                        </p>
+                        <h6 className="text-base text-dBrand">
+                          <small>Web Pages Containing Similar Images</small>
+                          <a
+                            href={results.pagesWithMatchingImages[index].url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {results.pagesWithMatchingImages[index].url}
+                          </a>{" "}
+                          <br />
+                        </h6>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html:
+                              results.pagesWithMatchingImages[index].pageTitle,
+                          }}
+                        ></div>
+                      </>
+                    )}
+                  </div>
+                </>
+              )}
+
               {(responseStatus.text == "IMAGE_PROPERTIES" ||
                 responseStatus.text == "LOGO_DETECTION" ||
+                responseStatus.text == "WEB_DETECTION" ||
                 responseStatus.text == "LANDMARK_DETECTION") && (
                 <div className="flex flex-row justify-center gap-4">
                   <button
@@ -427,7 +485,7 @@ function CloudVision() {
                         if (index < results.dominantColors.colors.length - 1)
                           setIndex(index + 1);
                       } else {
-                        if (index < results.length - 1) setIndex(index + 1);
+                        setIndex(index + 1);
                       }
                     }}
                   >
