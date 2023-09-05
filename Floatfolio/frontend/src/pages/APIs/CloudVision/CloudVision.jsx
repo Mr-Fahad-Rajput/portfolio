@@ -402,7 +402,7 @@ function CloudVision() {
                         </h6>
                       </>
                     ) : (
-                      <h6 className="text-2xl text-dBrand">Unable To Detect</h6>
+                      <h6 className="text-2xl text-dBrand">Unidentified</h6>
                     )}
                   </div>
                 </>
