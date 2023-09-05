@@ -98,6 +98,8 @@ function CloudVision() {
               status: true,
               text: "LOGO_DETECTION",
             });
+            console.log(data);
+            setResults(data);
           } else if (featureData.feature == "LANDMARK_DETECTION") {
             setResponseStatus({
               status: true,
@@ -282,15 +284,23 @@ function CloudVision() {
                 Results
               </h4>
 
-              {results[index] && results[index].locale && (
-                <h6>
-                  Detected Language: {displayNames.of(results[index].locale)}
-                </h6>
-              )}
-              {(results[index] || results.text) && (
-                <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
-                  {results[index] ? results[index].description : results.text}
-                </p>
+              {(responseStatus.text == "TEXT_DETECTION" ||
+                responseStatus.text == "DOCUMENT_TEXT_DETECTION") && (
+                <>
+                  {results[index] && results[index].locale && (
+                    <h6>
+                      Detected Language:{" "}
+                      {displayNames.of(results[index].locale)}
+                    </h6>
+                  )}
+                  {(results[index] || results.text) && (
+                    <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
+                      {results[index]
+                        ? results[index].description
+                        : results.text}
+                    </p>
+                  )}
+                </>
               )}
               {/* TODO safesearch visibility */}
               {responseStatus.text == "SAFE_SEARCH_DETECTION" && (
@@ -360,43 +370,70 @@ function CloudVision() {
               {responseStatus.text == "IMAGE_PROPERTIES" && (
                 <>
                   <div className="p-2 rounded-lg border-2 border-dBrand max-w-max bg-mainBg mx-auto">
-                  <p className="text-sm text-dBrand">
-                    Color:{index+1}/{results.dominantColors.colors.length}
-                  </p>
+                    <p className="text-sm text-dBrand">
+                      Color:{index + 1}/{results.dominantColors.colors.length}
+                    </p>
                     <div
-                    className="h-32 w-32 aspect-square m-2 rounded-lg border-2 border-dBrand mx-auto"
-                    style={{
-                      background: `rgb(${results.dominantColors.colors[index].color.red}, ${results.dominantColors.colors[index].color.green}, ${results.dominantColors.colors[index].color.blue})`,
-                    }}
-                  ></div>
-                  <p className="text-2xl text-dBrand py-4">
-                    RGB:({results.dominantColors.colors[index].color.red} ,
-                    {results.dominantColors.colors[index].color.green} ,
-                    {results.dominantColors.colors[index].color.blue})
-                  </p></div>
+                      className="h-32 w-32 aspect-square m-2 rounded-lg border-2 border-dBrand mx-auto"
+                      style={{
+                        background: `rgb(${results.dominantColors.colors[index].color.red}, ${results.dominantColors.colors[index].color.green}, ${results.dominantColors.colors[index].color.blue})`,
+                      }}
+                    ></div>
+                    <p className="text-2xl text-dBrand py-4">
+                      RGB:({results.dominantColors.colors[index].color.red} ,
+                      {results.dominantColors.colors[index].color.green} ,
+                      {results.dominantColors.colors[index].color.blue})
+                    </p>
+                  </div>
                 </>
               )}
-                {responseStatus.text == "IMAGE_PROPERTIES" && (
-                  <div className="flex flex-row justify-center gap-4">
-                    <button
-                      className="btn p-4"
-                      onClick={() => {
-                        if (index > 0) setIndex(index - 1);
-                      }}
-                    >
-                      Prev
-                    </button>
-                    <button
-                      className="btn p-4"
-                      onClick={() => {
+              {responseStatus.text == "LOGO_DETECTION" && (
+                <>
+                  <div className="p-2 rounded-lg border-2 border-dBrand max-w-max bg-mainBg mx-auto">
+                    {results[index] && results[index].description ? (
+                      <>
+                        <p className="text-sm text-dBrand">
+                          Result:{index + 1}/{results.length}
+                        </p>
+                        <h6 className="text-2xl text-dBrand">
+                          <small>Brand Name:</small>{" "}
+                          {results[index].description}
+                        </h6>
+                      </>
+                    ) : (
+                      <h6 className="text-2xl text-dBrand">
+                        No Logos Detected
+                      </h6>
+                    )}
+                  </div>
+                </>
+              )}
+              {(responseStatus.text == "IMAGE_PROPERTIES" ||
+                responseStatus.text == "LOGO_DETECTION") && (
+                <div className="flex flex-row justify-center gap-4">
+                  <button
+                    className="btn p-4"
+                    onClick={() => {
+                      if (index > 0) setIndex(index - 1);
+                    }}
+                  >
+                    Prev
+                  </button>
+                  <button
+                    className="btn p-4"
+                    onClick={() => {
+                      if (responseStatus.text == "IMAGE_PROPERTIES") {
                         if (index < results.dominantColors.colors.length - 1)
                           setIndex(index + 1);
-                      }}
-                    >
-                      Next
-                    </button>
-                  </div>
-                )}
+                      } else {
+                        if (index < results.length - 1) setIndex(index + 1);
+                      }
+                    }}
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
