@@ -39,6 +39,7 @@ function CloudVision() {
     const file = e.target.files[0];
     setImageFile(file);
     setResults(null);
+    setIndex(0)
   };
   const handleInput = (e) => {
     const text = e.target.value;
