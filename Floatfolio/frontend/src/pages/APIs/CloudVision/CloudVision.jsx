@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import visionIcon from "./cloudVision.svg";
-import sent from "../../../assets/sent.svg";
-import notSent from "../../../assets/notsent.svg";
-
-import AlertBox from "../../components/AlertBox";
 
 function CloudVision() {
   const [imageFile, setImageFile] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
   const [results, setResults] = useState(null);
   const [index, setIndex] = useState(0);
 
-  const [alertImg, setAlertImg] = useState(sent);
   const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState({
     status: false,
@@ -112,24 +106,11 @@ function CloudVision() {
               text: "WEB_DETECTION",
             });
             setResults(data);
-          } else if (featureData.feature == "LABEL_DETECTION") {
-            setResponseStatus({
-              status: true,
-              text: "LABEL_DETECTION",
-            });
           }
         })
         .catch((error) => {
-          console.log(error.toString());
-          setAlertImg(notSent);
-          if (error.toString().includes("Failed to fetch")) {
-            setResponseStatus({
-              status: true,
-              text: "Can't Connect To the Server! Check Your Internet Connection",
-            });
-          } else {
-            console.log(error);
-          }
+          console.log(error);
+          setIsLoading(false);
         })
         .finally(() => {
           setIsLoading(false);
@@ -208,7 +189,6 @@ function CloudVision() {
             <option value="LOGO_DETECTION">Logo Detection</option>
             <option value="LANDMARK_DETECTION">Landmark Detection</option>
             <option value="WEB_DETECTION">Web Detection</option>
-            <option value="LABEL_DETECTION">Label Detection</option>
           </select>
 
           <label className="dark:text-mainBg" htmlFor="img_input">
@@ -420,7 +400,9 @@ function CloudVision() {
                     )}
                     {results.fullMatchingImages[index] && (
                       <div className="bg-lBrand border-dBrand rounded-lg border-2 p-2 my-2">
-                        <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">Matching Images</h6>
+                        <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">
+                          Matching Images
+                        </h6>
                         <p className="text-sm text-dBrand hover:underline md:hover:text-base duration-500 overflow-hidden">
                           <a
                             href={results.fullMatchingImages[index].url}
@@ -430,15 +412,21 @@ function CloudVision() {
                             {results.fullMatchingImages[index].url}
                           </a>
                         </p>
-                          <sup className="font-bold text-base">
-                            {index + 1}/{results.fullMatchingImages.length}
-                          </sup>
+                        <sup className="font-bold text-base">
+                          {index + 1}/{results.fullMatchingImages.length}
+                        </sup>
                       </div>
                     )}
                     {results.pagesWithMatchingImages[index] && (
                       <div className="bg-lBrand border-dBrand rounded-lg border-2 p-2 my-2">
-                        <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">Web Pages Containing Similar Images</h6>
-                        <small className="inline underline text-lg font-bold text-dBrand">Page-Title: </small><div className="inline text-dBrand cursor-default capitalize"
+                        <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">
+                          Web Pages Containing Similar Images
+                        </h6>
+                        <small className="inline underline text-lg font-bold text-dBrand">
+                          Page-Title:{" "}
+                        </small>
+                        <div
+                          className="inline text-dBrand cursor-default capitalize"
                           dangerouslySetInnerHTML={{
                             __html:
                               results.pagesWithMatchingImages[index].pageTitle,
@@ -454,10 +442,9 @@ function CloudVision() {
                           </a>
                           <br />
                         </p>
-                            <sup className="font-bold text-base">
-                              {index + 1}/
-                              {results.pagesWithMatchingImages.length}
-                            </sup>
+                        <sup className="font-bold text-base">
+                          {index + 1}/{results.pagesWithMatchingImages.length}
+                        </sup>
                       </div>
                     )}
                   </div>
