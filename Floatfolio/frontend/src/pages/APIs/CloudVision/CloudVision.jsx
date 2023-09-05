@@ -423,7 +423,7 @@ function CloudVision() {
                           Web Pages Containing Similar Images
                         </h6>
                         <small className="inline underline text-lg font-bold text-dBrand">
-                          Page-Title:{" "}
+                          Page-Title:
                         </small>
                         <div
                           className="inline text-dBrand cursor-default capitalize"
