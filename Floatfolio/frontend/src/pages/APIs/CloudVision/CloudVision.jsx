@@ -98,13 +98,13 @@ function CloudVision() {
               status: true,
               text: "LOGO_DETECTION",
             });
-            console.log(data);
             setResults(data);
           } else if (featureData.feature == "LANDMARK_DETECTION") {
             setResponseStatus({
               status: true,
               text: "LANDMARK_DETECTION",
             });
+            setResults(data);
           } else if (featureData.feature == "WEB_DETECTION") {
             setResponseStatus({
               status: true,
@@ -387,7 +387,8 @@ function CloudVision() {
                   </div>
                 </>
               )}
-              {responseStatus.text == "LOGO_DETECTION" && (
+              {(responseStatus.text == "LOGO_DETECTION" ||
+                responseStatus.text == "LANDMARK_DETECTION") && (
                 <>
                   <div className="p-2 rounded-lg border-2 border-dBrand max-w-max bg-mainBg mx-auto">
                     {results[index] && results[index].description ? (
@@ -396,20 +397,19 @@ function CloudVision() {
                           Result:{index + 1}/{results.length}
                         </p>
                         <h6 className="text-2xl text-dBrand">
-                          <small>Brand Name:</small>
+                          <small>Name:</small>
                           {results[index].description}
                         </h6>
                       </>
                     ) : (
-                      <h6 className="text-2xl text-dBrand">
-                        No Logos Detected
-                      </h6>
+                      <h6 className="text-2xl text-dBrand">Unable To Detect</h6>
                     )}
                   </div>
                 </>
               )}
               {(responseStatus.text == "IMAGE_PROPERTIES" ||
-                responseStatus.text == "LOGO_DETECTION") && (
+                responseStatus.text == "LOGO_DETECTION" ||
+                responseStatus.text == "LANDMARK_DETECTION") && (
                 <div className="flex flex-row justify-center gap-4">
                   <button
                     className="btn p-4"
