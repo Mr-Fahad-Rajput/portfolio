@@ -141,7 +141,7 @@ function Maps() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-20 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg">
-            <a href="https://www.google.com/maps">
+            <a href="https://www.google.com/maps" target="_blank" rel="noreferrer">
               <img
                 src={mapIcon}
                 alt="Google Maps Ilustration"
@@ -153,8 +153,8 @@ function Maps() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Google Maps API
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tighter">
-              The Google Maps API offers a powerful tool for businesses to
+            <p className=" mt-3 mx-auto text-justify tracking-tighter indent-10">
+            <b className="text-2xl">G</b>oogle Maps API offers a powerful tool for businesses to
               seamlessly integrate interactive maps and location-based services
               into their websites and applications. With this API, businesses
               can go beyond simple static maps and provide users with dynamic
@@ -164,9 +164,10 @@ function Maps() {
               experience but also increases the visibility of your business by
               allowing customers to easily find your physical locations, events,
               or services.
-              <br />
-              <br />
-              Moreover, the Google Maps API enables businesses to create custom
+                
+              </p>
+              <p className=" mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">M</b>oreover, the Google Maps API enables businesses to create custom
               mapping solutions tailored to their unique needs. From displaying
               multiple locations to providing directions, real-time traffic
               updates, and even integrating Street View, the API empowers you to
@@ -184,8 +185,8 @@ function Maps() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          <p className=" mt-3 mx-auto text-justify tracking-tighter ">
-            This component serves as a dynamic map interface integrated with the
+          <p className=" mt-3 mx-auto text-justify tracking-tighter indent-10">
+          <b className="text-2xl">T</b>his component serves as a dynamic map interface integrated with the
             Google Maps API, showcasing a variety of functionalities. It&rsquo;s
             important to note that the Google Maps API offers a wide array of
             capabilities beyond those presented here.Please bear in mind that

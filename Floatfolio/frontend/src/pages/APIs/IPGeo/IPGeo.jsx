@@ -279,7 +279,7 @@ function IPGeo() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
-            <a href="https://www.weatherapi.com/">
+            <a href="https://www.weatherapi.com/" target="_blank" rel="noreferrer">
               <img
                 src={ipGeoIcon}
                 alt="Weather Logo "
@@ -291,14 +291,17 @@ function IPGeo() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Weather & IP Geolocation
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tight">
-              IP Geolocation and Weather APIs are valuable tools for businesses.
+            <p className=" mt-3 mx-auto text-justify tracking-tight indent-10">
+            <b className="text-2xl">IP</b> Geolocation and Weather APIs are valuable tools for businesses.
               The IP Geolocation API enables businesses to pinpoint the
               geographical location of an IP address, facilitating personalized
               user experiences and targeted marketing. This is particularly
               useful for e-commerce platforms that can display location-specific
-              content and enhance security measures. <br /> <br />
-              On the other hand, Weather APIs provide real-time and forecasted
+              content and enhance security measures. 
+
+              </p>
+              <p className=" mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">O</b>n the other hand, Weather APIs provide real-time and forecasted
               weather data, aiding industries like travel and outdoor events.
               Businesses can offer tailored recommendations based on weather
               conditions, optimize routes, and adjust marketing strategies
@@ -312,8 +315,8 @@ function IPGeo() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          <p className=" mt-3 mx-auto text-justify">
-            When you visit the page, you&apos;ll notice a &quot;Fetch
+          <p className=" mt-3 mx-auto text-justify indent-10">
+          <b className="text-2xl">W</b>hen you visit the page, you&apos;ll notice a &quot;Fetch
             Weather&quot; button. Clicking this button automatically retrieves
             weather data for you. Just keep in mind that there might be a slight
             delay due to the two APIs working together. Once the data is

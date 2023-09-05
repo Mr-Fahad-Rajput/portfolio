@@ -36,7 +36,7 @@ function IdentityGoogle() {
           status: false,
         });
       }, 3000);
-      setDataBody({ ...dataBody, comment: '' });
+      setDataBody({ ...dataBody, comment: "" });
     } else if (hashFragment === "#cancel") {
       setAlertImg(notSent);
       setResponseStatus({
@@ -137,8 +137,12 @@ function IdentityGoogle() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
-            <a href="https://developers.google.com/identity/protocols/oauth2">
+          <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-secondaryBg">
+            <a
+              href="https://developers.google.com/identity/protocols/oauth2"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 src={oAuthIcon}
                 alt="Sign in With Google"
@@ -150,24 +154,27 @@ function IdentityGoogle() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Google Identity Services
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tight">
-              OAuth 2.0 is a protocol that offers a secure and standardized way
-              for applications to gain limited access to a user&apos;s accounts
-              on various online platforms, like Google, without needing to know
-              the user&apos;s actual credentials. This functionality is pivotal
-              for businesses as it enables them to seamlessly integrate services
-              from other platforms into their own applications. For instance, an
-              e-commerce website could utilize OAuth 2.0 to allow customers to
-              log in using their Google or social media accounts, simplifying
-              the registration process and enhancing user experience. <br />
-              This ease of access can lead to higher user engagement and
-              customer retention. Furthermore, OAuth 2.0 facilitates the sharing
-              of specific data between platforms, enabling businesses to
-              leverage information from services like Google Calendar or
-              Contacts, resulting in more personalized and efficient services.
-              By harnessing OAuth 2.0&apos;s capabilities, businesses can foster
-              growth through improved user engagement, streamlined experiences,
-              and more effective data utilization.
+            <p className=" mt-3 mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">O</b>Auth 2.0 is a protocol that offers a
+              secure and standardized way for applications to gain limited
+              access to a user&apos;s accounts on various online platforms, like
+              Google, without needing to know the user&apos;s actual
+              credentials. This functionality is pivotal for businesses as it
+              enables them to seamlessly integrate services from other platforms
+              into their own applications. For instance, an e-commerce website
+              could utilize OAuth 2.0 to allow customers to log in using their
+              Google or social media accounts, simplifying the registration
+              process and enhancing user experience.
+            </p>
+            <p className=" mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">T</b>his ease of access can lead to higher
+              user engagement and customer retention. Furthermore, OAuth 2.0
+              facilitates the sharing of specific data between platforms,
+              enabling businesses to leverage information from services like
+              Google Calendar or Contacts, resulting in more personalized and
+              efficient services. By harnessing OAuth 2.0&apos;s capabilities,
+              businesses can foster growth through improved user engagement,
+              streamlined experiences, and more effective data utilization.
             </p>
           </div>
         </div>
@@ -175,8 +182,8 @@ function IdentityGoogle() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          <p className=" mt-3 mx-auto text-justify">
-            Using my Google OAuth Component is easy! Just click the &quot;Sign
+          <p className=" mt-3 mx-auto text-justify indent-10">
+          <b className="text-2xl">U</b>sing my Google OAuth Component is easy! Just click the &quot;Sign
             in with Google&quot; button to log in. Once logged in, you&apos;ll
             see your photo, name, and email. You can also add a comment or a
             Review in the text field, and it will be stored along with your

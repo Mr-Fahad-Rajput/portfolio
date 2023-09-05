@@ -109,7 +109,7 @@ function MailChimp() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
-            <a href="https://mailchimp.com/">
+            <a href="https://mailchimp.com/" target="_blank" rel="noreferrer">
               <img
                 src={mailIcon}
                 alt="Mail Chimp Ilustration"
@@ -121,16 +121,17 @@ function MailChimp() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Mail Chimp API
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tight">
-              The Mailchimp API is a robust and versatile tool that empowers
+            <p className=" mt-3 mx-auto text-justify tracking-tight indent-10">
+            <b className="text-2xl">T</b>he Mailchimp API is a robust and versatile tool that empowers
               businesses to seamlessly integrate their applications with
               Mailchimp&apos;s email marketing and automation platform. With the
               Mailchimp API, developers can create custom solutions that enhance
               marketing campaigns, audience engagement, and data management.
               This API enables businesses to automate tasks such as list
-              management, campaign creation, and subscriber interactions. <br />
-              <br />
-              By leveraging the Mailchimp API, businesses can unlock the full
+              management, campaign creation, and subscriber interactions. 
+              </p>
+              <p className="mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">B</b>y leveraging the Mailchimp API, businesses can unlock the full
               potential of email marketing, streamline their communication
               efforts, and provide a more personalized experience to their
               audience. Whether it&apos;s syncing customer data, automating
@@ -150,8 +151,8 @@ function MailChimp() {
             msgImg={alertImg}
             className="top-0"
           />
-          <p className=" mt-3 mx-auto text-justify">
-            To interact with the Mailchimp API, follow these simple steps. Begin
+          <p className=" mt-3 mx-auto text-justify indent-10">
+          <b className="text-2xl">T</b>o interact with the Mailchimp API, follow these simple steps. Begin
             by entering your email address into the designated email input
             field. You&rsquo;ll notice two subscription options available. If
             you toggle the button to &quot;verified&quot;, the system will
@@ -159,9 +160,10 @@ function MailChimp() {
             the Mailchimp site. Conversely, toggling to &quot;unverified&quot;
             will result in a direct subscription without requiring a
             confirmation email.
-            <br />
-            <br />
-            Please note that this entire process is designed solely for API
+              
+            </p>
+            <p className=" mx-auto text-justify tracking-tighter indent-10">
+            <b className="text-2xl">P</b>lease note that this entire process is designed solely for API
             demonstration purposes. When you input your email, it will be
             registered for the newsletter; however, please be aware that no
             promotional emails will be sent. This lack of promotional emails is

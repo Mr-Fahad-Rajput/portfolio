@@ -133,7 +133,7 @@ function Stripe() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className="inline-flex w-64 my-12 md:float-left place-items-center">
-            <a href="https://stripe.com/">
+            <a href="https://stripe.com/" target="_blank" rel="noreferrer">
               <img
                 src={stripeIcon}
                 alt="Credit Card Ilustration"
@@ -145,14 +145,17 @@ function Stripe() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Stripe API Integration
             </h1>
-            <p className=" mt-3 mx-auto text-justify ">
-              The Stripe API empowers businesses to seamlessly process online
+            <p className=" mt-3 mx-auto text-justify indent-10">
+            <b className="text-2xl">S</b>tripe API empowers businesses to seamlessly process online
               payments, integrating them into their platforms. This smooth
               transaction experience, including various payment methods, reduces
               friction for users, building trust and boosting conversions. With
               a reliable payment system, businesses gain credibility and
               encourage repeat transactions, contributing to growth.
-              <br /><br /> Furthermore, the Stripe API provides features for managing
+                
+              </p>
+              <p className="mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">F</b>urthermore, the Stripe API provides features for managing
               subscriptions, handling refunds, and analyzing transaction data,
               which can provide valuable insights to optimize business
               strategies. Overall, the Stripe API empowers businesses to provide
@@ -172,9 +175,8 @@ function Stripe() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-          <p className=" mt-3 mx-auto text-justify">
-            {" "}
-            In this section, I&rsquo;ve showcased an integration of the Stripe
+          <p className=" mt-3 mx-auto text-justify indent-10">
+          <b className="text-2xl">I</b>n this section, I&rsquo;ve showcased an integration of the Stripe
             Payment API. Please note that this page is designed solely to
             demonstrate the API integration. The products displayed are for
             illustrative purposes only and do not represent actual offerings.
