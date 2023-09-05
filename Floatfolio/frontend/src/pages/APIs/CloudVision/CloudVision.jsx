@@ -420,12 +420,9 @@ function CloudVision() {
                       </>
                     )}
                     {results.fullMatchingImages[index] && (
-                      <>
-                        <p className="text-sm text-dBrand">
-                          Result:{index + 1}/{results.fullMatchingImages.length}
-                        </p>
-                        <h6 className="text-base text-dBrand">
-                          <small>Matching Images URL:</small>
+                      <div className="bg-lBrand border-dBrand rounded-lg border-2 p-2 my-2">
+                        <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">Matching Images</h6>
+                        <p className="text-sm text-dBrand hover:underline hover:text-base duration-500">
                           <a
                             href={results.fullMatchingImages[index].url}
                             target="_blank"
@@ -433,33 +430,36 @@ function CloudVision() {
                           >
                             {results.fullMatchingImages[index].url}
                           </a>
-                        </h6>
-                      </>
+                          <sup className="font-bold text-base">
+                            {index + 1}/{results.fullMatchingImages.length}
+                          </sup>
+                        </p>
+                      </div>
                     )}
                     {results.pagesWithMatchingImages[index] && (
-                      <>
-                        <p className="text-sm text-dBrand">
-                          Result:{index + 1}/
-                          {results.pagesWithMatchingImages.length}
-                        </p>
-                        <h6 className="text-base text-dBrand">
-                          <small>Web Pages Containing Similar Images</small>
+                      <div className="bg-lBrand border-dBrand rounded-lg border-2 p-2 my-2">
+                        <h6 className="mb-2 font-semibold underline cursor-default text-balBrand border-y-2 border-dBrand text-center">Web Pages Containing Similar Images</h6>
+                        <div className="text-dBrand cursor-default"
+                          dangerouslySetInnerHTML={{
+                            __html:
+                              results.pagesWithMatchingImages[index].pageTitle,
+                          }}
+                        ></div>
+                        <p className="text-sm text-dBrand hover:underline hover:text-base duration-500 ">
                           <a
                             href={results.pagesWithMatchingImages[index].url}
                             target="_blank"
                             rel="noreferrer"
                           >
                             {results.pagesWithMatchingImages[index].url}
-                          </a>{" "}
+                            <sup className="font-bold text-base">
+                              {index + 1}/
+                              {results.pagesWithMatchingImages.length}
+                            </sup>
+                          </a>
                           <br />
-                        </h6>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              results.pagesWithMatchingImages[index].pageTitle,
-                          }}
-                        ></div>
-                      </>
+                        </p>
+                      </div>
                     )}
                   </div>
                 </>
@@ -482,10 +482,28 @@ function CloudVision() {
                     className="btn p-4"
                     onClick={() => {
                       if (responseStatus.text == "IMAGE_PROPERTIES") {
-                        if (index < results.dominantColors.colors.length - 1)
+                        if (index < results.dominantColors.colors.length - 1) {
                           setIndex(index + 1);
+                        }
+                      } else if (
+                        responseStatus.text == "LOGO_DETECTION" ||
+                        responseStatus.text == "LANDMARK_DETECTION"
+                      ) {
+                        if (index < results.length - 1) {
+                          setIndex(index + 1);
+                        }
                       } else {
-                        setIndex(index + 1);
+                        if (
+                          index <
+                          Math.max(
+                            results.bestGuessLabels.length,
+                            results.fullMatchingImages.length,
+                            results.pagesWithMatchingImages.length
+                          ) -
+                            1
+                        ) {
+                          setIndex(index + 1);
+                        }
                       }
                     }}
                   >
