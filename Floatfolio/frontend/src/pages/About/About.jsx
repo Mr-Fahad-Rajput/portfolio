@@ -15,8 +15,8 @@ function About() {
             </h1>
           </div>
           {/* earlylife */}
-          <div className="text-center md:px-2 overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
-            <div className="inline-flex md:float-left py-2">
+          <div className="text-center md:flex md:px-2 overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
+            <div className="inline-flex md:float-left  md:max-w-[21vw] md:min-w-[21vw] items-center ">
               <img
                 src={kid}
                 alt="Kid Using laptop"
@@ -43,8 +43,8 @@ function About() {
             </div>
           </div>
           {/* Bachelors */}
-          <div className="text-center h-1/5 m-2 md:px-2 overflow-hidden text-dBrand dark:text-mainBg ">
-            <div className="inline-flex md:float-right py-2">
+          <div className="text-center md:flex h-1/5 m-2 md:px-2 overflow-hidden text-dBrand dark:text-mainBg ">
+            <div className="inline-flex md:float-right md:max-w-[21vw] md:min-w-[21vw] items-center">
               <img
                 src={teen}
                 alt="Teenage Boy on a Computer"
@@ -71,8 +71,9 @@ function About() {
             </div>
           </div>
           {/* Web Development */}
-          <div className="text-center  md:px-2 h-auto rounded-lg m-2 dark:bg-balBrand bg-secondaryBg  text-dBrand dark:text-mainBg">
-            <div className="inline-flex md:float-left py-2">
+          {/* TODO DIV check */}
+          <div className="text-center md:flex  md:px-2 h-auto rounded-lg m-2 dark:bg-balBrand bg-secondaryBg  text-dBrand dark:text-mainBg">
+            <div className="inline-flex md:float-left items-center md:max-w-[21vw] md:min-w-[21vw]">
               <img
                 src={webdev}
                 alt="Man Programming on a Laptop"
