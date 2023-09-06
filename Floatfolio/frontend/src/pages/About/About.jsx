@@ -71,9 +71,8 @@ function About() {
             </div>
           </div>
           {/* Web Development */}
-          {/* TODO DIV check */}
-          <div className="text-center md:flex  md:px-2 h-auto rounded-lg m-2 dark:bg-balBrand bg-secondaryBg  text-dBrand dark:text-mainBg">
-            <div className="inline-flex md:float-left items-center md:max-w-[21vw] md:min-w-[21vw]">
+          <div className="text-center md:flex  h-auto rounded-lg m-2 dark:bg-balBrand bg-secondaryBg  text-dBrand dark:text-mainBg ">
+            <div className="inline-flex md:float-left items-center md:max-w-[21vw] md:min-w-[21vw] m-2">
               <img
                 src={webdev}
                 alt="Man Programming on a Laptop"
@@ -84,8 +83,7 @@ function About() {
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
                 Web Development
               </h2>
-              {/* TODO images not alighned right at resize */}
-              <p className="indent-10  m-1 max-md:m-2 text-justify tracking-tight">
+              <p className="indent-10  m-1 max-md:m-2 text-justify tracking-tighter ">
               <b className="text-2xl">I</b> am a passionate web developer with a successful career
                 spanning over 8 years. Starting my Web Development journey at
                 15, I quickly fell in love with Web development, becoming
