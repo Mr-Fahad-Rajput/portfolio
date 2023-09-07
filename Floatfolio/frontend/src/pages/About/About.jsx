@@ -175,7 +175,7 @@ function About() {
             </div>
             <div className="overflow-hidden self-center p-2">
               <h2 className="dark:text-mainBg text-xl font-Medium underline cursor-default text-balBrand">
-                Future Awaits
+                Future 
               </h2>
               <p className="indent-10 max-md:m-2 text-justify tracking-tighter">
                 <b className="text-2xl">I</b> believe in demonstrating my
