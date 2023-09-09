@@ -20,6 +20,7 @@ const IPGeo = lazy(() => import("./APIs/IPGeo/IPGeo.jsx"));
 const OAuthGoogle = lazy(() => import("./APIs/IdentityGoogle/IdentityGoogle.jsx"));
 const CloudVision = lazy(() => import("./APIs/CloudVision/CloudVision.jsx"));
 const Chat = lazy(() => import("./APIs/OpenAI/Chat.jsx"));
+const Dalle = lazy(() => import("./APIs/OpenAI/Dalle.jsx"));
 // User Account
 const Dashboard = lazy(() => import("./Dashboard/Dashboard.jsx"));
 const SignIn = lazy(() => import("./components/SignIn.jsx"));
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="/oauthgoogle" element={<OAuthGoogle />} />
             <Route exact path="/cloudvision" element={<CloudVision />} />
             <Route exact path="/chat" element={<Chat />} />
+            <Route exact path="/dalle" element={<Dalle />} />
             {/* Site User Accont */}
             <Route exact path="/signin" element={<SignIn />} />
             <Route
