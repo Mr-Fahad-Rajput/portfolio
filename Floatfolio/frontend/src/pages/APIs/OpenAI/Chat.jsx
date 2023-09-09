@@ -1,51 +1,43 @@
 
-
+import chatIcon from './chatGPT.svg';
 function Chat() {
  
 
   return (
     <>
-       <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2 ">
-          <div className="inline-flex w-64 h-full md:float-left place-items-center mt-20 rounded-lg m-2 dark:bg-mainBg">
-            <a
-              href="https://cloud.google.com/vision"
-              target="_blank"
-              rel="noreferrer"
-            >
+        <section className="mainContent">
+        <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
+          <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg">
+            <a href="https://mailchimp.com/" target="_blank" rel="noreferrer">
               <img
-                // src={}
-                alt="Google Vision Ilustration"
-                className=" w-64 h-56 hover:scale-110 transform duration-500"
+                src={chatIcon}
+                alt="GPT Icon"
+                className=" w-64 h-56 hover:scale-110 transform duration-500 rounded-lg"
               />
             </a>
           </div>
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-              Google Cloud Vision
+              Mail Chimp API
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">G</b>oogle Vision API is a powerful tool
-              that harnesses the capabilities of computer vision technology to
-              analyze and understand thindent-1e content of images and videos.
-              I&apos;ve integrated this advance API into websites to provide
-              businesses with a wide range of benefits. One of the key
-              advantages is its ability to enhance user experience by
-              automatically recognizing and tagging images, making content more
-              accessible and user-friendly. For instance, businesses can use it
-              to categorize product images, helping customers easily find what
-              they&apos;re looking for on an e-commerce site.
-            </p>
-            <p className=" mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">A</b>dditionally, Google Vision API can be
-              employed for security purposes, such as detecting inappropriate
-              content in user-generated uploads or verifying the authenticity of
-              documents through optical character recognition (OCR). It also
-              opens the door to creative applications like generating image
-              captions or even creating interactive experiences where users can
-              search for visually similar images. By integrating Google Vision
-              API into their websites, businesses can stay ahead in the digital
-              landscape, improving user engagement, content organization, and
-              security while unleashing new possibilities for innovation.
+            <p className=" mt-3 mx-auto text-justify tracking-tight indent-10">
+            <b className="text-2xl">T</b>he Mailchimp API is a robust and versatile tool that empowers
+              businesses to seamlessly integrate their applications with
+              Mailchimp&apos;s email marketing and automation platform. With the
+              Mailchimp API, developers can create custom solutions that enhance
+              marketing campaigns, audience engagement, and data management.
+              This API enables businesses to automate tasks such as list
+              management, campaign creation, and subscriber interactions. 
+              </p>
+              <p className="mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">B</b>y leveraging the Mailchimp API, businesses can unlock the full
+              potential of email marketing, streamline their communication
+              efforts, and provide a more personalized experience to their
+              audience. Whether it&apos;s syncing customer data, automating
+              email sends, or tracking campaign performance, the Mailchimp API
+              offers a powerful way to integrate email marketing functionalities
+              into a wide range of applications and platforms. For More details
+              about the Power of Mail Chimp, Click on the logo to The left.
             </p>
           </div>
         </div>
@@ -53,85 +45,86 @@ function Chat() {
           <h3 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
             How To:
           </h3>
-
+         
           <p className=" mt-3 mx-auto text-justify indent-10">
-            <b className="text-2xl">T</b>his component seamlessly integrates the
-            Google Vision API, offering a range of powerful features for image
-            analysis. To use this component, simply select a feature from the
-            dropdown menu, upload an image of your choice, and click &quot;Analyze&quot;.
-            It&apos;s important to note that this guide will primarily highlight the
-            core functionalities for demonstration purposes, while the practical
-            implementation can be further customized to suit specific use cases.
-            <br />
-            <b className="text-2xl">Features:</b>
-            <br />
-            &bull;
-            <u>
-              <b>Text Detection:</b>
-            </u>
-            With the &quot;Text Detection&quot; feature, you can easily extract text from
-            images, whether it&apos;s printed or handwritten. 
-            <br />
-            &bull;
-            <u>
-              <b>Document Text Detection:</b>
-            </u>
-            The &quot;Document Text Detection&quot; feature excels at extracting text and
-            structure from dense text documents, making it perfect for scanned
-            materials or text-heavy content.
-            <br />
-            &bull;
-            <u>
-              <b>Safe Search Detection:</b>
-            </u>
-            Ensure the safety of your images with the &quot;Safe Search Detection&quot;
-            feature, which evaluates images for adult content, violence, and
-            unsafe elements.
-            <br />
-            &bull;
-            <u>
-              <b>Image Properties:</b>
-            </u>
-            The &quot;Image Properties&quot; feature analyzes dominant colors and color
-            information in images, ideal for fashion or design-related content
-            where color details matter.
-            <br />
-            &bull;
-            <u>
-              <b>Logo Detection:</b>
-            </u>
-            Identify well-known logos within images using the &quot;Logo Detection&quot;
-            feature, making it great for branding recognition.
-            <br />
-            &bull;
-            <u>
-              <b>Landmark Detection:</b>
-            </u>
-            The &quot;Landmark Detection&quot; feature identifies famous landmarks in
-            photos and provides related information, particularly useful for
-            travel photos featuring recognizable landmarks.
-            <br />
-            &bull;
-            <u>
-              <b>Web Detection:</b>
-            </u>
-            With the &quot;Web Detection&quot; feature, you can search the web for similar
-            images and associated web pages, helping you identify image sources
-            or find visually similar content online. <br/><br/>
-            <b className="text-2xl">Supported Image Formats:</b>
+          <b className="text-2xl">T</b>o interact with the Mailchimp API, follow these simple steps. Begin
+            by entering your email address into the designated email input
+            field. You&rsquo;ll notice two subscription options available. If
+            you toggle the button to &quot;verified&quot;, the system will
+            initiate a verification email before finalizing the subscription on
+            the Mailchimp site. Conversely, toggling to &quot;unverified&quot;
+            will result in a direct subscription without requiring a
+            confirmation email.
               
             </p>
-            <p className="mx-auto text-justify tracking-tighter indent-10">
-            <b className="text-2xl">G</b>oogle Vision API supports various image formats, including
-            JPEG, PNG, GIF, BMP, WEBP, RAW, ICO, PDF, and TIFF. Please note that
-            some formats may affect result accuracy, so it&apos;s recommended to use
-            images with a minimum resolution of 640 x 480 pixels for optimal
-            results. 
+            <p className=" mx-auto text-justify tracking-tighter indent-10">
+            <b className="text-2xl">P</b>lease note that this entire process is designed solely for API
+            demonstration purposes. When you input your email, it will be
+            registered for the newsletter; however, please be aware that no
+            promotional emails will be sent. This lack of promotional emails is
+            intentional and designed for clear reasons. Feel free to explore the
+            functionality of the Mailchimp API in this controlled setting.
           </p>
         </div>
-        <div className="w-auto mt-4 bg-lBrand dark:bg-balBrand p-2 rounded-lg border-dBrand border-2 dark:border-mainBg max-md:max-w-full">
-          
+        <div className="mb-4">
+          {/* <div className="flex items-center">
+            <label className="dark:text-mainBg " htmlFor="RegisterEmail">
+              Email:
+            </label>
+            <input
+              id="RegisterEmail"
+              type="email"
+              className="inp"
+              placeholder="name@example.com"
+              name="email"
+              value={dataBody.email}
+              onChange={handleInput}
+              required
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
+            />
+           
+          </div> */}
+          {/* <button
+            name="send"
+            className="p-4 m-1 btn whitespace-nowrap mx-auto"
+            onClick={() => {
+              handleAPIcalls();
+            }}
+            disabled={isLoading}
+            aria-label="Check Out Button"
+          >
+            {isLoading ? (
+              <div className="flex items-center">
+                <div className="animate-spin mr-2">
+                  <svg
+                    className="w-5 h-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-100 "
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="#FEFAE6"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="#471AA0"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </div>
+                Fetching Api...
+              </div>
+            ) : (
+              "Subscribe"
+            )}
+          </button> */}
         </div>
+      </section>
     </>
   );
 }
