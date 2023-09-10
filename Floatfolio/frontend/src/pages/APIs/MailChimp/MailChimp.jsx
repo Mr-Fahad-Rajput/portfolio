@@ -15,7 +15,7 @@ function MailChimp() {
   });
 
   const [toggleCLick, setToggleClick] = useState(false);
-  let [dataBody, setDataBody] = useState({
+  const [dataBody, setDataBody] = useState({
     email: "",
     status: "pending",
   });
