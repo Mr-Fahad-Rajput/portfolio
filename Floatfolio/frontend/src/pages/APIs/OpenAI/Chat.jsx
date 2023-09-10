@@ -3,13 +3,13 @@ import chatIcon from "./chatGPT.svg";
 
 function Chat() {
   let [dataBody, setDataBody] = useState({
-    email: "",
+    message: "Hey Chat! tell me about yourself",
     status: "pending",
   });
   useEffect(()=>{
     // Backend Implementation
     const handleAPIcalls = async () => {
-    setDataBody({email:"test",status:"pending"})
+    setDataBody({message:"test",status:"pending"})
     // setIsLoading(true);
     try {
       const handleSubmitModule = await import("../../apiCalls/handleAPI");
@@ -21,8 +21,8 @@ function Chat() {
           console.log(data);
       } else {
           // Handle server errors
-          const errorResponse = await response.json();
-          console.error("Server Error:", errorResponse);
+          // const errorResponse = await response.json();
+          console.error("Server Error:", response);
       }
   } catch (error) {
       console.error("Error importing handleSubmit:", error);
@@ -50,7 +50,7 @@ function Chat() {
             <p className=" mt-3 mx-auto text-justify tracking-tight indent-10">
               <b className="text-2xl">T</b>he Mailchimp API is a robust and
               versatile tool that empowers businesses to seamlessly integrate
-              their applications with Mailchimp&apos;s email marketing and
+              their applications with Mailchimp&apos;s message marketing and
               automation platform. With the Mailchimp API, developers can create
               custom solutions that enhance marketing campaigns, audience
               engagement, and data management. This API enables businesses to
@@ -59,12 +59,12 @@ function Chat() {
             </p>
             <p className="mx-auto text-justify tracking-tighter indent-10">
               <b className="text-2xl">B</b>y leveraging the Mailchimp API,
-              businesses can unlock the full potential of email marketing,
+              businesses can unlock the full potential of message marketing,
               streamline their communication efforts, and provide a more
               personalized experience to their audience. Whether it&apos;s
-              syncing customer data, automating email sends, or tracking
+              syncing customer data, automating message sends, or tracking
               campaign performance, the Mailchimp API offers a powerful way to
-              integrate email marketing functionalities into a wide range of
+              integrate message marketing functionalities into a wide range of
               applications and platforms. For More details about the Power of
               Mail Chimp, Click on the logo to The left.
             </p>
@@ -77,36 +77,36 @@ function Chat() {
 
           <p className=" mt-3 mx-auto text-justify indent-10">
             <b className="text-2xl">T</b>o interact with the Mailchimp API,
-            follow these simple steps. Begin by entering your email address into
-            the designated email input field. You&rsquo;ll notice two
+            follow these simple steps. Begin by entering your message address into
+            the designated message input field. You&rsquo;ll notice two
             subscription options available. If you toggle the button to
-            &quot;verified&quot;, the system will initiate a verification email
+            &quot;verified&quot;, the system will initiate a verification message
             before finalizing the subscription on the Mailchimp site.
             Conversely, toggling to &quot;unverified&quot; will result in a
-            direct subscription without requiring a confirmation email.
+            direct subscription without requiring a confirmation message.
           </p>
           <p className=" mx-auto text-justify tracking-tighter indent-10">
             <b className="text-2xl">P</b>lease note that this entire process is
             designed solely for API demonstration purposes. When you input your
-            email, it will be registered for the newsletter; however, please be
-            aware that no promotional emails will be sent. This lack of
-            promotional emails is intentional and designed for clear reasons.
+            message, it will be registered for the newsletter; however, please be
+            aware that no promotional messages will be sent. This lack of
+            promotional messages is intentional and designed for clear reasons.
             Feel free to explore the functionality of the Mailchimp API in this
             controlled setting.
           </p>
         </div>
         <div className="mb-4">
           {/* <div className="flex items-center">
-            <label className="dark:text-mainBg " htmlFor="RegisterEmail">
-              Email:
+            <label className="dark:text-mainBg " htmlFor="Registermessage">
+              message:
             </label>
             <input
-              id="RegisterEmail"
-              type="email"
+              id="Registermessage"
+              type="message"
               className="inp"
               placeholder="name@example.com"
-              name="email"
-              value={dataBody.email}
+              name="message"
+              value={dataBody.message}
               onChange={handleInput}
               required
               pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
