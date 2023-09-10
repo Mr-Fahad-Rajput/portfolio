@@ -1,55 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import chatIcon from "./chatGPT.svg";
 
 function Chat() {
+  let [dataBody, setDataBody] = useState({
+    email: "",
+    status: "pending",
+  });
   useEffect(()=>{
     // Backend Implementation
-  const handleAPIcalls = async () => {
+    const handleAPIcalls = async () => {
+    setDataBody({email:"test",status:"pending"})
     // setIsLoading(true);
     try {
-      const handleSubmitModule = await import("../../apiCalls/handleAPI.js");
+      const handleSubmitModule = await import("../../apiCalls/handleAPI");
       const handleSubmit = handleSubmitModule.default;
-      handleSubmit(dataBody, "mailchimp", "POST")
-        .then((res) => {
-          if (res.ok) {
-            res = res.json();
-            return res;
-          } else {
-            throw new Error("Request failed with status: " + res);
-          }
-        })
-        .then((data) => {
+      const response = await handleSubmit(dataBody, "chat", "POST");
+  
+      if (response.ok) {
+          const data = await response.json();
           console.log(data);
-          // const redirectUrl = data.urlRes;
-          // window.location = redirectUrl;
-          // location.reload();
-        })
-        .catch((error) => {
-          console.log(error)
-          // setAlertImg(notSent);
-          // if (error.toString().includes("Failed to fetch")) {
-          //   setResponseStatus({
-          //     status: true,
-          //     text: "Can't Connect To the Server! Check Your Internet Connection",
-          //   });
-          // } else {
-          //   const redirectUrl = "http://localhost:5173/mailchimp#cancel";
-          //   window.location = redirectUrl;
-          //   location.reload();
-          // }
-        })
-        // .finally(() => {
-        //   // setIsLoading(false);
-        //   setTimeout(() => {
-        //     // setResponseStatus({
-        //     //   status: false,
-        //     // });
-        //   }, 3000);
-        // });
-    } catch (error) {
+      } else {
+          // Handle server errors
+          const errorResponse = await response.json();
+          console.error("Server Error:", errorResponse);
+      }
+  } catch (error) {
       console.error("Error importing handleSubmit:", error);
-    }
-  };
+  }
+    }  
+  handleAPIcalls();
   },[])
   return (
     <>
