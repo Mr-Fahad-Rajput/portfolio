@@ -3,6 +3,7 @@ import chatIcon from "./chatGPT.svg";
 
 function Chat() {
   const [isLoading, setIsLoading] = useState(false);
+  const [response, setResponse] = useState(null);
   const [dataBody, setDataBody] = useState({
     message: "",
     status: "",
@@ -19,6 +20,7 @@ function Chat() {
   };
 
   const handleAPIcalls = async () => {
+    setResponse(null);
     setIsLoading(true);
     try {
       const handleSubmitModule = await import("../../apiCalls/handleAPI");
@@ -27,10 +29,9 @@ function Chat() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        setResponse(data);
+        console.log(data.botResponse.content);
       } else {
-        // Handle server errors
-        // const errorResponse = await response.json();
         console.error("Server Error:", response);
       }
     } catch (error) {
@@ -106,6 +107,14 @@ function Chat() {
         </div>
         <div className="mb-4 w-full">
           <div className="mt-2 w-full">
+          {response && (
+              <>
+              {/* TODO Design Response Messages, Set Context Empty Check */}
+                <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
+                  {response.botResponse.content}
+                </p>
+              </>
+            )}
             <label className="dark:text-mainBg text-2xl" htmlFor="yourContext">
               Set Context
             </label>
@@ -132,6 +141,7 @@ function Chat() {
               onChange={handleInput}
               required
             ></textarea>
+            
           </div>
           <button
             name="send"
