@@ -2,15 +2,26 @@ import { useEffect, useState } from "react";
 import chatIcon from "./chatGPT.svg";
 
 function Chat() {
-  let [dataBody, setDataBody] = useState({
-    message: "Hey Chat! tell me about yourself",
+  const[isLoading,setIsLoading] = useState(false)
+  const [dataBody, setDataBody] = useState({
+    message: "",
     status: "pending",
   });
-  useEffect(()=>{
-    // Backend Implementation
-    const handleAPIcalls = async () => {
+ 
+
+  const handleInput = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setDataBody((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleAPIcalls = async () => {
     setDataBody({message:"test",status:"pending"})
-    // setIsLoading(true);
+    setIsLoading(true);
     try {
       const handleSubmitModule = await import("../../apiCalls/handleAPI");
       const handleSubmit = handleSubmitModule.default;
@@ -26,10 +37,10 @@ function Chat() {
       }
   } catch (error) {
       console.error("Error importing handleSubmit:", error);
+  }finally{
+    setIsLoading(false)
   }
     }  
-  handleAPIcalls();
-  },[])
   return (
     <>
       <section className="mainContent">
@@ -96,7 +107,7 @@ function Chat() {
           </p>
         </div>
         <div className="mb-4">
-          {/* <div className="flex items-center">
+          <div className="flex items-center">
             <label className="dark:text-mainBg " htmlFor="Registermessage">
               message:
             </label>
@@ -104,16 +115,15 @@ function Chat() {
               id="Registermessage"
               type="message"
               className="inp"
-              placeholder="name@example.com"
+              placeholder="How Can I Help You?  "
               name="message"
               value={dataBody.message}
               onChange={handleInput}
               required
-              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
             />
            
-          </div> */}
-          {/* <button
+          </div>
+          <button
             name="send"
             className="p-4 m-1 btn whitespace-nowrap mx-auto"
             onClick={() => {
@@ -146,12 +156,12 @@ function Chat() {
                     ></path>
                   </svg>
                 </div>
-                Fetching Api...
+                Sending...
               </div>
             ) : (
-              "Subscribe"
+              "Send"
             )}
-          </button> */}
+          </button>
         </div>
       </section>
     </>
