@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import chatIcon from "./chatGPT.svg";
 
 function Chat() {
-  const[isLoading,setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [dataBody, setDataBody] = useState({
     message: "",
-    status: "pending",
+    status: "",
   });
- 
 
   const handleInput = (event) => {
     const name = event.target.name;
@@ -20,27 +19,26 @@ function Chat() {
   };
 
   const handleAPIcalls = async () => {
-    setDataBody({message:"test",status:"pending"})
     setIsLoading(true);
     try {
       const handleSubmitModule = await import("../../apiCalls/handleAPI");
       const handleSubmit = handleSubmitModule.default;
       const response = await handleSubmit(dataBody, "chat", "POST");
-  
+
       if (response.ok) {
-          const data = await response.json();
-          console.log(data);
+        const data = await response.json();
+        console.log(data);
       } else {
-          // Handle server errors
-          // const errorResponse = await response.json();
-          console.error("Server Error:", response);
+        // Handle server errors
+        // const errorResponse = await response.json();
+        console.error("Server Error:", response);
       }
-  } catch (error) {
+    } catch (error) {
       console.error("Error importing handleSubmit:", error);
-  }finally{
-    setIsLoading(false)
-  }
-    }  
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <>
       <section className="mainContent">
@@ -88,40 +86,52 @@ function Chat() {
 
           <p className=" mt-3 mx-auto text-justify indent-10">
             <b className="text-2xl">T</b>o interact with the Mailchimp API,
-            follow these simple steps. Begin by entering your message address into
-            the designated message input field. You&rsquo;ll notice two
+            follow these simple steps. Begin by entering your message address
+            into the designated message input field. You&rsquo;ll notice two
             subscription options available. If you toggle the button to
-            &quot;verified&quot;, the system will initiate a verification message
-            before finalizing the subscription on the Mailchimp site.
+            &quot;verified&quot;, the system will initiate a verification
+            message before finalizing the subscription on the Mailchimp site.
             Conversely, toggling to &quot;unverified&quot; will result in a
             direct subscription without requiring a confirmation message.
           </p>
           <p className=" mx-auto text-justify tracking-tighter indent-10">
             <b className="text-2xl">P</b>lease note that this entire process is
             designed solely for API demonstration purposes. When you input your
-            message, it will be registered for the newsletter; however, please be
-            aware that no promotional messages will be sent. This lack of
+            message, it will be registered for the newsletter; however, please
+            be aware that no promotional messages will be sent. This lack of
             promotional messages is intentional and designed for clear reasons.
             Feel free to explore the functionality of the Mailchimp API in this
             controlled setting.
           </p>
         </div>
-        <div className="mb-4">
-          <div className="flex items-center">
-            <label className="dark:text-mainBg " htmlFor="Registermessage">
-              message:
+        <div className="mb-4 w-full">
+          <div className="mt-2 w-full">
+            <label className="dark:text-mainBg text-2xl" htmlFor="yourContext">
+              Set Context
             </label>
-            <input
-              id="Registermessage"
-              type="message"
-              className="inp"
-              placeholder="How Can I Help You?  "
+            <textarea
+              id="yourContext"
+              rows="4"
+              className="inp w-full h-16"
+              placeholder="(Optional)"
+              name="status"
+              value={dataBody.status}
+              onChange={handleInput}
+              required
+            ></textarea>
+            <label className="dark:text-mainBg text-2xl" htmlFor="yourMessage">
+              Send a Question
+            </label>
+            <textarea
+              id="yourMessage"
+              rows="4"
+              className="inp w-full"
+              placeholder="Comment, Sugestion, Feedback, or Get Quote"
               name="message"
               value={dataBody.message}
               onChange={handleInput}
               required
-            />
-           
+            ></textarea>
           </div>
           <button
             name="send"
