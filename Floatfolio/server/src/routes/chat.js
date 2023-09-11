@@ -1,7 +1,6 @@
 const { OpenAI } = require("openai");
 module.exports = async (req, res) => {
   try {
-    console.log(req.body);
     const openai = new OpenAI({
         apiKey: process.env.OPEN_AI_SECRET
       });
@@ -13,6 +12,7 @@ module.exports = async (req, res) => {
     const chatCompletion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [{"role": "user", "content": userMessage}],
+        stream: true,
       });
       
 
