@@ -3,7 +3,8 @@ import chatIcon from "./chatGPT.svg";
 
 function Chat() {
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState(null);
+  const [wordCount, setWordCount] = useState();
+  const [response, setResponse] = useState("y leveraging the Mailchimp API,businesses can unlock the full potential of message marketing,streamline their communication efforts, and provide a morepersonalized experience to their audience. Whether it&apos;ssyncing customer data, automating message sends, or trackingcampaign performance, the Mailchimp API offers a powerful way tointegrate message marketing functionalities into a wide range applications and platforms. For More details about the Power of Mail Chimp, Click on the logo to The left.");
   const [dataBody, setDataBody] = useState({
     message: "",
     status: "",
@@ -110,24 +111,33 @@ function Chat() {
           {response && (
               <>
               {/* TODO Design Response Messages, Set Context Empty Check */}
-                <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
-                  {response.botResponse.content}
+                <div className="float-right inline-flex">
+                  <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100 w-1/2">
+                  {response}
+                  {/* {response.botResponse.content} */}
                 </p>
+                </div>
               </>
             )}
             <label className="dark:text-mainBg text-2xl" htmlFor="yourContext">
               Set Context
             </label>
+            <div className="inline-flex float-right ">{wordCount}/800</div>
             <textarea
               id="yourContext"
               rows="4"
-              className="inp w-full h-16"
+              className="inp w-full h-content scrollbar-hide "
               placeholder="(Optional)"
               name="status"
               value={dataBody.status}
               onChange={handleInput}
               required
+              maxLength={800}
+              onInput={(e) =>
+                setWordCount(e.target.value.length)
+              }
             ></textarea>
+
             <label className="dark:text-mainBg text-2xl" htmlFor="yourMessage">
               Send a Question
             </label>
@@ -140,6 +150,7 @@ function Chat() {
               value={dataBody.message}
               onChange={handleInput}
               required
+              maxLength={2500}
             ></textarea>
             
           </div>

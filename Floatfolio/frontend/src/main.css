@@ -43,7 +43,15 @@
   @apply sticky inline-flex h-screen top-0 rounded-lg mx-5 my-0  items-center bg-mainBg dark:bg-lBrand  text-dBrand content-center md:max-w-[20vw] md:min-w-[20vw] p-2 float-right overflow-hidden;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 }
+/* hidden scroll bar for div in Chat */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
 /* /Input Style/ */
 .inp {
