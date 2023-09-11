@@ -1,36 +1,40 @@
 const { OpenAI } = require("openai");
 module.exports = async (req, res) => {
   try {
-    console.log(req.body);
     const openai = new OpenAI({
-        apiKey: process.env.OPEN_AI_SECRET
-      });
-      const userMessage = req.body.message;
-      console.log(userMessage);
+      apiKey: process.env.OPEN_AI_SECRET,
+    });
+    const userMessage = req.body.message;
+    const userContext = req.body.status;
+    console.log(userMessage);
 
-  try {
-    
-    const chatCompletion = await openai.chat.completions.create({
+    try {
+      const chatCompletion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
-        messages: [{"role": "user", "content": userMessage}],
-        // stream: true,
+        messages: [
+          { role: "system", content: userContext },
+          { role: "user", content: userMessage },
+        ],
       });
-      
-      // for await (const part of chatCompletion) {
-      //   console.log(part.choices[0].delta);
-      // }
-      
-    const botResponse = chatCompletion.choices[0].message; 
-    console.log(botResponse)
 
-    res.json({ botResponse });
+      const botResponse = chatCompletion.choices[0].message;
+      console.log(botResponse);
+
+      res.json({ botResponse });
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).json({ error: "An error occurred" });
+    }
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred' });
-  }
-  } catch (error) {
-    console.log(error);
-    const errorMessage = error.message;
-    res.status(500).send(errorMessage.toString());
+    if (error instanceof OpenAI.APIError) {
+      console.error(error.status);
+      console.error(error.message);
+      console.error(error.code);
+      console.error(error.type);
+      res.status(error.status).send(error.message, error.code, error.type);
+    } else {
+      console.log(error);
+      res.status(500).send(error.toString());
+    }
   }
 };
