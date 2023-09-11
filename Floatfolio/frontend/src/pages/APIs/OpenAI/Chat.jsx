@@ -3,8 +3,8 @@ import chatIcon from "./chatGPT.svg";
 
 function Chat() {
   const [isLoading, setIsLoading] = useState(false);
-  const [wordCount, setWordCount] = useState();
-  const [response, setResponse] = useState("y leveraging the Mailchimp API,businesses can unlock the full potential of message marketing,streamline their communication efforts, and provide a morepersonalized experience to their audience. Whether it&apos;ssyncing customer data, automating message sends, or trackingcampaign performance, the Mailchimp API offers a powerful way tointegrate message marketing functionalities into a wide range applications and platforms. For More details about the Power of Mail Chimp, Click on the logo to The left.");
+  const [wordCount, setWordCount] = useState({first: 0, second :0});
+  const [response, setResponse] = useState(null);
   const [dataBody, setDataBody] = useState({
     message: "",
     status: "",
@@ -41,6 +41,10 @@ function Chat() {
       setIsLoading(false);
     }
   };
+  function clearInput(){
+    setResponse(null);
+    setDataBody({message: "", status: ""})
+  }
   return (
     <>
       <section className="mainContent">
@@ -108,25 +112,15 @@ function Chat() {
         </div>
         <div className="mb-4 w-full">
           <div className="mt-2 w-full">
-          {response && (
-              <>
-              {/* TODO Design Response Messages, Set Context Empty Check */}
-                <div className="float-right inline-flex">
-                  <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100 w-1/2">
-                  {response}
-                  {/* {response.botResponse.content} */}
-                </p>
-                </div>
-              </>
-            )}
+          
             <label className="dark:text-mainBg text-2xl" htmlFor="yourContext">
               Set Context
             </label>
-            <div className="inline-flex float-right ">{wordCount}/800</div>
+            <div className="inline-flex float-right underline ">{wordCount.first}/800</div>
             <textarea
               id="yourContext"
               rows="4"
-              className="inp w-full h-content scrollbar-hide "
+              className="inp w-full scrollbar-hide "
               placeholder="(Optional)"
               name="status"
               value={dataBody.status}
@@ -134,27 +128,32 @@ function Chat() {
               required
               maxLength={800}
               onInput={(e) =>
-                setWordCount(e.target.value.length)
+                setWordCount({first:e.target.value.length})
               }
             ></textarea>
 
             <label className="dark:text-mainBg text-2xl" htmlFor="yourMessage">
               Send a Question
             </label>
+            <div className="inline-flex float-right underline">{wordCount.second}/2500</div>
             <textarea
               id="yourMessage"
               rows="4"
               className="inp w-full"
-              placeholder="Comment, Sugestion, Feedback, or Get Quote"
+              placeholder="Feel free to input your Thoughts or Request here."
               name="message"
               value={dataBody.message}
               onChange={handleInput}
               required
               maxLength={2500}
+              onInput={(e) =>
+                setWordCount({second:e.target.value.length})
+              }
             ></textarea>
             
           </div>
-          <button
+          <div className="flex">
+            <button
             name="send"
             className="p-4 m-1 btn whitespace-nowrap mx-auto"
             onClick={() => {
@@ -193,6 +192,18 @@ function Chat() {
               "Send"
             )}
           </button>
+          {response && <button className="p-4 m-1 btn whitespace-nowrap mx-auto" onClick={clearInput}>Clear</button>}</div>
+          {response && (
+              <>
+              {/* TODO Design Response Messages, Set Context Empty Check */}
+                <div className="float-right inline-flex">
+                  <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
+                  {/* {response} */}
+                  {response.botResponse.content}
+                </p>
+                </div>
+              </>
+            )}
         </div>
       </section>
     </>
