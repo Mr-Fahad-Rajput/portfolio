@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     });
     const userMessage = req.body.message;
     const userContext = req.body.status;
-    console.log(userMessage);
+    console.log("Context:"+ userContext,"Message:"+ userMessage);
 
     try {
       const chatCompletion = await openai.chat.completions.create({
@@ -18,7 +18,6 @@ module.exports = async (req, res) => {
       });
 
       const botResponse = chatCompletion.choices[0].message;
-      console.log(botResponse);
 
       res.json({ botResponse });
     } catch (error) {
