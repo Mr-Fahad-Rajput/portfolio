@@ -102,7 +102,7 @@ function Contact() {
                   <h2 className="m-1 dark:text-secondaryBg  underline font-semibold text-balBrand">
                     Github
                   </h2>
-                  <p className=" ">github.com/Mr-Fahad-Rajput</p>
+                  <p >github.com/Mr-Fahad-Rajput</p>
                 </div>
               </div>
             </a>
@@ -114,13 +114,13 @@ function Contact() {
             >
               <div className=" cd dark:bg-lBrand bg-secondaryBg">
                 <div className="w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md">
-                  <img src={linkedIcon} alt="Github Icon" />
+                  <img src={linkedIcon} alt="Linked in Icon" />
                 </div>
                 <div className="">
                   <h2 className="m-1 dark:text-secondaryBg  underline font-semibold text-balBrand">
                     Linked In
                   </h2>
-                  <p className=" ">linkedin.com/Mr-Fahad-Rajput</p>
+                  <p >linkedin.com/Mr-Fahad-Rajput</p>
                 </div>
               </div>
             </a>
@@ -138,7 +138,7 @@ function Contact() {
                   <h2 className="m-1 dark:text-secondaryBg  underline font-semibold text-balBrand">
                     Email
                   </h2>
-                  <p className=" ">fahadameenrajput@gmail.com</p>
+                  <p >fahadameenrajput@gmail.com</p>
                 </div>
               </div>
             </a>
