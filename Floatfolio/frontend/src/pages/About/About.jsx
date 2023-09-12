@@ -16,11 +16,11 @@ function About() {
           </div>
           {/* earlylife */}
           <div className="text-center md:flex  overflow-hidden  h-1/5 rounded-lg m-2 dark:bg-balBrand bg-secondaryBg   text-dBrand dark:text-mainBg">
-            <div className="inline-flex md:max-w-[21vw] md:min-w-[21vw] items-center m-2 h-auto">
+            <div className="inline-flex md:max-w-[21vw] md:min-w-[21vw] items-center m-2">
               <img
                 src={kid}
                 alt="Kid Using laptop"
-                className=" w-auto h-auto dark:bg-lBrand rounded-lg"
+                className=" md:w-64 dark:bg-lBrand max-md:h-56 rounded-lg h-full"
               />
             </div>
             <div className="overflow-hidden self-center p-2">
@@ -45,12 +45,11 @@ function About() {
           </div>
           {/* Bachelors */}
           <div className="text-center md:flex flex-row-reverse h-1/5 m-2 overflow-hidden text-dBrand dark:text-mainBg ">
-            <div className="inline-flex md:max-w-[21vw] md:min-w-[21vw] items-center m-2 h-auto aspect-square">
+            <div className="inline-flex md:max-w-[21vw] md:min-w-[21vw] items-center m-2">
               <img
                 src={teen}
-                // TODO inkscape image dimensions to be equalized
                 alt="Teenage Boy on a Computer"
-                className=" w-auto h-auto dark:bg-lBrand rounded-lg"
+                className=" md:w-64 h-full min-h-[14rem] max-md:h-56 dark:bg-lBrand rounded-lg"
               />
             </div>
             <div className="overflow-hidden self-center p-2">
@@ -78,7 +77,7 @@ function About() {
               <img
                 src={webdev}
                 alt="Man Programming on a Laptop"
-                className=" w-64 h-56 dark:bg-lBrand rounded-lg"
+                className="md:w-64 h-full min-h-[14rem] max-md:h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
             <div className="overflow-hidden self-center p-2 ">
@@ -119,7 +118,7 @@ function About() {
               <img
                 src={team}
                 alt="Team Working on Web Development"
-                className=" w-64 h-56 dark:bg-lBrand rounded-lg "
+                className=" md:w-64 h-full min-h-[14rem] max-md:h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
             <div className="overflow-hidden self-center p-2">
@@ -145,7 +144,7 @@ function About() {
               <img
                 src={jrweb}
                 alt="Man Sitting on a Laptop"
-                className=" w-64 h-56 dark:bg-lBrand rounded-lg "
+                className=" md:w-64 h-full min-h-[14rem] max-md:h-56 dark:bg-lBrand rounded-lg "
               />
             </div>
             <div className=" overflow-hidden self-center p-2 ">
@@ -171,7 +170,7 @@ function About() {
               <img
                 src={future}
                 alt="Man Working on Web Development"
-                className=" w-64 h-56 dark:bg-lBrand rounded-lg"
+                className=" md:w-64 h-full min-h-[14rem] max-md:h-56 dark:bg-lBrand rounded-lg"
               />
             </div>
             <div className="overflow-hidden self-center p-2">

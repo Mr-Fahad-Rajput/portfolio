@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import chatIcon from "./chatGPT.svg";
 
 function Chat() {
@@ -48,6 +48,7 @@ function Chat() {
     }
   };
   function clearInput() {
+    setWordCount({ first: 0, second: 0 });
     setResponse(null);
     setDataBody({ message: "", status: "" });
   }
@@ -127,12 +128,13 @@ function Chat() {
             <textarea
               id="yourContext"
               rows="4"
-              className={`inp w-full scrollbar-hide ${ wordCount.first > 125 ? "h-auto" : "h-[4rem]"} `}
+              className={`inp w-full scrollbar-hide ${
+                wordCount.first > 125 ? "h-auto" : "h-[4rem]"
+              } `}
               placeholder="Add Background Details (Optional)"
               name="status"
               value={dataBody.status}
               onChange={handleInput}
-              required
               maxLength={800}
               onInput={(e) => setWordCount({ first: e.target.value.length })}
             ></textarea>
@@ -207,11 +209,11 @@ function Chat() {
           </div>
           {response && (
             <>
-              {/* TODO Design Response Messages, Set Context Empty Check */}
-              <div className="float-right inline-flex flex-col">
-                <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto "> Response</h4>
+              <div className="inline-flex flex-col w-full">
+                <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto ">
+                  Response
+                </h4>
                 <p className="text-justify leading-relaxed  bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
-                  {/* {response} */}
                   {response.botResponse.content}
                 </p>
               </div>
