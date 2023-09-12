@@ -3,7 +3,7 @@ import chatIcon from "./chatGPT.svg";
 
 function Chat() {
   const [isLoading, setIsLoading] = useState(false);
-  const [wordCount, setWordCount] = useState({first: 0, second :0});
+  const [wordCount, setWordCount] = useState({ first: 0, second: 0 });
   const [response, setResponse] = useState(null);
   const [dataBody, setDataBody] = useState({
     message: "",
@@ -21,9 +21,13 @@ function Chat() {
   };
 
   const handleAPIcalls = async () => {
-    if (dataBody.status.trim() === '') {
-      setDataBody.status = "Be short, simple, and precise."
-    } 
+    if (dataBody.status.trim() === "") {
+      setDataBody.status = "Be short, simple, and precise.";
+    }
+    if (dataBody.message.trim() === "") {
+      setDataBody({ message: "Sorry! This Can't be Empty." });
+      return;
+    }
     setResponse(null);
     setIsLoading(true);
     try {
@@ -43,9 +47,9 @@ function Chat() {
       setIsLoading(false);
     }
   };
-  function clearInput(){
+  function clearInput() {
     setResponse(null);
-    setDataBody({message: "", status: ""})
+    setDataBody({ message: "", status: "" });
   }
   return (
     <>
@@ -114,11 +118,12 @@ function Chat() {
         </div>
         <div className="mb-4 w-full">
           <div className="mt-2 w-full">
-          
             <label className="dark:text-mainBg text-2xl" htmlFor="yourContext">
               Set Context
             </label>
-            <div className="inline-flex float-right underline ">{wordCount.first}/800</div>
+            <div className="inline-flex float-right underline ">
+              {wordCount.first}/800
+            </div>
             <textarea
               id="yourContext"
               rows="4"
@@ -129,15 +134,15 @@ function Chat() {
               onChange={handleInput}
               required
               maxLength={800}
-              onInput={(e) =>
-                setWordCount({first:e.target.value.length})
-              }
+              onInput={(e) => setWordCount({ first: e.target.value.length })}
             ></textarea>
 
             <label className="dark:text-mainBg text-2xl" htmlFor="yourMessage">
               Send a Question
             </label>
-            <div className="inline-flex float-right underline">{wordCount.second}/2500</div>
+            <div className="inline-flex float-right underline">
+              {wordCount.second}/2500
+            </div>
             <textarea
               id="yourMessage"
               rows="4"
@@ -148,64 +153,69 @@ function Chat() {
               onChange={handleInput}
               required
               maxLength={2500}
-              onInput={(e) =>
-                setWordCount({second:e.target.value.length})
-              }
+              onInput={(e) => setWordCount({ second: e.target.value.length })}
             ></textarea>
-            
           </div>
           <div className="flex">
             <button
-            name="send"
-            className="p-4 m-1 btn whitespace-nowrap mx-auto"
-            onClick={() => {
-              handleAPIcalls();
-            }}
-            disabled={isLoading}
-            aria-label="Check Out Button"
-          >
-            {isLoading ? (
-              <div className="flex items-center">
-                <div className="animate-spin mr-2">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-100 "
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="#FEFAE6"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="#471AA0"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
+              name="send"
+              className="p-4 m-1 btn whitespace-nowrap mx-auto"
+              onClick={() => {
+                handleAPIcalls();
+              }}
+              disabled={isLoading}
+              aria-label="Check Out Button"
+            >
+              {isLoading ? (
+                <div className="flex items-center">
+                  <div className="animate-spin mr-2">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-100 "
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="#FEFAE6"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="#471AA0"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  </div>
+                  Sending...
                 </div>
-                Sending...
-              </div>
-            ) : (
-              "Send"
+              ) : (
+                "Send"
+              )}
+            </button>
+            {response && (
+              <button
+                className="p-4 m-1 btn whitespace-nowrap mx-auto"
+                onClick={clearInput}
+              >
+                Clear
+              </button>
             )}
-          </button>
-          {response && <button className="p-4 m-1 btn whitespace-nowrap mx-auto" onClick={clearInput}>Clear</button>}</div>
+          </div>
           {response && (
-              <>
+            <>
               {/* TODO Design Response Messages, Set Context Empty Check */}
-                <div className="float-right inline-flex">
-                  <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
+              <div className="float-right inline-flex">
+                <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
                   {/* {response} */}
                   {response.botResponse.content}
                 </p>
-                </div>
-              </>
-            )}
+              </div>
+            </>
+          )}
         </div>
       </section>
     </>
