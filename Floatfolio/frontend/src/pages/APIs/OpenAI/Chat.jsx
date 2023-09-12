@@ -69,26 +69,29 @@ function Chat() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Mail Chimp API
             </h1>
-            <p className=" leading-relaxed mt-3 mx-auto text-justify tracking-tight indent-10">
-              <b className="text-2xl">T</b>he Mailchimp API is a robust and
-              versatile tool that empowers businesses to seamlessly integrate
-              their applications with Mailchimp&apos;s message marketing and
-              automation platform. With the Mailchimp API, developers can create
-              custom solutions that enhance marketing campaigns, audience
-              engagement, and data management. This API enables businesses to
-              automate tasks such as list management, campaign creation, and
-              subscriber interactions.
+            <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
+              <b className="text-2xl">C</b>hatGPT API is a powerful tool
+              offered by OpenAI that allows businesses to integrate a highly
+              advanced language model into their websites and applications. It
+              enables seamless communication with users by providing natural
+              language understanding and generation capabilities. By integrating
+              this API, businesses can enhance customer support, automate
+              responses to common queries, and even create engaging chatbots for
+              their websites. This technology can significantly improve user
+              experience and streamline interactions, making it easier for
+              customers to get the information they need quickly.
             </p>
-            <p className="leading-relaxed mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">B</b>y leveraging the Mailchimp API,
-              businesses can unlock the full potential of message marketing,
-              streamline their communication efforts, and provide a more
-              personalized experience to their audience. Whether it&apos;s
-              syncing customer data, automating message sends, or tracking
-              campaign performance, the Mailchimp API offers a powerful way to
-              integrate message marketing functionalities into a wide range of
-              applications and platforms. For More details about the Power of
-              Mail Chimp, Click on the logo to The left.
+            <p className=" mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">I</b>ntegrating the ChatGPT API can help
+              businesses grow by increasing efficiency and customer
+              satisfaction. It can handle a wide range of inquiries 24/7,
+              reducing response times and ensuring that customers receive timely
+              assistance. Additionally, it can assist with lead generation,
+              providing valuable information to potential clients and guiding
+              them through the sales process. Overall, integrating the ChatGPT
+              API empowers businesses to deliver better customer service, save
+              time and resources, and ultimately drive growth by improving user
+              engagement and support.
             </p>
           </div>
         </div>
@@ -97,7 +100,7 @@ function Chat() {
             How To:
           </h3>
 
-          <p className=" leading-relaxed mt-3 mx-auto text-justify indent-10">
+          <p className="  mt-3 mx-auto text-justify indent-10">
             <b className="text-2xl">T</b>o interact with the Mailchimp API,
             follow these simple steps. Begin by entering your message address
             into the designated message input field. You&rsquo;ll notice two
@@ -107,7 +110,7 @@ function Chat() {
             Conversely, toggling to &quot;unverified&quot; will result in a
             direct subscription without requiring a confirmation message.
           </p>
-          <p className=" mx-auto text-justify tracking-tighter indent-10 leading-relaxed">
+          <p className=" mx-auto text-justify tracking-tighter indent-10 ">
             <b className="text-2xl">P</b>lease note that this entire process is
             designed solely for API demonstration purposes. When you input your
             message, it will be registered for the newsletter; however, please
@@ -213,7 +216,7 @@ function Chat() {
                 <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto ">
                   Response
                 </h4>
-                <p className="text-justify leading-relaxed  bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
+                <p className="text-justify   bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
                   {response.botResponse.content}
                 </p>
               </div>
