@@ -68,7 +68,7 @@ function Chat() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Mail Chimp API
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tight indent-10">
+            <p className=" leading-relaxed mt-3 mx-auto text-justify tracking-tight indent-10">
               <b className="text-2xl">T</b>he Mailchimp API is a robust and
               versatile tool that empowers businesses to seamlessly integrate
               their applications with Mailchimp&apos;s message marketing and
@@ -78,7 +78,7 @@ function Chat() {
               automate tasks such as list management, campaign creation, and
               subscriber interactions.
             </p>
-            <p className="mx-auto text-justify tracking-tighter indent-10">
+            <p className="leading-relaxed mx-auto text-justify tracking-tighter indent-10">
               <b className="text-2xl">B</b>y leveraging the Mailchimp API,
               businesses can unlock the full potential of message marketing,
               streamline their communication efforts, and provide a more
@@ -96,7 +96,7 @@ function Chat() {
             How To:
           </h3>
 
-          <p className=" mt-3 mx-auto text-justify indent-10">
+          <p className=" leading-relaxed mt-3 mx-auto text-justify indent-10">
             <b className="text-2xl">T</b>o interact with the Mailchimp API,
             follow these simple steps. Begin by entering your message address
             into the designated message input field. You&rsquo;ll notice two
@@ -106,7 +106,7 @@ function Chat() {
             Conversely, toggling to &quot;unverified&quot; will result in a
             direct subscription without requiring a confirmation message.
           </p>
-          <p className=" mx-auto text-justify tracking-tighter indent-10">
+          <p className=" mx-auto text-justify tracking-tighter indent-10 leading-relaxed">
             <b className="text-2xl">P</b>lease note that this entire process is
             designed solely for API demonstration purposes. When you input your
             message, it will be registered for the newsletter; however, please
@@ -119,7 +119,7 @@ function Chat() {
         <div className="mb-4 w-full">
           <div className="mt-2 w-full">
             <label className="dark:text-mainBg text-2xl" htmlFor="yourContext">
-              Set Context
+              Set Context.
             </label>
             <div className="inline-flex float-right underline ">
               {wordCount.first}/800
@@ -127,8 +127,8 @@ function Chat() {
             <textarea
               id="yourContext"
               rows="4"
-              className="inp w-full scrollbar-hide "
-              placeholder="(Optional)"
+              className={`inp w-full scrollbar-hide ${ wordCount.first > 125 ? "h-auto" : "h-[4rem]"} `}
+              placeholder="Add Background Details (Optional)"
               name="status"
               value={dataBody.status}
               onChange={handleInput}
@@ -138,7 +138,7 @@ function Chat() {
             ></textarea>
 
             <label className="dark:text-mainBg text-2xl" htmlFor="yourMessage">
-              Send a Question
+              Ask a Question!
             </label>
             <div className="inline-flex float-right underline">
               {wordCount.second}/2500
@@ -208,8 +208,9 @@ function Chat() {
           {response && (
             <>
               {/* TODO Design Response Messages, Set Context Empty Check */}
-              <div className="float-right inline-flex">
-                <p className="text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
+              <div className="float-right inline-flex flex-col">
+                <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto "> Response</h4>
+                <p className="text-justify leading-relaxed  bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand animate-scale-100">
                   {/* {response} */}
                   {response.botResponse.content}
                 </p>
