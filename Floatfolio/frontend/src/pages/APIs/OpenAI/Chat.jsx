@@ -21,6 +21,9 @@ function Chat() {
   };
 
   const handleAPIcalls = async () => {
+    if (dataBody.status.trim() === '') {
+      setDataBody.status = "Be short, simple, and precise."
+    } 
     setResponse(null);
     setIsLoading(true);
     try {
@@ -31,7 +34,6 @@ function Chat() {
       if (response.ok) {
         const data = await response.json();
         setResponse(data);
-        console.log(data.botResponse.content);
       } else {
         console.error("Server Error:", response);
       }
