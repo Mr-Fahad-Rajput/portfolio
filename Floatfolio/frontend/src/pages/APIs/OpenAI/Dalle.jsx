@@ -1,14 +1,66 @@
+import { useState } from "react";
 import dalleIcon from "./dalle.svg";
+
 function Dalle() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [wordCount, setWordCount] = useState({second: 0 });
+  const [response, setResponse] = useState(null);
+  const [dataBody, setDataBody] = useState({
+    message: "",
+    status: "",
+  });
+
+  const handleInput = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setDataBody((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleAPIcalls = async () => {
+    if (dataBody.status.trim() === "") {
+      setDataBody.status = "Be short, simple, and precise.";
+    }
+    if (dataBody.message.trim() === "") {
+      setDataBody({ message: "Sorry! This Can't be Empty." });
+      return;
+    }
+    setResponse(null);
+    setIsLoading(true);
+    try {
+      const handleSubmitModule = await import("../../apiCalls/handleAPI");
+      const handleSubmit = handleSubmitModule.default;
+      const response = await handleSubmit(dataBody, "Dalle", "POST");
+
+      if (response.ok) {
+        const data = await response.json();
+        setResponse(data);
+      } else {
+        console.error("Server Error:", response);
+      }
+    } catch (error) {
+      console.error("Error importing handleSubmit:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  function clearInput() {
+    setWordCount({second: 0 });
+    setResponse(null);
+    setDataBody({ message: "", status: "" });
+  }
   return (
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg">
-            <a href="https://mailchimp.com/" target="_blank" rel="noreferrer">
+          <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-20">
+            <a href="https://openai.com/dall-e-2" target="_blank" rel="noreferrer">
               <img
                 src={dalleIcon}
-                alt="GPT Icon"
+                alt="Dalle Icon"
                 className=" w-64 h-56 hover:scale-110 transform duration-500 rounded-lg"
               />
             </a>
@@ -17,36 +69,29 @@ function Dalle() {
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Mail Chimp API
             </h1>
-            <p className=" mt-3 mx-auto text-justify tracking-tight indent-10">
-              <b className="text-2xl">D</b>alle 2 API is a robust and versatile
-              image and video recognition API that employs cutting-edge machine
-              learning technology. It provides businesses with the capability to
-              seamlessly integrate powerful image and video analysis
-              capabilities into their websites and applications. This API excels
-              in recognizing objects, scenes, text, and even emotions within
-              images and videos, offering a wide range of possibilities for
-              enhancing user experiences. Whether it&apos;s for content
-              moderation, product recommendation, or automating image tagging,
-              Dalle 2 API equips businesses with the tools to harness the
-              potential of visual data. By integrating this API, businesses can
-              unlock new dimensions of customer engagement and personalization,
-              ultimately driving growth through improved user interactions and
-              data-driven insights.
+            <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
+              <b className="text-2xl">C</b>hatGPT API is a powerful tool offered
+              by OpenAI that allows businesses to integrate a highly advanced
+              language model into their websites and applications. It enables
+              seamless communication with users by providing natural language
+              understanding and generation capabilities. By integrating this
+              API, businesses can enhance customer support, automate responses
+              to common queries, and even create engaging Dallebots for their
+              websites. This technology can significantly improve user
+              experience and streamline interactions, making it easier for
+              customers to get the information they need quickly.
             </p>
-            <p className="mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">B</b>usinesses that integrate Dalle 2 API
-              can harness its image and video recognition capabilities to
-              revolutionize their online presence. From creating personalized
-              product recommendations based on user-generated content to
-              automating content moderation for a safer online environment, this
-              API empowers businesses to optimize their operations and user
-              experiences. Furthermore, by leveraging the insights gained from
-              visual data analysis, businesses can fine-tune their marketing
-              strategies, enhance customer engagement, and make data-informed
-              decisions. In a competitive digital landscape, integrating Dalle 2
-              API can give businesses a significant edge, helping them grow by
-              providing innovative, data-driven solutions that resonate with
-              their audience and drive success.
+            <p className=" mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">I</b>ntegrating the DalleGPT API can help
+              businesses grow by increasing efficiency and customer
+              satisfaction. It can handle a wide range of inquiries 24/7,
+              reducing response times and ensuring that customers receive timely
+              assistance. Additionally, it can assist with lead generation,
+              providing valuable information to potential clients and guiding
+              them through the sales process. Overall, integrating the DalleGPT
+              API empowers businesses to deliver better customer service, save
+              time and resources, and ultimately drive growth by improving user
+              engagement and support.
             </p>
           </div>
         </div>
@@ -55,83 +100,107 @@ function Dalle() {
             How To:
           </h3>
 
-          <p className=" mt-3 mx-auto text-justify indent-10">
-            <b className="text-2xl">T</b>o interact with the Mailchimp API,
-            follow these simple steps. Begin by entering your email address into
-            the designated email input field. You&rsquo;ll notice two
-            subscription options available. If you toggle the button to
-            &quot;verified&quot;, the system will initiate a verification email
-            before finalizing the subscription on the Mailchimp site.
-            Conversely, toggling to &quot;unverified&quot; will result in a
-            direct subscription without requiring a confirmation email.
+          <p className="  mt-3 mx-auto text-justify indent-10">
+            <b className="text-2xl">U</b>sing the DalleGPT component is
+            straightforward. For the &apos;context&apos; input, you have the
+            option to provide relevant information or context that you want the
+            system to be aware of. This can help set the stage for the
+            conversation and provide necessary background information for the
+            AI, thereby potentially improving the quality of responses.
           </p>
-          <p className=" mx-auto text-justify tracking-tighter indent-10">
-            <b className="text-2xl">P</b>lease note that this entire process is
-            designed solely for API demonstration purposes. When you input your
-            email, it will be registered for the newsletter; however, please be
-            aware that no promotional emails will be sent. This lack of
-            promotional emails is intentional and designed for clear reasons.
-            Feel free to explore the functionality of the Mailchimp API in this
-            controlled setting.
+          <p className=" mx-auto text-justify tracking-tighter indent-10 ">
+            <b className="text-2xl">C</b>onversely, the &apos;message&apos;
+            input represents the user&apos;s input or query. You should input
+            the user&apos;s message here, and the AI will generate a response
+            based on that input, taking into account any context you&apos;ve
+            provided. In essence, &apos;message&apos; is where you engage with
+            the AI, ask questions, or make requests. It&apos;s important to note
+            that this API integration is primarily for demonstration purposes,
+            and the GPT API has a wide range of applications that can be
+            customized to specific requirements.
           </p>
         </div>
-        <div className="mb-4">
-          {/* <div className="flex items-center">
-            <label className="dark:text-mainBg " htmlFor="RegisterEmail">
-              Email:
+        <div className="mb-4 w-full">
+          <div className="mt-2 w-full">
+            <label className="dark:text-mainBg text-2xl" htmlFor="yourMessage">
+              Enter Prompt!
             </label>
-            <input
-              id="RegisterEmail"
-              type="email"
-              className="inp"
-              placeholder="name@example.com"
-              name="email"
-              value={dataBody.email}
+            <div className="inline-flex float-right underline">
+              {wordCount.second}/400
+            </div>
+            <textarea
+              id="yourMessage"
+              rows="4"
+              className="inp w-full"
+              placeholder="Feel free to input your Imagination here."
+              name="message"
+              value={dataBody.message}
               onChange={handleInput}
               required
-              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
-            />
-           
-          </div> */}
-          {/* <button
-            name="send"
-            className="p-4 m-1 btn whitespace-nowrap mx-auto"
-            onClick={() => {
-              handleAPIcalls();
-            }}
-            disabled={isLoading}
-            aria-label="Check Out Button"
-          >
-            {isLoading ? (
-              <div className="flex items-center">
-                <div className="animate-spin mr-2">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-100 "
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="#FEFAE6"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="#471AA0"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
+              maxLength={400}
+              onInput={(e) => setWordCount({ second: e.target.value.length })}
+            ></textarea>
+          </div>
+          <div className="flex">
+            <button
+              name="send"
+              className="p-4 m-1 btn whitespace-nowrap mx-auto"
+              onClick={() => {
+                handleAPIcalls();
+              }}
+              disabled={isLoading}
+              aria-label="Proceed Button"
+            >
+              {isLoading ? (
+                <div className="flex items-center">
+                  <div className="animate-spin mr-2">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-100 "
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="#FEFAE6"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="#471AA0"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                  </div>
+                  Sending...
                 </div>
-                Fetching Api...
-              </div>
-            ) : (
-              "Subscribe"
+              ) : (
+                "Send"
+              )}
+            </button>
+            {response && (
+              <button
+                className="p-4 m-1 btn whitespace-nowrap mx-auto"
+                onClick={clearInput}
+              >
+                Clear
+              </button>
             )}
-          </button> */}
+          </div>
+          {response && (
+            <>
+              <div className="inline-flex flex-col w-full">
+                <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto ">
+                  Response
+                </h4>
+                <img src={response.image.data[0].url} alt=" AI generated Image"  className="m-2 rounded-lg border-2 border-dBrand dark:border-mainBg md:w-1/2 mx-auto"/>
+                
+              </div>
+            </>
+          )}
         </div>
       </section>
     </>

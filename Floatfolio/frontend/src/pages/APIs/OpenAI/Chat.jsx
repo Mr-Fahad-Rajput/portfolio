@@ -67,7 +67,7 @@ function Chat() {
           </div>
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-              Mail Chimp API
+              Chat GPT API
             </h1>
             <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
               <b className="text-2xl">C</b>hatGPT API is a powerful tool offered
