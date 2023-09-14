@@ -124,7 +124,7 @@ function CloudVision() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2 ">
-          <div className="inline-flex w-64 h-full md:float-left place-items-center mt-20 rounded-lg m-2 dark:bg-mainBg">
+          <div className="inline-flex w-64 h-full md:float-left place-items-center md:mt-20 rounded-lg m-2 dark:bg-mainBg">
             <a
               href="https://cloud.google.com/vision"
               target="_blank"

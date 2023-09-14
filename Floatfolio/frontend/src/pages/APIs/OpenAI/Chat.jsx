@@ -56,8 +56,8 @@ function Chat() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg">
-            <a href="https://mailchimp.com/" target="_blank" rel="noreferrer">
+          <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-20">
+            <a href="https://chat.openai.com/" target="_blank" rel="noreferrer">
               <img
                 src={chatIcon}
                 alt="GPT Icon"
@@ -70,14 +70,14 @@ function Chat() {
               Mail Chimp API
             </h1>
             <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
-              <b className="text-2xl">C</b>hatGPT API is a powerful tool
-              offered by OpenAI that allows businesses to integrate a highly
-              advanced language model into their websites and applications. It
-              enables seamless communication with users by providing natural
-              language understanding and generation capabilities. By integrating
-              this API, businesses can enhance customer support, automate
-              responses to common queries, and even create engaging chatbots for
-              their websites. This technology can significantly improve user
+              <b className="text-2xl">C</b>hatGPT API is a powerful tool offered
+              by OpenAI that allows businesses to integrate a highly advanced
+              language model into their websites and applications. It enables
+              seamless communication with users by providing natural language
+              understanding and generation capabilities. By integrating this
+              API, businesses can enhance customer support, automate responses
+              to common queries, and even create engaging chatbots for their
+              websites. This technology can significantly improve user
               experience and streamline interactions, making it easier for
               customers to get the information they need quickly.
             </p>
@@ -101,23 +101,23 @@ function Chat() {
           </h3>
 
           <p className="  mt-3 mx-auto text-justify indent-10">
-            <b className="text-2xl">T</b>o interact with the Mailchimp API,
-            follow these simple steps. Begin by entering your message address
-            into the designated message input field. You&rsquo;ll notice two
-            subscription options available. If you toggle the button to
-            &quot;verified&quot;, the system will initiate a verification
-            message before finalizing the subscription on the Mailchimp site.
-            Conversely, toggling to &quot;unverified&quot; will result in a
-            direct subscription without requiring a confirmation message.
+            <b className="text-2xl">U</b>sing the ChatGPT component is
+            straightforward. For the &apos;context&apos; input, you have the
+            option to provide relevant information or context that you want the
+            system to be aware of. This can help set the stage for the
+            conversation and provide necessary background information for the
+            AI, thereby potentially improving the quality of responses.
           </p>
           <p className=" mx-auto text-justify tracking-tighter indent-10 ">
-            <b className="text-2xl">P</b>lease note that this entire process is
-            designed solely for API demonstration purposes. When you input your
-            message, it will be registered for the newsletter; however, please
-            be aware that no promotional messages will be sent. This lack of
-            promotional messages is intentional and designed for clear reasons.
-            Feel free to explore the functionality of the Mailchimp API in this
-            controlled setting.
+            <b className="text-2xl">C</b>onversely, the &apos;message&apos;
+            input represents the user&apos;s input or query. You should input
+            the user&apos;s message here, and the AI will generate a response
+            based on that input, taking into account any context you&apos;ve
+            provided. In essence, &apos;message&apos; is where you engage with
+            the AI, ask questions, or make requests. It&apos;s important to note
+            that this API integration is primarily for demonstration purposes,
+            and the GPT API has a wide range of applications that can be
+            customized to specific requirements.
           </p>
         </div>
         <div className="mb-4 w-full">
