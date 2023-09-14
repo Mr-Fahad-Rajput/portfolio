@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Tailwind CSS */
-/* BUTTON Class 1*/
 .btn {
   @apply box-border border-lBrand dark:border-dBrand text-mainBg dark:text-balBrand bg-balBrand dark:bg-mainBg border-2 rounded-[0.6em] cursor-pointer flex self-center text-[1rem] leading-[.5];
   box-shadow: 0 0 7px 7px rgba(71, 26, 160, 0.2);
