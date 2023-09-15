@@ -3,7 +3,7 @@ import dalleIcon from "./dalle.svg";
 
 function Dalle() {
   const [isLoading, setIsLoading] = useState(false);
-  const [wordCount, setWordCount] = useState({second: 0 });
+  const [wordCount, setWordCount] = useState({ second: 0 });
   const [response, setResponse] = useState(null);
   const [dataBody, setDataBody] = useState({
     message: "",
@@ -48,7 +48,7 @@ function Dalle() {
     }
   };
   function clearInput() {
-    setWordCount({second: 0 });
+    setWordCount({ second: 0 });
     setResponse(null);
     setDataBody({ message: "", status: "" });
   }
@@ -56,8 +56,12 @@ function Dalle() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-20">
-            <a href="https://openai.com/dall-e-2" target="_blank" rel="noreferrer">
+          <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-10">
+            <a
+              href="https://openai.com/dall-e-2"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 src={dalleIcon}
                 alt="Dalle Icon"
@@ -67,31 +71,26 @@ function Dalle() {
           </div>
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-              Mail Chimp API
+              Dalle 2 API
             </h1>
             <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
-              <b className="text-2xl">C</b>hatGPT API is a powerful tool offered
-              by OpenAI that allows businesses to integrate a highly advanced
-              language model into their websites and applications. It enables
-              seamless communication with users by providing natural language
-              understanding and generation capabilities. By integrating this
-              API, businesses can enhance customer support, automate responses
-              to common queries, and even create engaging Dallebots for their
-              websites. This technology can significantly improve user
-              experience and streamline interactions, making it easier for
-              customers to get the information they need quickly.
+              <b className="text-2xl">D</b>ALL·E API, powered by OpenAI,
+              revolutionizes image generation by transforming textual
+              descriptions into stunning visuals. It&apos;s a game-changer for
+              content creators, simplifying the process of generating images
+              that align with written content. Businesses can now effortlessly
+              enhance their visual storytelling, from marketing campaigns to
+              website design, thanks to DALL·E&apos;s creative image synthesis
+              capabilities.
             </p>
             <p className=" mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">I</b>ntegrating the DalleGPT API can help
-              businesses grow by increasing efficiency and customer
-              satisfaction. It can handle a wide range of inquiries 24/7,
-              reducing response times and ensuring that customers receive timely
-              assistance. Additionally, it can assist with lead generation,
-              providing valuable information to potential clients and guiding
-              them through the sales process. Overall, integrating the DalleGPT
-              API empowers businesses to deliver better customer service, save
-              time and resources, and ultimately drive growth by improving user
-              engagement and support.
+              <b className="text-2xl">B</b>y integrating the DALL·E API,
+              developers can save valuable time and resources, as it automates
+              the image creation process. This not only streamlines content
+              production but also captivates users with visually engaging
+              experiences. DALL·E API empowers businesses to stand out in the
+              digital landscape by delivering dynamic and compelling visual
+              content.
             </p>
           </div>
         </div>
@@ -101,23 +100,26 @@ function Dalle() {
           </h3>
 
           <p className="  mt-3 mx-auto text-justify indent-10">
-            <b className="text-2xl">U</b>sing the DalleGPT component is
-            straightforward. For the &apos;context&apos; input, you have the
-            option to provide relevant information or context that you want the
-            system to be aware of. This can help set the stage for the
-            conversation and provide necessary background information for the
-            AI, thereby potentially improving the quality of responses.
+            <b className="text-2xl">T</b>o use DALL·E2 API, follow these simple
+            steps. In the prompt section below, enter a clear and descriptive
+            text prompt that outlines what you want the generated image to
+            depict. Keep in mind that the generated image will be in 512x512
+            resolution, and complex images may take up to half a minute to
+            generate. To achieve better results, provide specific and detailed
+            prompts, including relevant keywords and context. The more precise
+            your instructions, the more likely DALL·E2 will generate an image
+            that aligns with your vision. Experiment with different prompts to
+            fine-tune your creative output and make the most of this powerful
+            image generation tool.
+            <br />
+            <b className="text-2xl">Example Prompt</b>
           </p>
           <p className=" mx-auto text-justify tracking-tighter indent-10 ">
-            <b className="text-2xl">C</b>onversely, the &apos;message&apos;
-            input represents the user&apos;s input or query. You should input
-            the user&apos;s message here, and the AI will generate a response
-            based on that input, taking into account any context you&apos;ve
-            provided. In essence, &apos;message&apos; is where you engage with
-            the AI, ask questions, or make requests. It&apos;s important to note
-            that this API integration is primarily for demonstration purposes,
-            and the GPT API has a wide range of applications that can be
-            customized to specific requirements.
+            <b className="text-2xl">&quot;G</b> enerate an image of a futuristic
+            cityscape at night, with neon-lit skyscrapers reflecting on a calm,
+            glassy river. Include flying cars soaring among the buildings and a
+            crescent moon in the starry sky. Make the city feel vibrant and full
+            of life.&quot;
           </p>
         </div>
         <div className="mb-4 w-full">
@@ -196,8 +198,11 @@ function Dalle() {
                 <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto ">
                   Response
                 </h4>
-                <img src={response.image.data[0].url} alt=" AI generated Image"  className="m-2 rounded-lg border-2 border-dBrand dark:border-mainBg md:w-1/2 mx-auto"/>
-                
+                <img
+                  src={response.image.data[0].url}
+                  alt=" AI generated Image"
+                  className="m-2 rounded-lg border-2 border-dBrand dark:border-mainBg md:w-1/2 mx-auto"
+                />
               </div>
             </>
           )}
