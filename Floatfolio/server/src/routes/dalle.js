@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     console.log("Context:"+ userContext,"Message:"+ userMessage);
 
     try {
-        const image = await openai.images.generate({ prompt: userMessage, size: "256x256" });
+        const image = await openai.images.generate({ prompt: userMessage, size: "1024x1024" });
          console.log(image)
 
       res.json({ image});

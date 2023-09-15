@@ -103,23 +103,23 @@ function Dalle() {
             <b className="text-2xl">T</b>o use DALL·E2 API, follow these simple
             steps. In the prompt section below, enter a clear and descriptive
             text prompt that outlines what you want the generated image to
-            depict. Keep in mind that the generated image will be in 512x512
-            resolution, and complex images may take up to half a minute to
-            generate. To achieve better results, provide specific and detailed
-            prompts, including relevant keywords and context. The more precise
-            your instructions, the more likely DALL·E2 will generate an image
-            that aligns with your vision. Experiment with different prompts to
+            depict. Keep in mind that the generated image will be in 1024x1024
+            resolution, and complex images may take up to a minute to generate.
+            To achieve better results, provide specific and detailed prompts,
+            including relevant keywords and context. The more precise your
+            instructions, the more likely DALL·E2 will generate an image that
+            aligns with your vision. Experiment with different prompts to
             fine-tune your creative output and make the most of this powerful
             image generation tool.
             <br />
             <b className="text-2xl">Example Prompt</b>
           </p>
           <p className=" mx-auto text-justify tracking-tighter indent-10 ">
-            <b className="text-2xl">&quot;G</b> enerate an image of a futuristic
-            cityscape at night, with neon-lit skyscrapers reflecting on a calm,
-            glassy river. Include flying cars soaring among the buildings and a
-            crescent moon in the starry sky. Make the city feel vibrant and full
-            of life.&quot;
+            <b className="text-2xl">&quot;G</b>enerate an image of a surreal
+            cityscape at sunset, with towering buildings that resemble ancient
+            trees, glowing with bioluminescent lights. The city should be
+            surrounded by a shimmering, ethereal river, and a lone boatman
+            should be rowing on its tranquil waters.&quot;
           </p>
         </div>
         <div className="mb-4 w-full">
