@@ -5,7 +5,7 @@ const DivApi = (props) => {
     // eslint-disable-next-line 
   const { divImg, divHeading, description, difficulty, route } = props;
   return (
-    <div onClick={()=>{navigate(route) } } className=" rounded-lg m-2 border-2 border-dBrand dark:border-mainBg hover:scale-110 bg-lBrand p-2 transform duration-500 ">
+    <div onClick={()=>{navigate(route) } } className=" rounded-lg m-2 border-2 border-dBrand dark:bg-mainBg hover:scale-110 bg-lBrand p-2 transform duration-500 ">
       <img
         className="rounded-lg h-[170px] m-auto"
         src={divImg}
@@ -23,8 +23,8 @@ const DivApi = (props) => {
           <div>
             <h4 className=" text-xl dark:text-dBrand font-semibold underline cursor-default">Integration Complexity</h4>
           </div>
-          <div className="w-full bg-mainBg dark:bg-lBrand outline-2 outline outline-dBrand dark:outline-lBrand h-5 mt-2 rounded">
-            <div className={` bg-mainBg h-5 rounded ${difficulty} text-dBrand dark:text-secondaryBg text-center`}><p>{difficulty}</p></div>
+          <div className="w-full bg-mainBg dark:bg-lBrand outline-2 outline outline-dBrand  h-5 mt-2 rounded">
+            <div className={` bg-mainBg h-5 rounded ${difficulty} text-dBrand text-center`}><p>{difficulty}</p></div>
           </div>
         </div>
       </div>

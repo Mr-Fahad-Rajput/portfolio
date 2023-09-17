@@ -35,6 +35,7 @@ router.post("/ipgeo", require("./routes/ipgeo.js"));
 // OpenAI API
 router.post("/chat", require("./routes/chat.js"));
 router.post("/dalle", require("./routes/dalle.js"));
+router.post("/whisper", require("./routes/whisper.js"));
 
 // Vision API
 const storage = multer.memoryStorage();
