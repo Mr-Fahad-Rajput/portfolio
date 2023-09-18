@@ -28,28 +28,31 @@ function Whisper() {
 
   const handleAPIcalls = async () => {
     const formData = new FormData();
-      formData.append("audio", audioFile);
-      formData.append("text", JSON.stringify(dataBody));
+    formData.append("audio", audioFile);
+    formData.append("text", JSON.stringify(dataBody));
     setResponse(null);
     setIsLoading(true);
     try {
-      
       const handleSubmitModule = await import(
         "../../apiCalls/handleImageUpload"
       );
       const handleImageUpload = handleSubmitModule.default;
-      handleImageUpload(formData, "whisper").then((res) => {
-        if (res.responseObject) {
-          res = res.responseObject;
-          return res;
-        } else {
-          throw new Error("Request failed with status: " + res);
-        }
-      }).then((data)=>{console.log(data)})
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      })
+      handleImageUpload(formData, "whisper")
+        .then((res) => {
+          if (res.responseObject) {
+            res = res.responseObject;
+            return res;
+          } else {
+            throw new Error("Request failed with status: " + res);
+          }
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
     } catch (error) {
       console.error("Error importing handleSubmit:", error);
     } finally {
@@ -152,7 +155,10 @@ function Whisper() {
               <div className="text-center m-4">
                 {audioFile && (
                   <>
-                    <audio controls className="mx-auto rounded-full border-2 border-dBrand">
+                    <audio
+                      controls
+                      className="mx-auto rounded-full border-2 border-dBrand"
+                    >
                       <source
                         src={URL.createObjectURL(audioFile)}
                         type={audioFile.type}
