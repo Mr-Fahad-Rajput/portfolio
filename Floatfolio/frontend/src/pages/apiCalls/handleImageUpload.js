@@ -1,6 +1,6 @@
-const handleImageUpload = async (formData) => {
+const handleImageUpload = async (formData, endPoint) => {
     try {
-      const response = await fetch("http://localhost:5000/cloudvision", {
+      const response = await fetch("http://localhost:5000/"+ endPoint, {
         method: "POST",
         headers: {
             "X-API-Key": import.meta.env.VITE_SOME_KEY,

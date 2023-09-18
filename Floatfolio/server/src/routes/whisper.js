@@ -1,22 +1,29 @@
 const { OpenAI } = require("openai");
 module.exports = async (req, res) => {
   try {
-    const openai = new OpenAI({
-      apiKey: process.env.OPEN_AI_SECRET,
-    });
-    const userMessage = req.body.message;
-    const userContext = req.body.status;
-    console.log("Context:"+ userContext,"Message:"+ userMessage);
+    console.log(req.file);
+    // if (!req.file) {
+    //     res.status(400).json({ error: "No image file uploaded." });
+    //     return;
+    //   }
+    //   const audioContent = req.file;
+    //   console.log(audioContent)
+    // const openai = new OpenAI({
+    //   apiKey: process.env.OPEN_AI_SECRET,
+    // });
+    // const userMessage = req.body.message;
+    // const userContext = req.body.status;
+    // console.log("Context:"+ userContext,"Message:"+ userMessage);
 
-    try {
-        const image = await openai.images.generate({ prompt: userMessage, size: "1024x1024" });
-         console.log(image)
+    // try {
+    //     const image = await openai.images.generate({ prompt: userMessage, size: "1024x1024" });
+    //      console.log(image)
 
-      res.json({ image});
-    } catch (error) {
-      console.error("Error:", error);
-      res.status(500).json({ error: "An error occurred" });
-    }
+    //   res.json({ image});
+    // } catch (error) {
+    //   console.error("Error:", error);
+    //   res.status(500).json({ error: "An error occurred" });
+    // }
   } catch (error) {
     if (error instanceof OpenAI.APIError) {
       console.error(error.status);

@@ -32,15 +32,15 @@ router.post("/mailchimp", require("./routes/mailchimp.js"));
 // IP geo API
 router.post("/ipgeo", require("./routes/ipgeo.js"));
 
-// OpenAI API
-router.post("/chat", require("./routes/chat.js"));
-router.post("/dalle", require("./routes/dalle.js"));
-router.post("/whisper", require("./routes/whisper.js"));
-
 // Vision API
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 router.post("/cloudvision", upload.single('image'), require("./routes/cloudvision.js"));
+
+// OpenAI API
+router.post("/chat", require("./routes/chat.js"));
+router.post("/dalle", require("./routes/dalle.js"));
+router.post("/whisper", upload.single('audio'), require("./routes/whisper.js"));
 
 
 router.get("/", (req, res) => {

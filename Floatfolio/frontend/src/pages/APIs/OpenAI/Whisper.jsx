@@ -9,7 +9,7 @@ function Whisper() {
     message: "",
     status: "",
   });
-  
+
   // const handleInput = (event) => {
   //   const name = event.target.name;
   //   const value = event.target.value;
@@ -27,26 +27,29 @@ function Whisper() {
   };
 
   const handleAPIcalls = async () => {
-    if (dataBody.status.trim() === "") {
-      setDataBody.status = "Be short, simple, and precise.";
-    }
-    if (dataBody.message.trim() === "") {
-      setDataBody({ message: "Sorry! This Can't be Empty." });
-      return;
-    }
+    const formData = new FormData();
+      formData.append("audio", audioFile);
+      formData.append("text", JSON.stringify(dataBody));
     setResponse(null);
     setIsLoading(true);
     try {
-      const handleSubmitModule = await import("../../apiCalls/handleAPI");
-      const handleSubmit = handleSubmitModule.default;
-      const response = await handleSubmit(dataBody, "Whisper", "POST");
-
-      if (response.ok) {
-        const data = await response.json();
-        setResponse(data);
-      } else {
-        console.error("Server Error:", response);
-      }
+      
+      const handleSubmitModule = await import(
+        "../../apiCalls/handleImageUpload"
+      );
+      const handleImageUpload = handleSubmitModule.default;
+      handleImageUpload(formData, "whisper").then((res) => {
+        if (res.responseObject) {
+          res = res.responseObject;
+          return res;
+        } else {
+          throw new Error("Request failed with status: " + res);
+        }
+      }).then((data)=>{console.log(data)})
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      })
     } catch (error) {
       console.error("Error importing handleSubmit:", error);
     } finally {
@@ -146,19 +149,20 @@ function Whisper() {
               Choose File
             </label>
             {audioFile && (
-              <div className="text-center">
+              <div className="text-center m-4">
                 {audioFile && (
-                  <audio controls>
-                    <source
-                      src={URL.createObjectURL(audioFile)}
-                      type={audioFile.type}
-                    />
-                    Your browser does not support the audio element.
-                  </audio>
+                  <>
+                    <audio controls className="mx-auto rounded-full border-2 border-dBrand">
+                      <source
+                        src={URL.createObjectURL(audioFile)}
+                        type={audioFile.type}
+                      />
+                    </audio>
+                    <figcaption className="underline">
+                      {audioFile && audioFile.name}
+                    </figcaption>
+                  </>
                 )}
-                <figcaption className="underline">
-                  {audioFile && audioFile.name}
-                </figcaption>
               </div>
             )}
           </div>

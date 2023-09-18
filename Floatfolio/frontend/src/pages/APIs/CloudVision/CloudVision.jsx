@@ -52,7 +52,7 @@ function CloudVision() {
         "../../apiCalls/handleImageUpload"
       );
       const handleImageUpload = handleSubmitModule.default;
-      handleImageUpload(formData)
+      handleImageUpload(formData, "cloudvision")
         .then((res) => {
           if (res.responseObject) {
             res = res.responseObject;
