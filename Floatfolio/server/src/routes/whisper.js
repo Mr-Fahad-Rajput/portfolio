@@ -1,25 +1,37 @@
 const { OpenAI } = require("openai");
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const FormData = require('form-data');
+
 module.exports = async (req, res) => {
+    // const apiKey = process.env.OPEN_AI_SECRET;
+    // con
   try {
-    if (!req.file) {
-        res.status(400).json({ error: "No image file uploaded." });
-        return;
-      }
-      const audioContent = req.file;
+    // if (!req.file) {
+    //     res.status(400).json({ error: "No image file uploaded." });
+    //     return;
+    //   }
+    //   const audioContent = req.file;
       const openai = new OpenAI({
           apiKey: process.env.OPEN_AI_SECRET,
         });
+        const image = fs.createReadStream('audio.mp3');
+        console.log(image)
         // const userMessage = req.body.message;
         // const userContext = req.body.status;
         // console.log("Context:"+ userContext,"Message:"+ userMessage);
         
         try {
-            console.log(audioContent)
+        // const response = await openai.audio.transcriptions.create({
+        //     model: 'whisper-1',
+        //     file: audioContent.buffer,
+        //   });
         const response = await openai.audio.transcriptions.create({
             model: 'whisper-1',
-            file: audioContent,
+            file: fs.createReadStream('audio.mp3'),
           });
-
+          
           console.log(response)
       res.json({ response});
     } catch (error) {
