@@ -17,9 +17,6 @@ module.exports = async (req, res) => {
     const openai = new OpenAI({
       apiKey: process.env.OPEN_AI_SECRET,
     });
-    // const userMessage = req.body.message;
-    // const userContext = req.body.status;
-    // console.log("Context:"+ userContext,"Message:"+ userMessage);
 
     try {
       const response = await openai.audio.transcriptions.create({
@@ -28,7 +25,7 @@ module.exports = async (req, res) => {
       });
 
       console.log(response);
-      res.json({ response });
+      res.status(200).json({ response });
     } catch (error) {
       console.error("Error:", error);
       res.status(500).json({ error: "An error occurred" });

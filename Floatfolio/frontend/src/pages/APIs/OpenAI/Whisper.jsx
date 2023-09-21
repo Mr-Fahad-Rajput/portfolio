@@ -27,36 +27,34 @@ function Whisper() {
   };
 
   const handleAPIcalls = async () => {
-    const formData = new FormData();
-    formData.append("audio", audioFile);
-    formData.append("text", JSON.stringify(dataBody));
     setResponse(null);
     setIsLoading(true);
     try {
+      const formData = new FormData();
+      formData.append("audio", audioFile);
+      formData.append("text", JSON.stringify(dataBody));
       const handleSubmitModule = await import(
         "../../apiCalls/handleImageUpload"
       );
       const handleImageUpload = handleSubmitModule.default;
       handleImageUpload(formData, "whisper")
         .then((res) => {
-          if (res.responseObject) {
-            res = res.responseObject;
+          if (res.response.text) {
+            setResponse(res.response.text);
             return res;
           } else {
             throw new Error("Request failed with status: " + res);
           }
         })
-        .then((data) => {
-          console.log(data);
-        })
         .catch((error) => {
           console.log(error);
           setIsLoading(false);
-        });
+        }).finally(() => {
+          setIsLoading(false);
+      });
     } catch (error) {
       console.error("Error importing handleSubmit:", error);
-    } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
   };
   function clearInput() {
@@ -206,10 +204,10 @@ function Whisper() {
                       ></path>
                     </svg>
                   </div>
-                  Sending...
+                  Transcribing...
                 </div>
               ) : (
-                "Send"
+                "Transcribe"
               )}
             </button>
             {response && (
@@ -227,11 +225,9 @@ function Whisper() {
                 <h4 className="dark:text-mainBg text-2xl inline-flex max-w-min right-0 mx-auto ">
                   Response
                 </h4>
-                <img
-                  src={response.image.data[0].url}
-                  alt=" AI generated Image"
-                  className="m-2 rounded-lg border-2 border-dBrand dark:border-mainBg md:w-1/2 mx-auto"
-                />
+                <p className=" text-justify bg-gray-100 m-2 p-2 rounded-lg border-2 border-dBrand text-dBrand">
+                  {response}
+                </p>
               </div>
             </>
           )}
