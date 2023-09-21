@@ -16,7 +16,8 @@ function Whisper() {
       setAudioFile(file);
       setResponse(null);
     } else {
-      alert("File Can't be Greater Than 5MB");
+      alert("File Can't be Greater Than 5MBs");
+      setAudioFile(null)
     }
   };
 
