@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import whisperIcon from "./whisper.svg";
 
 function Whisper() {
@@ -17,7 +17,7 @@ function Whisper() {
       setResponse(null);
     } else {
       alert("File Can't be Greater Than 5MBs");
-      setAudioFile(null)
+      setAudioFile(null);
     }
   };
 
