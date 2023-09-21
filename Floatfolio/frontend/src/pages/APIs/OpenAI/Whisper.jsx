@@ -63,7 +63,7 @@ function Whisper() {
     <>
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
-          <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-10">
+          <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-14">
             <a
               href="https://openai.com/research/whisper"
               target="_blank"
@@ -87,7 +87,9 @@ function Whisper() {
               technology for various purposes, including transcribing customer
               calls for improved service analysis and automating the
               transcription of audio and video content for content creators,
-              saving time and resources.
+              saving time and resources. Whisper offers translation
+              capabilities, facilitating the conversion of content from other
+              languages into English.
             </p>
             <p className=" mx-auto text-justify tracking-tighter indent-10">
               <b className="text-2xl">W</b>hisper also enhances accessibility
@@ -112,13 +114,14 @@ function Whisper() {
             file that is under 5MB in size. Supported file types include mp3,
             mp4, mpeg, mpga, m4a, wav, and webm. Once your file is uploaded,
             simply click the &quot;Transcribe&quot; button, and then patiently
-            await the response. It&apos;s important to note that our component
+            await the response. It&apos;s important to note that Whisper
             supports over fifty languages; you can find the complete list of
             supported languages{" "}
             <a
               href="https://help.openai.com/en/articles/7031512-whisper-api-faq#:~:text=What%20languages%20are,Vietnamese%2C%20and%20Welsh."
               target="_blank"
               rel="noreferrer"
+              className="hover:underline font-bold hover:text-lg transform duration-300"
             >
               Here
             </a>
@@ -128,7 +131,7 @@ function Whisper() {
             your transcription needs.
           </p>
         </div>
-        <div className="mb-4 w-full">
+        <div className="w-full m-4">
           <div>
             <input
               type="file"
