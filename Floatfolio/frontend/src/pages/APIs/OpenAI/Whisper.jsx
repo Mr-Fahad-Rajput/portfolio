@@ -65,7 +65,7 @@ function Whisper() {
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-10">
             <a
-              href="https://openai.com/dall-e-2"
+              href="https://openai.com/research/whisper"
               target="_blank"
               rel="noreferrer"
             >
@@ -81,23 +81,23 @@ function Whisper() {
               Whisper API
             </h1>
             <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
-              <b className="text-2xl">D</b>ALL·E API, powered by OpenAI,
-              revolutionizes image generation by transforming textual
-              descriptions into stunning visuals. It&apos;s a game-changer for
-              content creators, simplifying the process of generating images
-              that align with written content. Businesses can now effortlessly
-              enhance their visual storytelling, from marketing campaigns to
-              website design, thanks to DALL·E&apos;s creative image synthesis
-              capabilities.
+              <b className="text-2xl">W</b>hisper by OpenAI is a highly accurate
+              Automatic Speech Recognition (ASR) system that converts spoken
+              language into written text. Businesses can leverage this
+              technology for various purposes, including transcribing customer
+              calls for improved service analysis and automating the
+              transcription of audio and video content for content creators,
+              saving time and resources.
             </p>
             <p className=" mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">B</b>y integrating the DALL·E API,
-              developers can save valuable time and resources, as it automates
-              the image creation process. This not only streamlines content
-              production but also captivates users with visually engaging
-              experiences. DALL·E API empowers businesses to stand out in the
-              digital landscape by delivering dynamic and compelling visual
-              content.
+              <b className="text-2xl">W</b>hisper also enhances accessibility
+              for visually impaired individuals by providing precise
+              speech-to-text transcription. This feature ensures that the
+              visually impaired can access spoken information as text, making
+              websites and content more inclusive. Integrating the Whisper API
+              into websites not only expands their reach but also fosters
+              inclusivity, contributing to business growth and a more accessible
+              online presence.
             </p>
           </div>
         </div>
@@ -107,26 +107,25 @@ function Whisper() {
           </h3>
 
           <p className="  mt-3 mx-auto text-justify indent-10">
-            <b className="text-2xl">T</b>o use DALL·E2 API, follow these simple
-            steps. In the prompt section below, enter a clear and descriptive
-            text prompt that outlines what you want the generated image to
-            depict. Keep in mind that the generated image will be in 1024x1024
-            resolution, and complex images may take up to a minute to generate.
-            To achieve better results, provide specific and detailed prompts,
-            including relevant keywords and context. The more precise your
-            instructions, the more likely DALL·E2 will generate an image that
-            aligns with your vision. Experiment with different prompts to
-            fine-tune your creative output and make the most of this powerful
-            image generation tool.
-            <br />
-            <b className="text-2xl">Example Prompt</b>
-          </p>
-          <p className=" mx-auto text-justify tracking-tighter indent-10 ">
-            <b className="text-2xl">&quot;G</b>enerate an image of a surreal
-            cityscape at sunset, with towering buildings that resemble ancient
-            trees, glowing with bioluminescent lights. The city should be
-            surrounded by a shimmering, ethereal river, and a lone boatman
-            should be rowing on its tranquil waters.&quot;
+            <b className="text-2xl">U</b>sing the Whisper transcription
+            component is a straightforward process. Begin by uploading an audio
+            file that is under 5MB in size. Supported file types include mp3,
+            mp4, mpeg, mpga, m4a, wav, and webm. Once your file is uploaded,
+            simply click the &quot;Transcribe&quot; button, and then patiently
+            await the response. It&apos;s important to note that our component
+            supports over fifty languages; you can find the complete list of
+            supported languages{" "}
+            <a
+              href="https://help.openai.com/en/articles/7031512-whisper-api-faq#:~:text=What%20languages%20are,Vietnamese%2C%20and%20Welsh."
+              target="_blank"
+              rel="noreferrer"
+            >
+              Here
+            </a>
+            . Keep in mind that the transcription time may vary based on the
+            length of the audio. This user-friendly system makes audio-to-text
+            transcription a breeze, enhancing accessibility and efficiency for
+            your transcription needs.
           </p>
         </div>
         <div className="mb-4 w-full">
