@@ -12,11 +12,11 @@ function Whisper() {
 
   const handleAudioChange = (e) => {
     const file = e.target.files[0];
-    if (file.size <= 10485760) {
+    if (file.size <= 5242880) {
       setAudioFile(file);
       setResponse(null);
     } else {
-      alert("File Can't be Greater Than 10MB");
+      alert("File Can't be Greater Than 5MB");
     }
   };
 
