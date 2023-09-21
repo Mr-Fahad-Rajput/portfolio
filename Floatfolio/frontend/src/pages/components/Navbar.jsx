@@ -4,7 +4,7 @@ import logoLight from "../../assets/logo.svg";
 import logoDark from "../../assets/logoDark.svg";
 
 function Navbar(props) {
-  //eslint-disable-next-line 
+  //eslint-disable-next-line
   const { isLoggedin } = props;
   const [menuVisibilty, setMenuVisibilty] = useState(false);
   const [logo, setLogo] = useState(logoLight);
@@ -102,20 +102,9 @@ function Navbar(props) {
                   onClick={() => {
                     setMenuVisibilty(false);
                   }}
-                  to="/projects"
-                >
-                  Projects
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="btn2"
-                  onClick={() => {
-                    setMenuVisibilty(false);
-                  }}
                   to="/apis"
                 >
-                  APIs
+                 Builds
                 </NavLink>
               </li>
             </ul>
