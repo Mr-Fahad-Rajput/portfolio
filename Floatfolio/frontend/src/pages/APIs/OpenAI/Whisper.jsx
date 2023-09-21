@@ -10,23 +10,18 @@ function Whisper() {
     status: "",
   });
 
-  // const handleInput = (event) => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-
-  //   setDataBody((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
-
   const handleAudioChange = (e) => {
     const file = e.target.files[0];
-    setAudioFile(file);
-    setResponse(null);
+    if (file.size <= 10485760) {
+      setAudioFile(file);
+      setResponse(null);
+    } else {
+      alert("File Can't be Greater Than 10MB");
+    }
   };
 
   const handleAPIcalls = async () => {
+    console.log(audioFile);
     setResponse(null);
     setIsLoading(true);
     try {
@@ -49,16 +44,17 @@ function Whisper() {
         .catch((error) => {
           console.log(error);
           setIsLoading(false);
-        }).finally(() => {
+        })
+        .finally(() => {
           setIsLoading(false);
-      });
+        });
     } catch (error) {
       console.error("Error importing handleSubmit:", error);
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
   function clearInput() {
-    // setAudioFile(null);
+    setAudioFile(null);
     setResponse(null);
     setDataBody({ message: "", status: "" });
   }
@@ -81,7 +77,7 @@ function Whisper() {
           </div>
           <div className="overflow-hidden pt-2 mx-2 ">
             <h1 className="mb-4 dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-              Whisper 2 API
+              Whisper API
             </h1>
             <p className="  mt-3 mx-auto text-justify tracking-tight indent-10">
               <b className="text-2xl">D</b>ALL·E API, powered by OpenAI,
@@ -155,6 +151,7 @@ function Whisper() {
                   <>
                     <audio
                       controls
+                      key={URL.createObjectURL(audioFile)}
                       className="mx-auto rounded-full border-2 border-dBrand"
                     >
                       <source
