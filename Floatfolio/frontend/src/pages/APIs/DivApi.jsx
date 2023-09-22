@@ -25,7 +25,7 @@ const DivApi = (props) => {
           {description}
         </p>
       </div>
-      <div className=" m-2 self-center bottom-0 w-11/12 absolute" id="bar">
+      <div className=" m-2 self-center bottom-0 w-11/12 absolute">
         <div>
           <h4 className=" text-xl dark:text-dBrand font-semibold underline cursor-default">
             Integration Complexity
@@ -35,7 +35,7 @@ const DivApi = (props) => {
           <div
             className={` bg-mainBg h-5 rounded ${difficulty} text-dBrand text-center`}
           >
-            <p className="my- font-semibold">{difficulty}</p>
+            <p className="font-semibold">{difficulty}</p>
           </div>
         </div>
       </div>

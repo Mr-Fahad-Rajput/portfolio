@@ -177,10 +177,10 @@ function Dalle() {
                       ></path>
                     </svg>
                   </div>
-                  Sending...
+                  Generating...
                 </div>
               ) : (
-                "Send"
+                "Generate"
               )}
             </button>
             {response && (

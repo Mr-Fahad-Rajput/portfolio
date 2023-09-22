@@ -1,3 +1,4 @@
+import DivApi from "./DivApi";
 import stripeImg from "./Stripe/stripe.svg";
 import mailChimp from "./MailChimp/mailChimp.svg";
 import map from "./Maps/maps.svg";
@@ -8,15 +9,36 @@ import chatIcon from "./OpenAI/ChatGPT.svg";
 import dalleIcon from "./OpenAI/dalle.svg";
 import whisperIcon from "./OpenAI/whisper.svg";
 
-import DivApi from "./DivApi";
+import DivProjects from "./Projects/DivProjects";
+import ec from './Projects/test.webp'
+import three from './Projects/three.svg'
+import vanilla from './Projects/vanillaJs.svg'
+import gsap from './Projects/gsap.svg'
+
 function APIs() {
+  const ecTechStack = [{name: "Three.js",logo: three}, {name: "Vanilla Js",logo: vanilla},{name: "GSAP ",logo: gsap}]
   return (
     <>
       <section className="mainContent">
+      <h1 className="w-full text-center mb-4 border-y-2 dark:border-mainBg  border-dBrand     dark:text-secondaryBg text-2xl font-bold underline cursor-default text-balBrand">
+          Projects
+        </h1>
+        <div>
+        <DivProjects
+            route={"https://faadii.tech/"}
+            divImg={ec}
+            divHeading={"Google Maps API"}
+            description={
+              "The Google Maps API is a versatile and robust tool that allows developers to integrate dynamic maps and location-based services into their web applications. With its easy-to-use interfaces and powerful functionalities, the Google Maps API empowers developers to create interactive maps, display geographic information, and provide users with seamless navigation experiences. Businesses can use this API to enhance their applications with features like custom markers, directions, geolocation, street view, and geocoding. For a live Demonstration click this Card"
+            }
+            sourceCode={""}
+            techStack={ecTechStack}
+          />
+        </div>
         <h1 className="w-full text-center mb-4 border-y-2 dark:border-mainBg  border-dBrand     dark:text-secondaryBg text-2xl font-bold underline cursor-default text-balBrand">
           APIs
         </h1>
-        <div className="grid md:grid-cols-3 ">
+        <div className="grid md:grid-cols-3">
           <DivApi
             route={"/mailchimp"}
             difficulty={"Basic"}
@@ -99,6 +121,7 @@ function APIs() {
             }
           />
         </div>
+        
       </section>
     </>
   );
