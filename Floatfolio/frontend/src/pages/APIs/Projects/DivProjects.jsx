@@ -3,7 +3,8 @@ import previewIcon from "./external-link.svg";
 
 const DivProjects = (props) => {
   // eslint-disable-next-line
-  const { divImg, divHeading, description, route, sourceCode, techStack } = props;
+  const { divImg, divHeading, description, route, sourceCode, techStack } =
+    props;
 
   return (
     <div className="rounded-lg m-2 border-2 border-dBrand dark:bg-mainBg bg-lBrand p-2">
@@ -11,7 +12,7 @@ const DivProjects = (props) => {
         {divHeading}
       </h5>
       <div className="p-2 md:flex gap-4 w-full">
-        <>
+        <div className="max-w-max">
           <img
             className="rounded-lg m-auto border-2 border-dBrand"
             src={divImg}
@@ -28,26 +29,30 @@ const DivProjects = (props) => {
               </div>
             </div>
           </a>
-        </>
-        <>
-          <p className="text-base font-medium text-dBrand break-words text-justify tracking-tighter">
+        </div>
+        <p className="text-base font-medium text-dBrand break-words text-justify tracking-tighter">
           {description}
         </p>
-        <div>
-        <a href={route} target="_blank" rel="noopener noreferrer">
-            <div className="border-dBrand dark:border-lBrand  border-2 rounded-[0.6em] text-dBrand dark:text-mainBg m-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly dark:bg-dBrand bg-secondaryBg ">
-              
-              <div className="">
-                <img src={previewIcon} alt="Github Icon" className="aspect-square w-14" />
+      </div>
+        <div className=" border-dBrand border-2 rounded-[0.6em] text-dBrand dark:text-mainBg m-2 cursor-pointer flex justify-around dark:bg-lBrand bg-mainBg">
+          {techStack.map((tech, index) => (
+            <a
+              href={route}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+            >
+              <div className="m-2 text-center">
+                <img
+                  src={tech.logo}
+                  alt={`${tech.name} Icon`}
+                  className="aspect-square w-10 mx-auto"
+                />
+                <figcaption className="font-semibold">{tech.name}</figcaption>
               </div>
-            </div>
-          </a>
+            </a>
+          ))}
         </div>
-        </>
-      </div>
-      <div className="flex">
-        <div></div>
-      </div>
     </div>
   );
 };
