@@ -44,7 +44,7 @@ const DivProjects = (props) => {
         </div>
       </div>
         <h6 className="text-lg font-bold text-balBrand tracking-tight text-center"> Technologies Used:</h6>
-      <div className=" border-dBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg">
+      <div className=" border-dBrand dark:border-lBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg">
         {techStack.map((tech, index) => (
           <a href={route} target="_blank" rel="noopener noreferrer" key={index}>
             <div className="m-2 text-center">

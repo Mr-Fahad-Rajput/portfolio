@@ -29,9 +29,7 @@ function APIs() {
             route={"https://faadii.tech/"}
             divImg={ec}
             divHeading={"The Encoded Chamber"}
-            description={
-              "The Google Maps API is a versatile and robust tool that allows developers to integrate dynamic maps and location-based services into their web applications. With its easy-to-use interfaces and powerful functionalities, the Google Maps API empowers developers to create interactive maps, display geographic information, and provide users with seamless navigation experiences."
-            }
+            description={"The Encoded Chamber' reflects my journey as a Web developer during my early days in web development. It's a Project that combines creativity and technology, utilizing Three.js, Vanilla JavaScript, and Blender for 3D modeling to bring my vision to life. GSAP scroll triggers and timelines add interactivity, making it engaging for visitors. Notably, I Used the 'Singleton' Design Pattern for efficient code structure."}
             sourceCode={"https://github.com/Mr-Fahad-Rajput/portfolio/tree/main/The-Encoded-Chamber"}
             techStack={ecTechStack}
           />
