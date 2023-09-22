@@ -14,9 +14,10 @@ import ec from './Projects/test.webp'
 import three from './Projects/three.svg'
 import vanilla from './Projects/vanillaJs.svg'
 import gsap from './Projects/gsap.svg'
+import blender from './Projects/blender.svg'
 
 function APIs() {
-  const ecTechStack = [{name: "Three.js",logo: three}, {name: "Vanilla Js",logo: vanilla},{name: "GSAP ",logo: gsap}]
+  const ecTechStack = [{name: "Three.js",logo: three}, {name: "Vanilla Js",logo: vanilla},{name: "GSAP ",logo: gsap},{name: "Blender 3D ",logo: blender}]
   return (
     <>
       <section className="mainContent">
@@ -27,11 +28,11 @@ function APIs() {
         <DivProjects
             route={"https://faadii.tech/"}
             divImg={ec}
-            divHeading={"Google Maps API"}
+            divHeading={"The Encoded Chamber"}
             description={
-              "The Google Maps API is a versatile and robust tool that allows developers to integrate dynamic maps and location-based services into their web applications. With its easy-to-use interfaces and powerful functionalities, the Google Maps API empowers developers to create interactive maps, display geographic information, and provide users with seamless navigation experiences. Businesses can use this API to enhance their applications with features like custom markers, directions, geolocation, street view, and geocoding. For a live Demonstration click this Card"
+              "The Google Maps API is a versatile and robust tool that allows developers to integrate dynamic maps and location-based services into their web applications. With its easy-to-use interfaces and powerful functionalities, the Google Maps API empowers developers to create interactive maps, display geographic information, and provide users with seamless navigation experiences."
             }
-            sourceCode={""}
+            sourceCode={"https://github.com/Mr-Fahad-Rajput/portfolio/tree/main/The-Encoded-Chamber"}
             techStack={ecTechStack}
           />
         </div>
