@@ -46,7 +46,7 @@ const DivProjects = (props) => {
         <h6 className="text-lg font-bold text-balBrand tracking-tight text-center"> Technologies Used:</h6>
       <div className=" border-dBrand dark:border-lBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg">
         {techStack.map((tech, index) => (
-            <div className="m-2 text-center">
+            <div className="m-2 text-center"  key={index}>
               <img
                 src={tech.logo}
                 alt={`${tech.name} Icon`}
