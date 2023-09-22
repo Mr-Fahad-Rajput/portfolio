@@ -4,7 +4,6 @@ import previewIcon from "./external-link.svg";
 const DivProjects = (props) => {
   // eslint-disable-next-line
   const { divImg, divHeading, description, route, sourceCode, techStack } = props;
-
   return (
     <div className="rounded-lg m-2 border-2 border-dBrand dark:bg-mainBg bg-lBrand p-2">
       <h5 className=" text-xl font-bold text-balBrand tracking-tight mb-2 text-center">
@@ -43,17 +42,20 @@ const DivProjects = (props) => {
           </a>
         </div>
       </div>
-        <h6 className="text-lg font-bold text-balBrand tracking-tight text-center"> Technologies Used:</h6>
+      <h6 className="text-lg font-bold text-balBrand tracking-tight text-center">
+        {" "}
+        Technologies Used:
+      </h6>
       <div className=" border-dBrand dark:border-lBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg">
         {techStack.map((tech, index) => (
-            <div className="m-2 text-center"  key={index}>
-              <img
-                src={tech.logo}
-                alt={`${tech.name} Icon`}
-                className="aspect-square w-8 mx-auto dark:bg-mainBg rounded-lg"
-              />
-              <figcaption className="font-medium ">{tech.name}</figcaption>
-            </div>
+          <div className="m-2 text-center" key={index}>
+            <img
+              src={tech.logo}
+              alt={`${tech.name} Icon`}
+              className="aspect-square w-8 mx-auto dark:bg-mainBg rounded-lg"
+            />
+            <figcaption className="font-medium ">{tech.name}</figcaption>
+          </div>
         ))}
       </div>
     </div>
