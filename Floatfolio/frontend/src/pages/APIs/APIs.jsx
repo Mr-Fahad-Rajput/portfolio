@@ -42,7 +42,7 @@ function APIs() {
             route={"https://mr-fahad-rajput.github.io/K.Syndicates/"}
             divImg={ks}
             divHeading={"WebTech Layout"}
-            description={"WebTech Layout is a fully responsive custom website design tailored for a software house. This project features a sleek and user-friendly interface achieved through the use of Bootstrap, Awesome-font, LESS stylesheets, and JavaScript. Various third-party libraries, such as circliful, countdown, isotope, layerslider, and owl-carousel, just to name a few, have been seamlessly integrated to enhance the design and functionality. Please note that the preview showcases a template, not the Actual Site. "}
+            description={"WebTech Layout is a fully responsive website design tailored for a Software House. This project features a sleek and user-friendly interface achieved through the use of Bootstrap, Awesome-font, LESS stylesheets, and JavaScript. Various third-party libraries, such as circliful, countdown, isotope, layerslider, and owl-carousel, just to name a few, have been seamlessly integrated to enhance the design and functionality. Please note that the preview showcases a template, not the Actual Site. "}
             sourceCode={"https://github.com/Mr-Fahad-Rajput/K.Syndicates"}
             techStack={ksTechStack}
           />
