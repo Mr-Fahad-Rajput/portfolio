@@ -12,6 +12,7 @@ import whisperIcon from "./OpenAI/whisper.svg";
 import DivProjects from "./Projects/DivProjects";
 import ec from './Projects/test.webp'
 import ks from './Projects/ksyndicates.webp'
+import sc from './Projects/simpleCorp.webp'
 import three from './Projects/three.svg'
 import vanilla from './Projects/vanillaJs.svg'
 import gsap from './Projects/gsap.svg'
@@ -19,10 +20,16 @@ import blender from './Projects/blender.svg'
 import bootstrap from './Projects/bootstrap.svg'
 import less from './Projects/less.svg'
 import fa from './Projects/font-awesome-seeklogo.com.svg'
+import react from './Projects/react.svg'
+import mongo from './Projects/mongo.svg'
+import node from './Projects/node.svg'
+import express from './Projects/express.svg'
+import redux from './Projects/redux.svg'
 
 function APIs() {
   const ecTechStack = [{name: "Three.js",logo: three}, {name: "Vanilla Js",logo: vanilla},{name: "GSAP ",logo: gsap},{name: "Blender 3D ",logo: blender}]
   const ksTechStack = [{name: "Bootstrap",logo: bootstrap}, {name: "Vanilla Js",logo: vanilla},{name: "Less ",logo: less},{name: "Font Awesome",logo: fa}]
+  const scTechStack = [{name: "React",logo: react}, {name: "Vanilla Js",logo: vanilla},{name: "Express",logo: express},{name: "Node",logo: node},{name: "Mongo DB",logo: mongo},{name: "Redux",logo: redux}]
   return (
     <>
       <section className="mainContent">
@@ -37,6 +44,14 @@ function APIs() {
             description={"The Encoded Chamber' reflects my journey as a Web developer during my early days in web development. It's a Project that combines creativity and technology, utilizing Three.js, Vanilla JavaScript, and Blender for 3D modeling to bring my vision to life. GSAP scroll triggers and timelines add interactivity, making it engaging for visitors. Notably, I Used the 'Singleton' Design Pattern for efficient code structure."}
             sourceCode={"https://github.com/Mr-Fahad-Rajput/portfolio/tree/main/The-Encoded-Chamber"}
             techStack={ecTechStack}
+          />
+        <DivProjects
+            route={"https://mr-fahad-rajput.github.io/MERN-Semester-Project/"}
+            divImg={sc}
+            divHeading={"Simple Corp"}
+            description={"WebTech Layout is a fully responsive website design tailored for a Software House. This project features a sleek and user-friendly interface achieved through the use of Bootstrap, Awesome-font, LESS stylesheets, and JavaScript. Various third-party libraries, such as circliful, countdown, isotope, layerslider, and owl-carousel, just to name a few, have been seamlessly integrated to enhance the design and functionality. Please note that the preview showcases a template, not the Actual Site. "}
+            sourceCode={"https://github.com/Mr-Fahad-Rajput/MERN-Semester-Project/tree/main/MERN%20APP"}
+            techStack={scTechStack}
           />
         <DivProjects
             route={"https://mr-fahad-rajput.github.io/K.Syndicates/"}
