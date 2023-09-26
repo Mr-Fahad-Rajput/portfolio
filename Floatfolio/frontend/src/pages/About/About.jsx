@@ -183,7 +183,7 @@ function About() {
                 skills, I encourage you to explore my API Integrations page,
                 where I showcase my expertise in seamlessly integrating robust
                 APIs to enhance the functionality and performance of web
-                applications. You can also visit my Projects page, which
+                applications. You can also visit my Builds page, which
                 highlights a portfolio of my work in web development.
                 <br /> <b className="text-2xl">T</b>hank you for taking the time to
                 review my profile. I&rsquo;m eager to collaborate on innovative
