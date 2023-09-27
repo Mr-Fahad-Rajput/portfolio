@@ -9,7 +9,7 @@ const DivApi = (props) => {
       onClick={() => {
         navigate(route);
       }}
-      className=" rounded-lg m-2 border-2 border-dBrand dark:bg-mainBg hover:scale-110 bg-lBrand p-2 transform duration-500"
+      className=" rounded-lg m-2 border-2 border-dBrand dark:bg-lBrand hover:scale-110 bg-lBrand p-2 transform duration-500"
     >
       <img
         className="rounded-lg h-[170px] m-auto"

@@ -13,23 +13,23 @@ import DivProjects from "./Projects/DivProjects";
 import ec from './Projects/test.webp'
 import ks from './Projects/ksyndicates.webp'
 import sc from './Projects/simpleCorp.webp'
-import three from './Projects/three.svg'
-import vanilla from './Projects/vanillaJs.svg'
-import gsap from './Projects/gsap.svg'
-import blender from './Projects/blender.svg'
+import three from '../../assets/three.svg'
+import vanilla from '../../assets/vanillaJs.svg'
+import gsap from '../../assets/gsap.svg'
+import blender from '../../assets/blender.svg'
 import bootstrap from './Projects/bootstrap.svg'
 import less from './Projects/less.svg'
 import fa from './Projects/font-awesome-seeklogo.com.svg'
-import react from './Projects/react.svg'
-import mongo from './Projects/mongo.svg'
-import node from './Projects/node.svg'
-import express from './Projects/express.png'
-import redux from './Projects/redux.svg'
+import reactLogo from '../../assets/react.svg'
+import mongo from '../../assets/mongo.svg'
+import node from '../../assets/node.svg'
+import express from '../../assets/express.png'
+import redux from '../../assets/redux.svg'
 
 function APIs() {
   const ecTechStack = [{name: "Three.js",logo: three}, {name: "Vanilla Js",logo: vanilla},{name: "GSAP ",logo: gsap},{name: "Blender 3D ",logo: blender}]
   const ksTechStack = [{name: "Bootstrap",logo: bootstrap}, {name: "Vanilla Js",logo: vanilla},{name: "Less ",logo: less},{name: "Font Awesome",logo: fa}]
-  const scTechStack = [{name: "React",logo: react}, {name: "Vanilla Js",logo: vanilla},{name: "Express",logo: express},{name: "Node",logo: node},{name: "Mongo DB",logo: mongo},{name: "Redux",logo: redux}]
+  const scTechStack = [{name: "React",logo: reactLogo}, {name: "Vanilla Js",logo: vanilla},{name: "Express",logo: express},{name: "Node",logo: node},{name: "Mongo DB",logo: mongo},{name: "Redux",logo: redux}]
   return (
     <>
       <section className="mainContent">

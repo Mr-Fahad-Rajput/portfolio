@@ -38,7 +38,7 @@
   
 }
 .sidebar {
-  @apply sticky inline-flex h-screen top-0 rounded-lg mx-5 my-0  items-center bg-mainBg dark:bg-lBrand  text-dBrand content-center md:max-w-[20vw] md:min-w-[20vw] p-2 float-right overflow-hidden;
+  @apply sticky inline-flex h-screen top-0 rounded-lg mx-5 my-0 bg-mainBg dark:bg-dBrand  text-dBrand content-center md:max-w-[20vw] md:min-w-[20vw] p-2 float-right overflow-hidden flex-col;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
 }
 /* hidden scroll bar for div in Chat */
@@ -119,5 +119,5 @@
   background-color: #ff5670;
 }
 body {
-  line-height: 1.7;
+  line-height: 1.7 !important;
 }

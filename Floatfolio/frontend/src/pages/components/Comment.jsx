@@ -12,7 +12,7 @@ const Comment = (props) => {
   },[animate])
 
   return (
-    <div className={`bg-lBrand dark:bg-mainBg p-2 rounded-lg text-dBrand ${animationClass}`}>
+    <div className={`bg-lBrand dark:bg-mainBg p-2 rounded-lg text-dBrand ${animationClass} border border-dBrand`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="current"
