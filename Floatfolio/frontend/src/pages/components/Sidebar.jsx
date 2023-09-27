@@ -56,10 +56,10 @@ function Sidebar() {
     { name: "Data Analysis" },
     { name: "Railway" },
     { name: "Vim" },
-    { name: "Data Visualization" },
     { name: "SSMS" },
     { name: "Postman" },
     { name: "Gitlab" },
+    { name: "Data Visualization" },
     { name: "Figma" },
     { name: "PyGame" },
     { name: "Code Pen" },
@@ -181,7 +181,7 @@ function Sidebar() {
         </div>
         {commentToShow && (
           <div className="absolute bottom-0">
-            <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+            <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand bg-mainBg dark:bg-dBrand">
               Endorsments
             </h3>
             <Comment
