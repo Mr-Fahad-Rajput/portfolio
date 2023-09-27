@@ -180,8 +180,8 @@ function Sidebar() {
             )}
         </div>
         {commentToShow && (
-          <div className="absolute bottom-0">
-            <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand bg-mainBg dark:bg-dBrand">
+          <div className="absolute bottom-1 right-1 left-1 bg-mainBg dark:bg-dBrand">
+            <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand ">
               Endorsments
             </h3>
             <Comment
