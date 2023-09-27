@@ -10,12 +10,11 @@ function Sidebar() {
   const [skillIndex, setSkillIndex] = useState(25);
   const skillList = [
     { name: "React" },
-    { name: "JavaScript" },
-    { name: "Blender 3D" },
     { name: "C" },
+    { name: "Blender 3D" },
     { name: "C++" },
+    { name: "React Native" },
     { name: "PHP" },
-    { name: "C#" },
     { name: "MongoDB" },
     { name: "Java" },
     { name: "Python" },
@@ -23,40 +22,42 @@ function Sidebar() {
     { name: "Docker" },
     { name: "Express JS" },
     { name: "GSAP" },
-    { name: "Tailwind" },
     { name: "Wordpress" },
-    { name: "Kubernetes" },
     { name: "Redux" },
+    { name: "Tailwind" },
     { name: "Unity" },
+    { name: "JavaScript" },
     { name: "BASH" },
-    { name: "CLI" },
-    { name: "Pandas" },
-    { name: "cPanel" },
-    { name: "Google Cloud Platform" },
-    { name: "React Native" },
     { name: "Github Pages" },
+    { name: "cPanel" },
+    { name: "CLI" },
+    { name: "Kubernetes" },
+    { name: "Pandas" },
+    { name: "Google Cloud Platform" },
+    { name: "C#" },
     { name: "Firebase" },
     { name: "MySQL" },
+    { name: "WebScrapping" },
     { name: "Vercel" },
-    { name: "SSMS" },
     { name: "Git Bash" },
     { name: "Three JS" },
     { name: "Websockei IO" },
+    { name: "PugJS" },
     { name: "Bootstrap" },
+    { name: "LESS" },
     { name: "RESTful API" },
     { name: "EJS" },
-    { name: "PugJS" },
-    { name: "LESS" },
     { name: "Heroku" },
+    { name: "CI/CD" },
     { name: "GoDaddy" },
     { name: "Github" },
-    { name: "CI/CD" },
-    { name: "SQL" },
     { name: "Hostinger" },
-    { name: "WebScrapping" },
+    { name: "SQL" },
     { name: "Data Analysis" },
     { name: "Railway" },
+    { name: "Vim" },
     { name: "Data Visualization" },
+    { name: "SSMS" },
     { name: "Postman" },
     { name: "Gitlab" },
     { name: "Figma" },
@@ -64,7 +65,6 @@ function Sidebar() {
     { name: "Code Pen" },
     { name: "Adobe XD" },
     { name: "Unity 3D" },
-    { name: "Vim" },
     { name: "Beautiful Soup" },
   ];
   const [commentQueue, setCommentQueue] = useState(
@@ -85,7 +85,7 @@ function Sidebar() {
       setSkillIndex((prevSkillIndex) => prevSkillIndex + 1);
       setSkills((prevSkills) => prevSkills.slice(1));
     };
-    const timer = setInterval(updateSkills, 1000);
+    const timer = setInterval(updateSkills, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -169,7 +169,7 @@ function Sidebar() {
     <>
       <section className="sidebar">
         <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-          My Tech Toolkit
+          My Tech Arsenal
         </h3>
         <div className="flex flex-wrap">
           {skills &&
@@ -180,7 +180,7 @@ function Sidebar() {
             )}
         </div>
         {commentToShow && (
-          <div>
+          <div className="absolute bottom-0">
             <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
               Endorsments
             </h3>
