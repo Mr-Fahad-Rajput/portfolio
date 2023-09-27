@@ -4,46 +4,68 @@ import FastPriorityQueue from "fastpriorityqueue";
 
 import Comment from "./Comment.jsx";
 import Skill from "./Skill.jsx";
-import reactLogo from "../../assets/react.svg";
-import jsLogo from "../../assets/vanillaJs.svg";
-import blender from "../../assets/blender.svg";
 
 function Sidebar() {
   const [animationToggle, setAnimationToggle] = useState(false);
+  const [skillIndex, setSkillIndex] = useState(25);
   const skillList = [
-    { logo: reactLogo, name: "React" },
-    { logo: jsLogo, name: "JavaScript" },
-    { logo: blender, name: "Blender 3D" },
-    {
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
-      name: "C",
-    },
+    { name: "React" },
+    { name: "JavaScript" },
+    { name: "Blender 3D" },
+    { name: "C" },
     { name: "C++" },
     { name: "PHP" },
     { name: "C#" },
+    { name: "MongoDB" },
     { name: "Java" },
     { name: "Python" },
-    { name: "MongoDB" },
-    { name: "Node" },
-    { name: "Express" },
+    { name: "Node JS" },
+    { name: "Docker" },
+    { name: "Express JS" },
     { name: "GSAP" },
-    { name: "Redux" },
     { name: "Tailwind" },
     { name: "Wordpress" },
     { name: "Kubernetes" },
-    { name: "Docker" },
+    { name: "Redux" },
     { name: "Unity" },
-    { name: "Blender" },
     { name: "BASH" },
     { name: "CLI" },
     { name: "Pandas" },
-    { name: "Google Clound Platform" },
+    { name: "cPanel" },
+    { name: "Google Cloud Platform" },
     { name: "React Native" },
+    { name: "Github Pages" },
     { name: "Firebase" },
-    { name: "SQL" },
     { name: "MySQL" },
+    { name: "Vercel" },
     { name: "SSMS" },
-    { name: "SQL Lite" },
+    { name: "Git Bash" },
+    { name: "Three JS" },
+    { name: "Websockei IO" },
+    { name: "Bootstrap" },
+    { name: "RESTful API" },
+    { name: "EJS" },
+    { name: "PugJS" },
+    { name: "LESS" },
+    { name: "Heroku" },
+    { name: "GoDaddy" },
+    { name: "Github" },
+    { name: "CI/CD" },
+    { name: "SQL" },
+    { name: "Hostinger" },
+    { name: "WebScrapping" },
+    { name: "Data Analysis" },
+    { name: "Railway" },
+    { name: "Data Visualization" },
+    { name: "Postman" },
+    { name: "Gitlab" },
+    { name: "Figma" },
+    { name: "PyGame" },
+    { name: "Code Pen" },
+    { name: "Adobe XD" },
+    { name: "Unity 3D" },
+    { name: "Vim" },
+    { name: "Beautiful Soup" },
   ];
   const [commentQueue, setCommentQueue] = useState(
     new FastPriorityQueue((a, b) => {
@@ -57,28 +79,21 @@ function Sidebar() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [skills, setSkills] = useState([]);
 
-  // Function to update the skills
-  const updateSkills = () => {
-    if (skillList.length > 0) {
-      // Remove the top-most skill
+  useEffect(() => {
+    setSkills(skillList.slice(0, 25));
+    const updateSkills = () => {
+      setSkillIndex((prevSkillIndex) => prevSkillIndex + 1);
       setSkills((prevSkills) => prevSkills.slice(1));
-      // Add a new skill from the list at the end
-      setSkills((prevSkills) => [...prevSkills, skillList[0]]);
-    }
-  };
-
-  // Use useEffect to start the timer when the component mounts
-  useEffect(() => {
-    const timer = setInterval(updateSkills, 10000); // 10 seconds
-    return () => clearInterval(timer); // Clean up the timer on unmount
+    };
+    const timer = setInterval(updateSkills, 1000);
+    return () => clearInterval(timer);
   }, []);
 
-  // Initial load of 20 skills
   useEffect(() => {
-    setSkills(skillList.slice(0, 20));
-  }, []);
+    setSkills((prevSkills) => [...prevSkills, skillList[skillIndex]]);
+    if(skillIndex >= skillList.length) {setSkillIndex(0)}
+  }, [skillIndex]);
 
-  // Fetch Comments
   useEffect(() => {
     const handleAPIcalls = async () => {
       try {
@@ -154,18 +169,15 @@ function Sidebar() {
     <>
       <section className="sidebar">
         <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-          Skills
+          My Tech Toolkit
         </h3>
-        {/* <div className="flex flex-wrap">
-            <Skill skillLogo={reactLogo} skillName={"React"}/>
-            <Skill skillLogo={jsLogo} skillName={"JavaScript"}/>
-            <Skill skillLogo={blender} skillName={"Blender 3D"}/>
-            <Skill skillName={"Blender 3D"}/>
-          </div> */}
         <div className="flex flex-wrap">
-          {skills.map((skill, index) => (
-            <Skill key={index} skillLogo={skill.logo} skillName={skill.name} />
-          ))}
+          {skills &&
+            skills.map(
+              (skill, index) =>
+                skill &&
+                skill.name && <Skill key={index} skillName={skill.name} />
+            )}
         </div>
         {commentToShow && (
           <div>
