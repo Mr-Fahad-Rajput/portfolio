@@ -49,7 +49,7 @@ function APIs() {
             route={"https://mr-fahad-rajput.github.io/MERN-Semester-Project/"}
             divImg={sc}
             divHeading={"Simple Corp"}
-            description={"'SimpleCorp' represents a web template design tailored for a Business Consultancy Firm. This technologies used are React, MongoDB, Node, Express, and Redux, to create a dynamic and versatile web solution. Designed with precision and attention to detail, 'SimpleCorp' offers a seamless user experience. Its clean and functional interface serves as an ideal platform for a consultancy business to showcase its expertise and services."}
+            description={"'SimpleCorp' represents a web template design tailored for a Business Consultancy Firm. Designed with precision and attention to detail, 'SimpleCorp' offers a seamless user experience. Its clean and functional interface serves as an ideal platform for a consultancy business to showcase its expertise and services. It's a Demo, so the logins are not Working as the Server is Inactive."}
             sourceCode={"https://github.com/Mr-Fahad-Rajput/MERN-Semester-Project/tree/main/MERN%20APP"}
             techStack={scTechStack}
           />
@@ -57,7 +57,7 @@ function APIs() {
             route={"https://mr-fahad-rajput.github.io/K.Syndicates/"}
             divImg={ks}
             divHeading={"WebTech Layout"}
-            description={"WebTech Layout is a fully responsive website design tailored for a Software House. This project features a sleek and user-friendly interface achieved through the use of Bootstrap, Awesome-font, LESS stylesheets, and JavaScript. Various third-party libraries, such as circliful, countdown, isotope, layerslider, and owl-carousel, just to name a few, have been seamlessly integrated to enhance the design and functionality. Please note that the preview showcases a template, not the Actual Site. "}
+            description={"WebTech Layout is a fully responsive website design tailored for a Software House. This project features a sleek and user-friendly interface achieved through the use of Bootstrap, Awesome-font, LESS stylesheets, and JavaScript. Various third-party libraries, such as circliful, countdown, isotope, layerslider, and owl-carousel, just to name a few, have been integrated to enhance the design and functionality. Please note that the preview showcases a template, not the Actual Site. "}
             sourceCode={"https://github.com/Mr-Fahad-Rajput/K.Syndicates"}
             techStack={ksTechStack}
           />
