@@ -1,0 +1,1 @@
+const c=async(a,t,d)=>{try{return await fetch("http://localhost:5000/"+t,{method:d,headers:{"Content-Type":"application/json","X-API-Key":"89ddc2f1d6a8e86e377c619d3ae3dc2a9c91adbd913d4eca684a080a0d22caf7"},body:JSON.stringify(a),credentials:"include"})}catch(e){return e}};export{c as default};
