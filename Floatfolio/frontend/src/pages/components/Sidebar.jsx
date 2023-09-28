@@ -41,8 +41,8 @@ function Sidebar() {
     { name: "Vercel" },
     { name: "Git Bash" },
     { name: "Three JS" },
-    { name: "Websockei IO" },
-    { name: "PugJS" },
+    { name: "Websocket IO" },
+    { name: "Pug JS" },
     { name: "Bootstrap" },
     { name: "LESS" },
     { name: "RESTful API" },
@@ -64,7 +64,6 @@ function Sidebar() {
     { name: "PyGame" },
     { name: "Code Pen" },
     { name: "Adobe XD" },
-    { name: "Unity 3D" },
     { name: "Beautiful Soup" },
   ];
   const [commentQueue, setCommentQueue] = useState(

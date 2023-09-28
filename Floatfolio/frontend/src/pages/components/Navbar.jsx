@@ -80,6 +80,17 @@ function Navbar(props) {
                   onClick={() => {
                     setMenuVisibilty(false);
                   }}
+                  to="/apis"
+                >
+                  Builds
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className="btn2"
+                  onClick={() => {
+                    setMenuVisibilty(false);
+                  }}
                   to="/about"
                 >
                   About
@@ -94,17 +105,6 @@ function Navbar(props) {
                   to="/contact"
                 >
                   Contact
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="btn2"
-                  onClick={() => {
-                    setMenuVisibilty(false);
-                  }}
-                  to="/apis"
-                >
-                 Builds
                 </NavLink>
               </li>
             </ul>
