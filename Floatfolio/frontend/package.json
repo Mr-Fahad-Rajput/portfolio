@@ -1,7 +1,6 @@
 {
   "name": "floatfolio-frontend",
   "homepage": "https://mr-fahad-rajput.github.io/portfolio/",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
