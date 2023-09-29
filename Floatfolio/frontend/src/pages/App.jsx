@@ -27,6 +27,7 @@ const SignIn = lazy(() => import("./components/SignIn.jsx"));
 const SignUp = lazy(() => import("./components/SignUp.jsx"));
 const SignOut = lazy(() => import("./components/SignOut.jsx"));
 const ResetPass = lazy(() => import("./components/ResetPass.jsx"));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy.jsx"));
 
 function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -72,6 +73,7 @@ function App() {
               element={<SignOut setIsLoggedin={setIsLoggedin} />}
             />
             <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/pp" element={<PrivacyPolicy />} />
             <Route
               element={
                 <ProtectedRoutes
