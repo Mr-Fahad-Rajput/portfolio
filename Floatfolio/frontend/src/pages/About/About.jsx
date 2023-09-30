@@ -28,7 +28,7 @@ function About() {
                 Early Life
               </h2>
               <p className="indent-10  max-md:m-2 text-justify tracking-tight">
-                <b className="text-2xl">G</b>reetings! I&rsquo;m Fahad, a highly
+                <b className="text-2xl">I</b>&rsquo;m a highly
                 dedicated and enthusiastic web developer with a strong
                 foundation in computer science. With a profound love for
                 technology since childhood. I delved into the world of computers

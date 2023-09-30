@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar.jsx";
 import Loader from "./components/Loader.jsx";
@@ -85,6 +85,7 @@ function App() {
               <Route exact path="/Dashboard" element={<Dashboard />} />
             </Route>
             <Route exact path="/resetpass" element={<ResetPass />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
         <Dark />
