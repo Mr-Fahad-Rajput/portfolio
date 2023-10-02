@@ -176,10 +176,11 @@ function CloudVision() {
             <b className="text-2xl">T</b>his component seamlessly integrates the
             Google Vision API, offering a range of powerful features for image
             analysis. To use this component, simply select a feature from the
-            dropdown menu, upload an image of your choice, and click &quot;Analyze&quot;.
-            It&apos;s important to note that this guide will primarily highlight the
-            core functionalities for demonstration purposes, while the practical
-            implementation can be further customized to suit specific use cases.
+            dropdown menu, upload an image of your choice, and click
+            &quot;Analyze&quot;. It&apos;s important to note that this guide
+            will primarily highlight the core functionalities for demonstration
+            purposes, while the practical implementation can be further
+            customized to suit specific use cases.
             <br />
             <b className="text-2xl">Features:</b>
             <br />
@@ -187,64 +188,64 @@ function CloudVision() {
             <u>
               <b>Text Detection:</b>
             </u>
-            With the &quot;Text Detection&quot; feature, you can easily extract text from
-            images, whether it&apos;s printed or handwritten. 
+            With the &quot;Text Detection&quot; feature, you can easily extract
+            text from images, whether it&apos;s printed or handwritten.
             <br />
             &bull;
             <u>
               <b>Document Text Detection:</b>
             </u>
-            The &quot;Document Text Detection&quot; feature excels at extracting text and
-            structure from dense text documents, making it perfect for scanned
-            materials or text-heavy content.
+            The &quot;Document Text Detection&quot; feature excels at extracting
+            text and structure from dense text documents, making it perfect for
+            scanned materials or text-heavy content.
             <br />
             &bull;
             <u>
               <b>Safe Search Detection:</b>
             </u>
-            Ensure the safety of your images with the &quot;Safe Search Detection&quot;
-            feature, which evaluates images for adult content, violence, and
-            unsafe elements.
+            Ensure the safety of your images with the &quot;Safe Search
+            Detection&quot; feature, which evaluates images for adult content,
+            violence, and unsafe elements.
             <br />
             &bull;
             <u>
               <b>Image Properties:</b>
             </u>
-            The &quot;Image Properties&quot; feature analyzes dominant colors and color
-            information in images, ideal for fashion or design-related content
-            where color details matter.
+            The &quot;Image Properties&quot; feature analyzes dominant colors
+            and color information in images, ideal for fashion or design-related
+            content where color details matter.
             <br />
             &bull;
             <u>
               <b>Logo Detection:</b>
             </u>
-            Identify well-known logos within images using the &quot;Logo Detection&quot;
-            feature, making it great for branding recognition.
+            Identify well-known logos within images using the &quot;Logo
+            Detection&quot; feature, making it great for branding recognition.
             <br />
             &bull;
             <u>
               <b>Landmark Detection:</b>
             </u>
-            The &quot;Landmark Detection&quot; feature identifies famous landmarks in
-            photos and provides related information, particularly useful for
-            travel photos featuring recognizable landmarks.
+            The &quot;Landmark Detection&quot; feature identifies famous
+            landmarks in photos and provides related information, particularly
+            useful for travel photos featuring recognizable landmarks.
             <br />
             &bull;
             <u>
               <b>Web Detection:</b>
             </u>
-            With the &quot;Web Detection&quot; feature, you can search the web for similar
-            images and associated web pages, helping you identify image sources
-            or find visually similar content online. <br/><br/>
+            With the &quot;Web Detection&quot; feature, you can search the web
+            for similar images and associated web pages, helping you identify
+            image sources or find visually similar content online. <br />
+            <br />
             <b className="text-2xl">Supported Image Formats:</b>
-              
-            </p>
-            <p className="mx-auto text-justify tracking-tighter indent-10">
-            <b className="text-2xl">G</b>oogle Vision API supports various image formats, including
-            JPEG, PNG, GIF, BMP, WEBP, RAW, ICO, PDF, and TIFF. Please note that
-            some formats may affect result accuracy, so it&apos;s recommended to use
-            images with a minimum resolution of 640 x 480 pixels for optimal
-            results. 
+          </p>
+          <p className="mx-auto text-justify tracking-tighter indent-10">
+            <b className="text-2xl">G</b>oogle Vision API supports various image
+            formats, including JPEG, PNG, GIF, BMP, WEBP, RAW, ICO, PDF, and
+            TIFF. Please note that some formats may affect result accuracy, so
+            it&apos;s recommended to use images with a minimum resolution of 640
+            x 480 pixels for optimal results.
           </p>
         </div>
         <div className="w-auto mt-4 bg-lBrand dark:bg-balBrand p-2 rounded-lg border-dBrand border-2 dark:border-mainBg max-md:max-w-full">
@@ -294,6 +295,7 @@ function CloudVision() {
             {imageFile && (
               <div className="text-center">
                 <img
+                  loading="lazy"
                   src={URL.createObjectURL(imageFile)}
                   alt="Selected File"
                   className="w-auto h-auto mx-auto rounded-lg border-dBrand border-2 dark:border-mainBg"

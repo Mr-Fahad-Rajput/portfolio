@@ -144,6 +144,7 @@ function IdentityGoogle() {
               rel="noreferrer"
             >
               <img
+                loading="lazy"
                 src={oAuthIcon}
                 alt="Sign in With Google"
                 className=" w-64 h-56 hover:scale-110 transform duration-500"
@@ -183,20 +184,21 @@ function IdentityGoogle() {
             How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify indent-10">
-          <b className="text-2xl">U</b>sing my Google OAuth Component is easy! Just click the &quot;Sign
-            in with Google&quot; button to log in. Once logged in, you&apos;ll
-            see your photo, name, and email. You can also add a comment or a
-            Review in the text field, and it will be stored along with your
-            details in the database. Your comment will be visible on the
-            right-side panel for 48 hours. Don&apos;t worry, your email
-            won&apos;t be shown. To log out, just refresh the page or press the
-            logout button.
+            <b className="text-2xl">U</b>sing my Google OAuth Component is easy!
+            Just click the &quot;Sign in with Google&quot; button to log in.
+            Once logged in, you&apos;ll see your photo, name, and email. You can
+            also add a comment or a Review in the text field, and it will be
+            stored along with your details in the database. Your comment will be
+            visible on the right-side panel for 48 hours. Don&apos;t worry, your
+            email won&apos;t be shown. To log out, just refresh the page or
+            press the logout button.
           </p>
         </div>
         <div className="mb-4">
           {user && (
             <div className="rounded-lg m-2 transform duration-500 border-2 border-dBrand dark:border-mainBg bg-lBrand p-2 mx-auto">
               <img
+                loading="lazy"
                 src={user.picture}
                 alt="User Image"
                 className="mx-auto overflow-hidden border-2 border-mainBg dark:border-dBrand items-center rounded-lg bg-balBrand dark:bg-secondaryBg"
