@@ -1,6 +1,6 @@
 const handleAPI = async (dataBody, endPoint, reqType) => {
   try {
-    let res = await fetch("http://localhost:5000/" + endPoint, {
+    let res = await fetch("https://server.faadii.tech:8080/" + endPoint, {
       method: reqType,
       headers: {
         "Content-Type": "application/json",

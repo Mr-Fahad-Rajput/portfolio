@@ -18,7 +18,7 @@ app.use(cookieParser());
 // Cors Setup
 app.use(
   cors({
-    origin: [process.env.SERVER_URL,"https://checkout.stripe.com"],
+    origin: [process.env.SERVER_URL,"https://checkout.stripe.com","*"],
     credentials: true,
     methods: "GET,PUT,POST",
   })
