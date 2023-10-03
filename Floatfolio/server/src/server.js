@@ -1,4 +1,6 @@
 const express = require("express");
+const fs = require('fs');
+const https = require('https');
 const cors = require("cors");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
@@ -31,6 +33,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 app.use(router);
 
+
+// Read the SSL certificate and private key files from the container filesystem
+const privateKey = fs.readFileSync('./private.key', 'utf8');
+const certificate = fs.readFileSync('./certificate.crt', 'utf8');
+
+// Create the credentials object using the certificate and private key
+const credentials = { key: privateKey, cert: certificate };
+
+// Create an HTTPS server with the credentials
+const httpsServer = https.createServer(credentials, app);
 //Server Listing
-app.listen(process.env.PORT);
+// app.listen(process.env.PORT);
+
+httpsServer.listen(process.env.PORT);
 console.log("Server Running");
