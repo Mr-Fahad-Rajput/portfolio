@@ -1,0 +1,1 @@
+const c=async(e,d)=>{try{const a=await fetch("https://server.faadii.tech:8080/"+d,{method:"POST",headers:{"X-API-Key":"89ddc2f1d6a8e86e377c619d3ae3dc2a9c91adbd913d4eca684a080a0d22caf7"},body:e,credentials:"include"});return a.ok?await a.json():a}catch(a){return a}};export{c as default};
