@@ -1,5 +1,5 @@
 import { useState } from "react";
-import chatIcon from "./chatGPT.svg";
+import chatIcon from "./ChatGPT.svg";
 
 function Chat() {
   const [isLoading, setIsLoading] = useState(false);
