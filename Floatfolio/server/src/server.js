@@ -18,7 +18,7 @@ app.use(cookieParser());
 // Cors Setup
 app.use(
   cors({
-    origin: [process.env.SERVER_URL,"https://checkout.stripe.com","*"],
+    origin: [process.env.SERVER_URL,"https://checkout.stripe.com", "https://mr-fahad-rajput.github.io", "https://portfolio.faadii.tech", "https://server.faadii.tech", "https://github.io","https://localhost:5173"],
     credentials: true,
     methods: "GET,PUT,POST",
   })
