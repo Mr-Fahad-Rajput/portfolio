@@ -7,11 +7,11 @@ import vanilla from './APIs/Projects/vanillaJs.svg'
 import mongoLogo from './APIs/Projects/mongo.svg'
 import expressLogo from './APIs/Projects/express.png'
 import nodeLogo from './APIs/Projects/node.svg'
-import ghpLogo from './Contact/github.svg'
+import ghpLogo from './vercel.svg'
 import gcpLogo from './gcp.svg'
 import dockerLogo from './docker.svg'
 function Home() {
-  const ksTechStack = [{name: "React",logo: reactLogo}, {name: "Vanilla Js",logo: vanilla},{name: "Mongo DB ",logo: mongoLogo},{name: "Express",logo: expressLogo},{name: "GH-pages",logo: ghpLogo},{name: "GCP",logo: gcpLogo},{name: "Docker",logo: dockerLogo},{name: "Node",logo: nodeLogo},]
+  const ksTechStack = [{name: "React",logo: reactLogo}, {name: "Vanilla Js",logo: vanilla},{name: "Mongo DB ",logo: mongoLogo},{name: "Express",logo: expressLogo},{name: "Vercel",logo: ghpLogo},{name: "GCP",logo: gcpLogo},{name: "Docker",logo: dockerLogo},{name: "Node",logo: nodeLogo},]
 
   return (
     

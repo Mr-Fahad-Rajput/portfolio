@@ -25,11 +25,12 @@ import mongo from './Projects/mongo.svg'
 import node from './Projects/node.svg'
 import express from './Projects/express.png'
 import redux from './Projects/redux.svg'
+import ghpIcon from '../Contact/github.svg'
 
 function APIs() {
   const ecTechStack = [{name: "Three.js",logo: three}, {name: "Vanilla Js",logo: vanilla},{name: "GSAP ",logo: gsap},{name: "Blender 3D ",logo: blender}]
-  const ksTechStack = [{name: "Bootstrap",logo: bootstrap}, {name: "Vanilla Js",logo: vanilla},{name: "Less ",logo: less},{name: "Font Awesome",logo: fa}]
-  const scTechStack = [{name: "React",logo: reactLogo}, {name: "Vanilla Js",logo: vanilla},{name: "Express",logo: express},{name: "Node",logo: node},{name: "Mongo DB",logo: mongo},{name: "Redux",logo: redux}]
+  const ksTechStack = [{name: "Bootstrap",logo: bootstrap}, {name: "Vanilla Js",logo: vanilla},{name: "Less ",logo: less},{name: "Font Awesome",logo: fa},{name: "GH-pages",logo: ghpIcon}]
+  const scTechStack = [{name: "React",logo: reactLogo}, {name: "Vanilla Js",logo: vanilla},{name: "Express",logo: express},{name: "Node",logo: node},{name: "Mongo DB",logo: mongo},{name: "Redux",logo: redux},{name: "GH-pages",logo: ghpIcon}]
   return (
     <>
       <section className="mainContent">
