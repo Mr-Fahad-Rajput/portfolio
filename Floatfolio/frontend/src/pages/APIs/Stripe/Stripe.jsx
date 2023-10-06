@@ -138,6 +138,7 @@ function Stripe() {
                 src={stripeIcon}
                 alt="Credit Card Ilustration"
                 className=" w-64 h-56 hover:scale-110 transform duration-500 cursor-pointer"
+                loading="lazy"
               />
             </a>
           </div>

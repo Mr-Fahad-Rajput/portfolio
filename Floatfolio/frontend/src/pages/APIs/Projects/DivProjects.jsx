@@ -26,7 +26,7 @@ const DivProjects = (props) => {
                 Live Preview
               </h1>
               <div className="aspect-square w-14">
-                <img src={previewIcon} alt="Preview Icon" />
+                <img loading="lazy" src={previewIcon} alt="Preview Icon" />
               </div>
             </div>
           </a>
@@ -36,7 +36,7 @@ const DivProjects = (props) => {
                 Source Code
               </h1>
               <div className="aspect-square w-12 ">
-                <img src={gitIcon} alt="Github Icon" />
+                <img loading="lazy" src={gitIcon} alt="Github Icon" />
               </div>
             </div>
           </a>
@@ -53,6 +53,7 @@ const DivProjects = (props) => {
               src={tech.logo}
               alt={`${tech.name} Icon`}
               className="aspect-square w-8 mx-auto dark:bg-mainBg rounded-lg"
+              loading="lazy"
             />
             <figcaption className="font-medium ">{tech.name}</figcaption>
           </div>

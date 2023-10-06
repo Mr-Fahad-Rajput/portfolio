@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 const Skill = (props) => {
   const { skillName } = props;
 

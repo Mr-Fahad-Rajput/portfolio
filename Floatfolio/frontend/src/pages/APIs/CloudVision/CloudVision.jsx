@@ -131,6 +131,7 @@ function CloudVision() {
               rel="noreferrer"
             >
               <img
+                loading="lazy"
                 src={visionIcon}
                 alt="Google Vision Ilustration"
                 className=" w-64 h-56 hover:scale-110 transform duration-500"
@@ -295,7 +296,6 @@ function CloudVision() {
             {imageFile && (
               <div className="text-center">
                 <img
-                  loading="lazy"
                   src={URL.createObjectURL(imageFile)}
                   alt="Selected File"
                   className="w-auto h-auto mx-auto rounded-lg border-dBrand border-2 dark:border-mainBg"

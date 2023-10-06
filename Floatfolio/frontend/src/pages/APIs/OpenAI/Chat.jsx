@@ -59,6 +59,7 @@ function Chat() {
           <div className=" inline-flex w-64 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg md:mt-20">
             <a href="https://chat.openai.com/" target="_blank" rel="noreferrer">
               <img
+                loading="lazy"
                 src={chatIcon}
                 alt="GPT Icon"
                 className=" w-64 h-56 hover:scale-110 transform duration-500 rounded-lg"

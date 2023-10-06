@@ -89,7 +89,7 @@ function Maps() {
         travelMode: google.maps.TravelMode.DRIVING,
       })
       .catch((err) => {
-        window.alert("No route Found");
+        window.alert("No route Found" + err);
         setNavIsLoading(false);
       });
     setDirectionResponse(results);
@@ -141,8 +141,13 @@ function Maps() {
       <section className="mainContent">
         <div className="text-center bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
           <div className=" inline-flex w-64 md:my-20 h-full md:float-left place-items-center rounded-lg m-2 dark:bg-mainBg">
-            <a href="https://www.google.com/maps" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.google.com/maps"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
+                loading="lazy"
                 src={mapIcon}
                 alt="Google Maps Ilustration"
                 className=" w-64 h-56 hover:scale-110 transform duration-500 p-3"
@@ -154,30 +159,30 @@ function Maps() {
               Google Maps API
             </h1>
             <p className=" mt-3 mx-auto text-justify tracking-tighter indent-10">
-            <b className="text-2xl">G</b>oogle Maps API offers a powerful tool for businesses to
-              seamlessly integrate interactive maps and location-based services
-              into their websites and applications. With this API, businesses
-              can go beyond simple static maps and provide users with dynamic
-              and personalized experiences. By embedding interactive maps on
-              your website, you can enhance user engagement and provide valuable
-              location-based information. This not only improves the user
-              experience but also increases the visibility of your business by
-              allowing customers to easily find your physical locations, events,
-              or services.
-                
-              </p>
-              <p className=" mx-auto text-justify tracking-tighter indent-10">
-              <b className="text-2xl">M</b>oreover, the Google Maps API enables businesses to create custom
-              mapping solutions tailored to their unique needs. From displaying
-              multiple locations to providing directions, real-time traffic
-              updates, and even integrating Street View, the API empowers you to
-              deliver a seamless navigation experience. Whether you&rsquo;re a
-              restaurant looking to showcase nearby attractions or an e-commerce
-              platform wanting to offer accurate delivery estimations, the
-              Google Maps API can be leveraged to offer practical value to your
-              users. By integrating this robust mapping solution, your business
-              can provide a more intuitive and informative interface,
-              contributing to increased user satisfaction and driving growth.
+              <b className="text-2xl">G</b>oogle Maps API offers a powerful tool
+              for businesses to seamlessly integrate interactive maps and
+              location-based services into their websites and applications. With
+              this API, businesses can go beyond simple static maps and provide
+              users with dynamic and personalized experiences. By embedding
+              interactive maps on your website, you can enhance user engagement
+              and provide valuable location-based information. This not only
+              improves the user experience but also increases the visibility of
+              your business by allowing customers to easily find your physical
+              locations, events, or services.
+            </p>
+            <p className=" mx-auto text-justify tracking-tighter indent-10">
+              <b className="text-2xl">M</b>oreover, the Google Maps API enables
+              businesses to create custom mapping solutions tailored to their
+              unique needs. From displaying multiple locations to providing
+              directions, real-time traffic updates, and even integrating Street
+              View, the API empowers you to deliver a seamless navigation
+              experience. Whether you&rsquo;re a restaurant looking to showcase
+              nearby attractions or an e-commerce platform wanting to offer
+              accurate delivery estimations, the Google Maps API can be
+              leveraged to offer practical value to your users. By integrating
+              this robust mapping solution, your business can provide a more
+              intuitive and informative interface, contributing to increased
+              user satisfaction and driving growth.
             </p>
           </div>
         </div>
@@ -186,14 +191,15 @@ function Maps() {
             How To:
           </h3>
           <p className=" mt-3 mx-auto text-justify tracking-tighter indent-10">
-          <b className="text-2xl">T</b>his component serves as a dynamic map interface integrated with the
-            Google Maps API, showcasing a variety of functionalities. It&rsquo;s
-            important to note that the Google Maps API offers a wide array of
-            capabilities beyond those presented here.Please bear in mind that
-            this guide focuses on core functionalities for demonstration
-            purposes. The practical implementation can be expanded to create a
-            comprehensive and feature-rich map experience tailored to specific
-            use cases. The core features of this component are explained below:
+            <b className="text-2xl">T</b>his component serves as a dynamic map
+            interface integrated with the Google Maps API, showcasing a variety
+            of functionalities. It&rsquo;s important to note that the Google
+            Maps API offers a wide array of capabilities beyond those presented
+            here.Please bear in mind that this guide focuses on core
+            functionalities for demonstration purposes. The practical
+            implementation can be expanded to create a comprehensive and
+            feature-rich map experience tailored to specific use cases. The core
+            features of this component are explained below:
             <br />
             <br />
             &bull;
@@ -310,7 +316,12 @@ function Maps() {
               {navIsLoading ? (
                 <p className="h-12"></p>
               ) : (
-                <img src={navigateIcon} alt="Navigate" className="h-12 w-12" />
+                <img
+                  loading="lazy"
+                  src={navigateIcon}
+                  alt="Navigate"
+                  className="h-12 w-12"
+                />
               )}
             </div>
           </div>
@@ -336,12 +347,14 @@ function Maps() {
             <div className="">
               <div className="flex flex-row">
                 <img
+                  loading="lazy"
                   src={zoomInIcon}
                   alt="Zoom In Button"
                   className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
                   onClick={handleZoomIn}
                 />
                 <img
+                  loading="lazy"
                   src={zoomOutIcon}
                   alt="Zoom Out Button"
                   className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
@@ -354,6 +367,7 @@ function Maps() {
             </div>
             <div>
               <img
+                loading="lazy"
                 src={centerIcon}
                 alt="recenter button"
                 className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
@@ -367,6 +381,7 @@ function Maps() {
             </div>
             <div>
               <img
+                loading="lazy"
                 src={clearIcon}
                 alt="Clear Route button"
                 className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer"
@@ -381,12 +396,14 @@ function Maps() {
             <div className="">
               <div className="flex flex-row">
                 <img
+                  loading="lazy"
                   src={satelliteIcon}
                   alt="Satellite button"
                   className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer p-2"
                   onClick={switchToSatellite}
                 />
                 <img
+                  loading="lazy"
                   src={roadMapIcon}
                   alt="roadmap button"
                   className="h-14 w-14 hover:scale-125 transform duration-500 cursor-pointer p-2"

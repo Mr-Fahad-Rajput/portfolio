@@ -73,6 +73,7 @@ function Whisper() {
                 src={whisperIcon}
                 alt="Whisper Icon"
                 className=" w-64 h-56 hover:scale-110 transform duration-500 rounded-lg"
+                loading="lazy"
               />
             </a>
           </div>
@@ -135,13 +136,13 @@ function Whisper() {
           <div>
             <input
               type="file"
-              id="img_input"
+              id="audio_input"
               accept="audio/*"
               onChange={handleAudioChange}
               className="hidden"
             />
             <label
-              htmlFor="img_input"
+              htmlFor="audio_input"
               className={`btn whitespace-nowrap m-auto p-4 ${
                 audioFile ? " " : "w-full"
               }`}

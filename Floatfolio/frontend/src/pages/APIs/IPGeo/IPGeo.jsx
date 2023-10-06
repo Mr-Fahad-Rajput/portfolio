@@ -281,6 +281,7 @@ function IPGeo() {
           <div className=" inline-flex w-64 md:my-12 h-full md:float-left place-items-center">
             <a href="https://www.weatherapi.com/" target="_blank" rel="noreferrer">
               <img
+              loading="lazy"
                 src={ipGeoIcon}
                 alt="Weather Logo "
                 className=" w-64 h-56 hover:scale-110 transform duration-500"
@@ -391,7 +392,8 @@ function IPGeo() {
                             <h6 className="mb-0">{location.localtime}</h6>
                           </div>
                           <div>
-                            <img src={conditionImg} alt="Current Condition" />
+                            <img
+                            loading="lazy" src={conditionImg} alt="Current Condition" />
                             <p className="text-xl">{current.condition.text}</p>
                           </div>
                           <div className="text-right">
@@ -492,6 +494,7 @@ function IPGeo() {
                           <div>
                             {
                               <img
+                              loading="lazy"
                                 src={
                                   index === 0 ? con0 : index === 1 ? con1 : con2
                                 }
@@ -598,6 +601,7 @@ function IPGeo() {
                                     {forecast.forecastday[index].astro.sunrise}
                                   </p>
                                   <img
+                                  loading="lazy"
                                     src={sunrise}
                                     alt="Sunrise Icon"
                                     className="w-16 h-16"
@@ -611,6 +615,7 @@ function IPGeo() {
                                     {forecast.forecastday[index].astro.sunset}
                                   </p>
                                   <img
+                                  loading="lazy"
                                     src={sunset}
                                     alt=" Sunset"
                                     className="w-16 h-16"
@@ -625,6 +630,7 @@ function IPGeo() {
                                     {forecast.forecastday[index].astro.moonrise}
                                   </p>
                                   <img
+                                  loading="lazy"
                                     src={moonrise}
                                     alt="Moonrise"
                                     className="w-16 h-16"
@@ -638,6 +644,7 @@ function IPGeo() {
                                     {forecast.forecastday[index].astro.moonset}
                                   </p>
                                   <img
+                                  loading="lazy"
                                     src={moonset}
                                     alt="Moonset"
                                     className="w-16 h-16"
@@ -654,6 +661,7 @@ function IPGeo() {
                                     }
                                   </p>
                                   <img
+                                  loading="lazy"
                                     src={moonphase}
                                     alt="Moonphase"
                                     className="w-16 h-16"
@@ -690,6 +698,7 @@ function IPGeo() {
                               "current"
                             ) && (
                               <img
+                              loading="lazy"
                                 src={conditionImg}
                                 alt="Current Weather Icon"
                                 className="w-20 h-20"
@@ -717,6 +726,7 @@ function IPGeo() {
                               "today"
                             ) && (
                               <img
+                              loading="lazy"
                                 src={con0}
                                 alt="Forecast day 1"
                                 className="w-20 h-20"
@@ -745,6 +755,7 @@ function IPGeo() {
                               "current"
                             ) && (
                               <img
+                              loading="lazy"
                                 src={conditionImg}
                                 alt="Current Weather Icon"
                                 className="w-20 h-20"
@@ -772,6 +783,7 @@ function IPGeo() {
                               "tommorow"
                             ) && (
                               <img
+                              loading="lazy"
                                 src={con1}
                                 alt="Forecast day 2"
                                 className="w-20 h-20"
@@ -800,6 +812,7 @@ function IPGeo() {
                               "current"
                             ) && (
                               <img
+                              loading="lazy"
                                 src={conditionImg}
                                 alt="Current Weather Icon"
                                 className="w-20 h-20"
@@ -827,6 +840,7 @@ function IPGeo() {
                               "third"
                             ) && (
                               <img
+                              loading="lazy"
                                 src={con2}
                                 alt="Forecast day 3"
                                 className="w-20 h-20"

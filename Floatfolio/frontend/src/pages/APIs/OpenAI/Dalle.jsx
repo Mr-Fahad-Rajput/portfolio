@@ -63,6 +63,7 @@ function Dalle() {
               rel="noreferrer"
             >
               <img
+                loading="lazy"
                 src={dalleIcon}
                 alt="Dalle Icon"
                 className=" w-64 h-56 hover:scale-110 transform duration-500 rounded-lg"

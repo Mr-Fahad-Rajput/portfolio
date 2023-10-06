@@ -65,6 +65,7 @@ function Contact() {
           <div className="text-center">
             <div className="inline-flex w-64 md:float-left">
               <img
+                loading="lazy"
                 src={conIcon}
                 alt="Contact Ilustration"
                 className=" w-64 h-56"
@@ -75,10 +76,10 @@ function Contact() {
                 Let&rsquo;s Talk Business
               </h1>
               <p className=" mt-3 mx-auto text-justify indent-10">
-              <b className="text-2xl">F</b>eel free to reach out using the contact form below. Let&rsquo;s
-                discuss your goals, explore possibilities, and craft innovative
-                solutions tailored to your specific needs. Looking forward to
-                hearing from you.
+                <b className="text-2xl">F</b>eel free to reach out using the
+                contact form below. Let&rsquo;s discuss your goals, explore
+                possibilities, and craft innovative solutions tailored to your
+                specific needs. Looking forward to hearing from you.
               </p>
               <p> Let&rsquo;s Code, Create, and Conquer.</p>
             </div>
@@ -96,13 +97,13 @@ function Contact() {
             >
               <div className=" cd dark:bg-lBrand bg-secondaryBg">
                 <div className="w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md">
-                  <img src={gitIcon} alt="Github Icon" />
+                  <img loading="lazy" src={gitIcon} alt="Github Icon" />
                 </div>
                 <div className="">
                   <h2 className="m-1 dark:text-secondaryBg  underline font-semibold text-balBrand">
                     Github
                   </h2>
-                  <p >github.com/Mr-Fahad-Rajput</p>
+                  <p>github.com/Mr-Fahad-Rajput</p>
                 </div>
               </div>
             </a>
@@ -114,13 +115,13 @@ function Contact() {
             >
               <div className=" cd dark:bg-lBrand bg-secondaryBg">
                 <div className="w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md">
-                  <img src={linkedIcon} alt="Linked in Icon" />
+                  <img loading="lazy" src={linkedIcon} alt="Linked in Icon" />
                 </div>
                 <div className="">
                   <h2 className="m-1 dark:text-secondaryBg  underline font-semibold text-balBrand">
                     Linked In
                   </h2>
-                  <p >linkedin.com/Mr-Fahad-Rajput</p>
+                  <p>linkedin.com/Mr-Fahad-Rajput</p>
                 </div>
               </div>
             </a>
@@ -132,13 +133,13 @@ function Contact() {
             >
               <div className=" cd dark:bg-lBrand bg-secondaryBg">
                 <div className="w-12 h-12 m-2 mr-4 dark:bg-secondaryBg rounded-md">
-                  <img src={gmailIcon} alt="Github Icon" />
+                  <img loading="lazy" src={gmailIcon} alt="Github Icon" />
                 </div>
                 <div className="">
                   <h2 className="m-1 dark:text-secondaryBg  underline font-semibold text-balBrand">
                     Email
                   </h2>
-                  <p >fahadameenrajput@gmail.com</p>
+                  <p>fahadameenrajput@gmail.com</p>
                 </div>
               </div>
             </a>
@@ -152,13 +153,14 @@ function Contact() {
               }}
             >
               <div className="w-12 h-12 m-2  dark:bg-secondaryBg rounded-md">
-                <img src={waIcon} alt="Whatsapp Icon" />
+                <img loading="lazy" src={waIcon} alt="Whatsapp Icon" />
               </div>
               <div className="mr-2 pb-1">
                 <h2 className=" dark:text-secondaryBg  underline font-semibold text-balBrand">
                   Whatsapp
                 </h2>
                 <img
+                  loading="lazy"
                   src={tel}
                   alt="tel Number"
                   className="rounded-lg h-10 w-80 dark:md:w-80 dark:max-md:w-[270px]"
