@@ -67,7 +67,7 @@ function Maps() {
   }, [mapState]);
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: import.meta.env.VITE_MAPS_API,
+    googleMapsApiKey: process.env.VITE_MAPS_API,
     libraries: ["places"],
   });
   if (!isLoaded) {

@@ -45,7 +45,7 @@ const handleSubmit = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": import.meta.env.VITE_SOME_KEY,
+        "X-API-Key": process.env.VITE_SOME_KEY,
       },
       body: dataBody,
       credentials: "include",

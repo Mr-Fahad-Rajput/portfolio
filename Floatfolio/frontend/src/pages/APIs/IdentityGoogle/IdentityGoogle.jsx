@@ -58,7 +58,7 @@ function IdentityGoogle() {
   useEffect(() => {
     /*global google*/
     google.accounts.id.initialize({
-      client_id: import.meta.env.VITE_OAUTH_CLIENT_ID,
+      client_id: process.env.VITE_OAUTH_CLIENT_ID,
       callback: handleCallBack,
     });
     google.accounts.id.renderButton(document.getElementById("logIn"), {
