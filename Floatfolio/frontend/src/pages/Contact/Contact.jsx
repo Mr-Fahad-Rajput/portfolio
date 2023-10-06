@@ -174,6 +174,7 @@ function Contact() {
               <h1 className=" dark:text-secondaryBg text-2xl font-semibold underline cursor-default text-balBrand whitespace-nowrap">
                 Your Thought&rsquo;s
               </h1>
+              <AlertBox responseStatus={responseStatus} msgImg={msgImg} className="top-0"/>
             </div>
             <div className="">
               <form onSubmit={handleFormSubmit}>
@@ -250,7 +251,6 @@ function Contact() {
                       ></textarea>
                     </div>
                   </div>
-                  <AlertBox responseStatus={responseStatus} msgImg={msgImg} />
                 </div>
                 <div className="text-end">
                   <button
