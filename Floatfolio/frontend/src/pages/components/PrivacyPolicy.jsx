@@ -17,19 +17,19 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
-            Visit our website at{" "}
+          
+            Visit our website at
             <a href="https://mr-fahad-rajput.github.io/portfolio/">
               https://mr-fahad-rajput.github.io/portfolio/
             </a>
             , or any website of ours that links to this privacy notice
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Engage with us in other related ways, including any sales,
             marketing, or events
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -49,12 +49,10 @@ const PrivacyPolicy = () => {
             can find out more details about any of these topics by clicking the
             link following each key point or by using our
           </em>
-        </strong>{" "}
-        <a href="#toc">
+        </strong>
           <strong>
             <em>table of contents</em>
           </strong>
-        </a>{" "}
         <strong>
           <em>below to find the section you are looking for.</em>
         </strong>
@@ -64,7 +62,7 @@ const PrivacyPolicy = () => {
         visit, use, or navigate our Services, we may process personal
         information depending on how you interact with us and the Services, the
         choices you make, and the products and features you use. Learn more
-        about{" "}
+        about
         <a href="#personalinfo">personal information you disclose to us</a>.
       </p>
       <p className="m-1 p-2 w-full" >
@@ -81,16 +79,16 @@ const PrivacyPolicy = () => {
         communicate with you, for security and fraud prevention, and to comply
         with law. We may also process your information for other purposes with
         your consent. We process your information only when we have a valid
-        legal reason to do so. Learn more about{" "}
+        legal reason to do so. Learn more about
         <a href="#infouse">how we process your information</a>.
       </p>
       <p className="m-1 p-2 w-full" >
         <strong>
           In what situations and with which parties do we share personal
           information?
-        </strong>{" "}
+        </strong>
         We may share information in specific situations and with specific third
-        parties. Learn more about{" "}
+        parties. Learn more about
         <a href="#whoshare">
           when and with whom we share your personal information
         </a>
@@ -104,18 +102,18 @@ const PrivacyPolicy = () => {
         be 100% secure, so we cannot promise or guarantee that hackers,
         cybercriminals, or other unauthorized third parties will not be able to
         defeat our security and improperly collect, access, steal, or modify
-        your information. Learn more about{" "}
+        your information. Learn more about
         <a href="#infosafe">how we keep your information safe</a>.
       </p>
       <p className="m-1 p-2 w-full" >
         <strong>What are your rights?</strong> Depending on where you are
         located geographically, the applicable privacy law may mean you have
-        certain rights regarding your personal information. Learn more about{" "}
+        certain rights regarding your personal information. Learn more about
         <a href="#privacyrights">your privacy rights</a>.
       </p>
       <p className="m-1 p-2 w-full" >
         <strong>How do you exercise your rights?</strong> The easiest way to
-        exercise your rights is by visiting{" "}
+        exercise your rights is by visiting
         <a href="https://mr-fahad-rajput.github.io/portfolio/contact">
           https://mr-fahad-rajput.github.io/portfolio/contact
         </a>
@@ -123,7 +121,7 @@ const PrivacyPolicy = () => {
         accordance with applicable data protection laws.
       </p>
       <p className="m-1 p-2 w-full" >
-        Want to learn more about what we do with any information we collect?{" "}
+        Want to learn more about what we do with any information we collect?
         <a href="#toc">Review the privacy notice in full</a>.
       </p>
       <p className="m-1 p-2 w-full" >
@@ -195,7 +193,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>We collect personal information that you provide to us.</em>
       </p>
       <p className="m-1 p-2 w-full" >
@@ -213,19 +211,19 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >names</p>
+          names
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >email addresses</p>
+          email addresses
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >mailing addresses</p>
+          mailing addresses
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >usernames</p>
+          usernames
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >profile image</p>
+          profile image
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -252,7 +250,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           We process your information to provide, improve, and administer our
           Services, communicate with you, for security and fraud prevention, and
@@ -268,30 +266,30 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>
               To facilitate account creation and authentication and otherwise
               manage user accounts.
-            </strong>{" "}
+            </strong>
             We may process your information so you can create and log in to your
             account, as well as keep your account in working order.
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>To request feedback.</strong> We may process your
             information when necessary to request feedback and to contact you
             about your use of our Services.
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>
               To save or protect an individual&#39;s vital interest.
-            </strong>{" "}
+            </strong>
             We may process your information when necessary to save or protect an
-            individual’s vital interest, such as to prevent harm.
-          </p>
+            individual&apos;s vital interest, such as to prevent harm.
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -324,38 +322,38 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>Consent.</strong> We may process your information if you
             have given us permission (i.e., consent) to use your personal
             information for a specific purpose. You can withdraw your consent at
-            any time. Learn more about{" "}
+            any time. Learn more about
             <a href="#withdrawconsent">withdrawing your consent</a>.
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>Legitimate Interests.</strong> We may process your
             information when we believe it is reasonably necessary to achieve
             our legitimate business interests and those interests do not
             outweigh your interests and fundamental rights and freedoms. For
             example, we may process your personal information for some of the
             purposes described in order to:
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Understand how our users use our products and services so we can
             improve user experience
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>Legal Obligations.</strong> We may process your information
             where we believe it is necessary for compliance with our legal
             obligations, such as to cooperate with a law enforcement body or
             regulatory agency, exercise or defend our legal rights, or disclose
-            your information as evidence in litigation in which we are involved.{" "}
-          </p>
+            your information as evidence in litigation in which we are involved.
+          
         </li>
       </ul>
       <ul>
@@ -375,7 +373,7 @@ const PrivacyPolicy = () => {
         We may process your information if you have given us specific permission
         (i.e., express consent) to use your personal information for a specific
         purpose, or in situations where your permission can be inferred (i.e.,
-        implied consent). You can{" "}
+        implied consent). You can
         <a href="#withdrawconsent">withdraw your consent</a> at any time.
       </p>
       <p className="m-1 p-2 w-full" >
@@ -385,68 +383,68 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If collection is clearly in the interests of an individual and
             consent cannot be obtained in a timely way
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >For investigations and fraud detection and prevention</p>
+          For investigations and fraud detection and prevention
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >For business transactions provided certain conditions are met</p>
+          For business transactions provided certain conditions are met
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If it is contained in a witness statement and the collection is
             necessary to assess, process, or settle an insurance claim
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             For identifying injured, ill, or deceased persons and communicating
             with next of kin
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If we have reasonable grounds to believe an individual has been, is,
             or may be victim of financial abuse
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If it is reasonable to expect collection and use with consent would
             compromise the availability or the accuracy of the information and
             the collection is reasonable for purposes related to investigating a
             breach of an agreement or a contravention of the laws of Canada or a
             province
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If disclosure is required to comply with a subpoena, warrant, court
             order, or rules of the court relating to the production of records
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If it was produced by an individual in the course of their
             employment, business, or profession and the collection is consistent
             with the purposes for which the information was produced
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If the collection is solely for journalistic, artistic, or literary
             purposes
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             If the information is publicly available and is specified by the
             regulations
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -457,11 +455,11 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           We may share information in specific situations described in this
           section and/or with the following third parties.
-        </em>{" "}
+        </em>
       </p>
       <p className="m-1 p-2 w-full" >
         We may need to share your personal information in the following
@@ -469,19 +467,19 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>Business Transfers.</strong> We may share or transfer your
             information in connection with, or during negotiations of, any
             merger, sale of company assets, financing, or acquisition of all or
             a portion of our business to another company.
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             <strong>When we use Google Maps Platform APIs.</strong> We may share
             your information with certain Google Maps Platform APIs (e.g.,
             Google Maps API, Places API).
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -490,7 +488,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           We may use cookies and other tracking technologies to collect and
           store your information.
@@ -508,7 +506,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           If you choose to register or log in to our Services using a social
           media account, we may have access to certain information about you.
@@ -540,7 +538,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           We keep your information for as long as necessary to fulfill the
           purposes outlined in this privacy notice unless otherwise required by
@@ -569,7 +567,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           We aim to protect your personal information through a system of
           organizational and technical security measures.
@@ -595,7 +593,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           We do not knowingly collect data from or market to children under 18
           years of age.
@@ -618,7 +616,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           In some regions, such as the European Economic Area (EEA), United
           Kingdom (UK), Switzerland, and Canada, you have rights that allow you
@@ -646,18 +644,18 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         If you are located in the EEA or UK and you believe we are unlawfully
         processing your personal information, you also have the right to
-        complain to your{" "}
+        complain to your
         <a href="https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm">
           Member State data protection authority
-        </a>{" "}
-        or{" "}
+        </a>
+        or
         <a href="https://ico.org.uk/make-a-complaint/data-protection-complaints/data-protection-complaints/">
           UK data protection authority
         </a>
         .
       </p>
       <p className="m-1 p-2 w-full" >
-        If you are located in Switzerland, you may contact the{" "}
+        If you are located in Switzerland, you may contact the
         <a href="https://www.edoeb.admin.ch/edoeb/en/home.html">
           Federal Data Protection and Information Commissioner
         </a>
@@ -694,7 +692,7 @@ const PrivacyPolicy = () => {
         delete your account and information from our active databases. However,
         we may retain some information in our files to prevent fraud,
         troubleshoot problems, assist with any investigations, enforce our legal
-        terms and/or comply with applicable legal requirements.{" "}
+        terms and/or comply with applicable legal requirements.
       </p>
       <p className="m-1 p-2 w-full" >
         <strong>Cookies and similar technologies:</strong> Most Web browsers are
@@ -731,7 +729,7 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         <strong>
           <em>In Short:</em>
-        </strong>{" "}
+        </strong>
         <em>
           If you are a resident of California, Colorado or Virginia, you are
           granted specific rights regarding access to your personal information.
@@ -757,79 +755,61 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >
         Contact details, such as real name, alias, postal address, telephone or
         mobile contact number, unique personal identifier, online identifier,
-        Internet Protocol address, email address, and account name
-      </p>
-      <p className="m-1 p-2 w-full" >NO</p>
+        Internet Protocol address, email address, and account name :NO</p>
       <p className="m-1 p-2 w-full" >
         B. Personal information as defined in the California Customer Records
         statute
       </p>
       <p className="m-1 p-2 w-full" >
         Name, contact information, education, employment, employment history,
-        and financial information
-      </p>
-      <p className="m-1 p-2 w-full" >NO</p>
+        and financial information :NO</p>
       <p className="m-1 p-2 w-full" >
         C. Protected classification characteristics under state or federal law
       </p>
-      <p className="m-1 p-2 w-full" >Gender and date of birth</p>
-      <p className="m-1 p-2 w-full" >NO</p>
+      <p className="m-1 p-2 w-full" >Gender and date of b :NO</p>
       <p className="m-1 p-2 w-full" >D. Commercial information</p>
       <p className="m-1 p-2 w-full" >
         Transaction information, purchase history, financial details, and
-        payment information
-      </p>
-      <p className="m-1 p-2 w-full" >NO</p>
+        payment information :NO</p>
       <p className="m-1 p-2 w-full" >E. Biometric information</p>
-      <p className="m-1 p-2 w-full" >Fingerprints and voiceprints</p>
-      <p className="m-1 p-2 w-full" >NO</p>
+      <p className="m-1 p-2 w-full" >Fingerprints and voicepr :NO</p>
       <p className="m-1 p-2 w-full" >F. Internet or other similar network activity</p>
       <p className="m-1 p-2 w-full" >
         Browsing history, search history, online behavior, interest data, and
         interactions with our and other websites, applications, systems, and
-        advertisements
-      </p>
-      <p className="m-1 p-2 w-full" >NO</p>
+        advertisements :NO</p>
       <p className="m-1 p-2 w-full" >G. Geolocation data</p>
-      <p className="m-1 p-2 w-full" >Device location</p>
-      <p className="m-1 p-2 w-full" >YES</p>
+      <p className="m-1 p-2 w-full" >Device location :YES</p>
       <p className="m-1 p-2 w-full" >
         H. Audio, electronic, visual, thermal, olfactory, or similar information
       </p>
       <p className="m-1 p-2 w-full" >
         Images and audio, video or call recordings created in connection with
-        our business activities
-      </p>
-      <p className="m-1 p-2 w-full" >NO</p>
+        our business activities :NO</p>
       <p className="m-1 p-2 w-full" >I. Professional or employment-related information</p>
       <p className="m-1 p-2 w-full" >
         Business contact details in order to provide you our Services at a
         business level or job title, work history, and professional
-        qualifications if you apply for a job with us
-      </p>
-      <p className="m-1 p-2 w-full" >NO</p>
+        qualifications if you apply for a job with us :NO</p>
       <p className="m-1 p-2 w-full" >J. Education Information</p>
-      <p className="m-1 p-2 w-full" >Student records and directory information</p>
-      <p className="m-1 p-2 w-full" >NO</p>
+      <p className="m-1 p-2 w-full" >Student records and directory informa :NO</p>
       <p className="m-1 p-2 w-full" >K. Inferences drawn from collected personal information</p>
       <p className="m-1 p-2 w-full" >
         Inferences drawn from any of the collected personal information listed
-        above to create a profile or summary about, for example, an individual’s
-        preferences and characteristics
+        above to create a profile or summary about, for example, an individual&apos;s
+        preferences and characteristics :       NO
       </p>
-      <p className="m-1 p-2 w-full" >NO</p>
-      <p className="m-1 p-2 w-full" >L. Sensitive personal Information</p>
-      <p className="m-1 p-2 w-full" >NO</p>
+      <p className="m-1 p-2 w-full" >L. Sensitive personal Information: NO </p>
       <p className="m-1 p-2 w-full" >
         We will use and retain the collected personal information as needed to
         provide the Services or for:
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >Category B - As long as the user has an account with us</p>
+          Category B - As long as the user has an account with us
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Category G - As Long as the User is Surfing The Web App</p>
+          Category G - As Long as the User is Surfing The Web App
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -839,16 +819,16 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >Receiving help through our customer support channels;</p>
+          Receiving help through our customer support channels;
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Participation in customer surveys or contests; and</p>
+          Participation in customer surveys or contests; and
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Facilitation in the delivery of our Services and to respond to your
             inquiries.
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -949,41 +929,41 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >Depending on the circumstances, you have a right to know:</p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >whether we collect and use your personal information;</p>
+          whether we collect and use your personal information;
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >the categories of personal information that we collect;</p>
+          the categories of personal information that we collect;
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             the purposes for which the collected personal information is used;
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >whether we sell or share personal information to third parties;</p>
+          whether we sell or share personal information to third parties;
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             the categories of personal information that we sold, shared, or
             disclosed for a business purpose;
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             the categories of third parties to whom the personal information was
             sold, shared, or disclosed for a business purpose;
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             the business or commercial purpose for collecting, selling, or
             sharing personal information; and
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             the specific pieces of personal information we collected about you.
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
@@ -1000,9 +980,9 @@ const PrivacyPolicy = () => {
         We will not discriminate against you if you exercise your privacy
         rights.
       </p>
-      <p className="m-1 p-2 w-full" >Right to Limit Use and Disclosure of Sensitive Personal Information</p>
-      <p className="m-1 p-2 w-full" >We do not process consumer&#39;s sensitive personal information.</p>
-      <p className="m-1 p-2 w-full" >Verification process</p>
+      <p className="m-1 p-2 w-full" >Right to Limit Use and Disclosure of Sensitive Personal Information
+      <br />We do not process consumer&#39;s sensitive personal information.
+      <br />Verification process</p>
       <p className="m-1 p-2 w-full" >
         Upon receiving your request, we will need to verify your identity to
         determine you are the same person about whom we have the information in
@@ -1029,35 +1009,35 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >Other privacy rights</p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >You may object to the processing of your personal information.</p>
+          You may object to the processing of your personal information.
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             You may request correction of your personal data if it is incorrect
             or no longer relevant, or ask to restrict the processing of the
             information.
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             You can designate an authorized agent to make a request under the
             CCPA on your behalf. We may deny a request from an authorized agent
             that does not submit proof that they have been validly authorized to
             act on your behalf in accordance with the CCPA.
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             You may request to opt out from future selling or sharing of your
             personal information to third parties. Upon receiving an opt-out
             request, we will act upon the request as soon as feasibly possible,
             but no later than fifteen (15) days from the date of the request
             submission.
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
-        To exercise these rights, you can contact us by visiting{" "}
+        To exercise these rights, you can contact us by visiting
         <a href="https://mr-fahad-rajput.github.io/portfolio/contact">
           https://mr-fahad-rajput.github.io/portfolio/contact
         </a>
@@ -1076,38 +1056,38 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to be informed whether or not we are processing your personal
             data
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to access your personal data</p>
+          Right to access your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to correct inaccuracies in your personal data</p>
+          Right to correct inaccuracies in your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to request deletion of your personal data</p>
+          Right to request deletion of your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to obtain a copy of the personal data you previously shared
             with us
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to opt out of the processing of your personal data if it is
             used for targeted advertising, the sale of personal data, or
             profiling in furtherance of decisions that produce legal or
             similarly significant effects (&quot;profiling&quot;)
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
         To submit a request to exercise these rights described above, please
-        email fahadrajput@faadii.tech or visit{" "}
+        email fahadrajput@faadii.tech or visit
         <a href="https://mr-fahad-rajput.github.io/portfolio/contact">
           https://mr-fahad-rajput.github.io/portfolio/contact
         </a>
@@ -1131,38 +1111,38 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to be informed whether or not we are processing your personal
             data
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to access your personal data</p>
+          Right to access your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to correct inaccuracies in your personal data</p>
+          Right to correct inaccuracies in your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to request deletion of your personal data</p>
+          Right to request deletion of your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to obtain a copy of the personal data you previously shared
             with us
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to opt out of the processing of your personal data if it is
             used for targeted advertising, the sale of personal data, or
             profiling in furtherance of decisions that produce legal or
             similarly significant effects (&quot;profiling&quot;)
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >
         To submit a request to exercise these rights described above, please
-        email fahadrajput@faadii.tech or visit{" "}
+        email fahadrajput@faadii.tech or visit
         <a href="https://mr-fahad-rajput.github.io/portfolio/contact">
           https://mr-fahad-rajput.github.io/portfolio/contact
         </a>
@@ -1202,38 +1182,38 @@ const PrivacyPolicy = () => {
       <p className="m-1 p-2 w-full" >Your rights with respect to your personal data</p>
       <ul>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to be informed whether or not we are processing your personal
             data
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to access your personal data</p>
+          Right to access your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to correct inaccuracies in your personal data</p>
+          Right to correct inaccuracies in your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >Right to request deletion of your personal data</p>
+          Right to request deletion of your personal data
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to obtain a copy of the personal data you previously shared
             with us
-          </p>
+          
         </li>
         <li>
-          <p className="m-1 p-2 w-full" >
+          
             Right to opt out of the processing of your personal data if it is
             used for targeted advertising, the sale of personal data, or
             profiling in furtherance of decisions that produce legal or
             similarly significant effects (&quot;profiling&quot;)
-          </p>
+          
         </li>
       </ul>
       <p className="m-1 p-2 w-full" >Exercise your rights provided under the Virginia VCDPA</p>
       <p className="m-1 p-2 w-full" >
-        You may contact us by email at fahadrajput@faadii.tech or visit{" "}
+        You may contact us by email at fahadrajput@faadii.tech or visit
         <a href="https://mr-fahad-rajput.github.io/portfolio/contact">
           https://mr-fahad-rajput.github.io/portfolio/contact
         </a>
@@ -1267,7 +1247,7 @@ const PrivacyPolicy = () => {
         days of receipt of an appeal, we will inform you in writing of any
         action taken or not taken in response to the appeal, including a written
         explanation of the reasons for the decisions. If your appeal is denied,
-        you may contact the{" "}
+        you may contact the
         <a href="https://www.oag.state.va.us/consumer-protection/index.php/file-a-complaint">
           Attorney General to submit a complaint
         </a>
@@ -1300,11 +1280,7 @@ const PrivacyPolicy = () => {
         fahadameenrajput@gmail.com, by phone at 03424815979, or contact us by
         post at:
       </p>
-      <p className="m-1 p-2 w-full" >Faadii&#39;s Tech</p>
-      <p className="m-1 p-2 w-full" >Fahad Ameen Rajput</p>
-      <p className="m-1 p-2 w-full" >H#291/A, Street 4, Anwar Shaheed Colony Renala Khurd</p>
-      <p className="m-1 p-2 w-full" >Okara, Punjab 17000</p>
-      <p className="m-1 p-2 w-full" >Pakistan</p>
+      <p className="m-1 p-2 w-full" >Faadii&#39;s Tech <br /> Fahad Ameen Rajput <br />Okara, Punjab 17000 <br />Pakistan</p>
       <p className="m-1 p-2 w-full" >
         <strong>
           15. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM
@@ -1315,7 +1291,7 @@ const PrivacyPolicy = () => {
         Based on the applicable laws of your country, you may have the right to
         request access to the personal information we collect from you, change
         that information, or delete it. To request to review, update, or delete
-        your personal information, please visit:{" "}
+        your personal information, please visit:
         <a href="https://mr-fahad-rajput.github.io/portfolio/contact">
           https://mr-fahad-rajput.github.io/portfolio/contact
         </a>

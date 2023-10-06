@@ -156,7 +156,7 @@ function SignUp() {
                         {" "}
                         I Accept{" "}
                         <a
-                          href=""
+                          href="/pp"
                           className="text-balBrand dark:text-secondaryBg  hover:underline"
                         >
                           {" "}
