@@ -12,7 +12,7 @@ const DivApi = (props) => {
       className=" rounded-lg m-2 border-2 border-dBrand dark:bg-lBrand hover:scale-110 bg-lBrand p-2 transform duration-500"
     >
       <img
-        className="rounded-lg h-[170px] m-auto"
+        className="rounded-lg h-[170px] m-auto aspect-video"
         src={divImg}
         alt="API Image"
         loading="lazy"

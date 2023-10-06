@@ -1,13 +1,5 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 const DivApi = lazy(() => import("./DivApi.jsx"));
-import stripeImg from "./Stripe/stripe.svg";
-import map from "./Maps/maps.svg";
-import gOAuthIcon from "./IdentityGoogle/gAuthIcon.svg";
-import ipGeoIcon from "./IPGeo/ipgeoIcon.svg";
-import visionIcon from "./CloudVision/cloudVision.svg";
-import chatIcon from "./OpenAI/ChatGPT.svg";
-import dalleIcon from "./OpenAI/dalle.svg";
-import whisperIcon from "./OpenAI/whisper.svg";
 
 import DivProjects from "./Projects/DivProjects";
 import ec from "./Projects/test.webp";
@@ -28,7 +20,16 @@ import redux from "./Projects/redux.svg";
 import ghpIcon from "../Contact/github.svg";
 
 function APIs(props) {
-  const [mailChimp,setMailChimp] = useState();
+  const [mailChimp, setMailChimp] = useState();
+  const [stripeImg, setStripeImg] = useState();
+  const [map, setMap] = useState();
+  const [gOAuthIcon, setGOAuthIcon] = useState();
+  const [ipGeoIcon, setIpGeoIcon] = useState();
+  const [visionIcon, setVisionIcon] = useState();
+  const [chatIcon, setChatIcon] = useState();
+  const [dalleIcon, setDalleIcon] = useState();
+  const [whisperIcon, setWhisperIcon] = useState();
+
 
   const { apiDivsToShow, setApiDivsToShow } = props;
 
@@ -37,12 +38,43 @@ function APIs(props) {
 
     const timer = setInterval(() => {
       if (apiDivsToShow < maxApiDivs) {
-        import("./MailChimp/mailChimp.svg").then(img=>{setMailChimp(img.default)})
+        if (apiDivsToShow == 0) {
+          import("./MailChimp/mailChimp.svg").then((img) => {
+            setMailChimp(img.default);
+          });
+          import("./Stripe/stripe.svg").then((img) => {
+            setStripeImg(img.default);
+          });
+          import("./Maps/maps.svg").then((img) => {
+            setMap(img.default);
+          });
+        } else if (apiDivsToShow == 1) {
+          import("./IdentityGoogle/gAuthIcon.svg").then((img) => {
+            setGOAuthIcon(img.default);
+          });
+          import("./IPGeo/ipgeoIcon.svg").then((img) => {
+            setIpGeoIcon(img.default);
+          });
+          import("./CloudVision/cloudVision.svg").then((img) => {
+            setVisionIcon(img.default);
+          });
+        }
+        else if (apiDivsToShow == 2) {
+          import("./OpenAI/whisper.svg").then((img) => {
+            setWhisperIcon(img.default);
+          });
+          import("./OpenAI/dalle.svg").then((img) => {
+            setDalleIcon(img.default);
+          });
+          import("./OpenAI/ChatGPT.svg").then((img) => {
+            setChatIcon(img.default);
+          });
+        }
         setApiDivsToShow(apiDivsToShow + 1);
       } else {
         clearInterval(timer);
       }
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [apiDivsToShow]);
@@ -114,7 +146,9 @@ function APIs(props) {
           APIs
         </h1>
         <div className="grid md:grid-cols-3">
-          <Suspense fallback={              <>
+          <Suspense
+            fallback={
+              <>
                 <div className="animate-spin">
                   <svg
                     className="w-5 h-5 text-white"
@@ -137,7 +171,9 @@ function APIs(props) {
                     ></path>
                   </svg>
                 </div>
-              </>}>
+              </>
+            }
+          >
             {apiDivsToShow > 0 ? (
               <>
                 <DivApi

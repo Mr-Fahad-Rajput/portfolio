@@ -11,7 +11,7 @@ const DivProjects = (props) => {
       </h5>
       <div className="max-w-max md:flex">
         <img
-          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left"
+          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left aspect-video"
           src={divImg}
           alt="API Image"
           loading="lazy"
@@ -26,7 +26,7 @@ const DivProjects = (props) => {
                 Live Preview
               </h1>
               <div className="aspect-square w-14">
-                <img loading="lazy" src={previewIcon} alt="Preview Icon" />
+                <img loading="lazy" src={previewIcon} alt="Preview Icon" className="aspect-square"/>
               </div>
             </div>
           </a>
@@ -35,8 +35,8 @@ const DivProjects = (props) => {
               <h1 className="m-1 my-auto dark:text-secondaryBg text-sm font-semibold text-balBrand">
                 Source Code
               </h1>
-              <div className="aspect-square w-12 ">
-                <img loading="lazy" src={gitIcon} alt="Github Icon" />
+              <div className="w-12 ">
+                <img loading="lazy" src={gitIcon} alt="Github Icon" className="aspect-square" />
               </div>
             </div>
           </a>
