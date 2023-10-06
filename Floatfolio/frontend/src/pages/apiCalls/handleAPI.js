@@ -4,7 +4,7 @@ const handleAPI = async (dataBody, endPoint, reqType) => {
       method: reqType,
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": import.meta.env.VITE_SOME_KEY,
+        "X-API-Key": process.env.VITE_SOME_KEY,
       },
       body: JSON.stringify(dataBody),
       credentials: "include",

@@ -18,7 +18,7 @@ app.use(cookieParser());
 // Cors Setup
 app.use(
   cors({
-    origin: [process.env.SERVER_URL,"https://checkout.stripe.com", "https://mr-fahad-rajput.github.io", "https://portfolio.faadii.tech", "https://server.faadii.tech", "https://github.io","https://localhost:5173"],
+    origin: [process.env.SERVER_URL,"https://checkout.stripe.com"],
     credentials: true,
     methods: "GET,PUT,POST",
   })
@@ -44,7 +44,5 @@ const credentials = { key: privateKey, cert: certificate };
 // Create an HTTPS server with the credentials
 const httpsServer = https.createServer(credentials, app);
 //Server Listing
-// app.listen(process.env.PORT);
-
 httpsServer.listen(process.env.PORT);
 console.log("Server Running");
