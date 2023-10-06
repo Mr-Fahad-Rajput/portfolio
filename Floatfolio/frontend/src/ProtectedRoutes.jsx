@@ -11,7 +11,7 @@ function ProtectedRoutes(props) {
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
-          "X-API-Key": process.env.VITE_SOME_KEY,
+          "X-API-Key": import.meta.env.VITE_SOME_KEY,
         },
       })
         .then(async (response) => {

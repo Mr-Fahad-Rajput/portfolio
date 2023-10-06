@@ -3,7 +3,7 @@ const handleImageUpload = async (formData, endPoint) => {
       const response = await fetch("https://server.faadii.tech:8080/"+ endPoint, {
         method: "POST",
         headers: {
-            "X-API-Key": process.env.VITE_SOME_KEY,
+            "X-API-Key": import.meta.env.VITE_SOME_KEY,
           },
         body: formData,
         credentials: "include",
