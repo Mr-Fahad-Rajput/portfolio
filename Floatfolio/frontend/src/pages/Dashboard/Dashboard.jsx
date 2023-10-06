@@ -38,9 +38,9 @@ function Dashboard() {
   return (
     <>
       <section className="mainContent">
-        <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2">
+        <div className=" bg-secondaryBg dark:bg-balBrand rounded-lg m-2 w-full">
         <AlertBox responseStatus={responseStatus} msgImg={alertIcon} />
-          <div className="flex justify-center">
+          <div className="flex justify-center ">
             <h1 className=" inline-block whitespace-nowrap dark:text-secondaryBg font-semibold text-2xl cursor-default text-dBrand">
               Monthly Report
             </h1>
