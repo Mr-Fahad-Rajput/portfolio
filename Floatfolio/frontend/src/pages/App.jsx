@@ -48,8 +48,8 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar isLoggedin={isLoggedin} />
-        <Suspense fallback={<Loader />}>
           {isLargeScreen && <Sidebar />}
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
