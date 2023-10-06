@@ -31,6 +31,7 @@ const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy.jsx"));
 
 function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [apiDivsToShow, setApiDivsToShow] = useState(0);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 826);
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +56,7 @@ function App() {
             <Route exact path="/about" element={<About />} />
             <Route exact path="/contact" element={<Contact />} />
             {/* APIs */}
-            <Route exact path="/apis" element={<APIs />} />
+            <Route exact path="/apis" element={<APIs apiDivsToShow={apiDivsToShow} setApiDivsToShow={setApiDivsToShow}/>} />
             <Route exact path="/stripe" element={<Stripe />} />
             <Route exact path="/mailchimp" element={<MailChimp />} />
             <Route exact path="/maps" element={<Maps />} />
