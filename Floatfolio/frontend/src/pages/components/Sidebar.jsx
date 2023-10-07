@@ -194,7 +194,7 @@ function Sidebar() {
                   animate={animationToggle}
                 />
           ) : (
-            <div className="flex items-center justify-center h-full bg-slate-400">
+            <div className="flex items-center justify-center h-40">
               <div className="animate-spin">
                 <svg
                   className="w-5 h-5 text-white"
