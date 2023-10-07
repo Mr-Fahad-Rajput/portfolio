@@ -45,12 +45,12 @@ export default {
         md: "826px",
       },
       colors: {
-        mainBg: "#FEFAE6",
+        mainBg: "#C1C8E4",
         secondaryBg: "#fef5bd",
         // balBrand: "#471AA0",
-        balBrand: "#786393",
+        balBrand: "#006EBA",
         lBrand: "#C8BAE3",
-        dBrand: "#240d50",
+        dBrand: "#FEFAE6",
       },
       fontFamily: {
         sans: ["Trebuchet MS", "sans-serif"],
