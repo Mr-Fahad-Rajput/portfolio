@@ -32,7 +32,7 @@ function Navbar(props) {
           {/* Logo */}
           <div className="w-[20%] h-fill m-1">
             <img
-              className="btn"
+              className="btn w-60 md:h-16"
               src={logo}
               alt="Faadii's Tech logo"
               aria-label="Faadii-logo"

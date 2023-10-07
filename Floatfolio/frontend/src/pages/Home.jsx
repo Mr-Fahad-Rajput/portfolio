@@ -1,5 +1,4 @@
 import mainVideo from "./home.webm";
-import poster from "./home.svg";
 import DivProjects from "./APIs/Projects/DivProjects";
 import logo from '../assets/logo.svg'
 import reactLogo from './APIs/Projects/react.svg'
@@ -25,7 +24,6 @@ function Home() {
             muted
             loop
             playsInline
-            poster={poster}
             loading="lazy"
           ></video>
           <div className="w-full">

@@ -14,7 +14,6 @@ const DivProjects = (props) => {
           className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:aspect-video md:w-[30%]"
           src={divImg}
           alt="API Image"
-          loading="lazy"
         />
         <p className="text-base font-normal  text-dBrand break-words text-justify tracking-tighter m-2">
           {description}
@@ -26,7 +25,7 @@ const DivProjects = (props) => {
                 Live Preview
               </h1>
               <div className="aspect-square w-14">
-                <img loading="lazy" src={previewIcon} alt="Preview Icon" className="w-14"/>
+                <img loading="lazy" src={previewIcon} alt="Preview Icon" className="w-14 h-auto"/>
               </div>
             </div>
           </a>
@@ -36,7 +35,7 @@ const DivProjects = (props) => {
                 Source Code
               </h1>
               <div className="aspect-square w-12 ">
-                <img loading="lazy" src={gitIcon} alt="Github Icon" className="aspect-square w-12" />
+                <img loading="lazy" src={gitIcon} alt="Github Icon" className="aspect-square w-12 h-auto" />
               </div>
             </div>
           </a>

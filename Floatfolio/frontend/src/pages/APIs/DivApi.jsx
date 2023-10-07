@@ -15,7 +15,6 @@ const DivApi = (props) => {
         className="rounded-lg h-[170px] m-auto aspect-video"
         src={divImg}
         alt="API Image"
-        loading="lazy"
       />
       <div className="p-2">
         <h5 className=" text-2xl font-bold text-balBrand tracking-tight mb-2 text-center">
