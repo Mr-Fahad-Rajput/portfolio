@@ -66,7 +66,7 @@ function Sidebar() {
     { name: "PyGame" },
     { name: "Code Pen" },
     { name: "Adobe XD" },
-    { name: "Beautiful Soup" },
+    { name: "Beautiful Soup" }
   ];
   const [commentQueue, setCommentQueue] = useState(
     new FastPriorityQueue((a, b) => {

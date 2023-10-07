@@ -11,7 +11,7 @@ const DivProjects = (props) => {
       </h5>
       <div className="max-w-max md:flex">
         <img
-          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left aspect-video"
+          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:aspect-video md:w-[30%]"
           src={divImg}
           alt="API Image"
           loading="lazy"
@@ -26,7 +26,7 @@ const DivProjects = (props) => {
                 Live Preview
               </h1>
               <div className="aspect-square w-14">
-                <img loading="lazy" src={previewIcon} alt="Preview Icon" className="aspect-square"/>
+                <img loading="lazy" src={previewIcon} alt="Preview Icon" className="w-14"/>
               </div>
             </div>
           </a>
@@ -35,17 +35,17 @@ const DivProjects = (props) => {
               <h1 className="m-1 my-auto dark:text-secondaryBg text-sm font-semibold text-balBrand">
                 Source Code
               </h1>
-              <div className="w-12 ">
-                <img loading="lazy" src={gitIcon} alt="Github Icon" className="aspect-square" />
+              <div className="aspect-square w-12 ">
+                <img loading="lazy" src={gitIcon} alt="Github Icon" className="aspect-square w-12" />
               </div>
             </div>
           </a>
         </div>
       </div>
-      <h6 className="text-lg font-bold text-balBrand tracking-tight text-center">
+      <h5 className="text-lg font-bold text-balBrand tracking-tight text-center">
         {" "}
         Technologies Used:
-      </h6>
+      </h5>
       <div className=" border-dBrand dark:border-lBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg">
         {techStack.map((tech, index) => (
           <div className="m-2 text-center" key={index}>
