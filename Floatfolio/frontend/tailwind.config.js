@@ -9,7 +9,7 @@
 //       typography: {
 //         DEFAULT: {
 //           css: {
-          
+
 //           },
 //         },
 //       },
@@ -45,12 +45,13 @@ export default {
         md: "826px",
       },
       colors: {
-        mainBg: "#C1C8E4",
+        // mainBg: "#C1C8E4",
+        // secondaryBg: "#8860D0",
+        mainBg: "#FEFAE6",
         secondaryBg: "#fef5bd",
-        // balBrand: "#471AA0",
-        balBrand: "#006EBA",
+        balBrand: "#8860D0",
         lBrand: "#C8BAE3",
-        dBrand: "#FEFAE6",
+        dBrand: "#240d50",
       },
       fontFamily: {
         sans: ["Trebuchet MS", "sans-serif"],
