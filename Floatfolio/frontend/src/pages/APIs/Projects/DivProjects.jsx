@@ -45,7 +45,7 @@ const DivProjects = (props) => {
         {" "}
         Technologies Used:
       </h5>
-      <div className=" border-dBrand dark:border-lBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg">
+      <div className=" border-dBrand dark:border-lBrand border-2 rounded-lg text-dBrand dark:text-mainBg cursor-default flex justify-around dark:bg-dBrand bg-mainBg flex-wrap">
         {techStack.map((tech, index) => (
           <div className="m-2 text-center" key={index}>
             <img
