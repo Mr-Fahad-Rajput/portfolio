@@ -7,7 +7,7 @@ import Skill from "./Skill.jsx";
 
 function Sidebar() {
   const [animationToggle, setAnimationToggle] = useState(false);
-  const [skillIndex, setSkillIndex] = useState(20);
+  const [skillIndex, setSkillIndex] = useState(18);
   const skillList = [
     { name: "React" },
     { name: "C" },
@@ -81,7 +81,7 @@ function Sidebar() {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    setSkills(skillList.slice(0, 20));
+    setSkills(skillList.slice(0, 18));
     const updateSkills = () => {
       setSkillIndex((prevSkillIndex) => prevSkillIndex + 1);
       setSkills((prevSkills) => prevSkills.slice(1));
@@ -192,9 +192,10 @@ function Sidebar() {
               comment={commentToShow.comment}
               createdAt={formatDate(commentToShow.createdAt)}
               animate={animationToggle}
+              className="m-auto"
             />
         ) : (
-          <div className="aspect-square w-24 bottom-0 w-full">
+          <div className="aspect-square w-24 m-auto">
             <div className="animate-spin">
               <svg
                 className="w-5 h-5 text-white"
