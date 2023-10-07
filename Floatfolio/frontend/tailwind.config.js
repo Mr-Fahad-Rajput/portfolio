@@ -45,10 +45,12 @@ export default {
         md: "826px",
       },
       colors: {
-        // mainBg: "#C1C8E4",
-        // secondaryBg: "#8860D0",
-        mainBg: "#FEFAE6",
-        secondaryBg: "#fef5bd",
+        mainBg: "#C1C8E4",
+        secondaryBg: "#B09ED0",
+
+        // oringnal
+        // mainBg: "#FEFAE6",
+        // secondaryBg: "#fef5bd",
         balBrand: "#8860D0",
         lBrand: "#C8BAE3",
         dBrand: "#240d50",
