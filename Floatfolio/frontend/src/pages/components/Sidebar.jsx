@@ -183,11 +183,11 @@ function Sidebar() {
                 skill.name && <Skill key={index} skillName={skill.name} />
             )}
         </div>
-        {commentToShow ? (
           <div className="absolute bottom-1 right-1 left-1 bg-mainBg dark:bg-dBrand">
             <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand ">
               Endorsments
             </h3>
+        {commentToShow ? (
             <Comment
               userName={commentToShow.name}
               profileImg={commentToShow.profileImg}
@@ -195,7 +195,6 @@ function Sidebar() {
               createdAt={formatDate(commentToShow.createdAt)}
               animate={animationToggle}
             />
-          </div>
         ) : (
           <>
             <div className="animate-spin">
@@ -221,7 +220,8 @@ function Sidebar() {
               </svg>
             </div>
           </>
-        )}
+        ) }
+          </div>
       </section>
     </>
   );
