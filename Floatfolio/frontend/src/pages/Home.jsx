@@ -44,7 +44,7 @@ function Home() {
           </div>
         </div>
         <div className="w-full">
-          <h2 className="dark:text-secondaryBg text-2xl font-bold cursor-default text-balBrand text-center Underline">
+          <h2 className="dark:text-secondaryBg text-2xl font-bold cursor-default text-balBrand text-center underline">
             Under the Hood.
           </h2>
           <p className="indent-10  max-md:m-2 text-justify tracking-tight py-2 px-5 leading-loose ">
