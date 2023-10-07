@@ -47,10 +47,9 @@ export default {
       colors: {
         mainBg: "#FEFAE6",
         secondaryBg: "#fef5bd",
-        balBrand: "#471AA0",
-        // 'headingDark':'#FFB8F0', // temporary
+        // balBrand: "#471AA0",
+        balBrand: "#786393",
         lBrand: "#C8BAE3",
-        // dBrand: "#0C134F",
         dBrand: "#240d50",
       },
       fontFamily: {
