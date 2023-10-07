@@ -181,7 +181,7 @@ function Sidebar() {
                 skill.name && <Skill key={index} skillName={skill.name} />
             )}
         </div>
-        <div className="absolute right-1 left-1 top-1/2 bg-mainBg dark:bg-dBrand h-full">
+        <div className="absolute right-1 left-1 top-1/2 bg-mainBg dark:bg-dBrand h-1/2">
           <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand ">
             Endorsments
           </h3>
