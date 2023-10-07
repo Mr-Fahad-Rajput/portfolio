@@ -196,7 +196,7 @@ function Sidebar() {
               animate={animationToggle}
             />
         ) : (
-          <>
+          <div className="aspect-square w-24">
             <div className="animate-spin bottom-0 w-full">
               <svg
                 className="w-5 h-5 text-white"
@@ -219,7 +219,7 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-          </>
+          </div>
         ) }
           </div>
       </section>
