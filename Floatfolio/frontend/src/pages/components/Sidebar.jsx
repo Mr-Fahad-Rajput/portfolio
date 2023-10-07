@@ -186,16 +186,15 @@ function Sidebar() {
               Endorsments
             </h3>
         {commentToShow ? (
-            <Comment
+            <div className="m-auto"><Comment
               userName={commentToShow.name}
               profileImg={commentToShow.profileImg}
               comment={commentToShow.comment}
               createdAt={formatDate(commentToShow.createdAt)}
               animate={animationToggle}
-              className="m-auto"
-            />
+            /></div>
         ) : (
-          <div className="aspect-square w-24 m-auto">
+          <div className="aspect-square w-24 flex items-center">
             <div className="animate-spin">
               <svg
                 className="w-5 h-5 text-white"
