@@ -150,16 +150,17 @@ function Sidebar() {
       year: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-      timeZoneName: "short",
+      timeZone: "UTC",
     };
 
-    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    // const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const formattedDate = new Date(inputDate).toLocaleDateString(
       "en-US",
       options
     );
 
-    return formattedDate + " " + userTimeZone;
+    return formattedDate; 
+    // + " " + userTimeZone;
   }
 
   if (location.pathname === "/signup" || location.pathname === "/signin") {
