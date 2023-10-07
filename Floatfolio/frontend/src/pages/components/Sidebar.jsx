@@ -7,7 +7,7 @@ import Skill from "./Skill.jsx";
 
 function Sidebar() {
   const [animationToggle, setAnimationToggle] = useState(false);
-  const [skillIndex, setSkillIndex] = useState(15);
+  const [skillIndex, setSkillIndex] = useState(17);
   const skillList = [
     { name: "React" },
     { name: "C" },
@@ -81,7 +81,7 @@ function Sidebar() {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    setSkills(skillList.slice(0, 15));
+    setSkills(skillList.slice(0, 17));
     const updateSkills = () => {
       setSkillIndex((prevSkillIndex) => prevSkillIndex + 1);
       setSkills((prevSkills) => prevSkills.slice(1));
@@ -186,8 +186,8 @@ function Sidebar() {
             Endorsments
           </h3>
           {commentToShow ? (
-            <div className="h-full">
-              <div className="m-auto">
+            <div className="h-full flex items-center">
+              <div>
                 <Comment
                   userName={commentToShow.name}
                   profileImg={commentToShow.profileImg}
