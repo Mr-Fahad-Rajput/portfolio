@@ -6,9 +6,9 @@ const DivProjects = (props) => {
   const { divImg, divHeading, description, route, sourceCode, techStack } = props;
   return (
     <div className="rounded-lg m-2 border-2 border-dBrand dark:bg-mainBg bg-lBrand p-2">
-      <h5 className=" text-xl font-bold text-balBrand tracking-tight mb-2 text-center">
+      <h4 className=" text-xl font-bold text-balBrand tracking-tight mb-2 text-center">
         {divHeading}
-      </h5>
+      </h4>
       <div className="max-w-max md:flex">
         <img
           className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:aspect-video md:w-[30%]"
