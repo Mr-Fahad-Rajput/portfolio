@@ -86,7 +86,7 @@ function Sidebar() {
       setSkillIndex((prevSkillIndex) => prevSkillIndex + 1);
       setSkills((prevSkills) => prevSkills.slice(1));
     };
-    const timer = setInterval(updateSkills, 10000);
+    const timer = setInterval(updateSkills, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -186,7 +186,7 @@ function Sidebar() {
             Endorsments
           </h3>
           {commentToShow ? (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center h-full">
               <div>
                 <Comment
                   userName={commentToShow.name}
