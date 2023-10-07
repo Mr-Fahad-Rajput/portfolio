@@ -170,9 +170,9 @@ function Sidebar() {
   return (
     <>
       <section className="sidebar">
-        <h3 className="mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
-          My Tech Arsenal <sup className="text-sm">{skillIndex}/{skillList.length}</sup>
-        </h3>
+        <h3 className="inline-flex mb-2 text-center dark:text-secondaryBg font-semibold underline cursor-default text-balBrand border-y-2 dark:border-mainBg  border-dBrand">
+          My Tech Arsenal 
+        </h3><sup className="text-sm inline-flex">{skillIndex}/{skillList.length}</sup>
         <div className="flex flex-wrap">
           {skills &&
             skills.map(
@@ -186,7 +186,7 @@ function Sidebar() {
             Endorsments
           </h3>
           {commentToShow ? (
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center h-full">
               <div>
                 <Comment
                   userName={commentToShow.name}
