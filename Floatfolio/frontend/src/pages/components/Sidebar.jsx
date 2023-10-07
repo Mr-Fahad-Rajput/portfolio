@@ -140,7 +140,7 @@ function Sidebar() {
         }
         setAnimationToggle((prevToggle) => !prevToggle);
       }
-    }, 20000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, [fetch]);
