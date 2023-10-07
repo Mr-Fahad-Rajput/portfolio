@@ -1,6 +1,6 @@
 import mainVideo from "./home.webm";
 import DivProjects from "./APIs/Projects/DivProjects";
-import logo from "../assets/logo.svg";
+import logo from "../assets/float.webp";
 import reactLogo from "./APIs/Projects/react.svg";
 import vanilla from "./APIs/Projects/vanillaJs.svg";
 import mongoLogo from "./APIs/Projects/mongo.svg";
