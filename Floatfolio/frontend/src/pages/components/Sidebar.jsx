@@ -155,14 +155,12 @@ function Sidebar() {
       timeZone: "UTC",
     };
 
-    // const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const formattedDate = new Date(inputDate).toLocaleDateString(
       "en-US",
       options
     );
 
     return formattedDate;
-    // + " " + userTimeZone;
   }
 
   if (location.pathname === "/signup" || location.pathname === "/signin") {
@@ -196,8 +194,8 @@ function Sidebar() {
               animate={animationToggle}
             />
         ) : (
-          <div className="aspect-square w-24">
-            <div className="animate-spin bottom-0 w-full">
+          <div className="aspect-square w-24 bottom-0 w-full">
+            <div className="animate-spin">
               <svg
                 className="w-5 h-5 text-white"
                 xmlns="http://www.w3.org/2000/svg"
