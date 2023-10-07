@@ -51,7 +51,7 @@ export default {
         // oringnal
         // mainBg: "#FEFAE6",
         // secondaryBg: "#fef5bd",
-        balBrand: "#8860D0",
+        balBrand: "#471AA0",
         lBrand: "#C8BAE3",
         dBrand: "#240d50",
       },
