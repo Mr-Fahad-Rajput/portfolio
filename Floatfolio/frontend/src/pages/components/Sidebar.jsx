@@ -186,7 +186,6 @@ function Sidebar() {
             Endorsments
           </h3>
           {commentToShow ? (
-            <div className="h-full">
                 <Comment
                   userName={commentToShow.name}
                   profileImg={commentToShow.profileImg}
@@ -194,7 +193,6 @@ function Sidebar() {
                   createdAt={formatDate(commentToShow.createdAt)}
                   animate={animationToggle}
                 />
-            </div>
           ) : (
             <div className="flex items-center justify-center h-full">
               <div className="animate-spin">
