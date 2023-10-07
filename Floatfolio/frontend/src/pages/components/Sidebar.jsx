@@ -186,7 +186,7 @@ function Sidebar() {
             Endorsments
           </h3>
           {commentToShow ? (
-            <div className="h-full flex flex-col justify-center items-center">
+            <div className="h-full flex justify-center items-center">
               <div>
                 <Comment
                   userName={commentToShow.name}
