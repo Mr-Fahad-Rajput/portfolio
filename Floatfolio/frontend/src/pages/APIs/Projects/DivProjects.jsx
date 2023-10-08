@@ -11,7 +11,7 @@ const DivProjects = (props) => {
       </h4>
       <div className="max-w-max md:flex">
         <img
-          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:aspect-video md:w-[30%]"
+          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:w-[30%]"
           src={divImg}
           alt="API Image"
         />
