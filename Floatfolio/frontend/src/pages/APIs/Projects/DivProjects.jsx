@@ -20,7 +20,7 @@ const DivProjects = (props) => {
         </p>
         <div className="md:float-right md:py-4">
           <a href={route} target="_blank" rel="noopener noreferrer">
-            <div className="border-dBrand dark:border-dBrand  border-2 rounded-lg text-dBrand dark:text-mainBg my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly dark:bg-lBrand bg-secondaryBg ">
+            <div className="border-dBrand   border-2 rounded-lg text-dBrand dark:text-mainBg my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly dark:bg-lBrand bg-secondaryBg ">
               <h1 className="m-1 my-auto dark:text-secondaryBg text-sm font-semibold text-balBrand">
                 Live Preview
               </h1>
@@ -30,7 +30,7 @@ const DivProjects = (props) => {
             </div>
           </a>
           <a href={sourceCode} target="_blank" rel="noopener noreferrer">
-            <div className="border-dBrand dark:border-dBrand  border-2 rounded-lg text-dBrand dark:text-mainBg my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly dark:bg-lBrand bg-secondaryBg">
+            <div className="border-dBrand  border-2 rounded-lg text-dBrand dark:text-mainBg my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly dark:bg-lBrand bg-secondaryBg">
               <h1 className="m-1 my-auto dark:text-secondaryBg text-sm font-semibold text-balBrand">
                 Source Code
               </h1>
