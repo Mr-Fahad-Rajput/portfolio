@@ -45,14 +45,13 @@ export default {
         md: "826px",
       },
       colors: {
-        mainBg: "#C1C8E4",
-        secondaryBg: "#B09ED0",
-
-        // oringnal
-        // mainBg: "#FEFAE6",
-        // secondaryBg: "#fef5bd",
-        balBrand: "#471AA0",
-        lBrand: "#C8BAE3",
+        // mainBg: "#C1C8E4",
+        // secondaryBg: "#8860D0",
+        mainBg: "#FEFAE6",
+        secondaryBg: "#fef5bd",
+        // balBrand: "#8860D0",
+        balBrand: "#6c48b3",
+        lBrand: "#dad1ec",
         dBrand: "#240d50",
       },
       fontFamily: {
