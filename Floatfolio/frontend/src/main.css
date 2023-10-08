@@ -121,3 +121,6 @@
 body {
   line-height: 1.7 !important;
 }
+h1,h2{
+  @apply text-dBrand dark:text-secondaryBg !important;
+}
