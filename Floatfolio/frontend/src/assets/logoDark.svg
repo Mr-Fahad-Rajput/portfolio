@@ -5,42 +5,63 @@
    height="202.21899"
    viewBox="0 0 753.39099 202.21899"
    id="svg16"
-   sodipodi:docname="logoDark.svg"
+   sodipodi:docname="logo.svg"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs16" />
+     id="defs16">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <rect
+         style="opacity:0.64;fill:#000000"
+         id="rect17"
+         width="753.39099"
+         height="202.21899"
+         x="124.53761"
+         y="390.87549"
+         ry="0" />
+    </clipPath>
+  </defs>
   <sodipodi:namedview
      id="namedview16"
-     pagecolor="#ffffff"
-     bordercolor="#240d50"
+     pagecolor="#240d50"
+     bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="true"
+     inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
+     showguides="true"
      inkscape:zoom="0.811"
-     inkscape:cx="630.08631"
-     inkscape:cy="500"
+     inkscape:cx="374.84587"
+     inkscape:cy="108.50801"
      inkscape:window-width="1920"
      inkscape:window-height="1046"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg16" />
+     inkscape:current-layer="svg16">
+    <sodipodi:guide
+       position="-364.98151,1369.9137"
+       orientation="0,-1"
+       id="guide16"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <rect
-     width="752.15784"
-     height="200.98643"
-     fill="#ffffff"
+     width="1000"
+     height="1000"
+     fill="#FEFAE6"
      id="rect1"
-     x="1.2330662"
-     y="-8.7300596e-06"
-     style="stroke-width:0.38881;fill:#fefae7;fill-opacity:1" />
+     clip-path="url(#clipPath16)"
+     x="0"
+     y="0"
+     transform="translate(-124.53761,-390.87549)" />
   <g
-     transform="matrix(0.7,0,0,0.7,32.436426,30.877195)"
+     transform="matrix(0.7,0,0,0.7,25.038147,35.809352)"
      id="g15">
     <svg
        viewBox="0 0 396 83"
@@ -97,7 +118,7 @@
                                width="395.51999"
                                viewBox="3.9000001 -36.799999 224.72 37.549999"
                                height="66.081314"
-                               data-palette-color="#ffffff"
+                               data-palette-color="#240d50"
                                version="1.1"
                                id="svg1">
                               <path
@@ -126,7 +147,7 @@
                                width="232.20979"
                                viewBox="3.3 -35.5 397.75 46"
                                height="26.85181"
-                               data-palette-color="#ffffff"
+                               data-palette-color="#240d50"
                                version="1.1"
                                id="svg3">
                               <path
