@@ -47,7 +47,8 @@ export default {
       colors: {
         mainBg: "#FEFAE6",
         secondaryBg: "#fef5bd",
-        balBrand: "#6c48b3",
+        balBrand: "#3A1D83",
+        // balBrand: "#6c48b3",
         lBrand: "#dad1ec",
         dBrand: "#240d50",
       },
