@@ -16,7 +16,9 @@ const Stripe = lazy(() => import("./APIs/Stripe/Stripe.jsx"));
 const MailChimp = lazy(() => import("./APIs/MailChimp/MailChimp.jsx"));
 const Maps = lazy(() => import("./APIs/Maps/Maps.jsx"));
 const IPGeo = lazy(() => import("./APIs/IPGeo/IPGeo.jsx"));
-const OAuthGoogle = lazy(() => import("./APIs/IdentityGoogle/IdentityGoogle.jsx"));
+const OAuthGoogle = lazy(() =>
+  import("./APIs/IdentityGoogle/IdentityGoogle.jsx")
+);
 const CloudVision = lazy(() => import("./APIs/CloudVision/CloudVision.jsx"));
 const Chat = lazy(() => import("./APIs/OpenAI/Chat.jsx"));
 const Dalle = lazy(() => import("./APIs/OpenAI/Dalle.jsx"));
@@ -32,6 +34,17 @@ const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy.jsx"));
 function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [apiDivsToShow, setApiDivsToShow] = useState(0);
+  const [apiDivsImages, setApiDivsImages] = useState({
+    mailChimp: null,
+    stripeImg: null,
+    map: null,
+    gOAuthIcon: null,
+    ipGeoIcon: null,
+    visionIcon: null,
+    chatIcon: null,
+    dalleIcon: null,
+    whisperIcon: null,
+  });
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 826);
   useEffect(() => {
     const handleResize = () => {
@@ -49,14 +62,25 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar isLoggedin={isLoggedin} />
-          {isLargeScreen && <Sidebar />}
+        {isLargeScreen && <Sidebar />}
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/contact" element={<Contact />} />
             {/* APIs */}
-            <Route exact path="/apis" element={<APIs apiDivsToShow={apiDivsToShow} setApiDivsToShow={setApiDivsToShow}/>} />
+            <Route
+              exact
+              path="/apis"
+              element={
+                <APIs
+                  apiDivsToShow={apiDivsToShow}
+                  setApiDivsToShow={setApiDivsToShow}
+                  apiDivsImages={apiDivsImages}
+                  setApiDivsImages={setApiDivsImages}
+                />
+              }
+            />
             <Route exact path="/stripe" element={<Stripe />} />
             <Route exact path="/mailchimp" element={<MailChimp />} />
             <Route exact path="/maps" element={<Maps />} />
