@@ -135,14 +135,14 @@ function APIs(props) {
             techStack={ecTechStack}
           />
           <DivProjects
-            route={"https://mr-fahad-rajput.github.io/MERN-Semester-Project/"}
+            route={"https://mr-fahad-rajput.github.io/Simple-Corp/"}
             divImg={sc}
             divHeading={"Simple Corp"}
             description={
               "'SimpleCorp' represents a web template design tailored for a Business Consultancy Firm. Designed with precision and attention to detail, 'SimpleCorp' offers a seamless user experience. Its clean and functional interface serves as an ideal platform for a consultancy business to showcase its expertise and services. It's a Demo, so the logins are not Working as the Server is Inactive."
             }
             sourceCode={
-              "https://github.com/Mr-Fahad-Rajput/MERN-Semester-Project/tree/main/MERN%20APP"
+              "https://github.com/Mr-Fahad-Rajput/Simple-Corp"
             }
             techStack={scTechStack}
           />
