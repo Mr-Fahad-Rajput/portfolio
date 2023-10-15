@@ -11,6 +11,7 @@ function Sidebar() {
   const skillList = [
     { name: "React" },
     { name: "C" },
+    { name: "Next JS" },
     { name: "Blender 3D" },
     { name: "C++" },
     { name: "React Native" },
