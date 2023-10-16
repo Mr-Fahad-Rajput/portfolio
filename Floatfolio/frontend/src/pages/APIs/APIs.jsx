@@ -123,18 +123,6 @@ function APIs(props) {
         </h1>
         <div>
           <DivProjects
-            route={"https://faadii.tech/"}
-            divImg={ec}
-            divHeading={"The Encoded Chamber"}
-            description={
-              "The Encoded Chamber' reflects my journey as a Web developer during my early days in web development. It's a Project that combines creativity and technology, utilizing Three.js, Vanilla JavaScript, and Blender for 3D modeling to bring my vision to life. GSAP scroll triggers and timelines add interactivity, making it engaging for visitors. Notably, I Used the 'Singleton' Design Pattern for efficient code structure."
-            }
-            sourceCode={
-              "https://github.com/Mr-Fahad-Rajput/portfolio/tree/main/The-Encoded-Chamber"
-            }
-            techStack={ecTechStack}
-          />
-          <DivProjects
             route={"https://mr-fahad-rajput.github.io/Simple-Corp/"}
             divImg={sc}
             divHeading={"Simple Corp"}
@@ -145,6 +133,18 @@ function APIs(props) {
               "https://github.com/Mr-Fahad-Rajput/Simple-Corp"
             }
             techStack={scTechStack}
+          />
+          <DivProjects
+            route={"https://faadii.tech/"}
+            divImg={ec}
+            divHeading={"The Encoded Chamber"}
+            description={
+              "The Encoded Chamber' reflects my journey as a Web developer during my early days in web development. It's a Project that combines creativity and technology, utilizing Three.js, Vanilla JavaScript, and Blender for 3D modeling to bring my vision to life. GSAP scroll triggers and timelines add interactivity, making it engaging for visitors. Notably, I Used the 'Singleton' Design Pattern for efficient code structure."
+            }
+            sourceCode={
+              "https://github.com/Mr-Fahad-Rajput/portfolio/tree/main/The-Encoded-Chamber"
+            }
+            techStack={ecTechStack}
           />
           <DivProjects
             route={"https://mr-fahad-rajput.github.io/K.Syndicates/"}
