@@ -77,7 +77,7 @@ function Home() {
               </div>
             </div>
           </a>
-          <a href={"https://gtmetrix.com/reports/portfolio.faadii.tech/gwsYsnP2/"} target="_blank" rel="noopener noreferrer">
+          <a href={"https://gtmetrix.com/reports/portfolio.faadii.tech/y734BfdK/"} target="_blank" rel="noopener noreferrer">
             <div className="border-dBrand dark:border-lBrand  border-2 rounded-lg text-dBrand dark:dBrand my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly bg-secondaryBg">
               <h3 className="m-1 my-auto dark:text-dBrand text-sm font-semibold text-balBrand">
                 GT Metrix
