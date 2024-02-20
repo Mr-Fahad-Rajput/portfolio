@@ -1,6 +1,6 @@
 const handleAPI = async ( endPoint, reqType) => {
     try {
-      let res = await fetch("https://server.faadii.tech:8080/" + endPoint, {
+      let res = await fetch("http://127.0.0.1:5666/" + endPoint, {
         method: reqType,
         headers: {
           "Content-Type": "application/json",

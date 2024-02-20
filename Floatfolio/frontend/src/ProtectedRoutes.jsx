@@ -6,7 +6,7 @@ function ProtectedRoutes(props) {
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   useEffect(() => {
     const fetchAuth = async () => {
-      fetch("https://server.faadii.tech:8080/auth", {
+      fetch("http://localhost:5666/auth", {
         method: "GET",
         credentials: "include",
         headers: {

@@ -34,15 +34,24 @@ app.use(morgan("tiny"));
 app.use(router);
 
 
-// Read the SSL certificate and private key files from the container filesystem
-const privateKey = fs.readFileSync('./private.key', 'utf8');
-const certificate = fs.readFileSync('./certificate.crt', 'utf8');
+// // Read the SSL certificate and private key files from the container filesystem
+// const privateKey = fs.readFileSync('./private.key', 'utf8');
+// const certificate = fs.readFileSync('./certificate.crt', 'utf8');
 
-// Create the credentials object using the certificate and private key
-const credentials = { key: privateKey, cert: certificate };
+// // Create the credentials object using the certificate and private key
+// const credentials = { key: privateKey, cert: certificate };
 
-// Create an HTTPS server with the credentials
-const httpsServer = https.createServer(credentials, app);
-//Server Listing
-httpsServer.listen(process.env.PORT);
+// // Create an HTTPS server with the credentials
+// const httpsServer = https.createServer(credentials, app);
+// //Server Listing
+// httpsServer.listen(process.env.PORT);
+// console.log("Server Running");
+const http = require('http');
+
+// Create an HTTP server
+const httpServer = http.createServer(app);
+
+// Server Listening
+httpServer.listen(process.env.PORT);
 console.log("Server Running");
+

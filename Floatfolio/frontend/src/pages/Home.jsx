@@ -67,7 +67,7 @@ function Home() {
             </p>
             <div className="m-2">
               <h2 className="dark:text-secondaryBg text-lg font-semibold cursor-default text-balBrand text-center underline whitespace-nowrap">Site Performance Reports</h2>
-          <a href={"https://pagespeed.web.dev/analysis/https-portfolio-faadii-tech/fy0qe7yd98?form_factor=desktop"} target="_blank" rel="noopener noreferrer">
+          <a href={"https://pagespeed.web.dev/analysis/https-portfolio-faadii-tech/vcsf32dzlc?form_factor=desktop"} target="_blank" rel="noopener noreferrer">
             <div className="border-dBrand dark:border-lBrand  border-2 rounded-lg text-dBrand dark:text-dBrand my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly bg-secondaryBg ">
               <h3 className="m-1 my-auto dark:text-dBrand text-sm font-semibold text-balBrand">
                 PageSpeed <br />By Google
@@ -77,7 +77,7 @@ function Home() {
               </div>
             </div>
           </a>
-          <a href={"https://gtmetrix.com/reports/portfolio.faadii.tech/y734BfdK/"} target="_blank" rel="noopener noreferrer">
+          <a href={"https://gtmetrix.com/reports/portfolio.faadii.tech/9FbiSdCE/"} target="_blank" rel="noopener noreferrer">
             <div className="border-dBrand dark:border-lBrand  border-2 rounded-lg text-dBrand dark:dBrand my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly bg-secondaryBg">
               <h3 className="m-1 my-auto dark:text-dBrand text-sm font-semibold text-balBrand">
                 GT Metrix
