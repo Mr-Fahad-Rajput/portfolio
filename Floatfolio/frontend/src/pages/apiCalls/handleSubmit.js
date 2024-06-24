@@ -41,7 +41,7 @@ const handleSubmit = async (
       "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
   }
   try {
-    const res = await fetch("http://207.180.234.135:5888/" + endPoint, {
+    const res = await fetch("http://209.38.190.250:5666/" + endPoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
