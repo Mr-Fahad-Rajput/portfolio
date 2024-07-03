@@ -1,6 +1,6 @@
 const handleImageUpload = async (formData, endPoint) => {
     try {
-      const response = await fetch("http://209.38.190.250:5666/"+ endPoint, {
+      const response = await fetch("https://server.faadii.tech/"+ endPoint, {
         method: "POST",
         headers: {
             "X-API-Key": import.meta.env.VITE_SOME_KEY,
