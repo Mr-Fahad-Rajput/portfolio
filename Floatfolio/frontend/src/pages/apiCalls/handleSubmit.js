@@ -41,7 +41,7 @@ const handleSubmit = async (
       "Message Sent! Thanks for reaching out! We'll be in Touch Soon.";
   }
   try {
-    const res = await fetch("https://server.faadii.tech/" + endPoint, {
+    const res = await fetch(import.meta.env.VITE_SERVER_URL + endPoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

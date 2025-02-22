@@ -1,6 +1,6 @@
 const handleAPI = async ( endPoint, reqType) => {
     try {
-      let res = await fetch("https://server.faadii.tech/" + endPoint, {
+      let res = await fetch(import.meta.env.VITE_SERVER_URL + endPoint, {
         method: reqType,
         headers: {
           "Content-Type": "application/json",
