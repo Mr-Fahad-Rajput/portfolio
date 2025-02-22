@@ -7,7 +7,7 @@ import Skill from "./Skill.jsx";
 
 function Sidebar() {
   const [animationToggle, setAnimationToggle] = useState(false);
-  const [skillIndex, setSkillIndex] = useState(18);
+  const [skillIndex, setSkillIndex] = useState(60);
   const skillList = [
     { name: "React" },
     { name: "C" },
@@ -67,8 +67,45 @@ function Sidebar() {
     { name: "PyGame" },
     { name: "Code Pen" },
     { name: "Adobe XD" },
-    { name: "Beautiful Soup" }
-  ];
+    { name: "Beautiful Soup" },
+    { name: "Vue.js" },
+    { name: "Nuxt.js" },
+    { name: "Angular" },
+    { name: "Svelte" },
+    { name: "GraphQL" },
+    { name: "Apollo" },
+    { name: "Backbone.js" },
+    { name: "Ember.js" },
+    { name: "Meteor" },
+    { name: "Knockout.js" },
+    { name: "Polymer" },
+    { name: "Sass" },
+    { name: "Webpack" },
+    { name: "Parcel" },
+    { name: "Rollup" },
+    { name: "Grunt" },
+    { name: "Gulp" },
+    { name: "Babel" },
+    { name: "Jest" },
+    { name: "Mocha" },
+    { name: "Chai" },
+    { name: "Cypress" },
+    { name: "Enzyme" },
+    { name: "Prettier" },
+    { name: "NetBeans" },
+    { name: "ESLint" },
+    { name: "Inkscape" },
+    { name: "Emacs" },
+    { name: "VSCode" },
+    { name: "Sublime Text" },
+    { name: "Atom" },
+    { name: "Eclipse" },
+    { name: "IntelliJ IDEA" },
+    { name: "PyCharm" },
+    { name: "Rider" },
+    { name: "Android Studio" }
+];
+
   const [commentQueue, setCommentQueue] = useState(
     new FastPriorityQueue((a, b) => {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -82,7 +119,7 @@ function Sidebar() {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    setSkills(skillList.slice(0, 18));
+    setSkills(skillList.slice(0, 60));
     const updateSkills = () => {
       setSkillIndex((prevSkillIndex) => prevSkillIndex + 1);
       setSkills((prevSkills) => prevSkills.slice(1));
