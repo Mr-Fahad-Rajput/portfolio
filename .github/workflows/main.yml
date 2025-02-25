@@ -22,12 +22,12 @@ jobs:
       # Recreate frontend/.env
       - name: Create Frontend .env
         run: |
-          echo "${{ secrets.FRONTEND_ENV_FILE }}" | base64 --decode > ./frontend/.env
+          echo "${{ secrets.FRONTEND_ENV_FILE }}" | base64 --decode > ./Floatfolio/frontend/.env
 
       # Recreate backend/.env
       - name: Create Backend .env
         run: |
-          echo "${{ secrets.BACKEND_ENV_FILE }}" | base64 --decode > ./backend/.env
+          echo "${{ secrets.BACKEND_ENV_FILE }}" | base64 --decode > ./Floatfolio/server/.env
 
       # Continue with your build/deploy steps
       - name: Install and Build Frontend
