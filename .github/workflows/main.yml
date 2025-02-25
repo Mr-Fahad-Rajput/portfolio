@@ -9,10 +9,11 @@ on:
       - production
     types:
       - closed
+  workflow_dispatch:  # Add this for manual trigger
 
 jobs:
   build-and-deploy:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'production')
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'production')
     runs-on: gcp-runner
     steps:
       # Checkout code
