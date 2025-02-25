@@ -11,11 +11,11 @@ const DivProjects = (props) => {
       </h4>
       <div className="max-w-max md:flex">
         <img
-          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:w-[30%] h-auto"
+          className="rounded-lg m-auto border-2 border-dBrand md:max-w-[30%] md:float-left md:w-[30%] h-auto min-w-[300px]"
           src={divImg}
           alt="API Image"
         />
-        <p className="text-base font-normal  text-dBrand break-words text-justify tracking-tighter m-2">
+        <p className="text-base font-normal  text-dBrand break-words text-justify tracking-tighter m-2 my-auto">
           {description}
         </p>
         <div className="md:float-right md:py-4">

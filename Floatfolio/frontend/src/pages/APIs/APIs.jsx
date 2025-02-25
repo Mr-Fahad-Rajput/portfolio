@@ -4,8 +4,10 @@ const DivApi = lazy(() => import("./DivApi.jsx"));
 import DivProjects from "./Projects/DivProjects";
 import ec from "./Projects/test.webp";
 import ks from "./Projects/ksyndicates.webp";
+import python from "./Projects/python.webp";
 import sc from "./Projects/simpleCorp.webp";
 import chatDemo from "./Projects/chatDemo.jpg";
+import homiee from "./Projects/homiee.jpg";
 import three from "./Projects/three.svg";
 import vanilla from "./Projects/vanillaJs.svg";
 import gsap from "./Projects/gsap.svg";
@@ -19,7 +21,9 @@ import reactLogo from "./Projects/react.svg";
 import mongo from "./Projects/mongo.svg";
 import node from "./Projects/node.svg";
 import express from "./Projects/express.png";
+import gha from "./Projects/gha.png";
 import blob from "./Projects/blob.png";
+import aws from "./Projects/aws.png";
 import fireworks from "./Projects/fireworks.png";
 import redux from "./Projects/redux.svg";
 import psql from "./Projects/psql.svg";
@@ -131,6 +135,16 @@ function APIs(props) {
     { name: "Redux", logo: redux },
     { name: "GH-pages", logo: ghpIcon },
   ];
+  const homieeTechStack = [
+    { name: "React", logo: reactLogo },
+    { name: "Python", logo: python },
+    { name: "Express", logo: express },
+    { name: "Node", logo: node },
+    { name: "Mongo DB", logo: mongo },
+    { name: "Redux", logo: redux },
+    { name: "AWS", logo: aws },
+    { name: "GH Actions", logo: gha },
+  ];
   return (
     <>
       <section className="mainContent">
@@ -143,7 +157,7 @@ function APIs(props) {
             divImg={chatDemo}
             divHeading={"AI Chatbot 'TechMate'"}
             description={
-              "'TechMate' is a demo chatbot designed to showcase a seamless and intelligent conversational experience. Built with cutting-edge AI and powered by advanced web technologies, it serves as an example of Fahad Rajput's expertise in full-stack development and DevOps. The chatbot is designed to assist users with various queries while maintaining a professional and user-friendly interface."
+              "'TechMate' is a chatbot designed to showcase a seamless and intelligent conversational experience. Built with cutting-edge AI and powered by advanced web technologies, it serves as an example of Fahad Rajput's expertise in full-stack development and DevOps. The chatbot is designed to assist users with various queries while maintaining a professional and user-friendly interface."
             }
             sourceCode={
               null
@@ -151,17 +165,17 @@ function APIs(props) {
             techStack={cbTechStack}
           />
           <DivProjects
-            route={"https://mr-fahad-rajput.github.io/Simple-Corp/"}
-            divImg={sc}
-            divHeading={"Simple Corp"}
-            description={
-              "'SimpleCorp' represents a web template design tailored for a Business Consultancy Firm. Designed with precision and attention to detail, 'SimpleCorp' offers a seamless user experience. Its clean and functional interface serves as an ideal platform for a consultancy business to showcase its expertise and services. It's a Demo, so the logins are not Working as the Server is Inactive."
-            }
-            sourceCode={
-              "https://github.com/Mr-Fahad-Rajput/Simple-Corp"
-            }
-            techStack={scTechStack}
-          />
+              route={"https://dev.homiee.com.au/home"}
+              divImg={homiee}
+              divHeading={"Homiee"}
+              description={
+                "'Homiee' is a cutting-edge real estate platform designed to provide users with unparalleled insights into property sales. As the CTO and Engineering Lead, I spearheaded the development, Deployemens, CI/CD,System Architecture Design and DB Design of its unique mapping system, which visualizes past sales data for individual buildings. This was achieved through advanced data scraping, precise polygon mapping, and address matching, ensuring accurate and valuable property insights. With a focus on performance and scalability, Homiee delivers a seamless experience for users looking to make informed real estate decisions."
+              }
+              sourceCode={
+                null
+              }
+              techStack={homieeTechStack}
+            />
           <DivProjects
             route={"https://portfolio3d.faadii.systems/"}
             divImg={ec}
@@ -174,6 +188,18 @@ function APIs(props) {
             }
             techStack={ecTechStack}
           />
+            <DivProjects
+              route={"https://mr-fahad-rajput.github.io/Simple-Corp/"}
+              divImg={sc}
+              divHeading={"Simple Corp"}
+              description={
+                "'SimpleCorp' represents a web template design tailored for a Business Consultancy Firm. Designed with precision and attention to detail, 'SimpleCorp' offers a seamless user experience. Its clean and functional interface serves as an ideal platform for a consultancy business to showcase its expertise and services. It's a Demo, so the logins are not Working as the Server is Inactive."
+              }
+              sourceCode={
+                "https://github.com/Mr-Fahad-Rajput/Simple-Corp"
+              }
+              techStack={scTechStack}
+            />
           <DivProjects
             route={"https://mr-fahad-rajput.github.io/K.Syndicates/"}
             divImg={ks}
