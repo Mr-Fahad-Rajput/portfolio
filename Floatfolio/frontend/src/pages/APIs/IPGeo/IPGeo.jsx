@@ -408,7 +408,7 @@ function IPGeo() {
                             <div className="aspect-square bg-mainBg dark:bg-lBrand rounded-lg p-2 flex flex-col items-center border border-dBrand dark:border-mainBg">
                               <p className="text-xl font-semibold m-2">
                                 {current.wind_kph}
-                                <small className="text-sm">
+                                <small className="text-sm whitespace-nowrap">
                                   <sup>KM/H</sup>
                                 </small>
                               </p>

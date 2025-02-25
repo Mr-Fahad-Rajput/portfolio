@@ -5,10 +5,13 @@ import DivProjects from "./Projects/DivProjects";
 import ec from "./Projects/test.webp";
 import ks from "./Projects/ksyndicates.webp";
 import sc from "./Projects/simpleCorp.webp";
+import chatDemo from "./Projects/chatDemo.jpg";
 import three from "./Projects/three.svg";
 import vanilla from "./Projects/vanillaJs.svg";
 import gsap from "./Projects/gsap.svg";
 import blender from "./Projects/blender.svg";
+import nextjs from "./Projects/nextjs.svg";
+import vercel from "./Projects/vercel.svg";
 import bootstrap from "./Projects/bootstrap.svg";
 import less from "./Projects/less.svg";
 import fa from "./Projects/font-awesome-seeklogo.com.svg";
@@ -16,7 +19,10 @@ import reactLogo from "./Projects/react.svg";
 import mongo from "./Projects/mongo.svg";
 import node from "./Projects/node.svg";
 import express from "./Projects/express.png";
+import blob from "./Projects/blob.png";
+import fireworks from "./Projects/fireworks.png";
 import redux from "./Projects/redux.svg";
+import psql from "./Projects/psql.svg";
 import ghpIcon from "../Contact/github.svg";
 
 function APIs(props) {
@@ -99,6 +105,16 @@ function APIs(props) {
     { name: "GSAP ", logo: gsap },
     { name: "Blender 3D ", logo: blender },
   ];
+  const cbTechStack = [
+    { name: "React", logo: reactLogo },
+    { name: "Next Js", logo: nextjs},
+    { name: "OpenAI", logo: apiDivsImages.chatIcon },
+    { name: "Fireworks", logo: fireworks },
+    { name: "Node", logo: node },
+    { name: "Blob", logo: blob },
+    { name: "Vercel", logo: vercel },
+    { name: "PSQL", logo: psql},
+  ];
   const ksTechStack = [
     { name: "Bootstrap", logo: bootstrap },
     { name: "Vanilla Js", logo: vanilla },
@@ -122,6 +138,18 @@ function APIs(props) {
           Projects
         </h1>
         <div>
+        <DivProjects
+            route={"https://chat.faadii.systems"}
+            divImg={chatDemo}
+            divHeading={"AI Chatbot 'TechMate'"}
+            description={
+              "'TechMate' is a demo chatbot designed to showcase a seamless and intelligent conversational experience. Built with cutting-edge AI and powered by advanced web technologies, it serves as an example of Fahad Rajput's expertise in full-stack development and DevOps. The chatbot is designed to assist users with various queries while maintaining a professional and user-friendly interface."
+            }
+            sourceCode={
+              null
+            }
+            techStack={cbTechStack}
+          />
           <DivProjects
             route={"https://mr-fahad-rajput.github.io/Simple-Corp/"}
             divImg={sc}
@@ -135,7 +163,7 @@ function APIs(props) {
             techStack={scTechStack}
           />
           <DivProjects
-            route={"https://faadii.tech/"}
+            route={"https://portfolio3d.faadii.systems/"}
             divImg={ec}
             divHeading={"The Encoded Chamber"}
             description={

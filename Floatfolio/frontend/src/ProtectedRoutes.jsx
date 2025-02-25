@@ -6,7 +6,7 @@ function ProtectedRoutes(props) {
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   useEffect(() => {
     const fetchAuth = async () => {
-      fetch(`${import.meta.env.VITE_SERVER_URL}/auth`, {
+      fetch(`${import.meta.env.VITE_SERVER_URL}auth`, {
         method: "GET",
         credentials: "include",
         headers: {

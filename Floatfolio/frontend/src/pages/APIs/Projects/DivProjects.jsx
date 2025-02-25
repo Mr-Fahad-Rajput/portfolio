@@ -29,7 +29,7 @@ const DivProjects = (props) => {
               </div>
             </div>
           </a>
-          <a href={sourceCode} target="_blank" rel="noopener noreferrer">
+          {sourceCode &&<a href={sourceCode} target="_blank" rel="noopener noreferrer">
             <div className="border-dBrand  border-2 rounded-lg text-dBrand dark:text-mainBg my-2 cursor-pointer transform transition duration-500 hover:scale-110 flex justify-evenly dark:bg-lBrand bg-secondaryBg">
               <h1 className="m-1 my-auto dark:text-secondaryBg text-sm font-semibold text-balBrand">
                 Source Code
@@ -38,7 +38,7 @@ const DivProjects = (props) => {
                 <img loading="lazy" src={gitIcon} alt="Github Icon" className="aspect-square w-12 h-auto" />
               </div>
             </div>
-          </a>
+          </a>}
         </div>
       </div>
       <h5 className="text-lg font-bold text-balBrand tracking-tight text-center">
