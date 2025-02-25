@@ -75,77 +75,7 @@ function APIs(props) {
 
     loadAllImages();
   }, []);
-  // useEffect(() => {
-  //   const maxApiDivs = 4;
-  //   const timer = setInterval(() => {
-  //     if (apiDivsToShow < maxApiDivs) {
-  //       if (apiDivsToShow == 0) {
-  //         import("./MailChimp/mailChimp.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             mailChimp: img.default,
-  //           }));
-  //         });
-  //         import("./Stripe/stripe.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             stripeImg: img.default,
-  //           }));
-  //         });
-  //         import("./Maps/maps.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             map: img.default,
-  //           }));
-  //         });
-  //       } else if (apiDivsToShow == 1) {
-  //         import("./IdentityGoogle/gAuthIcon.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             gOAuthIcon: img.default,
-  //           }));
-  //         });
-  //         import("./IPGeo/ipgeoIcon.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             ipGeoIcon: img.default,
-  //           }));
-  //         });
-  //         import("./CloudVision/cloudVision.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             visionIcon: img.default,
-  //           }));
-  //         });
-  //       }
-  //       else if (apiDivsToShow == 2) {
-  //         import("./OpenAI/whisper.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             whisperIcon: img.default,
-  //           }));
-  //         });
-  //         import("./OpenAI/dalle.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             dalleIcon: img.default,
-  //           }));
-  //         });
-  //         import("./OpenAI/ChatGPT.svg").then((img) => {
-  //           setApiDivsImages((prevImages) => ({
-  //             ...prevImages,
-  //             chatIcon: img.default,
-  //           }));
-  //         });
-  //       }
-  //       setApiDivsToShow(apiDivsToShow + 1);
-  //     } else {
-  //       clearInterval(timer);
-  //     }
-  //   }, 5000);
 
-  //   return () => clearInterval(timer);
-  // }, [apiDivsToShow]);
   const ecTechStack = [
     { name: "Three.js", logo: three },
     { name: "Vanilla Js", logo: vanilla },
