@@ -9,7 +9,7 @@ on:
       - production
     types:
       - closed
-  workflow_dispatch:  # Add this for manual trigger
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -37,8 +37,22 @@ jobs:
           npm install
           npm run build
 
-      - name: Start Backend
+      # Start Frontend with PM2
+      - name: Start Frontend with PM2
+        working-directory: ./Floatfolio/frontend
+        run: |
+          pm2 delete portfolio-frontend || true  # Stop and delete if already running
+          pm2 start npm --name "portfolio-frontend" -- run preview
+
+      # Install Backend dependencies
+      - name: Install Backend Dependencies
         working-directory: ./Floatfolio/server
         run: |
           npm install
-          npm start
+
+      # Start Backend with PM2
+      - name: Start Backend with PM2
+        working-directory: ./Floatfolio/server
+        run: |
+          pm2 delete portfolio-backend || true  # Stop and delete if already running
+          pm2 start npm --name "portfolio-backend" -- start
