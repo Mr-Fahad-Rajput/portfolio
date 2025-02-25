@@ -31,78 +31,121 @@ import ghpIcon from "../Contact/github.svg";
 
 function APIs(props) {
   const { apiDivsToShow, setApiDivsToShow, apiDivsImages, setApiDivsImages } = props;
-
   useEffect(() => {
-    const maxApiDivs = 4;
-    const timer = setInterval(() => {
-      if (apiDivsToShow < maxApiDivs) {
-        if (apiDivsToShow == 0) {
-          import("./MailChimp/mailChimp.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              mailChimp: img.default,
-            }));
-          });
-          import("./Stripe/stripe.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              stripeImg: img.default,
-            }));
-          });
-          import("./Maps/maps.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              map: img.default,
-            }));
-          });
-        } else if (apiDivsToShow == 1) {
-          import("./IdentityGoogle/gAuthIcon.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              gOAuthIcon: img.default,
-            }));
-          });
-          import("./IPGeo/ipgeoIcon.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              ipGeoIcon: img.default,
-            }));
-          });
-          import("./CloudVision/cloudVision.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              visionIcon: img.default,
-            }));
-          });
-        }
-        else if (apiDivsToShow == 2) {
-          import("./OpenAI/whisper.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              whisperIcon: img.default,
-            }));
-          });
-          import("./OpenAI/dalle.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              dalleIcon: img.default,
-            }));
-          });
-          import("./OpenAI/ChatGPT.svg").then((img) => {
-            setApiDivsImages((prevImages) => ({
-              ...prevImages,
-              chatIcon: img.default,
-            }));
-          });
-        }
-        setApiDivsToShow(apiDivsToShow + 1);
-      } else {
-        clearInterval(timer);
-      }
-    }, 5000);
+    const loadAllImages = async () => {
+      try {
+        const [
+          mailChimp,
+          stripeImg,
+          map,
+          gOAuthIcon,
+          ipGeoIcon,
+          visionIcon,
+          whisperIcon,
+          dalleIcon,
+          chatIcon,
+        ] = await Promise.all([
+          import("./MailChimp/mailChimp.svg"),
+          import("./Stripe/stripe.svg"),
+          import("./Maps/maps.svg"),
+          import("./IdentityGoogle/gAuthIcon.svg"),
+          import("./IPGeo/ipgeoIcon.svg"),
+          import("./CloudVision/cloudVision.svg"),
+          import("./OpenAI/whisper.svg"),
+          import("./OpenAI/dalle.svg"),
+          import("./OpenAI/ChatGPT.svg"),
+        ]);
 
-    return () => clearInterval(timer);
-  }, [apiDivsToShow]);
+        setApiDivsImages((prev) => ({
+          ...prev,
+          mailChimp: mailChimp.default,
+          stripeImg: stripeImg.default,
+          map: map.default,
+          gOAuthIcon: gOAuthIcon.default,
+          ipGeoIcon: ipGeoIcon.default,
+          visionIcon: visionIcon.default,
+          whisperIcon: whisperIcon.default,
+          dalleIcon: dalleIcon.default,
+          chatIcon: chatIcon.default,
+        }));
+      } catch (error) {
+        console.error("Failed to load images:", error);
+      }
+    };
+
+    loadAllImages();
+  }, []);
+  // useEffect(() => {
+  //   const maxApiDivs = 4;
+  //   const timer = setInterval(() => {
+  //     if (apiDivsToShow < maxApiDivs) {
+  //       if (apiDivsToShow == 0) {
+  //         import("./MailChimp/mailChimp.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             mailChimp: img.default,
+  //           }));
+  //         });
+  //         import("./Stripe/stripe.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             stripeImg: img.default,
+  //           }));
+  //         });
+  //         import("./Maps/maps.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             map: img.default,
+  //           }));
+  //         });
+  //       } else if (apiDivsToShow == 1) {
+  //         import("./IdentityGoogle/gAuthIcon.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             gOAuthIcon: img.default,
+  //           }));
+  //         });
+  //         import("./IPGeo/ipgeoIcon.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             ipGeoIcon: img.default,
+  //           }));
+  //         });
+  //         import("./CloudVision/cloudVision.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             visionIcon: img.default,
+  //           }));
+  //         });
+  //       }
+  //       else if (apiDivsToShow == 2) {
+  //         import("./OpenAI/whisper.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             whisperIcon: img.default,
+  //           }));
+  //         });
+  //         import("./OpenAI/dalle.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             dalleIcon: img.default,
+  //           }));
+  //         });
+  //         import("./OpenAI/ChatGPT.svg").then((img) => {
+  //           setApiDivsImages((prevImages) => ({
+  //             ...prevImages,
+  //             chatIcon: img.default,
+  //           }));
+  //         });
+  //       }
+  //       setApiDivsToShow(apiDivsToShow + 1);
+  //     } else {
+  //       clearInterval(timer);
+  //     }
+  //   }, 5000);
+
+  //   return () => clearInterval(timer);
+  // }, [apiDivsToShow]);
   const ecTechStack = [
     { name: "Three.js", logo: three },
     { name: "Vanilla Js", logo: vanilla },
@@ -243,8 +286,7 @@ function APIs(props) {
               </>
             }
           >
-            {apiDivsToShow > 0 ? (
-              <>
+            <>
                 <DivApi
                   route={"/mailchimp"}
                   difficulty={"Basic"}
@@ -273,34 +315,7 @@ function APIs(props) {
                   }
                 />
               </>
-            ) : (
-              <>
-                <div className="animate-spin">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-100 "
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="#FEFAE6"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="#471AA0"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
-              </>
-            )}
-            {apiDivsToShow > 1 && (
-              <>
+             <>
                 <DivApi
                   route={"/oauthgoogle"}
                   difficulty={"Basic"}
@@ -329,9 +344,7 @@ function APIs(props) {
                   }
                 />
               </>
-            )}
-            {apiDivsToShow > 2 && (
-              <>
+            <>
                 {" "}
                 <DivApi
                   route={"/whisper"}
@@ -361,7 +374,6 @@ function APIs(props) {
                   }
                 />
               </>
-            )}
           </Suspense>
         </div>
       </section>
