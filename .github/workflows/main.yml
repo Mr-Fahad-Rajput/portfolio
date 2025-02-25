@@ -1,0 +1,43 @@
+name: Build and Deploy to Production
+
+on:
+  push:
+    branches:
+      - production
+  pull_request:
+    branches:
+      - production
+    types:
+      - closed
+
+jobs:
+  build-and-deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'production')
+    runs-on: gcp-runner
+    steps:
+      # Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Recreate frontend/.env
+      - name: Create Frontend .env
+        run: |
+          echo "${{ secrets.FRONTEND_ENV_FILE }}" | base64 --decode > ./frontend/.env
+
+      # Recreate backend/.env
+      - name: Create Backend .env
+        run: |
+          echo "${{ secrets.BACKEND_ENV_FILE }}" | base64 --decode > ./backend/.env
+
+      # Continue with your build/deploy steps
+      - name: Install and Build Frontend
+        working-directory: ./Floatfolio/frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Start Backend
+        working-directory: ./Floatfolio/server
+        run: |
+          npm install
+          npm start
