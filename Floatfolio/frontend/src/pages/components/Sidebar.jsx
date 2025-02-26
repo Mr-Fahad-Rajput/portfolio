@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import FastPriorityQueue from "fastpriorityqueue";
+import { useEffect, useState, useRef } from "react";
 
 import Comment from "./Comment.jsx";
 import Skill from "./Skill.jsx";
@@ -106,18 +105,21 @@ function Sidebar() {
     { name: "Android Studio" }
 ];
 
-  const [commentQueue, setCommentQueue] = useState(
-    new FastPriorityQueue((a, b) => {
-      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    })
-  );
-  const addedCommentIds = new Set();
+ const [comments, setComments] = useState([]);
   const [fetch, setFetch] = useState();
   const [commentToShow, setCommentToShow] = useState("");
+  const commentsRef = useRef(comments);
   const location = useLocation();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const currentIndexRef = useRef(currentIndex); 
   const [skills, setSkills] = useState([]);
+  useEffect(() => {
+    commentsRef.current = comments;
+  }, [comments]);
 
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
   useEffect(() => {
     setSkills(skillList.slice(0, 60));
     const updateSkills = () => {
@@ -150,13 +152,9 @@ function Sidebar() {
             }
           })
           .then((data) => {
-            data.comments.forEach((comment) => {
-              if (!addedCommentIds.has(comment._id)) {
-                commentQueue.add(comment);
-                addedCommentIds.add(comment._id);
-              }
-            });
-            setCommentQueue(commentQueue);
+            const receivedComments = data.comments || data;
+            setComments(receivedComments);
+            setCurrentIndex(0);
           })
           .catch((error) => {
             console.log(error);
@@ -170,13 +168,20 @@ function Sidebar() {
     handleAPIcalls();
 
     const timer = setInterval(() => {
-      if (!commentQueue.isEmpty()) {
-        setCommentToShow(commentQueue.poll());
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % commentQueue.size);
-        if (currentIndex === commentQueue.size - 1) {
-          setFetch(!fetch);
+      // Use refs to get the latest values
+      const currentComments = commentsRef.current;
+      const currentIdx = currentIndexRef.current;
+
+      if (currentComments.length > 0) {
+        setCommentToShow(currentComments[currentIdx]);
+        setAnimationToggle(prev => !prev);
+        
+        if (currentIdx >= currentComments.length - 1) {
+          setFetch(prev => !prev);
+          setCurrentIndex(0);
+        } else {
+          setCurrentIndex(currentIdx + 1);
         }
-        setAnimationToggle((prevToggle) => !prevToggle);
       }
     }, 10000);
 
