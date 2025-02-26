@@ -80,7 +80,7 @@ function Navbar(props) {
                   onClick={() => {
                     setMenuVisibilty(false);
                   }}
-                  to="/apisPage"
+                  to="/projectPage"
                 >
                   Builds
                 </NavLink>

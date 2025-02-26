@@ -71,7 +71,7 @@ function App() {
             {/* APIs */}
             <Route
               exact
-              path="/apisPage"
+              path="/projectPage"
               element={
                 <APIs
                   apiDivsToShow={apiDivsToShow}
