@@ -173,7 +173,7 @@ function Sidebar() {
       const currentIdx = currentIndexRef.current;
 
       if (currentComments.length > 0) {
-        setCommentToShow(currentComments[currentComments.length - 1 - currentIdx]);
+        setCommentToShow(currentComments[currentIdx]);
         setAnimationToggle(prev => !prev);
         
         if (currentIdx >= currentComments.length - 1) {
